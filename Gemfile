@@ -119,28 +119,20 @@ group :test do
   # Lanza programas para examinar resultados
   gem "launchy"
 
-  gem 'pry-rescue'
-  gem 'pry-stack_explorer'
 
 
-  # Pruebas de regresión que no requieren javascript
-  #gem "capybara"
-  
-  # Pruebas de regresión que requieren javascript
-  #gem "capybara-webkit" 
-
-  gem 'selenium-webdriver'
 
   # Envia resultados de pruebas desde travis a codeclimate
   gem 'simplecov'
 
+  gem 'selenium-webdriver'
   gem "connection_pool"
   gem "minitest-reporters"
   gem 'minitest-rails-capybara'
-  #gem "mocha"
   gem "poltergeist"
-  #gem "shoulda-context"
-  #gem "shoulda-matchers"#, ">= 3.0.1"
+
+  gem 'pry-rescue'
+  gem 'pry-stack_explorer'
 end
 
 
