@@ -122,10 +122,9 @@ group :test do
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
 
-  gem 'minitest-rails-capybara'
 
   # Pruebas de regresión que no requieren javascript
-  gem "capybara"
+  #gem "capybara"
   
   # Pruebas de regresión que requieren javascript
   #gem "capybara-webkit" 
@@ -137,10 +136,11 @@ group :test do
 
   gem "connection_pool"
   gem "minitest-reporters"
-  gem "mocha"
+  gem 'minitest-rails-capybara'
+  #gem "mocha"
   gem "poltergeist"
-  gem "shoulda-context"
-  gem "shoulda-matchers"#, ">= 3.0.1"
+  #gem "shoulda-context"
+  #gem "shoulda-matchers"#, ">= 3.0.1"
 end
 
 

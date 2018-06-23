@@ -5,7 +5,7 @@ class PuedeVerHogarTest < ActionDispatch::IntegrationTest
   include Capybara::DSL
   test "hogar con contenido" do 
     visit Rails.configuration.relative_url_root
-    assert page.has_content?("SIVeL")
+    assert page.has_content?("SIADDHH")
   end
 
 end
