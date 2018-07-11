@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class Ability  < Sivel2Gen::Ability
   def organizacion_responable 
-    'Mi organización'
+    'Somos Defensores'
   end
 
   def derechos 
