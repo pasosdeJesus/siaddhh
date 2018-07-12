@@ -11,5 +11,12 @@ module Sivel2Gen
       'fechadesc'
     end
 
+    def inicializa_index
+      @plantillas = Heb412Gen::Plantillahcm.where(
+        vista: 'Caso').select('nombremenu, id').map { |c| 
+          [c.nombremenu, c.id] 
+        }
+    end
+       
   end
 end
