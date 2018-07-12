@@ -30,6 +30,8 @@ gem "rspreadsheet"
 # Color en terminal
 gem "colorize"
 
+gem 'redcarpet'
+
 # Maneja variables de ambiente (como claves y secretos) en .env
 #gem "foreman"
 

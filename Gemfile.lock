@@ -33,7 +33,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 3b531036fc72995b8b3284a41b41dbef82728ea6
+  revision: 371116797d142fe82e5e1a1593e405702bcd9565
   specs:
     sivel2_gen (2.0b6)
       devise
@@ -409,6 +409,7 @@ DEPENDENCIES
   rails-erd
   rails-i18n
   rails_12factor
+  redcarpet
   rspreadsheet
   sass
   selenium-webdriver
