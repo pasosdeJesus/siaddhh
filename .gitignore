@@ -19,6 +19,7 @@ config/database.yml
 *core
 
 public/assets/*
+public/somosdefensores/sivel2/assets
 config/initializers/sip.rb
 config/application.rb
 config/routes.rb
