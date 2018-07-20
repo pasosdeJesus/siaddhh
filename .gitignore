@@ -38,3 +38,5 @@ bin/migra.sh
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+public/somosdefensores/sivel2/heb412/generados/
+app/views/hogar/_local.html.erb
