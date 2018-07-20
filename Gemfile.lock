@@ -11,7 +11,8 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: d1d5796ef8d719963ac45d388f081cf7e87e4b1f
+  revision: 51a05ef04c2988e5cff9a13704193b2986e933cd
+  branch: sip_grupoper
   specs:
     sip (2.0.b5)
       bootstrap-datepicker-rails
@@ -33,7 +34,8 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 4202e88b175ea3d31738813aed3877fde80aaa38
+  revision: ab1109263e157dc6db4c1cb08512ee4d985baee1
+  branch: sip_grupoper
   specs:
     sivel2_gen (2.0b6)
       devise
@@ -130,6 +132,7 @@ GEM
     bootstrap-datepicker-rails (1.8.0.1)
       railties (>= 3.0)
     builder (3.2.3)
+    byebug (10.0.2)
     camertron-eprun (1.1.1)
     cancancan (2.2.0)
     capybara (2.18.0)
@@ -305,7 +308,7 @@ GEM
     ruby-graphviz (1.2.3)
     ruby-progressbar (1.9.0)
     rubyzip (1.2.1)
-    sass (3.5.6)
+    sass (3.5.7)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -316,7 +319,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    selenium-webdriver (3.13.0)
+    selenium-webdriver (3.13.1)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
     simple_form (4.0.1)
@@ -381,6 +384,7 @@ DEPENDENCIES
   bcrypt
   bootsnap (>= 1.1.0)
   bootstrap-datepicker-rails
+  byebug
   cancancan
   chosen-rails
   cocoon!
