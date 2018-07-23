@@ -1,0 +1,31 @@
+<div class='campos_grupoper'>
+  <%= f.input :id, as: :hidden %>
+  <% 
+    ph = 'N'
+    ac = {'data-autocompleta' => 'no' }
+    #debugger
+     if (!f.object.nombre || f.object.nombre == 'N' || f.object.nombre == '')
+       ph = 'Buscar'
+       ac = { }
+     end
+  %>
+  <%= f.input :nombre, placeholder: ph,
+    value_method: lambda {|t| '' if t.nombre == 'N'},
+    :input_html => ac
+  %>
+  <%= f.input :anotaciones %>
+  <%= render partial: 'sip/gruposper/grupoper_complemento1', locals: {f: f} %>
+
+  <%= fvictimacolectiva.simple_fields_for :actorsocial, 
+    html: { :class => 'form-horizontal' } do |a| %>
+
+    <%= a.input :id, as: :hidden %>
+    <%= a.input :grupoper_id, as: :hidden#, 
+      #input_html: {value: f.object.id}
+    %>
+    <%= a.input :fechafundacion,
+      input_html: {'data-behaviour' => 'datepicker'},
+      as: :string %>
+  <% end %>
+</div>
+

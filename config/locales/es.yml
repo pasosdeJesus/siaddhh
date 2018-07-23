@@ -1,0 +1,8 @@
+
+es:
+  attributes:
+  activerecord:
+    attributes:
+      "sip/actorsocial":
+        fechafundacion: Fecha de fundacion
+

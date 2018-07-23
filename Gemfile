@@ -95,7 +95,7 @@ gem 'heb412_gen', git: 'https://github.com/pasosdeJesus/heb412_gen.git'
 
 group :test, :development do
   # Depurar
-  gem 'byebug'
+  #gem 'byebug'
 end
 
 

@@ -667,6 +667,44 @@ CREATE TABLE schema_migrations (
 
 
 --
+-- Name: sip_actorsocial; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE sip_actorsocial (
+    id bigint NOT NULL,
+    grupoper_id integer NOT NULL,
+    telefono character varying(500),
+    fax character varying(500),
+    direccion character varying(500),
+    pais_id integer,
+    web character varying(500),
+    observaciones character varying(5000),
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    fechafundacion date
+);
+
+
+--
+-- Name: sip_actorsocial_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE sip_actorsocial_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sip_actorsocial_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE sip_actorsocial_id_seq OWNED BY sip_actorsocial.id;
+
+
+--
 -- Name: sip_anexo; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -999,6 +1037,40 @@ CREATE TABLE sip_persona_trelacion (
     updated_at timestamp without time zone,
     id integer DEFAULT nextval('sip_persona_trelacion_id_seq'::regclass) NOT NULL
 );
+
+
+--
+-- Name: sip_sectoractor; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE sip_sectoractor (
+    id bigint NOT NULL,
+    nombre character varying(500) NOT NULL,
+    observaciones character varying(5000),
+    fechacreacion date NOT NULL,
+    fechadeshabilitacion date,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: sip_sectoractor_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE sip_sectoractor_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sip_sectoractor_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE sip_sectoractor_id_seq OWNED BY sip_sectoractor.id;
 
 
 --
@@ -2274,7 +2346,8 @@ CREATE TABLE sivel2_gen_victimacolectiva (
     organizacionarmada integer DEFAULT 35,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    id integer DEFAULT nextval('sivel2_gen_victimacolectiva_id_seq'::regclass) NOT NULL
+    id integer DEFAULT nextval('sivel2_gen_victimacolectiva_id_seq'::regclass) NOT NULL,
+    actorsocial_id integer
 );
 
 
@@ -2371,6 +2444,13 @@ ALTER TABLE ONLY heb412_gen_plantillahcm ALTER COLUMN id SET DEFAULT nextval('he
 
 
 --
+-- Name: sip_actorsocial id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sip_actorsocial ALTER COLUMN id SET DEFAULT nextval('sip_actorsocial_id_seq'::regclass);
+
+
+--
 -- Name: sip_anexo id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -2389,6 +2469,13 @@ ALTER TABLE ONLY sip_grupo ALTER COLUMN id SET DEFAULT nextval('sip_grupo_id_seq
 --
 
 ALTER TABLE ONLY sip_pais ALTER COLUMN id SET DEFAULT nextval('sip_pais_id_seq'::regclass);
+
+
+--
+-- Name: sip_sectoractor id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sip_sectoractor ALTER COLUMN id SET DEFAULT nextval('sip_sectoractor_id_seq'::regclass);
 
 
 --
@@ -2741,6 +2828,14 @@ ALTER TABLE ONLY sivel2_gen_sectorsocial
 
 
 --
+-- Name: sip_actorsocial sip_actorsocial_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sip_actorsocial
+    ADD CONSTRAINT sip_actorsocial_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: sip_anexo sip_anexo_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -2858,6 +2953,14 @@ ALTER TABLE ONLY sip_persona_trelacion
 
 ALTER TABLE ONLY sip_persona_trelacion
     ADD CONSTRAINT sip_persona_trelacion_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sip_sectoractor sip_sectoractor_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sip_sectoractor
+    ADD CONSTRAINT sip_sectoractor_pkey PRIMARY KEY (id);
 
 
 --
@@ -3112,6 +3215,20 @@ CREATE INDEX busca_sivel2_gen_conscaso ON sivel2_gen_conscaso USING gin (q);
 --
 
 CREATE INDEX index_heb412_gen_doc_on_tdoc_type_and_tdoc_id ON heb412_gen_doc USING btree (tdoc_type, tdoc_id);
+
+
+--
+-- Name: index_sip_actorsocial_on_grupoper_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_sip_actorsocial_on_grupoper_id ON sip_actorsocial USING btree (grupoper_id);
+
+
+--
+-- Name: index_sip_actorsocial_on_pais_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_sip_actorsocial_on_pais_id ON sip_actorsocial USING btree (pais_id);
 
 
 --
@@ -3539,6 +3656,14 @@ ALTER TABLE ONLY heb412_gen_doc
 
 
 --
+-- Name: sip_actorsocial fk_rails_5b21e3a2af; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sip_actorsocial
+    ADD CONSTRAINT fk_rails_5b21e3a2af FOREIGN KEY (grupoper_id) REFERENCES sip_grupoper(id);
+
+
+--
 -- Name: sivel2_gen_combatiente fk_rails_6485d06d37; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -3552,6 +3677,14 @@ ALTER TABLE ONLY sivel2_gen_combatiente
 
 ALTER TABLE ONLY sip_grupo_usuario
     ADD CONSTRAINT fk_rails_734ee21e62 FOREIGN KEY (usuario_id) REFERENCES usuario(id);
+
+
+--
+-- Name: sip_actorsocial fk_rails_7bc2a60574; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sip_actorsocial
+    ADD CONSTRAINT fk_rails_7bc2a60574 FOREIGN KEY (pais_id) REFERENCES sip_pais(id);
 
 
 --
@@ -3584,6 +3717,14 @@ ALTER TABLE ONLY sivel2_gen_combatiente
 
 ALTER TABLE ONLY sivel2_gen_combatiente
     ADD CONSTRAINT fk_rails_bfb49597e1 FOREIGN KEY (organizacionarmada) REFERENCES sivel2_gen_presponsable(id);
+
+
+--
+-- Name: sivel2_gen_victimacolectiva fk_rails_c2122aade4; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sivel2_gen_victimacolectiva
+    ADD CONSTRAINT fk_rails_c2122aade4 FOREIGN KEY (actorsocial_id) REFERENCES sip_actorsocial(id);
 
 
 --
@@ -4148,6 +4289,9 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180717134314'),
 ('20180717135811'),
 ('20180718094829'),
-('20180719015902');
+('20180719015902'),
+('20180720140443'),
+('20180720171842'),
+('20180720193715');
 
 

@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 51a05ef04c2988e5cff9a13704193b2986e933cd
+  revision: 26c96c331272794299f800a95e99e0466352418c
   branch: sip_grupoper
   specs:
     sip (2.0.b5)
@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: ab1109263e157dc6db4c1cb08512ee4d985baee1
+  revision: aefd0cbfde471c690058b16ac397097de3ed3c8d
   branch: sip_grupoper
   specs:
     sivel2_gen (2.0b6)
@@ -132,7 +132,6 @@ GEM
     bootstrap-datepicker-rails (1.8.0.1)
       railties (>= 3.0)
     builder (3.2.3)
-    byebug (10.0.2)
     camertron-eprun (1.1.1)
     cancancan (2.2.0)
     capybara (2.18.0)
@@ -269,7 +268,7 @@ GEM
     public_suffix (3.0.2)
     puma (3.12.0)
     rack (2.0.5)
-    rack-test (1.0.0)
+    rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails-controller-testing (1.0.2)
       actionpack (~> 5.x, >= 5.0.1)
@@ -358,7 +357,7 @@ GEM
       tzinfo
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.15)
+    uglifier (4.1.16)
       execjs (>= 0.3.0, < 3)
     unicorn (5.4.0)
       kgio (~> 2.6)
@@ -384,7 +383,6 @@ DEPENDENCIES
   bcrypt
   bootsnap (>= 1.1.0)
   bootstrap-datepicker-rails
-  byebug
   cancancan
   chosen-rails
   cocoon!
@@ -432,4 +430,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.16.1
+   1.16.3

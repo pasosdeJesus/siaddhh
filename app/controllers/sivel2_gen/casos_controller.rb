@@ -17,6 +17,33 @@ module Sivel2Gen
           [c.nombremenu, c.id] 
         }
     end
+
+    def update
+      @caso.victimacolectiva.each do |v|
+        if !v.grupoper
+          puts "Victima colectiva debería tener grupoper"
+          exit 1
+        end
+        if v.grupoper && !v.actorsocial
+          v.actorsocial = Sip::Actorsocial.new
+        end
+        if v.grupoper.id != v.actorsocial.grupoper_id
+          v.actorsocial.grupoper_id=v.grupoper.id
+          v.save!(validate: false)
+        end
+      end
+      update_gen
+    end
+
+    def caso_params
+      # Añadimos actorsocial
+      lp = lista_params
+      hlp = lp[lp.length - 1] # Los primeros son escalares, el ultimo hash
+      vc = hlp[:victimacolectiva_attributes]
+      hvc = vc[vc.length - 1]
+      hvc[:actorsocial_attributes] = [:id, :grupoper_id, :fechafundacion]
+      params.require(:caso).permit(lp)
+    end
        
   end
 end
