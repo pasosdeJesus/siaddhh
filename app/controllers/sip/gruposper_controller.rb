@@ -8,7 +8,6 @@ module Sip
    
     # Busca y lista grupo(s) de persona
     def remplazar
-      byebug
       @grupoper = Sip::Grupoper.find(params[:id_grupoper].to_i)
       @victimacolectiva = Sivel2Gen::Victimacolectiva.find(params[:id_victimacolectiva].to_i)
       grupoperant = @victimacolectiva.grupoper
