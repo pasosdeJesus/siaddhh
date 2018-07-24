@@ -1,0 +1,10 @@
+<%= f.input :id, as: :hidden %>
+<% if f.object.grupoper.nil? %>
+  <% f.object.grupoper = Sip::Grupoper.new %>
+<% end %>
+<%= f.simple_fields_for :grupoper do |g| %>
+  <%= g.input :id, as: :hidden %>
+  <%= g.input :nombre %>
+  <%= g.input :anotaciones %>
+<% end %>
+     

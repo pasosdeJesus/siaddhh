@@ -27,6 +27,7 @@ class Ability  < Sivel2Gen::Ability
     if !usuario || usuario.fechadeshabilitacion
       return
     end
+    can :read, Sip::Actorsocial
     can :contar, Sip::Ubicacion
     can :contar, Sivel2Gen::Caso
     can :buscar, Sivel2Gen::Caso
@@ -40,24 +41,26 @@ class Ability  < Sivel2Gen::Ability
     if usuario && usuario.rol then
       case usuario.rol 
       when Ability::ROLANALI
+        can :read, Heb412Gen::Doc
+        can :read, Heb412Gen::Plantillahcm
+        can :manage, Sip::Actorsocial
+        can :manage, Sip::Persona
+        can :manage, Sivel2Gen::Acto
+        can :manage, Sivel2Gen::Actocolectivo
         can :read, Sivel2Gen::Caso
         can :new, Sivel2Gen::Caso
         can :nuevo, Sivel2Gen::Caso
         can [:update, :create, :destroy], Sivel2Gen::Caso
-        can :manage, Sip::Persona
-        can :manage, Sivel2Gen::Acto
-        can :manage, Sivel2Gen::Actocolectivo
-        can :read, Heb412Gen::Doc
-        can :read, Heb412Gen::Plantillahcm
       when Ability::ROLADMIN
-        can :manage, Sivel2Gen::Caso
-        can :manage, Sip::Persona
-        can :manage, Usuario
-        can :manage, Sivel2Gen::Acto
-        can :manage, Sivel2Gen::Actocolectivo
+        can :manage, ::Usuario
         can :manage, Heb412Gen::Doc
         can :manage, Heb412Gen::Plantillahcm
+        can :manage, Sip::Actorsocial
+        can :manage, Sip::Persona
         can :manage, Sip::Respaldo7z
+        can :manage, Sivel2Gen::Acto
+        can :manage, Sivel2Gen::Actocolectivo
+        can :manage, Sivel2Gen::Caso
         can :manage, :tablasbasicas
         tablasbasicas.each do |t|
           c = Ability.tb_clase(t)
