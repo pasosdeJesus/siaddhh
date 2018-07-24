@@ -40,3 +40,4 @@ bin/migra.sh
 /config/master.key
 public/somosdefensores/sivel2/heb412/generados/
 app/views/hogar/_local.html.erb
+.env
