@@ -4,5 +4,16 @@ es:
   activerecord:
     attributes:
       "sip/actorsocial":
+        Actorsocial: Colectivo
+        Actoressociales: Colectivos
         fechafundacion: Fecha de fundacion
+      "sip/perfilactorsocial":
+        Perfilactorsocial: Perfil en colectivo
+        Perfilesactorsocial: Perfiles en colectivo
+      "sip/actorsocial_persona":
+        actorsocial: Colectivo al que pertenece
+        perfilactorsocial: Perfil en el colectivo
+      "sip/sectoractor":
+        Sectoractor: Sector del colectivo
+        Sectoresactores: Sectores de colectivos
 
