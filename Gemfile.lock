@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 26c96c331272794299f800a95e99e0466352418c
+  revision: 95b3211aaacddd43b24889f48d7043ea3b3b7540
   branch: sip_grupoper
   specs:
     sip (2.0.b5)
@@ -234,7 +234,7 @@ GEM
       minitest-capybara (~> 0.8)
       minitest-metadata (~> 0.6)
       minitest-rails (~> 3.0)
-    minitest-reporters (1.3.0)
+    minitest-reporters (1.3.1)
       ansi
       builder
       minitest (>= 5.0)
@@ -359,7 +359,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.16)
       execjs (>= 0.3.0, < 3)
-    unicorn (5.4.0)
+    unicorn (5.4.1)
       kgio (~> 2.6)
       raindrops (~> 0.7)
     warden (1.2.7)

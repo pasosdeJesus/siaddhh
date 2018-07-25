@@ -19,6 +19,11 @@ module Sivel2Gen
     end
 
     def update
+      if params[:caso] && params[:caso][:victimacolectiva_attributes]
+        params[:caso][:victimacolectiva_attributes].each { |i,v|
+          v[:actorsocial_attributes][:grupoper_id]=v[:grupoper_attributes][:id]
+        }
+      end
       @caso.victimacolectiva.each do |v|
         if !v.grupoper
           puts "Victima colectiva debería tener grupoper"
@@ -42,6 +47,11 @@ module Sivel2Gen
       vc = hlp[:victimacolectiva_attributes]
       hvc = vc[vc.length - 1]
       hvc[:actorsocial_attributes] = [:id, :grupoper_id, :fechafundacion]
+      v = hlp[:victima_attributes]
+      hv = v[v.length - 1]
+      p = hv[:persona_attributes]
+      p << { actorsocial_persona_attributes: 
+             [:id, :actorsocial_id, :perfilactorsocial_id] }
       params.require(:caso).permit(lp)
     end
        

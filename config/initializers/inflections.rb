@@ -16,4 +16,5 @@
 # end
 ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'actorsocial', 'actoressociales'
+  inflect.irregular 'perfilactorsocial', 'perfilesactorsocial'
 end
