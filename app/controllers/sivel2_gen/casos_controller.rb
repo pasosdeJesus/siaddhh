@@ -47,7 +47,7 @@ module Sivel2Gen
       vc = hlp[:victimacolectiva_attributes]
       hvc = vc[vc.length - 1]
       hvc[:actorsocial_attributes] = [:id, :grupoper_id, :fechafundacion]
-      v = hlp[:victima_attributes]
+      v = hlp[:victima_attributes] = [:otraorganizacion] + hlp[:victima_attributes]
       hv = v[v.length - 1]
       p = hv[:persona_attributes]
       p << { actorsocial_persona_attributes: 

@@ -283,6 +283,7 @@ CREATE TABLE public.sivel2_gen_victima (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     id integer DEFAULT nextval('public.victima_seq'::regclass) NOT NULL,
+    otraorganizacion character varying(500),
     CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100)))),
     CONSTRAINT victima_orientacionsexual_check CHECK (((orientacionsexual = 'L'::bpchar) OR (orientacionsexual = 'G'::bpchar) OR (orientacionsexual = 'B'::bpchar) OR (orientacionsexual = 'T'::bpchar) OR (orientacionsexual = 'H'::bpchar) OR (orientacionsexual = 'S'::bpchar)))
 );
@@ -4407,6 +4408,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180720193715'),
 ('20180724092845'),
 ('20180724135332'),
-('20180724202353');
+('20180724202353'),
+('20180725170812');
 
 

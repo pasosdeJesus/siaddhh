@@ -16,4 +16,5 @@ es:
       "sip/sectoractor":
         Sectoractor: Sector del colectivo
         Sectoresactores: Sectores de colectivos
-
+      "sivel2_gen/victima":
+        otraorganizacion: Otra organización
