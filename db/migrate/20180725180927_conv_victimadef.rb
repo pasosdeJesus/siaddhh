@@ -1,5 +1,8 @@
 class ConvVictimadef < ActiveRecord::Migration[5.2]
   def up
+    if !table_exists? :victimadef 
+      return
+    end
     # Informacion legada con maximo id_grupoper 52389
     execute <<-SQL
       INSERT INTO sip_actorsocial_persona (actorsocial_id, persona_id, 
@@ -14,6 +17,9 @@ class ConvVictimadef < ActiveRecord::Migration[5.2]
     SQL
   end
   def down
+    if !table_exists? :victimadef 
+      return
+    end
     execute <<-SQL
       UPDATE sivel2_gen_victima SET
         otraorganizacion=NULL FROM victimadef WHERE 
