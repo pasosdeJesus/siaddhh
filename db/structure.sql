@@ -2621,14 +2621,6 @@ ALTER TABLE ONLY public.sivel2_gen_anexo_caso
 
 
 --
--- Name: sivel2_gen_antecedente_caso antecedente_caso_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sivel2_gen_antecedente_caso
-    ADD CONSTRAINT antecedente_caso_pkey PRIMARY KEY (id_antecedente, id_caso);
-
-
---
 -- Name: sivel2_gen_antecedente antecedente_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -2642,14 +2634,6 @@ ALTER TABLE ONLY public.sivel2_gen_antecedente
 
 ALTER TABLE ONLY public.ar_internal_metadata
     ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
-
-
---
--- Name: sivel2_gen_caso_contexto caso_contexto_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sivel2_gen_caso_contexto
-    ADD CONSTRAINT caso_contexto_pkey PRIMARY KEY (id_caso, id_contexto);
 
 
 --
@@ -4409,6 +4393,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180724092845'),
 ('20180724135332'),
 ('20180724202353'),
-('20180725170812');
+('20180725170812'),
+('20180726213123'),
+('20180726234755');
 
 
