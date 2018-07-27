@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: f59b2e7ecefac390f3f82145d691b709518d2f94
+  revision: 87658066d66e62e7ccf230e4a0406a9a5df4a0fe
   branch: sip_grupoper
   specs:
     sivel2_gen (2.0b6)
