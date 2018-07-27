@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 781a5bc52e5ee66d4de67d2a6bde6488b9fb4281
+  revision: 6b2199170d1ba11da018e39050a6dd2df3520dae
   branch: sip_grupoper
   specs:
     sip (2.0.b5)
@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 87658066d66e62e7ccf230e4a0406a9a5df4a0fe
+  revision: 0a43fa585bcc4ce687d5ccbf1351a8def5637a8d
   branch: sip_grupoper
   specs:
     sivel2_gen (2.0b6)

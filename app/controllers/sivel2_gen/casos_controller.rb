@@ -21,7 +21,11 @@ module Sivel2Gen
     def update
       if params[:caso] && params[:caso][:victimacolectiva_attributes]
         params[:caso][:victimacolectiva_attributes].each { |i,v|
-          v[:actorsocial_attributes][:grupoper_id]=v[:grupoper_attributes][:id]
+          if v[:actorsocial_attributes] && 
+            v[:actorsocial_attributes][:grupoper_id] &&
+            v[:grupoper_attributes] && v[:grupoper_attributes][:id]
+            v[:actorsocial_attributes][:grupoper_id]=v[:grupoper_attributes][:id]
+          end
         }
       end
       @caso.victimacolectiva.each do |v|

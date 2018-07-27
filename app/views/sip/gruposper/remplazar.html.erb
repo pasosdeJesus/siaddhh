@@ -11,9 +11,8 @@
       # generado por cocoon afortunadamente usa el id de la víctima
       # asi que la cambiamos %>
       <% s.gsub!(
-        'victimacolectiva_attributes_0_', 
-        'victimacolectiva_attributes_' + @victimacolectiva.id.to_s +
-        '_') %>
+        'victimacolectiva_attributes_0', 
+        'victimacolectiva_attributes_' + @victimacolectiva.id.to_s ) %>
       <% s.gsub!(
         'victimacolectiva_attributes][0]', 
         'victimacolectiva_attributes][' + @victimacolectiva.id.to_s +
