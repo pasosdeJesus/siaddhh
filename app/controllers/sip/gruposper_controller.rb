@@ -21,6 +21,7 @@ module Sip
       @victimacolectiva.save!
       if (grupoperant.nombre == 'N') ||
         (grupoperant.nombre == '')
+        actorant.destroy
         grupoperant.destroy
       end
       respond_to do |format|
