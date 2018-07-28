@@ -1,0 +1,25 @@
+<% ao = a.object ? a.object : @actorsocial %>
+<% div_id = "victima_actorsocial_#{ao.id}" %>
+<div id="<%= div_id %>" class="victima_actorsocial">
+  <label class="string optional control-label" for="tabla_<%= div_id %>">Víctimas del caso relacionadas</label>
+  <table id="tabla_<%= div_id %>" class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Perfil</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% ao.actorsocial_persona.where(
+        'persona_id IN (SELECT id_persona FROM sivel2_gen_victima 
+        WHERE id_caso=?)', @caso.id).each do |ap|%>
+        <tr>
+          <td><%= ap.persona.nombres %></td>
+          <td><%= ap.persona.apellidos %></td>
+          <td><%= ap.perfilactorsocial.nombre if ap.perfilactorsocial %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
