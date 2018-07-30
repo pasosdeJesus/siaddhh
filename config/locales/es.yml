@@ -13,9 +13,18 @@ es:
       "sip/actorsocial_persona":
         actorsocial: Colectivo al que pertenece
         perfilactorsocial: Perfil en el colectivo
+      "sip/fuenteprensa":
+        Fuenteprensa: Fuente frecuente
+        Fuentesprensa: Fuentes frecuentes
       "sip/sectoractor":
         Sectoractor: Sector del colectivo
         Sectoresactores: Sectores de colectivos
+      "sivel2_gen/organizacion":
+        Organizacion: Organización social
+        Organizaciones: Organizaciones sociales
       "sivel2_gen/victima":
         otraorganizacion: Otra organización
         vinculoestado: Perfil en entidad estatal o gobierno
+      "sivel2_gen/vinculoestado":
+        Vinculoestado: Perfil en entidad estatal o gobierno
+        Vinculosestado: Perfiles en entidad estatal o gobierno
