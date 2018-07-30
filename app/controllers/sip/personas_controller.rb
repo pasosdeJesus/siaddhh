@@ -8,14 +8,11 @@ module Sip
    
     # Busca y lista persona
     def remplazar_antes_salvar_v
-      @actorpant = Sip::ActorsocialPersona.where(
-        persona_id: @victima.persona.id).where(actorsocial_id: nil).take
     end
 
     def remplazar_antes_destruir_p
-      if @actorpant
-        @actorpant.destroy
-      end
+      Sip::ActorsocialPersona.where(persona_id: @personaant.id).
+        where(actorsocial_id: nil).destroy_all
     end
 
 
