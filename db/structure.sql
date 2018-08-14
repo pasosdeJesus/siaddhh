@@ -738,6 +738,16 @@ ALTER SEQUENCE public.sip_actorsocial_persona_id_seq OWNED BY public.sip_actorso
 
 
 --
+-- Name: sip_actorsocial_sectoractor; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sip_actorsocial_sectoractor (
+    actorsocial_id integer,
+    sectoractor_id integer
+);
+
+
+--
 -- Name: sip_anexo; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -3801,6 +3811,14 @@ ALTER TABLE ONLY public.sivel2_gen_combatiente
 
 
 --
+-- Name: sip_actorsocial_sectoractor fk_rails_9f61a364e0; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sip_actorsocial_sectoractor
+    ADD CONSTRAINT fk_rails_9f61a364e0 FOREIGN KEY (sectoractor_id) REFERENCES public.sip_sectoractor(id);
+
+
+--
 -- Name: sivel2_gen_combatiente fk_rails_af43e915a6; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -3838,6 +3856,14 @@ ALTER TABLE ONLY public.heb412_gen_campoplantillahcm
 
 ALTER TABLE ONLY public.sivel2_gen_combatiente
     ADD CONSTRAINT fk_rails_e2d01a5a99 FOREIGN KEY (id_sectorsocial) REFERENCES public.sivel2_gen_sectorsocial(id);
+
+
+--
+-- Name: sip_actorsocial_sectoractor fk_rails_f032bb21a6; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sip_actorsocial_sectoractor
+    ADD CONSTRAINT fk_rails_f032bb21a6 FOREIGN KEY (actorsocial_id) REFERENCES public.sip_actorsocial(id);
 
 
 --
@@ -4398,6 +4424,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180726091004'),
 ('20180726213123'),
 ('20180726234755'),
-('20180801105304');
+('20180801105304'),
+('20180810221619');
 
 
