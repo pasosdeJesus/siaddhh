@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 65846d02d5be0704015fffd062cf39db4fd2164c
+  revision: ed68c963fdbce0c49963bbf4d3f5babac118a650
   branch: vista_listado
   specs:
     heb412_gen (1.0.a1)
