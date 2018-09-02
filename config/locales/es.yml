@@ -6,7 +6,7 @@ es:
       "sip/actorsocial":
         Actorsocial: Colectivo
         Actoressociales: Colectivos
-        fechafundacion: Fecha de fundacion
+        fechafundacion: Fecha de fundación
       "sip/perfilactorsocial":
         Perfilactorsocial: Perfil en colectivo
         Perfilesactorsocial: Perfiles en colectivo

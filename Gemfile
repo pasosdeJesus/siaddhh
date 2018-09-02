@@ -88,7 +88,7 @@ gem 'sivel2_gen', git: 'https://github.com/pasosdeJesus/sivel2_gen.git'
 #gem 'sivel2_gen', path: '../sivel2_gen'
 
 # Motor de nube y plantillas
-gem 'heb412_gen', git: 'https://github.com/pasosdeJesus/heb412_gen.git'
+gem 'heb412_gen', git: 'https://github.com/pasosdeJesus/heb412_gen.git', branch: 'vista_listado'
 #gem 'heb412_gen', path: '../heb412_gen'
 
 group :test, :development do
