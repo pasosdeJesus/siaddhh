@@ -22,13 +22,14 @@ $(document).on('turbolinks:load ready page:load', function() {
 	heb412_gen_prepara_eventos_comunes(root);
 	sivel2_gen_prepara_eventos_comunes(root);
 	sivel2sd_prepara_eventos_unicos(root);
-
-	formato_fecha = 'dd/M/yyyy'
-	if ($('meta[name=formato_fecha]').size() != 0) {
-		formato_fecha = $('meta[name=formato_fecha]').attr('content')
-	}
+      
+	//root.formato_fecha = 'dd/M/yyyy'
+	//if ($('meta[name=formato_fecha]').size() != 0 &&
+        //  $('meta[name=formato_fecha]').attr('content').length > 0) {
+//		root.formato_fecha = $('meta[name=formato_fecha]').attr('content')
+//	}
 	$('[data-behaviour~=datepicker]').datepicker({
-		format: formato_fecha,
+		format: root.formato_fecha,
 		autoclose: true,
 		todayHighlight: true,
 		language: 'es'	
