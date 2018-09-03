@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 912c507bdd6aaa849df6a7c356693a0e15ad5637
+  revision: 02b072e6b9a8d952646f38aae96201758db97e8d
   specs:
     sivel2_gen (2.0b7)
       devise
@@ -357,7 +357,7 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.7)
       rack (>= 1.0)
-    web-console (3.6.2)
+    web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
