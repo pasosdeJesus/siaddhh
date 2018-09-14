@@ -9,7 +9,7 @@
   <%= v.persona.presenta_nombre %> <br>
 <% end %>
 
-<% if @caso.ubicacion %>
+<% if @caso.ubicacion.count > 0 %>
   <%if  @caso.ubicacion[0].municipio %>
     Municipio <%= @caso.ubicacion[0].municipio.nombre %>, 
   <% end %>
