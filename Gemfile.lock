@@ -33,7 +33,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 8be2ad8fe2a849a1fbfb250f4c465df2ff67c9aa
+  revision: 26824361c5c5e3732c29367d54b804e8c6cc4ca2
   specs:
     sivel2_gen (2.0b7)
       devise
@@ -105,7 +105,6 @@ GEM
     bootstrap-datepicker-rails (1.8.0.1)
       railties (>= 3.0)
     builder (3.2.3)
-    byebug (10.0.2)
     camertron-eprun (1.1.1)
     cancancan (2.2.0)
     capybara (2.18.0)
@@ -376,7 +375,6 @@ DEPENDENCIES
   bcrypt
   bootsnap (>= 1.1.0)
   bootstrap-datepicker-rails
-  byebug
   cancancan
   chosen-rails
   cocoon!
