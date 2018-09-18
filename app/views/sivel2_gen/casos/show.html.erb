@@ -25,7 +25,8 @@
   <% end %>
 <% end %>
 
-<% @caso.ubicacion[0].lugar if @caso.ubicacion  && @caso.ubicacion[0].lugar %><br>
+<% @caso.ubicacion[0].lugar if @caso.ubicacion  && 
+      @caso.ubicacion[0] && @caso.ubicacion[0].lugar %><br>
 
 <p>
 <% if @caso.presponsable %>
