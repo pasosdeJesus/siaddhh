@@ -8,46 +8,130 @@
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">tabla-rango-de-edad</td></tr>
+<tr><td rowspan="1" colspan="3">caso-basico-titulo</td></tr>
 </thead>
 <tbody>
 <tr><td>open</td><td>https://defensor.info:4001/somosdefensores/sivel2/<datalist><option>https://defensor.info:4001/somosdefensores/sivel2/</option></datalist></td><td></td>
 </tr>
-<tr><td>clickAt</td><td>link=Administrar<datalist><option>link=Administrar</option><option>//a[contains(text(),'Administrar')]</option><option>xpath=(//a[contains(@href, '#')])[3]</option><option>//ul[2]/li[2]/a</option></datalist></td><td>20,17</td>
+<tr><td>clickAt</td><td>link=Casos<datalist><option>link=Casos</option><option>css=a.dropdown-toggle</option><option>//a[contains(text(),'Casos')]</option><option>//a[contains(@href, '#')]</option><option>//li/a</option></datalist></td><td>37,24</td>
 </tr>
-<tr><td>clickAt</td><td>link=Tablas Básicas<datalist><option>link=Tablas Básicas</option><option>//a[contains(text(),'Tablas Básicas')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/tablasbasicas')]</option><option>//li[2]/ul/li[5]/a</option></datalist></td><td>104,16</td>
+<tr><td>clickAt</td><td>link=Nuevo Caso<datalist><option>link=Nuevo Caso</option><option>//a[contains(text(),'Nuevo Caso')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/nuevo')]</option><option>//li[2]/a</option></datalist></td><td>37,16</td>
 </tr>
-<tr><td>clickAt</td><td>link=Rangos de Edad<datalist><option>link=Rangos de Edad</option><option>//a[contains(text(),'Rangos de Edad')]</option><option>//a[contains(@href, 'admin/rangosedad')]</option><option>//li[18]/a</option></datalist></td><td>54,7</td>
+<tr><td>clickAt</td><td>id=caso_titulo<datalist><option>id=caso_titulo</option><option>name=caso[titulo]</option><option>css=#caso_titulo</option><option>//input[@id='caso_titulo']</option><option>//div[@id='basicos']/div[3]/input</option><option>//div[3]/input</option></datalist></td><td>49,19</td>
 </tr>
-<tr><td>clickAt</td><td>link=Nuevo<datalist><option>link=Nuevo</option><option>css=a.btn.btn-primary</option><option>xpath=(//a[contains(text(),'Nuevo')])[2]</option><option>//a[contains(@href, '/somosdefensores/sivel2/admin/rangosedad/nueva')]</option><option>//div[2]/div/a</option></datalist></td><td>13,20</td>
+<tr><td>type</td><td>id=caso_titulo<datalist><option>id=caso_titulo</option><option>name=caso[titulo]</option><option>css=#caso_titulo</option><option>//input[@id='caso_titulo']</option><option>//div[@id='basicos']/div[3]/input</option><option>//div[3]/input</option></datalist></td><td>aaa</td>
 </tr>
-<tr><td>clickAt</td><td>id=rangoedad_nombre<datalist><option>id=rangoedad_nombre</option><option>name=rangoedad[nombre]</option><option>css=#rangoedad_nombre</option><option>//input[@id='rangoedad_nombre']</option><option>//form[@id='new_rangoedad']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>69,4</td>
-</tr>
-<tr><td>type</td><td>id=rangoedad_nombre<datalist><option>id=rangoedad_nombre</option><option>name=rangoedad[nombre]</option><option>css=#rangoedad_nombre</option><option>//input[@id='rangoedad_nombre']</option><option>//form[@id='new_rangoedad']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>aaa</td>
-</tr>
-<tr><td>runScript</td><td>$('#rangoedad_limiteinferior').removeAttr('type')<datalist><option>$('#pais_codiso').removeAttr('type')</option><option>$('#rangoedad_limiteinferior').removeAttr('type')</option></datalist></td><td></td>
-</tr>
-<tr><td>clickAt</td><td>id=rangoedad_limiteinferior<datalist><option>id=rangoedad_limiteinferior</option><option>name=rangoedad[limiteinferior]</option><option>css=#rangoedad_limiteinferior</option><option>//input[@id='rangoedad_limiteinferior']</option><option>//form[@id='new_rangoedad']/div[3]/input</option><option>//div[3]/input</option></datalist></td><td>23,16</td>
-</tr>
-<tr><td>type</td><td>id=rangoedad_limiteinferior<datalist><option>id=rangoedad_limiteinferior</option><option>name=rangoedad[limiteinferior]</option><option>css=#rangoedad_limiteinferior</option><option>//input[@id='rangoedad_limiteinferior']</option><option>//form[@id='new_rangoedad']/div[3]/input</option><option>//div[3]/input</option></datalist></td><td>1</td>
-</tr>
-<tr><td>runScript</td><td>$('#rangoedad_limitesuperior').removeAttr('type')<datalist><option>$('#pais_codiso').removeAttr('type')</option><option>$('#rangoedad_limitesuperior').removeAttr('type')</option></datalist></td><td></td>
-</tr>
-<tr><td>clickAt</td><td>id=rangoedad_limitesuperior<datalist><option>id=rangoedad_limitesuperior</option><option>name=rangoedad[limitesuperior]</option><option>css=#rangoedad_limitesuperior</option><option>//input[@id='rangoedad_limitesuperior']</option><option>//form[@id='new_rangoedad']/div[4]/input</option><option>//div[4]/input</option></datalist></td><td>19,21</td>
-</tr>
-<tr><td>type</td><td>id=rangoedad_limitesuperior<datalist><option>id=rangoedad_limitesuperior</option><option>name=rangoedad[limitesuperior]</option><option>css=#rangoedad_limitesuperior</option><option>//input[@id='rangoedad_limitesuperior']</option><option>//form[@id='new_rangoedad']/div[4]/input</option><option>//div[4]/input</option></datalist></td><td>7</td>
-</tr>
-<tr><td>clickAt</td><td>id=rangoedad_observaciones<datalist><option>id=rangoedad_observaciones</option><option>name=rangoedad[observaciones]</option><option>css=#rangoedad_observaciones</option><option>//textarea[@id='rangoedad_observaciones']</option><option>//form[@id='new_rangoedad']/div[5]/textarea</option><option>//textarea</option></datalist></td><td>58,7</td>
-</tr>
-<tr><td>type</td><td>id=rangoedad_observaciones<datalist><option>id=rangoedad_observaciones</option><option>name=rangoedad[observaciones]</option><option>css=#rangoedad_observaciones</option><option>//textarea[@id='rangoedad_observaciones']</option><option>//form[@id='new_rangoedad']/div[5]/textarea</option><option>//textarea</option></datalist></td><td>bbb</td>
-</tr>
-<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='new_rangoedad']/div[9]/input</option><option>//div[9]/input</option></datalist></td><td>8,18</td>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_128880']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>78,14</td>
 </tr>
 <tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
 </tr>
-<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/admin/rangosedad/102')])[2]</option><option>//a[3]</option></datalist></td><td>55,15</td>
+<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/casos/128880')])[2]</option><option>//a[3]</option></datalist></td><td>32,24</td>
 </tr>
-<tr><td>assertText</td><td>css=h1<datalist><option>link=SIADDHH2.0b6</option><option>css=a.navbar-brand</option><option>//a[contains(text(),'SIADDHH2.0b6')]</option><option>//a[@href='http://defensor.info:4001/somosdefensores/sivel2/']</option><option>//a</option><option>css=h1</option></datalist></td><td>Rangos de Edad</td>
+<tr><td>assertText</td><td>css=h1<datalist><option>link=SIADDHH2.0b6</option><option>css=a.navbar-brand</option><option>//a[contains(text(),'SIADDHH2.0b6')]</option><option>//a[@href='http://defensor.info:4001/somosdefensores/sivel2/']</option><option>//a</option><option>css=h1</option></datalist></td><td>Casos</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-basico-hora</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://defensor.info:4001/somosdefensores/sivel2/<datalist><option>https://defensor.info:4001/somosdefensores/sivel2/</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Casos<datalist><option>link=Casos</option><option>css=a.dropdown-toggle</option><option>//a[contains(text(),'Casos')]</option><option>//a[contains(@href, '#')]</option><option>//li/a</option></datalist></td><td>49,23</td>
+</tr>
+<tr><td>clickAt</td><td>link=Nuevo Caso<datalist><option>link=Nuevo Caso</option><option>//a[contains(text(),'Nuevo Caso')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/nuevo')]</option><option>//li[2]/a</option></datalist></td><td>43,6</td>
+</tr>
+<tr><td>clickAt</td><td>id=caso_hora<datalist><option>id=caso_hora</option><option>name=caso[hora]</option><option>css=#caso_hora</option><option>//input[@id='caso_hora']</option><option>//div[@id='basicos']/div[4]/input</option><option>//div[4]/input</option></datalist></td><td>48,16</td>
+</tr>
+<tr><td>type</td><td>id=caso_hora<datalist><option>id=caso_hora</option><option>name=caso[hora]</option><option>css=#caso_hora</option><option>//input[@id='caso_hora']</option><option>//div[@id='basicos']/div[4]/input</option><option>//div[4]/input</option></datalist></td><td>12 pm</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_128882']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>63,10</td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/casos/128882')])[2]</option><option>//a[3]</option></datalist></td><td>28,23</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>link=SIADDHH2.0b6</option><option>css=a.navbar-brand</option><option>//a[contains(text(),'SIADDHH2.0b6')]</option><option>//a[@href='http://defensor.info:4001/somosdefensores/sivel2/']</option><option>//a</option><option>css=h1</option></datalist></td><td>Casos</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-basico-duracion</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://defensor.info:4001/somosdefensores/sivel2/<datalist><option>https://defensor.info:4001/somosdefensores/sivel2/</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Casos<datalist><option>link=Casos</option><option>css=a.dropdown-toggle</option><option>//a[contains(text(),'Casos')]</option><option>//a[contains(@href, '#')]</option><option>//li/a</option></datalist></td><td>30,18</td>
+</tr>
+<tr><td>clickAt</td><td>link=Nuevo Caso<datalist><option>link=Nuevo Caso</option><option>//a[contains(text(),'Nuevo Caso')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/nuevo')]</option><option>//li[2]/a</option></datalist></td><td>54,14</td>
+</tr>
+<tr><td>clickAt</td><td>id=caso_duracion<datalist><option>id=caso_duracion</option><option>name=caso[duracion]</option><option>css=#caso_duracion</option><option>//input[@id='caso_duracion']</option><option>//div[@id='basicos']/div[5]/input</option><option>//div[5]/input</option></datalist></td><td>72,16</td>
+</tr>
+<tr><td>clickAt</td><td>id=caso_duracion<datalist><option>id=caso_duracion</option><option>name=caso[duracion]</option><option>css=#caso_duracion</option><option>//input[@id='caso_duracion']</option><option>//div[@id='basicos']/div[5]/input</option><option>//div[5]/input</option></datalist></td><td>42,18</td>
+</tr>
+<tr><td>type</td><td>id=caso_duracion<datalist><option>id=caso_duracion</option><option>name=caso[duracion]</option><option>css=#caso_duracion</option><option>//input[@id='caso_duracion']</option><option>//div[@id='basicos']/div[5]/input</option><option>//div[5]/input</option></datalist></td><td>6 horas</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_128884']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>65,18</td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/casos/128884')])[2]</option><option>//a[3]</option></datalist></td><td>22,9</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>link=SIADDHH2.0b6</option><option>css=a.navbar-brand</option><option>//a[contains(text(),'SIADDHH2.0b6')]</option><option>//a[@href='http://defensor.info:4001/somosdefensores/sivel2/']</option><option>//a</option><option>css=h1</option></datalist></td><td>Casos</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-basico-intervalo</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://defensor.info:4001/somosdefensores/sivel2/<datalist><option>https://defensor.info:4001/somosdefensores/sivel2/</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Casos<datalist><option>link=Casos</option><option>css=a.dropdown-toggle</option><option>//a[contains(text(),'Casos')]</option><option>//a[contains(@href, '#')]</option><option>//li/a</option></datalist></td><td>47,25</td>
+</tr>
+<tr><td>clickAt</td><td>link=Nuevo Caso<datalist><option>link=Nuevo Caso</option><option>//a[contains(text(),'Nuevo Caso')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/nuevo')]</option><option>//li[2]/a</option></datalist></td><td>64,12</td>
+</tr>
+<tr><td>select</td><td>id=caso_id_intervalo<datalist><option>id=caso_id_intervalo</option><option>name=caso[id_intervalo]</option><option>css=#caso_id_intervalo</option><option>//select[@id='caso_id_intervalo']</option><option>//div[@id='basicos']/div[6]/select</option><option>//select</option></datalist></td><td>label=TARDE</td>
+</tr>
+<tr><td>mouseDownAt</td><td>id=caso_id_intervalo<datalist><option>id=caso_id_intervalo</option><option>name=caso[id_intervalo]</option><option>css=#caso_id_intervalo</option><option>//select[@id='caso_id_intervalo']</option><option>//div[@id='basicos']/div[6]/select</option><option>//select</option></datalist></td><td>-68,-375</td>
+</tr>
+<tr><td>mouseMoveAt</td><td>id=caso_id_intervalo<datalist><option>id=caso_id_intervalo</option><option>name=caso[id_intervalo]</option><option>css=#caso_id_intervalo</option><option>//select[@id='caso_id_intervalo']</option><option>//div[@id='basicos']/div[6]/select</option><option>//select</option></datalist></td><td>-68,-375</td>
+</tr>
+<tr><td>mouseUpAt</td><td>id=caso_id_intervalo<datalist><option>id=caso_id_intervalo</option><option>name=caso[id_intervalo]</option><option>css=#caso_id_intervalo</option><option>//select[@id='caso_id_intervalo']</option><option>//div[@id='basicos']/div[6]/select</option><option>//select</option></datalist></td><td>-68,-375</td>
+</tr>
+<tr><td>clickAt</td><td>id=caso_id_intervalo<datalist><option>id=caso_id_intervalo</option><option>name=caso[id_intervalo]</option><option>css=#caso_id_intervalo</option><option>//select[@id='caso_id_intervalo']</option><option>//div[@id='basicos']/div[6]/select</option><option>//select</option></datalist></td><td>-68,-375</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_128886']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>56,22</td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/casos/128886')])[2]</option><option>//a[3]</option></datalist></td><td>38,15</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>link=SIADDHH2.0b6</option><option>css=a.navbar-brand</option><option>//a[contains(text(),'SIADDHH2.0b6')]</option><option>//a[@href='http://defensor.info:4001/somosdefensores/sivel2/']</option><option>//a</option><option>css=h1</option></datalist></td><td>Casos</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-basico-region</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://defensor.info:4001/somosdefensores/sivel2/<datalist><option>https://defensor.info:4001/somosdefensores/sivel2/</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Casos<datalist><option>link=Casos</option><option>css=a.dropdown-toggle</option><option>//a[contains(text(),'Casos')]</option><option>//a[contains(@href, '#')]</option><option>//li/a</option></datalist></td><td>37,20</td>
+</tr>
+<tr><td>clickAt</td><td>link=Nuevo Caso<datalist><option>link=Nuevo Caso</option><option>//a[contains(text(),'Nuevo Caso')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/nuevo')]</option><option>//li[2]/a</option></datalist></td><td>59,12</td>
+</tr>
+<tr><td>addSelection</td><td>id=caso_region_ids<datalist><option>id=caso_region_ids</option><option>css=#caso_region_ids</option><option>//select[@id='caso_region_ids']</option><option>//div[@id='basicos']/div[7]/select</option><option>//div[7]/select</option></datalist></td><td>label=ANDINA</td>
+</tr>
+<tr><td>clickAt</td><td>css=option[value="18"]<datalist><option>css=option[value="18"]</option><option>//option[@value='18']</option><option>//select[@id='caso_region_ids']/option[2]</option><option>//div[7]/select/option[2]</option></datalist></td><td>44,12</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_128889']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>47,7</td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/casos/128889')])[2]</option><option>//a[3]</option></datalist></td><td>33,3</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>link=SIADDHH2.0b6</option><option>css=a.navbar-brand</option><option>//a[contains(text(),'SIADDHH2.0b6')]</option><option>//a[@href='http://defensor.info:4001/somosdefensores/sivel2/']</option><option>//a</option><option>css=h1</option></datalist></td><td>Casos</td>
 </tr>
 </tbody></table>
 </body>
