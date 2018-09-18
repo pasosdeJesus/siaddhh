@@ -21,16 +21,15 @@ class AccesoTest < Capybara::Rails::TestCase
     fill_in "Fecha del hecho", with: '05/Ago/2014'
     fill_in "Título", with: 'titulo'
     click_button "Guardar"
-    assert page.has_content?("2014-08-05")
+    assert page.has_content?("05/ago/2014")
 
     # Solicitante Principal
     click_on "Editar"
     fill_in "Hora", with: '3:00 PM'
     fill_in "Duración", with: '2'
     select("ANTIOQUIA CHOCO SANT", from: 'Región')
-    select("Ecuador", from: 'Frontera')
     click_button "Guardar"
-    assert page.has_content?("2014-08-05") 
+    assert page.has_content?("05/ago/2014") 
     # puts page.body
     # Driver no acepta: accept_confirm do click_on "Eliminar" end
     #expect(page).to have_content("Casos")
