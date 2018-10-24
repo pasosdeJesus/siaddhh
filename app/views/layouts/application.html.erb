@@ -11,7 +11,7 @@
         <%= menu_item "Validar casos", sivel2_gen.validarcasos_path %>
       <% end %>
       <%= drop_down "Reportes y conteos" do %>
-        <%= menu_item "Consolidado de víctimas", 
+        <%= menu_item "Reporte de víctimas", 
           sivel2_gen.victimas_path %>
         <%= menu_item "Conteo demografía víctimas", 
           sivel2_gen.conteos_personas_path %>
@@ -24,6 +24,18 @@
     <% if !current_usuario.nil? %>
       <%= drop_down "Documentos" do %>
         <%= menu_item "Nube", heb412_gen.sisini_path %>
+        <% if can? :manage, ::Heb412Gen::Plantillahcm %>
+          <%= menu_item "Plantillas para listado en hojas de calculo",
+            heb412_gen.plantillashcm_path %>
+        <% end %>
+        <% if can? :manage, ::Heb412Gen::Plantillahcr %>
+          <%= menu_item "Plantillas para un registro en hoja de calculo",
+            heb412_gen.plantillashcr_path %>
+        <% end %>
+        <% if can? :manage, ::Heb412Gen::Plantilladoc %>
+          <%= menu_item "Plantillas para un registro en documento",
+            heb412_gen.plantillasdoc_path %>
+        <% end %>
       <% end %>
       <%= drop_down "Administrar" do %>
         <%= menu_item "Clave", main_app.editar_registro_usuario_path %>
@@ -38,10 +50,6 @@
         <% end %>
         <% if can? :manage, :tablasbasicas %>
           <%= menu_item "Tablas Básicas", sivel2_gen.tablasbasicas_path %>
-        <% end %>
-        <% if can? :manage, ::Heb412Gen::Plantillahcm %>
-          <%= menu_item "Definir generación en plantilla de hoja de cálculo", 
-            heb412_gen.new_plantillahcm_path %>
         <% end %>
         <% if can? :manage, Sip::Respaldo7z %>
           <%= menu_item "Respaldo cifrado", sip.respaldo7z_path %>
