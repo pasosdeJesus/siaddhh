@@ -131,7 +131,6 @@ group :test do
   gem 'minitest-rails-capybara'
   gem "poltergeist"
 
-  gem 'pry-rescue'
   gem 'pry-stack_explorer'
 end
 
