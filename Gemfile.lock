@@ -33,7 +33,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 61db14b007d7296af10bca08bf363fe712699a39
+  revision: 6d4144a2e3d9bb8b8f2389e11a31d69cf4d76ac5
   specs:
     sivel2_gen (2.0b8)
       devise
@@ -346,7 +346,7 @@ GEM
       tzinfo
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.19)
+    uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
     unicorn (5.4.1)
       kgio (~> 2.6)
