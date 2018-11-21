@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 0ac17e344bbdc2b090fef0c9b10983e652a9ea55
+  revision: cd297d9f744f12bb4c5f7a08054d3fdaef08e927
   specs:
     sip (2.0.b5)
       bootstrap-datepicker-rails
@@ -33,7 +33,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 6d4144a2e3d9bb8b8f2389e11a31d69cf4d76ac5
+  revision: 5472a3edc5568c6ddcaa428990245894b0b03a44
   specs:
     sivel2_gen (2.0b8)
       devise
@@ -105,7 +105,6 @@ GEM
     bootstrap-datepicker-rails (1.8.0.1)
       railties (>= 3.0)
     builder (3.2.3)
-    byebug (10.0.2)
     camertron-eprun (1.1.1)
     cancancan (2.3.0)
     capybara (2.18.0)
@@ -372,7 +371,6 @@ DEPENDENCIES
   bcrypt
   bootsnap (>= 1.1.0)
   bootstrap-datepicker-rails
-  byebug
   cancancan
   chosen-rails
   cocoon!
