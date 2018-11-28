@@ -6,43 +6,5 @@
 	<title>pruebas-fallas-sideex</title>
 </head>
 <body>
-<table cellpadding="1" cellspacing="1" border="1">
-<thead>
-<tr><td rowspan="1" colspan="3">caso-colectivo-humano-sectores-sociales</td></tr>
-</thead>
-<tbody>
-<tr><td>open</td><td>/somosdefensores/sivel2/<datalist><option>https://defensor.info:4001/somosdefensores/sivel2/</option><option>/somosdefensores/sivel2/</option></datalist></td><td></td>
-</tr>
-<tr><td>clickAt</td><td>link=Casos<datalist><option>link=Casos</option><option>css=a.dropdown-toggle</option><option>//a[contains(text(),'Casos')]</option><option>//a[contains(@href, '#')]</option><option>//li/a</option></datalist></td><td>35,27</td>
-</tr>
-<tr><td>clickAt</td><td>link=Nuevo Caso<datalist><option>link=Nuevo Caso</option><option>//a[contains(text(),'Nuevo Caso')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/nuevo')]</option><option>//li[2]/a</option></datalist></td><td>67,6</td>
-</tr>
-<tr><td>clickAt</td><td>link=Colectivo Humano<datalist><option>link=Colectivo Humano</option><option>//a[contains(text(),'Colectivo Humano')]</option><option>//form[@id='edit_caso_129025']/div/div[2]/ul/li[2]/a</option><option>//a[contains(@href, '#victimacolectiva')]</option><option>//form/div/div[2]/ul/li[2]/a</option></datalist></td><td>65,16</td>
-</tr>
-<tr><td>clickAt</td><td>link=Añadir Víctima Colectiva<datalist><option>link=Añadir Víctima Colectiva</option><option>css=#victimacolectiva &gt; div.links &gt; a.btn-primary.add_fields</option><option>//a[contains(text(),'Añadir Víctima Colectiva')]</option><option>//div[@id='victimacolectiva']/div/a</option><option>xpath=(//a[contains(@href, '#')])[21]</option><option>//div[8]/div/a</option></datalist></td><td>107,6</td>
-</tr>
-<tr><td>pause</td><td><datalist><option>css=div.container.master-container</option><option>//body/div</option><option></option></datalist></td><td>500</td>
-</tr>
-<tr><td>clickAt</td><td>//div[2]/div[2]/input<datalist><option>id=caso_victimacolectiva_attributes_2036_grupoper_attributes_nombre</option><option>name=caso[victimacolectiva_attributes][2036][grupoper_attributes][nombre]</option><option>css=#caso_victimacolectiva_attributes_2036_grupoper_attributes_nombre</option><option>//input[@id='caso_victimacolectiva_attributes_2036_grupoper_attributes_nombre']</option><option>//div[@id='victimacolectiva']/div/div/div[2]/div[2]/input</option><option>//div[2]/div[2]/input</option></datalist></td><td>40,12</td>
-</tr>
-<tr><td>type</td><td>//div[@id='victimacolectiva']/div/div/div[2]/div[2]/input<datalist><option>id=caso_victimacolectiva_attributes_2036_grupoper_attributes_nombre</option><option>name=caso[victimacolectiva_attributes][2036][grupoper_attributes][nombre]</option><option>css=#caso_victimacolectiva_attributes_2036_grupoper_attributes_nombre</option><option>//input[@id='caso_victimacolectiva_attributes_2036_grupoper_attributes_nombre']</option><option>//div[@id='victimacolectiva']/div/div/div[2]/div[2]/input</option><option>//div[2]/div[2]/input</option></datalist></td><td>aaa</td>
-</tr>
-<tr><td>clickAt</td><td>//div[2]/div[2]/input<datalist><option>id=caso_victimacolectiva_attributes_1809_grupoper_attributes_nombre</option><option>name=caso[victimacolectiva_attributes][1809][grupoper_attributes][nombre]</option><option>css=#caso_victimacolectiva_attributes_1809_grupoper_attributes_nombre</option><option>//input[@id='caso_victimacolectiva_attributes_1809_grupoper_attributes_nombre']</option><option>//div[@id='victimacolectiva']/div/div/div[2]/div[2]/input</option><option>//div[2]/div[2]/input</option></datalist></td><td>176,20</td>
-</tr>
-<tr><td>runScript</td><td>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')<datalist><option>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')</option></datalist></td><td></td>
-</tr>
-<tr><td>addSelection</td><td>//div[8]/div/div/div[3]/div/div/select<datalist><option>id=caso_victimacolectiva_attributes_1809_sectorsocial_ids</option><option>css=#caso_victimacolectiva_attributes_1809_sectorsocial_ids</option><option>//select[@id='caso_victimacolectiva_attributes_1809_sectorsocial_ids']</option><option>//div[@id='victimacolectiva']/div/div/div[3]/div/div/select</option><option>//div[8]/div/div/div[3]/div/div/select</option></datalist></td><td>label=AFRODESCENDIENTE</td>
-</tr>
-<tr><td>clickAt</td><td>//div[8]/div/div/div[3]/div/div/select/option[2]<datalist><option>css=#caso_victimacolectiva_attributes_1809_sectorsocial_ids &gt; option[value="102"]</option><option>xpath=(//option[@value='102'])[3]</option><option>//select[@id='caso_victimacolectiva_attributes_1809_sectorsocial_ids']/option[2]</option><option>//div[8]/div/div/div[3]/div/div/select/option[2]</option></datalist></td><td>106,11</td>
-</tr>
-<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129025']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>84,13</td>
-</tr>
-<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
-</tr>
-<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/admin/rangosedad/102')])[2]</option><option>//a[3]</option></datalist></td><td>55,15</td>
-</tr>
-<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Casos</td>
-</tr>
-</tbody></table>
 </body>
 </html>
