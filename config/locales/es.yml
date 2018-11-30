@@ -1,6 +1,5 @@
 
 es:
-  attributes:
   activerecord:
     attributes:
       "sip/actorsocial":
@@ -28,3 +27,6 @@ es:
       "sivel2_gen/vinculoestado":
         Vinculoestado: Perfil en entidad estatal o gobierno
         Vinculosestado: Perfiles en entidad estatal o gobierno
+      "tipoamenaza":
+        Tipoamenaza: Tipo de amenaza
+        Tiposamenaza: Tipos de amenaza
