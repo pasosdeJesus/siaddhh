@@ -2250,7 +2250,7 @@ CREATE SEQUENCE public.sivel2_gen_pconsolidado_id_seq
 
 CREATE TABLE public.sivel2_gen_pconsolidado (
     id integer DEFAULT nextval('public.sivel2_gen_pconsolidado_id_seq'::regclass) NOT NULL,
-    rotulo character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
     tipoviolencia character varying(25) NOT NULL,
     clasificacion character varying(25) NOT NULL,
     peso integer DEFAULT 0,
@@ -2258,6 +2258,7 @@ CREATE TABLE public.sivel2_gen_pconsolidado (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(500),
     CONSTRAINT pconsolidado_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -2533,6 +2534,40 @@ CREATE TABLE public.sivel2_gen_vinculoestado (
 
 
 --
+-- Name: tipoamenaza; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.tipoamenaza (
+    id bigint NOT NULL,
+    nombre character varying(500) NOT NULL,
+    observaciones character varying(5000),
+    fechacreacion date NOT NULL,
+    fechadeshabilitacion date,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: tipoamenaza_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.tipoamenaza_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tipoamenaza_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.tipoamenaza_id_seq OWNED BY public.tipoamenaza.id;
+
+
+--
 -- Name: vvictimasoundexesp; Type: MATERIALIZED VIEW; Schema: public; Owner: -
 --
 
@@ -2666,6 +2701,13 @@ ALTER TABLE ONLY public.sivel2_gen_combatiente ALTER COLUMN id SET DEFAULT nextv
 --
 
 ALTER TABLE ONLY public.sivel2_gen_resagresion ALTER COLUMN id SET DEFAULT nextval('public.sivel2_gen_resagresion_id_seq'::regclass);
+
+
+--
+-- Name: tipoamenaza id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tipoamenaza ALTER COLUMN id SET DEFAULT nextval('public.tipoamenaza_id_seq'::regclass);
 
 
 --
@@ -3314,6 +3356,14 @@ ALTER TABLE ONLY public.sip_tclase
 
 ALTER TABLE ONLY public.sip_tdocumento
     ADD CONSTRAINT tdocumento_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tipoamenaza tipoamenaza_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tipoamenaza
+    ADD CONSTRAINT tipoamenaza_pkey PRIMARY KEY (id);
 
 
 --
@@ -4533,6 +4583,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181012110629'),
 ('20181017094456'),
 ('20181018003945'),
-('20181018030610');
+('20181018030610'),
+('20181130112320'),
+('20181130164947');
 
 

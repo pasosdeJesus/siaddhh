@@ -24,7 +24,19 @@ Rails.application.routes.draw do
     end
     resources :usuarios, path_names: { new: 'nuevo', edit: 'edita' } 
 
+    namespace :admin do
+      ab = ::Ability.new
+      ab.tablasbasicas.each do |t|
+        if (t[0] == "") 
+          c = t[1].pluralize
+          resources c.to_sym, 
+            path_names: { new: 'nueva', edit: 'edita' }
+        end
+      end
+    end
+    
     root 'sivel2_gen/hogar#index'
+
   end
 
   mount Sip::Engine => "/somosdefensores/sivel2", as: 'sip'

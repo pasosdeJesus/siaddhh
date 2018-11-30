@@ -9,6 +9,10 @@ class Ability  < Sivel2Gen::Ability
     'Terminos'
   end
 
+  BASICAS_PROPIAS = [
+    ['', 'tipoamenaza']
+  ]
+
   def tablasbasicas 
     Sip::Ability::BASICAS_PROPIAS + 
       Sivel2Gen::Ability::BASICAS_PROPIAS - [
@@ -23,7 +27,8 @@ class Ability  < Sivel2Gen::Ability
         ['Sivel2Gen', 'iglesia'],
         ['Sivel2Gen', 'maternidad'],
         ['Sivel2Gen', 'resagresion']
-      ]
+      ] + 
+      BASICAS_PROPIAS
   end
 
   # Establece autorizaciones con CanCanCan
@@ -62,6 +67,8 @@ class Ability  < Sivel2Gen::Ability
         can :new, Sivel2Gen::Caso
         can :nuevo, Sivel2Gen::Caso
         can [:update, :create, :destroy], Sivel2Gen::Caso
+        
+        can :read, ::Tipoamenaza
       when Ability::ROLADMIN
         
         can :manage, Heb412Gen::Doc

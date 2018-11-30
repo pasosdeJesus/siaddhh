@@ -1,15 +1,16 @@
 source 'https://rubygems.org'
 
-gem 'rails-erd', require: false, group: :development
-
-#ruby ">= 2.2"
+ruby '~>2.4'
 
 # Rails (internacionalización)
 gem "rails", '~> 5.2.1'
 
+gem 'bootsnap', '>=1.1.0', require: false
+
 gem "rails-i18n"
 
-gem 'bootsnap', '>=1.1.0', require: false
+gem "odf-report"
+
 
 # Postgresql
 gem "pg"#, '~> 0.21'
@@ -19,16 +20,13 @@ gem 'puma'
 # CSS
 gem "sass"
 
-gem 'chosen-rails'
-gem 'font-awesome-rails'
-
-gem 'libxml-ruby'
-gem "rspreadsheet"
-
 # Color en terminal
 gem "colorize"
 
-gem 'redcarpet'
+# Generación de PDF
+gem "prawn"
+gem "prawnto_2",  :require => "prawnto"
+gem "prawn-table"
 
 # Maneja variables de ambiente (como claves y secretos) en .env
 #gem "foreman"
@@ -52,6 +50,7 @@ gem "turbolinks"
 
 # Ambiente de CSS
 gem "twitter-bootstrap-rails"
+gem "font-awesome-rails"
 gem "bootstrap-datepicker-rails"
 
 # Formularios simples 
@@ -79,23 +78,21 @@ gem "paperclip"
 # Zonas horarias
 gem "tzinfo"
 
-# Motor de sip
-gem 'sip', git: 'https://github.com/pasosdeJesus/sip.git'
-#gem 'sip', path: '../sip'
-
 # Motor de SIVeL 2
-gem 'sivel2_gen', git: 'https://github.com/pasosdeJesus/sivel2_gen.git'
-#gem 'sivel2_gen', path: '../sivel2_gen'
+#gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
+gem 'sip', path: '../sip'
 
-# Motor de nube y plantillas
+# Motor heb412_gen para manejar archivos como nube y plantillas
 gem 'heb412_gen', git: 'https://github.com/pasosdeJesus/heb412_gen.git'
-#gem 'heb412_gen', path: '../heb412_gen'
+#gem 'heb412_gen', path: '../heb412_gen/'
 
-group :test, :development do
-  # Depurar
-  #gem 'byebug'
-end
+# Motor Cor1440_gen
+gem 'sivel2_gen', git: "https://github.com/pasosdeJesus/sivel2_gen.git"
+#gem "sivel2_gen", path: '../sivel2_gen'
 
+gem 'chosen-rails'
+gem 'rspreadsheet'
+gem 'libxml-ruby'
 
 # Los siguientes son para desarrollo o para pruebas con generadores
 group :development do
@@ -105,32 +102,32 @@ group :development do
 
 end
 
-# Los siguientes son para pruebas y no tiene generadores requeridos en desarrollo
+group :development, :test do
+  # Depurar
+  gem 'byebug'
+end
+
 group :test do
   # Acelera ejecutando en fondo.  https://github.com/jonleighton/spring
   gem "spring"
 
-  gem 'rails-controller-testing'
-
-  # Maneja datos de prueba
-  #gem "factory_girl_rails", group: [:development, :test]
+  #gem 'rails-controller-testing'
 
   # https://www.relishapp.com/womply/rails-style-guide/docs/developing-rails-applications/bundler
   # Lanza programas para examinar resultados
   gem "launchy"
 
-
-
-
-  # Envia resultados de pruebas desde travis a codeclimate
-  gem 'simplecov'
-
-  gem 'selenium-webdriver'
   gem "connection_pool"
   gem "minitest-reporters"
-  gem 'minitest-rails-capybara'
+  #gem "mocha"
+  gem "minitest-rails-capybara"
+  #gem "capybara"
   gem "poltergeist"
 
+  gem 'simplecov'
+
+  # Para examinar errores, usar "rescue rspec" en lugar de "rspec"
+  gem 'pry-rescue'
   gem 'pry-stack_explorer'
 end
 
