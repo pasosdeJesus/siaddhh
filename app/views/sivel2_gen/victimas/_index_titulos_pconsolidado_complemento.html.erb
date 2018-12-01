@@ -1,0 +1,10 @@
+<!-- Ya viene un <td> abierto de index.html -->
+<% total = ::Tipoamenaza.count %>
+<% i = 0 %>
+<% ::Tipoamenaza.all.order(:id).each do |t| %>
+  <th>
+    <%= t.nombre %>
+  </th>
+<% end %>
+<!-- El </td> final esta en index.html -->
+

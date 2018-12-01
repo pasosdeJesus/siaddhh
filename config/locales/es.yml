@@ -21,8 +21,15 @@ es:
       "sivel2_gen/organizacion":
         Organizacion: Organización social
         Organizaciones: Organizaciones sociales
+      "sivel2_gen/profesion":
+        Profesion: Perfil de liderazgo
+        Profesiones: Perfil de liderazgo
       "sivel2_gen/victima":
+        id_profesion: Perfil de liderazgo
         otraorganizacion: Otra organización
+        profesion: Perfil de liderazgo
+        tipoamenaza: Tipo de amenaza
+        tipoamenaza_id: Tipo de amenaza
         vinculoestado: Perfil en entidad estatal o gobierno
       "sivel2_gen/vinculoestado":
         Vinculoestado: Perfil en entidad estatal o gobierno

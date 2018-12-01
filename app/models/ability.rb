@@ -31,6 +31,41 @@ class Ability  < Sivel2Gen::Ability
       BASICAS_PROPIAS
   end
 
+  def campos_plantillas
+      n = Heb412Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.
+        clone.merge(Sivel2Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone)
+      c= n['Victima'][:campos] 
+      if c.index(:profesion)
+        c[c.index(:profesion)] = :perfilliderazgo
+      end
+      c+=
+      [ :colectivohumano,
+        :tamenaza1, 
+        :tamenaza2, 
+        :tamenaza3, 
+        :tamenaza4, 
+        :tamenaza5, 
+        :tamenaza6, 
+        :tamenaza7, 
+        :tamenaza8, 
+        :tamenaza9, 
+        :tamenaza10, 
+        :tamenaza11, 
+        :tamenaza12, 
+        :tamenaza13, 
+        :tamenaza14, 
+        :tamenaza15, 
+        :tamenaza16, 
+        :tamenaza17, 
+        :tamenaza18, 
+        :tamenaza19, 
+        :tamenaza20, 
+        :tamenaza21]
+
+      n['Victima'][:campos] = c
+      return n
+    end
+
   # Establece autorizaciones con CanCanCan
   def initialize(usuario = nil)
     # Sin autenticación puede consultarse información geográfica 

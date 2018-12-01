@@ -1,0 +1,9 @@
+<% ids1 = ::Tipoamenaza.habilitados.pluck(:id) %>
+<% ids2 = f.object.tipoamenaza.nil? ? [] : [f.object.tipoamenaza.id] %>
+<% col  = ::Tipoamenaza.where(id: ids1 | ids2) %>
+<%= f.association :tipoamenaza,
+  collection: col,
+  label_method: :presenta_nombre,
+  value_method: :id,
+  include_blank: true %>
+

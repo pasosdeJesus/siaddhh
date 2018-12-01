@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 3ad26457bba16fd7d77ef22bcf856b310d834e83
+  revision: 6a24e684913443f90aff52887a333b0b9b52c686
   specs:
     heb412_gen (1.0.a1)
       chosen-rails
@@ -10,23 +10,8 @@ GIT
       sip
 
 GIT
-  remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 7bf11bab71e64ad197fa9db970549b3da5f7e6a8
-  specs:
-    sivel2_gen (2.0b8)
-      devise
-      jquery-rails
-      rails
-
-GIT
-  remote: https://github.com/vtamara/cocoon.git
-  revision: 9d29a8abcc5b6ed9aefcad85ca54dd1364262583
-  branch: new_id_with_ajax
-  specs:
-    cocoon (1.2.11)
-
-PATH
-  remote: ../sip
+  remote: https://github.com/pasosdeJesus/sip.git
+  revision: 643a8bc184d92b2ae228edd4d0cea7518090f224
   specs:
     sip (2.0.b5)
       bootstrap-datepicker-rails
@@ -45,6 +30,22 @@ PATH
       twitter-bootstrap-rails
       twitter_cldr
       will_paginate
+
+GIT
+  remote: https://github.com/pasosdeJesus/sivel2_gen.git
+  revision: 8cb9559e1de9b52b19e4679c4e82c080d0d17895
+  specs:
+    sivel2_gen (2.0b8)
+      devise
+      jquery-rails
+      rails
+
+GIT
+  remote: https://github.com/vtamara/cocoon.git
+  revision: 9d29a8abcc5b6ed9aefcad85ca54dd1364262583
+  branch: new_id_with_ajax
+  specs:
+    cocoon (1.2.11)
 
 GEM
   remote: https://rubygems.org/
@@ -104,7 +105,6 @@ GEM
     bootstrap-datepicker-rails (1.8.0.1)
       railties (>= 3.0)
     builder (3.2.3)
-    byebug (10.0.2)
     camertron-eprun (1.1.1)
     cancancan (2.3.0)
     capybara (2.18.0)
@@ -372,7 +372,6 @@ DEPENDENCIES
   bcrypt
   bootsnap (>= 1.1.0)
   bootstrap-datepicker-rails
-  byebug
   cancancan
   chosen-rails
   cocoon!
@@ -403,6 +402,7 @@ DEPENDENCIES
   rails (~> 5.2.1)
   rails-i18n
   rails_12factor
+  redcarpet
   rspreadsheet
   sass
   simple_form

@@ -15,6 +15,8 @@ gem "odf-report"
 # Postgresql
 gem "pg"#, '~> 0.21'
 
+gem 'redcarpet'
+
 gem 'puma'
 
 # CSS
@@ -79,8 +81,8 @@ gem "paperclip"
 gem "tzinfo"
 
 # Motor de SIVeL 2
-#gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
-gem 'sip', path: '../sip'
+gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
+#gem 'sip', path: '../sip'
 
 # Motor heb412_gen para manejar archivos como nube y plantillas
 gem 'heb412_gen', git: 'https://github.com/pasosdeJesus/heb412_gen.git'
@@ -104,7 +106,7 @@ end
 
 group :development, :test do
   # Depurar
-  gem 'byebug'
+  #gem 'byebug'
 end
 
 group :test do

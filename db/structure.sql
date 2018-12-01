@@ -284,6 +284,7 @@ CREATE TABLE public.sivel2_gen_victima (
     updated_at timestamp without time zone,
     id integer DEFAULT nextval('public.victima_seq'::regclass) NOT NULL,
     otraorganizacion character varying(500),
+    tipoamenaza_id integer,
     CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100)))),
     CONSTRAINT victima_orientacionsexual_check CHECK (((orientacionsexual = 'L'::bpchar) OR (orientacionsexual = 'G'::bpchar) OR (orientacionsexual = 'B'::bpchar) OR (orientacionsexual = 'T'::bpchar) OR (orientacionsexual = 'H'::bpchar) OR (orientacionsexual = 'S'::bpchar)))
 );
@@ -3947,6 +3948,14 @@ ALTER TABLE ONLY public.sip_grupo_usuario
 
 
 --
+-- Name: sivel2_gen_victima fk_rails_931335f8fe; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_gen_victima
+    ADD CONSTRAINT fk_rails_931335f8fe FOREIGN KEY (tipoamenaza_id) REFERENCES public.tipoamenaza(id);
+
+
+--
 -- Name: sivel2_gen_combatiente fk_rails_95f4a0b8f6; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4585,6 +4594,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181018003945'),
 ('20181018030610'),
 ('20181130112320'),
-('20181130164947');
+('20181130164947'),
+('20181130221749');
 
 

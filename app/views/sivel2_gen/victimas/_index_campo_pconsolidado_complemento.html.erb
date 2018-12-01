@@ -1,0 +1,16 @@
+<!-- Ya viene un <td> abierto de index_campo_pconsolidado.html -->
+</td>
+<% total = ::Tipoamenaza.count %>
+<% i = 0 %>
+<% ::Tipoamenaza.all.order(:id).each do |t| %>
+  <td>
+    <% if registro.tipoamenaza && registro.tipoamenaza.id == t.id %>
+      1
+    <% end %>
+    <% i += 1 %>
+  <% if i < total %>
+    </td>
+  <% end %>
+<% end %>
+<!-- El </td> final esta en index.html -->
+
