@@ -45,13 +45,16 @@ module Sivel2Gen
     end
 
     def caso_params
-      # Añadimos actorsocial
+      # Añadimos actorsocial en victima colectiva
       lp = lista_params
       hlp = lp[lp.length - 1] # Los primeros son escalares, el ultimo hash
       vc = hlp[:victimacolectiva_attributes]
       hvc = vc[vc.length - 1]
       hvc[:actorsocial_attributes] = [:id, :grupoper_id, :fechafundacion]
-      v = hlp[:victima_attributes] = [:otraorganizacion] + hlp[:victima_attributes]
+      # Añadimos otraorg y tipoamenza en victima
+      v = hlp[:victima_attributes] = [:otraorganizacion, :tipoamenaza_id] + 
+        hlp[:victima_attributes]
+      # Añadimos actor social en persona
       hv = v[v.length - 1]
       p = hv[:persona_attributes]
       p << { actorsocial_persona_attributes: 
