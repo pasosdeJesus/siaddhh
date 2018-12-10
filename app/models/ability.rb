@@ -16,7 +16,6 @@ class Ability  < Sivel2Gen::Ability
   def tablasbasicas 
     Sip::Ability::BASICAS_PROPIAS + 
       Sivel2Gen::Ability::BASICAS_PROPIAS - [
-        ['Sip', 'etiqueta'],
         ['Sip', 'grupo'],
         ['Sip', 'oficina'],
         ['Sip', 'sectoractor'],
