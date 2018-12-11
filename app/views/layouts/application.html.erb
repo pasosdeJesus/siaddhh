@@ -23,6 +23,7 @@
   <%= menu_group :pull => :right do %>
     <% if !current_usuario.nil? %>
       <%= drop_down "Documentos" do %>
+        <%= menu_item "Manual", 'http://bit.ly/2L7diYC' %>
         <%= menu_item "Nube", heb412_gen.sisini_path %>
         <% if can? :manage, ::Heb412Gen::Plantillahcm %>
           <%= menu_item "Plantillas para listado en hojas de calculo",
@@ -54,6 +55,7 @@
         <% if can? :manage, Sip::Respaldo7z %>
           <%= menu_item "Respaldo cifrado", sip.respaldo7z_path %>
         <% end %>
+        <%= menu_item "Ayuda Control de Acceso", sip.ayuda_controldeacceso_path %> 
       <% end %>
       <%= menu_item "Salir #{current_usuario.nusuario}", main_app.sign_out_path %>
     <% else %>
