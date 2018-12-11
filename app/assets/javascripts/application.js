@@ -10,24 +10,20 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require sivel2_gen/application
+//= require sip/motor
 //= require heb412_gen/motor
+//= require sivel2_gen/motor
 //= require_tree .
 
 $(document).on('turbolinks:load ready page:load', function() {
 	var root;
   	root = typeof exports !== "undefined" && exports !== null ? 
 	  exports : window;
-	sip_prepara_eventos_comunes(root);
+	sip_prepara_eventos_comunes(root, false, false);
 	heb412_gen_prepara_eventos_comunes(root);
 	sivel2_gen_prepara_eventos_comunes(root);
 	sivel2sd_prepara_eventos_unicos(root);
       
-	//root.formato_fecha = 'dd/M/yyyy'
-	//if ($('meta[name=formato_fecha]').size() != 0 &&
-        //  $('meta[name=formato_fecha]').attr('content').length > 0) {
-//		root.formato_fecha = $('meta[name=formato_fecha]').attr('content')
-//	}
 	$('[data-behaviour~=datepicker]').datepicker({
 		format: root.formato_fecha,
 		autoclose: true,
