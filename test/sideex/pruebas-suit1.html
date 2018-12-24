@@ -598,38 +598,6 @@
 </tbody></table>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">tabla-profesiones</td></tr>
-</thead>
-<tbody>
-<tr><td>open</td><td>/somosdefensores/sivel2/<datalist><option>https://defensor.info:4001/somosdefensores/sivel2/</option><option>/somosdefensores/sivel2/</option></datalist></td><td></td>
-</tr>
-<tr><td>clickAt</td><td>link=Administrar<datalist><option>link=Administrar</option><option>//a[contains(text(),'Administrar')]</option><option>xpath=(//a[contains(@href, '#')])[3]</option><option>//ul[2]/li[2]/a</option></datalist></td><td>38,14</td>
-</tr>
-<tr><td>clickAt</td><td>link=Tablas Básicas<datalist><option>link=Tablas Básicas</option><option>//a[contains(text(),'Tablas Básicas')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/tablasbasicas')]</option><option>//li[2]/ul/li[5]/a</option></datalist></td><td>106,12</td>
-</tr>
-<tr><td>clickAt</td><td>link=Profesiones<datalist><option>link=Profesiones</option><option>//a[contains(text(),'Profesiones')]</option><option>//a[contains(@href, 'admin/profesiones')]</option><option>//li[17]/a</option></datalist></td><td>61,8</td>
-</tr>
-<tr><td>clickAt</td><td>link=Nueva<datalist><option>link=Nueva</option><option>css=a.btn.btn-primary</option><option>//a[contains(text(),'Nueva')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/admin/profesiones/nueva')]</option><option>//div[2]/div/a</option></datalist></td><td>31,10</td>
-</tr>
-<tr><td>clickAt</td><td>id=profesion_nombre<datalist><option>id=profesion_nombre</option><option>name=profesion[nombre]</option><option>css=#profesion_nombre</option><option>//input[@id='profesion_nombre']</option><option>//form[@id='new_profesion']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>96,23</td>
-</tr>
-<tr><td>type</td><td>id=profesion_nombre<datalist><option>id=profesion_nombre</option><option>name=profesion[nombre]</option><option>css=#profesion_nombre</option><option>//input[@id='profesion_nombre']</option><option>//form[@id='new_profesion']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>aaa</td>
-</tr>
-<tr><td>clickAt</td><td>id=profesion_observaciones<datalist><option>id=profesion_observaciones</option><option>name=profesion[observaciones]</option><option>css=#profesion_observaciones</option><option>//textarea[@id='profesion_observaciones']</option><option>//form[@id='new_profesion']/div[3]/textarea</option><option>//textarea</option></datalist></td><td>89,7</td>
-</tr>
-<tr><td>type</td><td>id=profesion_observaciones<datalist><option>id=profesion_observaciones</option><option>name=profesion[observaciones]</option><option>css=#profesion_observaciones</option><option>//textarea[@id='profesion_observaciones']</option><option>//form[@id='new_profesion']/div[3]/textarea</option><option>//textarea</option></datalist></td><td>bbb</td>
-</tr>
-<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='new_profesion']/div[6]/input</option><option>//div[6]/input</option></datalist></td><td>42,26</td>
-</tr>
-<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
-</tr>
-<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/admin/profesiones/101')])[2]</option><option>//a[3]</option></datalist></td><td>36,17</td>
-</tr>
-<tr><td>assertText</td><td>css=h1<datalist><option>link=SIADDHH2.0b6</option><option>css=a.navbar-brand</option><option>//a[contains(text(),'SIADDHH2.0b6')]</option><option>//a[@href='http://defensor.info:4001/somosdefensores/sivel2/']</option><option>//a</option><option>css=h1</option></datalist></td><td>Profesiones</td>
-</tr>
-</tbody></table>
-<table cellpadding="1" cellspacing="1" border="1">
-<thead>
 <tr><td rowspan="1" colspan="3">tabla-rango-de-edad</td></tr>
 </thead>
 <tbody>
@@ -715,13 +683,17 @@
 </tr>
 <tr><td>clickAt</td><td>link=Tablas Básicas<datalist><option>link=Tablas Básicas</option><option>//a[contains(text(),'Tablas Básicas')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/tablasbasicas')]</option><option>//li[5]/a</option></datalist></td><td>42,12</td>
 </tr>
+<tr><td>pause</td><td><datalist><option></option></datalist></td><td>500</td>
+</tr>
 <tr><td>clickAt</td><td>link=Rótulos para el listado de víctimas y casos<datalist><option>link=Rótulos para el listado de víctimas y casos</option><option>//a[contains(text(),'Rótulos para el listado de víctimas y casos')]</option><option>//a[contains(@href, 'admin/pconsolidados')]</option><option>//li[20]/a</option></datalist></td><td>126,8</td>
 </tr>
 <tr><td>clickAt</td><td>link=Nueva<datalist><option>link=Nueva</option><option>css=a.btn.btn-primary</option><option>//a[contains(text(),'Nueva')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/admin/pconsolidados/nueva')]</option><option>//div[2]/div/a</option></datalist></td><td>26,27</td>
 </tr>
-<tr><td>clickAt</td><td>id=pconsolidado_rotulo<datalist><option>id=pconsolidado_rotulo</option><option>name=pconsolidado[rotulo]</option><option>css=#pconsolidado_rotulo</option><option>//input[@id='pconsolidado_rotulo']</option><option>//form[@id='new_pconsolidado']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>201,12</td>
+<tr><td>pause</td><td><datalist><option></option></datalist></td><td>500</td>
 </tr>
-<tr><td>type</td><td>id=pconsolidado_rotulo<datalist><option>id=pconsolidado_rotulo</option><option>name=pconsolidado[rotulo]</option><option>css=#pconsolidado_rotulo</option><option>//input[@id='pconsolidado_rotulo']</option><option>//form[@id='new_pconsolidado']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>aaa</td>
+<tr><td>clickAt</td><td>id=pconsolidado_nombre<datalist><option>id=pconsolidado_nombre</option><option>name=pconsolidado[nombre]</option><option>css=#pconsolidado_nombre</option><option>//input[@id='pconsolidado_nombre']</option><option>//form[@id='new_pconsolidado']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>65,10</td>
+</tr>
+<tr><td>type</td><td>id=pconsolidado_nombre<datalist><option>id=pconsolidado_nombre</option><option>name=pconsolidado[nombre]</option><option>css=#pconsolidado_nombre</option><option>//input[@id='pconsolidado_nombre']</option><option>//form[@id='new_pconsolidado']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>aaa</td>
 </tr>
 <tr><td>clickAt</td><td>id=pconsolidado_tipoviolencia<datalist><option>id=pconsolidado_tipoviolencia</option><option>name=pconsolidado[tipoviolencia]</option><option>css=#pconsolidado_tipoviolencia</option><option>//input[@id='pconsolidado_tipoviolencia']</option><option>//form[@id='new_pconsolidado']/div[3]/input</option><option>//div[3]/input</option></datalist></td><td>74,18</td>
 </tr>
@@ -737,13 +709,23 @@
 </tr>
 <tr><td>clickAt</td><td>id=pconsolidado_peso<datalist><option>id=pconsolidado_peso</option><option>name=pconsolidado[peso]</option><option>css=#pconsolidado_peso</option><option>//input[@id='pconsolidado_peso']</option><option>//form[@id='new_pconsolidado']/div[5]/input</option><option>//div[5]/input</option></datalist></td><td>31,16</td>
 </tr>
-<tr><td>type</td><td>id=pconsolidado_peso<datalist><option>id=pconsolidado_peso</option><option>name=pconsolidado[peso]</option><option>css=#pconsolidado_peso</option><option>//input[@id='pconsolidado_peso']</option><option>//form[@id='new_pconsolidado']/div[5]/input</option><option>//div[5]/input</option></datalist></td><td>40</td>
+<tr><td>clickAt</td><td>id=pconsolidado_observaciones<datalist><option>id=pconsolidado_observaciones</option><option>name=pconsolidado[observaciones]</option><option>css=#pconsolidado_observaciones</option><option>//input[@id='pconsolidado_observaciones']</option><option>//form[@id='new_pconsolidado']/div[6]/input</option><option>//div[6]/input</option></datalist></td><td>20,18</td>
 </tr>
-<tr><td>clickAt</td><td>id=pconsolidado_categoria_ids<datalist><option>id=pconsolidado_categoria_ids</option><option>name=pconsolidado[categoria_ids]</option><option>css=#pconsolidado_categoria_ids</option><option>//input[@id='pconsolidado_categoria_ids']</option><option>//form[@id='new_pconsolidado']/div[6]/input</option><option>//div[6]/input</option></datalist></td><td>47,7</td>
+<tr><td>type</td><td>id=pconsolidado_observaciones<datalist><option>id=pconsolidado_observaciones</option><option>name=pconsolidado[observaciones]</option><option>css=#pconsolidado_observaciones</option><option>//input[@id='pconsolidado_observaciones']</option><option>//form[@id='new_pconsolidado']/div[6]/input</option><option>//div[6]/input</option></datalist></td><td>bbb</td>
 </tr>
-<tr><td>type</td><td>id=pconsolidado_categoria_ids<datalist><option>id=pconsolidado_categoria_ids</option><option>name=pconsolidado[categoria_ids]</option><option>css=#pconsolidado_categoria_ids</option><option>//input[@id='pconsolidado_categoria_ids']</option><option>//form[@id='new_pconsolidado']/div[6]/input</option><option>//div[6]/input</option></datalist></td><td>vvvvvvv</td>
+<tr><td>clickAt</td><td>css=ul.chosen-choices<datalist><option>css=ul.chosen-choices</option><option>//div[@id='pconsolidado_categoria_ids_chosen']/ul</option><option>//div[7]/div/ul</option></datalist></td><td>35,28</td>
 </tr>
-<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='new_pconsolidado']/div[9]/input</option><option>//div[9]/input</option></datalist></td><td>38,8</td>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='new_pconsolidado']/div[10]/input</option><option>//div[10]/input</option></datalist></td><td>42,21</td>
+</tr>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/admin/pconsolidados/104/edita')]</option><option>//a[2]</option></datalist></td><td>31,24</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_pconsolidado_104']/div[10]/input</option><option>//div[10]/input</option></datalist></td><td>51,14</td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/admin/pconsolidados/104')])[2]</option><option>//div[4]/a</option></datalist></td><td>18,21</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Rótulos para el listado de víctimas y casos</td>
 </tr>
 </tbody></table>
 <table cellpadding="1" cellspacing="1" border="1">

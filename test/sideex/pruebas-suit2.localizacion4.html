@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+	<title>pruebas-suit2.localizacion4</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-localizacion-pais</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://defensor.info:4001/somosdefensores/sivel2/<datalist><option>https://defensor.info:4001/somosdefensores/sivel2/</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Casos<datalist><option>link=Casos</option><option>css=a.dropdown-toggle</option><option>//a[contains(text(),'Casos')]</option><option>//a[contains(@href, '#')]</option><option>//li/a</option></datalist></td><td>21,17</td>
+</tr>
+<tr><td>clickAt</td><td>link=Nuevo Caso<datalist><option>link=Nuevo Caso</option><option>//a[contains(text(),'Nuevo Caso')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/nuevo')]</option><option>//li/ul/li[2]/a</option></datalist></td><td>26,9</td>
+</tr>
+<tr><td>clickAt</td><td>link=Localización<datalist><option>link=Localización</option><option>//a[contains(text(),'Localización')]</option><option>//form[@id='edit_caso_129699']/div/div[2]/ul/li[4]/a</option><option>//a[contains(@href, '#ubicacion')]</option><option>//div[2]/ul/li[4]/a</option></datalist></td><td>20,19</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir Ubicación<datalist><option>link=Añadir Ubicación</option><option>css=a.btn-primary.add_fields</option><option>//a[contains(text(),'Añadir Ubicación')]</option><option>//div[@id='ubicacion']/div/a</option><option>xpath=(//a[contains(@href, '#')])[17]</option><option>//div[2]/div/a</option></datalist></td><td>75,2</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div/div[2]/div/div/div/div/div/select<datalist><option>id=caso_ubicacion_attributes_104671_id_pais</option><option>name=caso[ubicacion_attributes][104671][id_pais]</option><option>css=#caso_ubicacion_attributes_104671_id_pais</option><option>//select[@id='caso_ubicacion_attributes_104671_id_pais']</option><option>//div[@id='ubicacion']/div/div/div/div/div/select</option><option>//div[2]/div/div[2]/div/div/div/div/div/select</option></datalist></td><td>label=ALBANIA</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/div[2]/div/div/div/div/div/select<datalist><option>id=caso_ubicacion_attributes_104671_id_pais</option><option>name=caso[ubicacion_attributes][104671][id_pais]</option><option>css=#caso_ubicacion_attributes_104671_id_pais</option><option>//select[@id='caso_ubicacion_attributes_104671_id_pais']</option><option>//div[@id='ubicacion']/div/div/div/div/div/select</option><option>//div[2]/div/div[2]/div/div/div/div/div/select</option></datalist></td><td>-83,-213</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129699']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>74,22</td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/casos/129699')])[2]</option><option>//a[3]</option></datalist></td><td>36,9</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Casos</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-localizacion-departamento</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://defensor.info:4001/somosdefensores/sivel2<datalist><option>https://defensor.info:4001/somosdefensores/sivel2</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Casos<datalist><option>link=Casos</option><option>css=a.dropdown-toggle</option><option>//a[contains(text(),'Casos')]</option><option>//a[contains(@href, '#')]</option><option>//li/a</option></datalist></td><td>46,21</td>
+</tr>
+<tr><td>clickAt</td><td>link=Nuevo Caso<datalist><option>link=Nuevo Caso</option><option>//a[contains(text(),'Nuevo Caso')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/nuevo')]</option><option>//li/ul/li[2]/a</option></datalist></td><td>44,15</td>
+</tr>
+<tr><td>clickAt</td><td>link=Víctimas Individuales<datalist><option>link=Víctimas Individuales</option><option>//a[contains(text(),'Víctimas Individuales')]</option><option>//form[@id='edit_caso_129701']/div/div[2]/ul/li[3]/a</option><option>xpath=(//a[contains(@href, '#victima')])[2]</option><option>//form/div/div[2]/ul/li[3]/a</option></datalist></td><td>61,28</td>
+</tr>
+<tr><td>clickAt</td><td>link=Localización<datalist><option>link=Localización</option><option>//a[contains(text(),'Localización')]</option><option>//form[@id='edit_caso_129701']/div/div[2]/ul/li[4]/a</option><option>//a[contains(@href, '#ubicacion')]</option><option>//div[2]/ul/li[4]/a</option></datalist></td><td>44,9</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir Ubicación<datalist><option>link=Añadir Ubicación</option><option>css=a.btn-primary.add_fields</option><option>//a[contains(text(),'Añadir Ubicación')]</option><option>//div[@id='ubicacion']/div/a</option><option>xpath=(//a[contains(@href, '#')])[17]</option><option>//div[2]/div/a</option></datalist></td><td>76,5</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div/div[2]/div/div/div/div/div/select<datalist><option>id=caso_ubicacion_attributes_104673_id_pais</option><option>name=caso[ubicacion_attributes][104673][id_pais]</option><option>css=#caso_ubicacion_attributes_104673_id_pais</option><option>//select[@id='caso_ubicacion_attributes_104673_id_pais']</option><option>//div[@id='ubicacion']/div/div/div/div/div/select</option><option>//div[2]/div/div[2]/div/div/div/div/div/select</option></datalist></td><td>label=COLOMBIA</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/div[2]/div/div/div/div/div/select<datalist><option>id=caso_ubicacion_attributes_104673_id_pais</option><option>name=caso[ubicacion_attributes][104673][id_pais]</option><option>css=#caso_ubicacion_attributes_104673_id_pais</option><option>//select[@id='caso_ubicacion_attributes_104673_id_pais']</option><option>//div[@id='ubicacion']/div/div/div/div/div/select</option><option>//div[2]/div/div[2]/div/div/div/div/div/select</option></datalist></td><td>71,13</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104673_id_departamento</option><option>name=caso[ubicacion_attributes][104673][id_departamento]</option><option>css=#caso_ubicacion_attributes_104673_id_departamento</option><option>//select[@id='caso_ubicacion_attributes_104673_id_departamento']</option><option>//div[@id='ubicacion']/div/div/div/div[2]/div/select</option><option>//div[2]/div/select</option></datalist></td><td>label=BOYACÁ</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104673_id_departamento</option><option>name=caso[ubicacion_attributes][104673][id_departamento]</option><option>css=#caso_ubicacion_attributes_104673_id_departamento</option><option>//select[@id='caso_ubicacion_attributes_104673_id_departamento']</option><option>//div[@id='ubicacion']/div/div/div/div[2]/div/select</option><option>//div[2]/div/select</option></datalist></td><td>-668,-213</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129701']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>47,22</td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/casos/129701')])[2]</option><option>//a[3]</option></datalist></td><td>18,15</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Casos</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-localizacion-municipio</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://defensor.info:4001/somosdefensores/sivel2/<datalist><option>https://defensor.info:4001/somosdefensores/sivel2/</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Casos<datalist><option>link=Casos</option><option>css=a.dropdown-toggle</option><option>//a[contains(text(),'Casos')]</option><option>//a[contains(@href, '#')]</option><option>//li/a</option></datalist></td><td>38,26</td>
+</tr>
+<tr><td>clickAt</td><td>link=Nuevo Caso<datalist><option>link=Nuevo Caso</option><option>//a[contains(text(),'Nuevo Caso')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/nuevo')]</option><option>//li/ul/li[2]/a</option></datalist></td><td>60,13</td>
+</tr>
+<tr><td>clickAt</td><td>link=Localización<datalist><option>link=Localización</option><option>//a[contains(text(),'Localización')]</option><option>//form[@id='edit_caso_129704']/div/div[2]/ul/li[4]/a</option><option>//a[contains(@href, '#ubicacion')]</option><option>//div[2]/ul/li[4]/a</option></datalist></td><td>44,18</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir Ubicación<datalist><option>link=Añadir Ubicación</option><option>css=a.btn-primary.add_fields</option><option>//a[contains(text(),'Añadir Ubicación')]</option><option>//div[@id='ubicacion']/div/a</option><option>xpath=(//a[contains(@href, '#')])[17]</option><option>//div[2]/div/a</option></datalist></td><td>68,0</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div/div[2]/div/div/div/div/div/select<datalist><option>id=caso_ubicacion_attributes_104676_id_pais</option><option>name=caso[ubicacion_attributes][104676][id_pais]</option><option>css=#caso_ubicacion_attributes_104676_id_pais</option><option>//select[@id='caso_ubicacion_attributes_104676_id_pais']</option><option>//div[@id='ubicacion']/div/div/div/div/div/select</option><option>//div[2]/div/div[2]/div/div/div/div/div/select</option></datalist></td><td>label=COLOMBIA</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104679_id_departamento</option><option>name=caso[ubicacion_attributes][104679][id_departamento]</option><option>css=#caso_ubicacion_attributes_104679_id_departamento</option><option>//select[@id='caso_ubicacion_attributes_104679_id_departamento']</option><option>//div[@id='ubicacion']/div/div/div/div[2]/div/select</option><option>//div[2]/div/select</option></datalist></td><td>-668,-213</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104679_id_departamento</option><option>name=caso[ubicacion_attributes][104679][id_departamento]</option><option>css=#caso_ubicacion_attributes_104679_id_departamento</option><option>//select[@id='caso_ubicacion_attributes_104679_id_departamento']</option><option>//div[@id='ubicacion']/div/div/div/div[2]/div/select</option><option>//div[2]/div/select</option></datalist></td><td>label=BOLIVAR</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/div/select<datalist><option>id=caso_ubicacion_attributes_104679_id_municipio</option><option>name=caso[ubicacion_attributes][104679][id_municipio]</option><option>css=#caso_ubicacion_attributes_104679_id_municipio</option><option>//select[@id='caso_ubicacion_attributes_104679_id_municipio']</option><option>//div[@id='ubicacion']/div/div/div[2]/div/div/select</option><option>//div[2]/div/div/select</option></datalist></td><td>-83,-278</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div/div/select<datalist><option>id=caso_ubicacion_attributes_104679_id_municipio</option><option>name=caso[ubicacion_attributes][104679][id_municipio]</option><option>css=#caso_ubicacion_attributes_104679_id_municipio</option><option>//select[@id='caso_ubicacion_attributes_104679_id_municipio']</option><option>//div[@id='ubicacion']/div/div/div[2]/div/div/select</option><option>//div[2]/div/div/select</option></datalist></td><td>label=MAGANGUÉ</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129704']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>59,21</td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/casos/129704')])[2]</option><option>//a[3]</option></datalist></td><td>22,20</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Casos</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-localizacion-centro-poblado</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://defensor.info:4001/somosdefensores/sivel2/<datalist><option>https://defensor.info:4001/somosdefensores/sivel2/</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Casos<datalist><option>link=Casos</option><option>css=a.dropdown-toggle</option><option>//a[contains(text(),'Casos')]</option><option>//a[contains(@href, '#')]</option><option>//li/a</option></datalist></td><td>25,19</td>
+</tr>
+<tr><td>clickAt</td><td>link=Nuevo Caso<datalist><option>link=Nuevo Caso</option><option>//a[contains(text(),'Nuevo Caso')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/nuevo')]</option><option>//li/ul/li[2]/a</option></datalist></td><td>56,20</td>
+</tr>
+<tr><td>clickAt</td><td>link=Localización<datalist><option>link=Localización</option><option>//a[contains(text(),'Localización')]</option><option>//form[@id='edit_caso_129711']/div/div[2]/ul/li[4]/a</option><option>//a[contains(@href, '#ubicacion')]</option><option>//div[2]/ul/li[4]/a</option></datalist></td><td>39,27</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir Ubicación<datalist><option>link=Añadir Ubicación</option><option>css=a.btn-primary.add_fields</option><option>//a[contains(text(),'Añadir Ubicación')]</option><option>//div[@id='ubicacion']/div/a</option><option>xpath=(//a[contains(@href, '#')])[17]</option><option>//div[2]/div/a</option></datalist></td><td>47,8</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div/div[2]/div/div/div/div/div/select<datalist><option>id=caso_ubicacion_attributes_104683_id_pais</option><option>name=caso[ubicacion_attributes][104683][id_pais]</option><option>css=#caso_ubicacion_attributes_104683_id_pais</option><option>//select[@id='caso_ubicacion_attributes_104683_id_pais']</option><option>//div[@id='ubicacion']/div/div/div/div/div/select</option><option>//div[2]/div/div[2]/div/div/div/div/div/select</option></datalist></td><td>label=COLOMBIA</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/div[2]/div/div/div/div/div/select<datalist><option>id=caso_ubicacion_attributes_104683_id_pais</option><option>name=caso[ubicacion_attributes][104683][id_pais]</option><option>css=#caso_ubicacion_attributes_104683_id_pais</option><option>//select[@id='caso_ubicacion_attributes_104683_id_pais']</option><option>//div[@id='ubicacion']/div/div/div/div/div/select</option><option>//div[2]/div/div[2]/div/div/div/div/div/select</option></datalist></td><td>194,15</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104694_id_departamento</option><option>name=caso[ubicacion_attributes][104694][id_departamento]</option><option>css=#caso_ubicacion_attributes_104694_id_departamento</option><option>//select[@id='caso_ubicacion_attributes_104694_id_departamento']</option><option>//div[@id='ubicacion']/div/div/div/div[2]/div/select</option><option>//div[2]/div/select</option></datalist></td><td>label=CASANARE</td>
+</tr>
+<tr><td>mouseDownAt</td><td>//div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104694_id_departamento</option><option>name=caso[ubicacion_attributes][104694][id_departamento]</option><option>css=#caso_ubicacion_attributes_104694_id_departamento</option><option>//select[@id='caso_ubicacion_attributes_104694_id_departamento']</option><option>//div[@id='ubicacion']/div/div/div/div[2]/div/select</option><option>//div[2]/div/select</option></datalist></td><td>-667.5,-213</td>
+</tr>
+<tr><td>mouseMoveAt</td><td>//div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104694_id_departamento</option><option>name=caso[ubicacion_attributes][104694][id_departamento]</option><option>css=#caso_ubicacion_attributes_104694_id_departamento</option><option>//select[@id='caso_ubicacion_attributes_104694_id_departamento']</option><option>//div[@id='ubicacion']/div/div/div/div[2]/div/select</option><option>//div[2]/div/select</option></datalist></td><td>-667.5,-213</td>
+</tr>
+<tr><td>mouseUpAt</td><td>//div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104694_id_departamento</option><option>name=caso[ubicacion_attributes][104694][id_departamento]</option><option>css=#caso_ubicacion_attributes_104694_id_departamento</option><option>//select[@id='caso_ubicacion_attributes_104694_id_departamento']</option><option>//div[@id='ubicacion']/div/div/div/div[2]/div/select</option><option>//div[2]/div/select</option></datalist></td><td>-667.5,-213</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104694_id_departamento</option><option>name=caso[ubicacion_attributes][104694][id_departamento]</option><option>css=#caso_ubicacion_attributes_104694_id_departamento</option><option>//select[@id='caso_ubicacion_attributes_104694_id_departamento']</option><option>//div[@id='ubicacion']/div/div/div/div[2]/div/select</option><option>//div[2]/div/select</option></datalist></td><td>-668,-213</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div/div/select<datalist><option>id=caso_ubicacion_attributes_104694_id_municipio</option><option>name=caso[ubicacion_attributes][104694][id_municipio]</option><option>css=#caso_ubicacion_attributes_104694_id_municipio</option><option>//select[@id='caso_ubicacion_attributes_104694_id_municipio']</option><option>//div[@id='ubicacion']/div/div/div[2]/div/div/select</option><option>//div[2]/div/div/select</option></datalist></td><td>label=TAURAMENA</td>
+</tr>
+<tr><td>mouseDownAt</td><td>//div[2]/div/div/select<datalist><option>id=caso_ubicacion_attributes_104694_id_municipio</option><option>name=caso[ubicacion_attributes][104694][id_municipio]</option><option>css=#caso_ubicacion_attributes_104694_id_municipio</option><option>//select[@id='caso_ubicacion_attributes_104694_id_municipio']</option><option>//div[@id='ubicacion']/div/div/div[2]/div/div/select</option><option>//div[2]/div/div/select</option></datalist></td><td>-82.5,-278</td>
+</tr>
+<tr><td>mouseMoveAt</td><td>//div[2]/div/div/select<datalist><option>id=caso_ubicacion_attributes_104694_id_municipio</option><option>name=caso[ubicacion_attributes][104694][id_municipio]</option><option>css=#caso_ubicacion_attributes_104694_id_municipio</option><option>//select[@id='caso_ubicacion_attributes_104694_id_municipio']</option><option>//div[@id='ubicacion']/div/div/div[2]/div/div/select</option><option>//div[2]/div/div/select</option></datalist></td><td>-82.5,-278</td>
+</tr>
+<tr><td>mouseUpAt</td><td>//div[2]/div/div/select<datalist><option>id=caso_ubicacion_attributes_104694_id_municipio</option><option>name=caso[ubicacion_attributes][104694][id_municipio]</option><option>css=#caso_ubicacion_attributes_104694_id_municipio</option><option>//select[@id='caso_ubicacion_attributes_104694_id_municipio']</option><option>//div[@id='ubicacion']/div/div/div[2]/div/div/select</option><option>//div[2]/div/div/select</option></datalist></td><td>-82.5,-278</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/div/select<datalist><option>id=caso_ubicacion_attributes_104694_id_municipio</option><option>name=caso[ubicacion_attributes][104694][id_municipio]</option><option>css=#caso_ubicacion_attributes_104694_id_municipio</option><option>//select[@id='caso_ubicacion_attributes_104694_id_municipio']</option><option>//div[@id='ubicacion']/div/div/div[2]/div/div/select</option><option>//div[2]/div/div/select</option></datalist></td><td>-83,-278</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104694_id_clase</option><option>name=caso[ubicacion_attributes][104694][id_clase]</option><option>css=#caso_ubicacion_attributes_104694_id_clase</option><option>//select[@id='caso_ubicacion_attributes_104694_id_clase']</option><option>//div[@id='ubicacion']/div/div/div[2]/div[2]/div/select</option><option>//div[2]/div[2]/div/select</option></datalist></td><td>label=TAURAMENA</td>
+</tr>
+<tr><td>mouseDownAt</td><td>//div[2]/div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104694_id_clase</option><option>name=caso[ubicacion_attributes][104694][id_clase]</option><option>css=#caso_ubicacion_attributes_104694_id_clase</option><option>//select[@id='caso_ubicacion_attributes_104694_id_clase']</option><option>//div[@id='ubicacion']/div/div/div[2]/div[2]/div/select</option><option>//div[2]/div[2]/div/select</option></datalist></td><td>-667.5,-278</td>
+</tr>
+<tr><td>mouseMoveAt</td><td>//div[2]/div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104694_id_clase</option><option>name=caso[ubicacion_attributes][104694][id_clase]</option><option>css=#caso_ubicacion_attributes_104694_id_clase</option><option>//select[@id='caso_ubicacion_attributes_104694_id_clase']</option><option>//div[@id='ubicacion']/div/div/div[2]/div[2]/div/select</option><option>//div[2]/div[2]/div/select</option></datalist></td><td>-667.5,-278</td>
+</tr>
+<tr><td>mouseUpAt</td><td>//div[2]/div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104694_id_clase</option><option>name=caso[ubicacion_attributes][104694][id_clase]</option><option>css=#caso_ubicacion_attributes_104694_id_clase</option><option>//select[@id='caso_ubicacion_attributes_104694_id_clase']</option><option>//div[@id='ubicacion']/div/div/div[2]/div[2]/div/select</option><option>//div[2]/div[2]/div/select</option></datalist></td><td>-667.5,-278</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104694_id_clase</option><option>name=caso[ubicacion_attributes][104694][id_clase]</option><option>css=#caso_ubicacion_attributes_104694_id_clase</option><option>//select[@id='caso_ubicacion_attributes_104694_id_clase']</option><option>//div[@id='ubicacion']/div/div/div[2]/div[2]/div/select</option><option>//div[2]/div[2]/div/select</option></datalist></td><td>-668,-278</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129722']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>42,22</td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/casos/129711')])[2]</option><option>//a[3]</option></datalist></td><td>31,12</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Casos</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-localizacion-lugar</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://defensor.info:4001/somosdefensores/sivel2/<datalist><option>https://defensor.info:4001/somosdefensores/sivel2/</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Casos<datalist><option>link=Casos</option><option>css=a.dropdown-toggle</option><option>//a[contains(text(),'Casos')]</option><option>//a[contains(@href, '#')]</option><option>//li/a</option></datalist></td><td>42,20</td>
+</tr>
+<tr><td>clickAt</td><td>link=Nuevo Caso<datalist><option>link=Nuevo Caso</option><option>//a[contains(text(),'Nuevo Caso')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/nuevo')]</option><option>//li/ul/li[2]/a</option></datalist></td><td>44,10</td>
+</tr>
+<tr><td>clickAt</td><td>link=Localización<datalist><option>link=Localización</option><option>//a[contains(text(),'Localización')]</option><option>//form[@id='edit_caso_129724']/div/div[2]/ul/li[4]/a</option><option>//a[contains(@href, '#ubicacion')]</option><option>//div[2]/ul/li[4]/a</option></datalist></td><td>56,30</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir Ubicación<datalist><option>link=Añadir Ubicación</option><option>css=a.btn-primary.add_fields</option><option>//a[contains(text(),'Añadir Ubicación')]</option><option>//div[@id='ubicacion']/div/a</option><option>xpath=(//a[contains(@href, '#')])[17]</option><option>//div[2]/div/a</option></datalist></td><td>51,8</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div/div[2]/div/div/div/div/div/select<datalist><option>id=caso_ubicacion_attributes_104698_id_pais</option><option>name=caso[ubicacion_attributes][104698][id_pais]</option><option>css=#caso_ubicacion_attributes_104698_id_pais</option><option>//select[@id='caso_ubicacion_attributes_104698_id_pais']</option><option>//div[@id='ubicacion']/div/div/div/div/div/select</option><option>//div[2]/div/div[2]/div/div/div/div/div/select</option></datalist></td><td>label=COLOMBIA</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/div[2]/div/div/div/div/div/select<datalist><option>id=caso_ubicacion_attributes_104698_id_pais</option><option>name=caso[ubicacion_attributes][104698][id_pais]</option><option>css=#caso_ubicacion_attributes_104698_id_pais</option><option>//select[@id='caso_ubicacion_attributes_104698_id_pais']</option><option>//div[@id='ubicacion']/div/div/div/div/div/select</option><option>//div[2]/div/div[2]/div/div/div/div/div/select</option></datalist></td><td>232,15</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/div[2]/div/div/div[3]/div/div/input<datalist><option>id=caso_ubicacion_attributes_104698_lugar</option><option>name=caso[ubicacion_attributes][104698][lugar]</option><option>css=#caso_ubicacion_attributes_104698_lugar</option><option>//input[@id='caso_ubicacion_attributes_104698_lugar']</option><option>//div[@id='ubicacion']/div/div/div[3]/div/div/input</option><option>//div[2]/div/div[2]/div/div/div[3]/div/div/input</option></datalist></td><td>166,12</td>
+</tr>
+<tr><td>type</td><td>//div[2]/div/div[2]/div/div/div[3]/div/div/input<datalist><option>id=caso_ubicacion_attributes_104698_lugar</option><option>name=caso[ubicacion_attributes][104698][lugar]</option><option>css=#caso_ubicacion_attributes_104698_lugar</option><option>//input[@id='caso_ubicacion_attributes_104698_lugar']</option><option>//div[@id='ubicacion']/div/div/div[3]/div/div/input</option><option>//div[2]/div/div[2]/div/div/div[3]/div/div/input</option></datalist></td><td>ddddd</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129726']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>73,14</td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/casos/129724')])[2]</option><option>//a[3]</option></datalist></td><td>38,23</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Casos</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-localizacion-sitio</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://defensor.info:4001/somosdefensores/sivel2/<datalist><option>https://defensor.info:4001/somosdefensores/sivel2/</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Casos<datalist><option>link=Casos</option><option>css=a.dropdown-toggle</option><option>//a[contains(text(),'Casos')]</option><option>//a[contains(@href, '#')]</option><option>//li/a</option></datalist></td><td>39,22</td>
+</tr>
+<tr><td>clickAt</td><td>link=Nuevo Caso<datalist><option>link=Nuevo Caso</option><option>//a[contains(text(),'Nuevo Caso')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/nuevo')]</option><option>//li/ul/li[2]/a</option></datalist></td><td>52,24</td>
+</tr>
+<tr><td>clickAt</td><td>link=Localización<datalist><option>link=Localización</option><option>//a[contains(text(),'Localización')]</option><option>//form[@id='edit_caso_129730']/div/div[2]/ul/li[4]/a</option><option>//a[contains(@href, '#ubicacion')]</option><option>//div[2]/ul/li[4]/a</option></datalist></td><td>35,24</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir Ubicación<datalist><option>link=Añadir Ubicación</option><option>css=a.btn-primary.add_fields</option><option>//a[contains(text(),'Añadir Ubicación')]</option><option>//div[@id='ubicacion']/div/a</option><option>xpath=(//a[contains(@href, '#')])[17]</option><option>//div[2]/div/a</option></datalist></td><td>68,12</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div/div[2]/div/div/div/div/div/select<datalist><option>id=caso_ubicacion_attributes_104702_id_pais</option><option>name=caso[ubicacion_attributes][104702][id_pais]</option><option>css=#caso_ubicacion_attributes_104702_id_pais</option><option>//select[@id='caso_ubicacion_attributes_104702_id_pais']</option><option>//div[@id='ubicacion']/div/div/div/div/div/select</option><option>//div[2]/div/div[2]/div/div/div/div/div/select</option></datalist></td><td>label=COLOMBIA</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/div[2]/div/div/div/div/div/select<datalist><option>id=caso_ubicacion_attributes_104702_id_pais</option><option>name=caso[ubicacion_attributes][104702][id_pais]</option><option>css=#caso_ubicacion_attributes_104702_id_pais</option><option>//select[@id='caso_ubicacion_attributes_104702_id_pais']</option><option>//div[@id='ubicacion']/div/div/div/div/div/select</option><option>//div[2]/div/div[2]/div/div/div/div/div/select</option></datalist></td><td>76,17</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/div[2]/div/div/div[3]/div[2]/div/input<datalist><option>id=caso_ubicacion_attributes_104702_sitio</option><option>name=caso[ubicacion_attributes][104702][sitio]</option><option>css=#caso_ubicacion_attributes_104702_sitio</option><option>//input[@id='caso_ubicacion_attributes_104702_sitio']</option><option>//div[@id='ubicacion']/div/div/div[3]/div[2]/div/input</option><option>//div[2]/div/div[2]/div/div/div[3]/div[2]/div/input</option></datalist></td><td>56,19</td>
+</tr>
+<tr><td>type</td><td>//div[2]/div/div[2]/div/div/div[3]/div[2]/div/input<datalist><option>id=caso_ubicacion_attributes_104702_sitio</option><option>name=caso[ubicacion_attributes][104702][sitio]</option><option>css=#caso_ubicacion_attributes_104702_sitio</option><option>//input[@id='caso_ubicacion_attributes_104702_sitio']</option><option>//div[@id='ubicacion']/div/div/div[3]/div[2]/div/input</option><option>//div[2]/div/div[2]/div/div/div[3]/div[2]/div/input</option></datalist></td><td>ggggg</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129730']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>48,10</td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/casos/129730')])[2]</option><option>//a[3]</option></datalist></td><td>51,21</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Casos</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-localizacion-tipo-de-sitio</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://defensor.info:4001/somosdefensores/sivel2/<datalist><option>https://defensor.info:4001/somosdefensores/sivel2/</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Casos<datalist><option>link=Casos</option><option>css=a.dropdown-toggle</option><option>//a[contains(text(),'Casos')]</option><option>//a[contains(@href, '#')]</option><option>//li/a</option></datalist></td><td>36,19</td>
+</tr>
+<tr><td>clickAt</td><td>link=Nuevo Caso<datalist><option>link=Nuevo Caso</option><option>//a[contains(text(),'Nuevo Caso')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/nuevo')]</option><option>//li/ul/li[2]/a</option></datalist></td><td>45,18</td>
+</tr>
+<tr><td>clickAt</td><td>link=Localización<datalist><option>link=Localización</option><option>//a[contains(text(),'Localización')]</option><option>//form[@id='edit_caso_129732']/div/div[2]/ul/li[4]/a</option><option>//a[contains(@href, '#ubicacion')]</option><option>//div[2]/ul/li[4]/a</option></datalist></td><td>45,31</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir Ubicación<datalist><option>link=Añadir Ubicación</option><option>css=a.btn-primary.add_fields</option><option>//a[contains(text(),'Añadir Ubicación')]</option><option>//div[@id='ubicacion']/div/a</option><option>xpath=(//a[contains(@href, '#')])[17]</option><option>//div[2]/div/a</option></datalist></td><td>43,1</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div/div[2]/div/div/div/div/div/select<datalist><option>id=caso_ubicacion_attributes_104704_id_pais</option><option>name=caso[ubicacion_attributes][104704][id_pais]</option><option>css=#caso_ubicacion_attributes_104704_id_pais</option><option>//select[@id='caso_ubicacion_attributes_104704_id_pais']</option><option>//div[@id='ubicacion']/div/div/div/div/div/select</option><option>//div[2]/div/div[2]/div/div/div/div/div/select</option></datalist></td><td>label=COLOMBIA</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/div[2]/div/div/div/div/div/select<datalist><option>id=caso_ubicacion_attributes_104704_id_pais</option><option>name=caso[ubicacion_attributes][104704][id_pais]</option><option>css=#caso_ubicacion_attributes_104704_id_pais</option><option>//select[@id='caso_ubicacion_attributes_104704_id_pais']</option><option>//div[@id='ubicacion']/div/div/div/div/div/select</option><option>//div[2]/div/div[2]/div/div/div/div/div/select</option></datalist></td><td>78,7</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div/div[2]/div/div/div[4]/div/div/select<datalist><option>id=caso_ubicacion_attributes_104704_id_tsitio</option><option>name=caso[ubicacion_attributes][104704][id_tsitio]</option><option>css=#caso_ubicacion_attributes_104704_id_tsitio</option><option>//select[@id='caso_ubicacion_attributes_104704_id_tsitio']</option><option>//div[@id='ubicacion']/div/div/div[4]/div/div/select</option><option>//div[2]/div/div[2]/div/div/div[4]/div/div/select</option></datalist></td><td>label=SEMIRURAL</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/div[2]/div/div/div[4]/div/div/select<datalist><option>id=caso_ubicacion_attributes_104704_id_tsitio</option><option>name=caso[ubicacion_attributes][104704][id_tsitio]</option><option>css=#caso_ubicacion_attributes_104704_id_tsitio</option><option>//select[@id='caso_ubicacion_attributes_104704_id_tsitio']</option><option>//div[@id='ubicacion']/div/div/div[4]/div/div/select</option><option>//div[2]/div/div[2]/div/div/div[4]/div/div/select</option></datalist></td><td>-83,-408</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129732']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>33,12</td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/casos/129732')])[2]</option><option>//a[3]</option></datalist></td><td>40,18</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Casos</td>
+</tr>
+</tbody></table>
+</body>
+</html>
