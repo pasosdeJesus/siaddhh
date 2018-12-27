@@ -24,7 +24,6 @@ before_install:
         - psql -c 'CREATE DATABASE sivel2sd_pru;' -U postgres
         - bundle install
         - cp config/database.travis.yml config/database.yml
-        - cp config/routes.rb.plantilla config/routes.rb
         - cp config/initializers/sip.rb.plantilla config/initializers/sip.rb
         - cp db/structure.sql db/structure.sql.copia # travis no soporta PostreSQL 10
         - sed -e 's/provider = libc,//g' db/structure.sql.copia > db/structure.sql 
