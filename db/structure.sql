@@ -1776,7 +1776,7 @@ CREATE VIEW public.sivel2_gen_conscaso1 AS
  SELECT caso.id AS caso_id,
     caso.fecha,
     caso.memo,
-    array_to_string(ARRAY( SELECT (((departamento.nombre)::text || ' / '::text) || (municipio.nombre)::text)
+    array_to_string(ARRAY( SELECT (((COALESCE(departamento.nombre, ''::character varying))::text || ' / '::text) || (COALESCE(municipio.nombre, ''::character varying))::text)
            FROM ((public.sip_ubicacion ubicacion
              LEFT JOIN public.sip_departamento departamento ON ((ubicacion.id_departamento = departamento.id)))
              LEFT JOIN public.sip_municipio municipio ON ((ubicacion.id_municipio = municipio.id)))
@@ -4622,6 +4622,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181130164947'),
 ('20181130221749'),
 ('20190109125417'),
-('20190110191802');
+('20190110191802'),
+('20190128032125');
 
 
