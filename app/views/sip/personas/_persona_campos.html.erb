@@ -140,7 +140,7 @@
     <div class="col-md-6">
       <%= ap.association :actorsocial,
         collection: Sip::Actorsocial.where("id IN (SELECT actorsocial_id FROM
-      sivel2_gen_victimacolectiva WHERE id_caso=?)", @caso.id),
+      public.sivel2_gen_victimacolectiva WHERE id_caso=?)", @caso.id),
       label_method: lambda {|t| t.grupoper.nombre},
       value_method: :id %>
     </div>

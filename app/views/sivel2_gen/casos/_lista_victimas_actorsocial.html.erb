@@ -12,7 +12,7 @@
     </thead>
     <tbody>
       <% ao.actorsocial_persona.where(
-        'persona_id IN (SELECT id_persona FROM sivel2_gen_victima 
+        'persona_id IN (SELECT id_persona FROM public.sivel2_gen_victima 
         WHERE id_caso=?)', @caso.id).each do |ap|%>
         <tr>
           <td><%= ap.persona.nombres %></td>
