@@ -33,7 +33,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: fdfe784853c2b77c407d1037c88d48224124ceda
+  revision: f0f7ad7bb8cc921fe611ac4e63fe4174daad51fe
   specs:
     sivel2_gen (2.0b8)
       devise
@@ -213,7 +213,7 @@ GEM
     msgpack (1.2.10)
     multi_json (1.13.1)
     nio4r (2.3.1)
-    nokogiri (1.10.2)
+    nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     odf-report (0.6.0)
       nokogiri (>= 1.5.0)
