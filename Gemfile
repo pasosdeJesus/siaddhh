@@ -95,7 +95,8 @@ gem 'heb412_gen', git: 'https://github.com/pasosdeJesus/heb412_gen.git', branch:
 gem 'sivel2_gen', git: 'https://github.com/pasosdeJesus/sivel2_gen.git', branch: :rails6
 #gem 'sivel2_gen', path: '../sivel2_gen'
 
-gem 'chosen-rails'
+gem 'chosen-rails', git: 'https://github.com/vtamara/chosen-rails.git', branch: 'several-fixes'
+
 gem 'rspreadsheet'
 gem 'libxml-ruby'
 
@@ -123,6 +124,7 @@ group :test do
   gem 'launchy'
 
   gem 'poltergeist'
+  gem 'selenium-webdriver'
 
   gem 'simplecov'
 
