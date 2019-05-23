@@ -21,7 +21,7 @@ class CasoconjsTest < ApplicationSystemTestCase
     @numcaso=find_field('Caso No.').value
 
     # Datos básicos
-    fill_in "Fecha del hecho", with: '2014-08-05'
+    fill_in "Fecha del hecho", with: '05/ago/2014'
     fill_in "Título", with: 'titulo'
 
     take_screenshot
@@ -31,7 +31,6 @@ class CasoconjsTest < ApplicationSystemTestCase
       click_on "Víctimas"
     end
     click_on 'Añadir Víctima'
-    take_screenshot
     within ("div#victima") do 
       fill_in "Nombres", with: 'Nombres V'
       fill_in "Apellidos", with: 'Apellidos V'
@@ -39,20 +38,18 @@ class CasoconjsTest < ApplicationSystemTestCase
       select("ENERO", from: 'Mes de nacimiento')
       select("1", from: 'Día de nacimiento')
       select("MASCULINO", from: 'Sexo')
-      select("CÉDULA DE CIUDADANÍA", from: 'Tipo de documento')
-      fill_in "Número de documento", with: '19222'
+      select("CÉDULA DE CIUDADANÍA", from: 'Tipo de Documento')
+      fill_in "Número Documento", with: '19222'
       #select('ALBANIA', from: 'País de Nacionalidad')
-      select('RUSIA', from: 'País de nacimiento')
-      select('OTRO', from: 'Profesión')
+      select('RUSIA', from: 'País de Nacimiento')
       select('ROM', from: 'Etnia') 
-      select('IGLESIA DE DIOS', from: 'Religión/Iglesia') 
       select('HETEROSEXUAL', from: 'Orientación sexual') 
     end
     page.save_screenshot('/tmp/s2-ccj-trasvictima')
 
-    click_link "Ubicación"
+    click_link "Localización"
     if (!find_link('Añadir Ubicación').visible?)
-      click_link "Ubicación"
+      click_link "Localización"
     end
     assert page.has_content?("Añadir Ubicación")
     click_on "Añadir Ubicación"
@@ -119,7 +116,7 @@ class CasoconjsTest < ApplicationSystemTestCase
     puts "Guardando"
     click_button "Guardar"
     puts page.html
-    assert page.has_content?("2014-08-05")
+    assert page.has_content?("05/ago/2014")
   end
 
 end

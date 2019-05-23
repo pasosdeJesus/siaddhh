@@ -29,8 +29,10 @@ module Sivel2
     config.x.formato_fecha='dd/M/yyyy'
 
     config.x.heb412_ruta = Rails.root.join(
-      'public', 'somosdefensores', 'sivel2', 'heb412')
+      'public', 'somosdefensores', 'sivel2', 'heb412'
+    )
 
+    config.hosts << ENV['CONFIG_HOSTS']
 
   end
 end

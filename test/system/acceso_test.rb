@@ -19,14 +19,14 @@ class AccesoTest <  ApplicationSystemTestCase
     # Datos básicos
     fill_in "Fecha del hecho", with: '05/Ago/2014'
     fill_in "Título", with: 'titulo'
-    click_button "Guardar"
+    click_button "Validar y Guardar"
     assert page.has_content?("05/ago/2014")
 
     # Solicitante Principal
     click_on "Editar"
     fill_in "Hora", with: '3:00 PM'
     fill_in "Duración", with: '2'
-    click_button "Guardar"
+    click_button "Validar y Guardar"
     assert page.has_content?("05/ago/2014") 
     # puts page.body
     # Driver no acepta: accept_confirm do click_on "Eliminar" end
