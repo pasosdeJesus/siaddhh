@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '~>2.4'
 
 # Rails (internacionalización)
-gem "rails", '~> 5.2.1'
+gem "rails", '~> 5.2.3'
 
 gem 'bootsnap', '>=1.1.0', require: false
 
@@ -82,15 +82,15 @@ gem "paperclip"
 gem "tzinfo"
 
 # Motor de SIVeL 2
-gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
+gem 'sip', git: "https://github.com/pasosdeJesus/sip.git", branch: :rails5
 #gem 'sip', path: '../sip'
 
 # Motor heb412_gen para manejar archivos como nube y plantillas
-gem 'heb412_gen', git: 'https://github.com/pasosdeJesus/heb412_gen.git'
+gem 'heb412_gen', git: 'https://github.com/pasosdeJesus/heb412_gen.git', branch: :rails5
 #gem 'heb412_gen', path: '../heb412_gen/'
 
 # Motor Cor1440_gen
-gem 'sivel2_gen', git: "https://github.com/pasosdeJesus/sivel2_gen.git"
+gem 'sivel2_gen', git: "https://github.com/pasosdeJesus/sivel2_gen.git", branch: :rails5
 #gem "sivel2_gen", path: '../sivel2_gen'
 
 gem 'chosen-rails'
