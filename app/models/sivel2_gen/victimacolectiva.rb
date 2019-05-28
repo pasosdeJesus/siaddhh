@@ -7,7 +7,7 @@ module Sivel2Gen
     include Sivel2Gen::Concerns::Models::Victimacolectiva
 
     belongs_to :actorsocial, class_name: 'Sip::Actorsocial',
-      foreign_key: 'actorsocial_id', validate: true
+      foreign_key: 'actorsocial_id', validate: true, optional: true
     accepts_nested_attributes_for :actorsocial, reject_if: :all_blank
 
   end

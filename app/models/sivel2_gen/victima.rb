@@ -8,7 +8,7 @@ module Sivel2Gen
 
     validates :otraorganizacion, length: { maximum: 500 }
     belongs_to :tipoamenaza, class_name: '::Tipoamenaza',
-      foreign_key: 'tipoamenaza_id'
+      foreign_key: 'tipoamenaza_id', optional: true
 
     def presenta(atr)
       case atr.to_s

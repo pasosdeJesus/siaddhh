@@ -1,9 +1,8 @@
 # encoding: UTF-8
 
-require 'test_helper'
+require 'application_system_test_case'
 
-class AccesoTest < Capybara::Rails::TestCase
-  include Capybara::DSL  
+class AccesoTest <  ApplicationSystemTestCase
 
   test "control de acceso" do
     @usuario = Usuario.find_by(nusuario: 'sivel2')
@@ -20,15 +19,14 @@ class AccesoTest < Capybara::Rails::TestCase
     # Datos básicos
     fill_in "Fecha del hecho", with: '05/Ago/2014'
     fill_in "Título", with: 'titulo'
-    click_button "Guardar"
+    click_button "Validar y Guardar"
     assert page.has_content?("05/ago/2014")
 
     # Solicitante Principal
     click_on "Editar"
     fill_in "Hora", with: '3:00 PM'
     fill_in "Duración", with: '2'
-    select("ANTIOQUIA CHOCO SANT", from: 'Región')
-    click_button "Guardar"
+    click_button "Validar y Guardar"
     assert page.has_content?("05/ago/2014") 
     # puts page.body
     # Driver no acepta: accept_confirm do click_on "Eliminar" end

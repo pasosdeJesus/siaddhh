@@ -41,3 +41,10 @@ bin/migra.sh
 public/somosdefensores/sivel2/heb412/generados/
 app/views/hogar/_local.html.erb
 .env
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
