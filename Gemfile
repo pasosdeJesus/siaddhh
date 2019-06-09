@@ -122,9 +122,9 @@ group :test do
   # Lanza programas para examinar resultados
   gem 'launchy'
 
-  gem 'selenium'
+  #gem 'selenium'
   gem 'poltergeist'
-  gem 'selenium-webdriver'
+  #gem 'selenium-webdriver'
 
   gem 'simplecov'
 
