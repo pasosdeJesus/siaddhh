@@ -109,7 +109,7 @@ end
 
 group :development, :test do
   # Depurar
-  gem 'byebug'
+  #gem 'byebug'
 end
 
 group :test do
@@ -122,6 +122,7 @@ group :test do
   # Lanza programas para examinar resultados
   gem 'launchy'
 
+  gem 'selenium'
   gem 'poltergeist'
   gem 'selenium-webdriver'
 
