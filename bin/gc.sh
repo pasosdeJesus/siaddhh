@@ -59,7 +59,7 @@ if (test "$?" != "0") then {
 	exit 1;
 } fi;
 
-CONFIG_HOSTS="127.0.0.1" bundle exec rails test:system
+RAILS_ENV=test CONFIG_HOSTS="127.0.0.1" bundle exec rails test:system
 if (test "$?" != "0") then {
 	echo "No pasaron pruebas al sistema";
 	exit 1;
