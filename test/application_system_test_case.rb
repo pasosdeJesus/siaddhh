@@ -1,9 +1,5 @@
 require "test_helper"
 
-class NilLogger
-    def puts * ; end
-end
-
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   driven_by :selenium, using: :headless_chrome,
