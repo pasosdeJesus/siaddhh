@@ -34,7 +34,10 @@ Rails.application.routes.draw do
         end
       end
     end
-    
+
+
+    get '/casos/mapaosm' => 'sivel2_gen/casos#mapaosm'
+
     root 'sivel2_gen/hogar#index'
 
   end

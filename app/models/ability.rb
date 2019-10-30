@@ -101,6 +101,7 @@ class Ability  < Sivel2Gen::Ability
         can :new, Sivel2Gen::Caso
         can :nuevo, Sivel2Gen::Caso
         can [:update, :create, :destroy], Sivel2Gen::Caso
+        can :read, Sivel2Gen::Victima
         
         can :read, ::Tipoamenaza
       when Ability::ROLADMIN
