@@ -2,7 +2,6 @@
 
 #//= require sip/motor
 #//= require heb412_gen/motor
-#//= require jquery-ui/widgets/autocomplete
 #//= require cocoon
 
 @DEP_VICTIMACOLECTIVA = [
