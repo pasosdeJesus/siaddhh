@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 43d69c6d91e4b8bad515851483d9d7538f7f98c5
+  revision: 13a76ec75be01bf4485b34f77185e930dea086af
   branch: bs4
   specs:
     heb412_gen (1.0.b6)
@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 04c249fc370a254d2730ae31abe0a653ade7023a
+  revision: b9c2e339ff1f3ae90cd462d6a13bf062ff4669bf
   branch: bs4
   specs:
     sip (2.0.b7)
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: a61d1b112eb2207f61e6a453d5b47c7075066ad4
+  revision: 56112b73947d18134e1815c6337bd3a8de153a0f
   branch: bs4
   specs:
     sivel2_gen (2.0b10)
@@ -298,7 +298,7 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    twitter_cldr (5.0.0)
+    twitter_cldr (5.1.0)
       camertron-eprun
       cldr-plurals-runtime-rb (~> 1.0)
       tzinfo
