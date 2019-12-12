@@ -5,27 +5,27 @@
 <% content_for :menu do %>
   <%= grupo_menus do %>
     <% if !current_usuario.nil? %>
-      <%= despliega_abajo "Casos" do %>
-        <%= opcion_menu "Listado", sivel2_gen.casos_path,
+      <%= despliega_abajo 'Casos' do %>
+        <%= opcion_menu 'Listado', sivel2_gen.casos_path,
           desplegable: true %>
-        <%= opcion_menu "Nuevo Caso", sivel2_gen.new_caso_path,
+        <%= opcion_menu 'Nuevo Caso', sivel2_gen.new_caso_path,
           desplegable: true %>
-        <%= opcion_menu "Validar casos", sivel2_gen.validarcasos_path,
+        <%= opcion_menu 'Validar casos', sivel2_gen.validarcasos_path,
           desplegable: true %>
-        <%= opcion_menu "Buscar repetidos", sivel2_gen.buscarrepetidos_path,
+        <%= opcion_menu 'Buscar repetidos', sivel2_gen.buscarrepetidos_path,
           desplegable: true %>
       <% end %>
-      <%= despliega_abajo "Reportes y conteos" do %>
-        <%= opcion_menu "Listado de víctimas y casos", 
+      <%= despliega_abajo 'Reportes y conteos' do %>
+        <%= opcion_menu 'Listado de víctimas y casos', 
           sivel2_gen.victimas_path,
           desplegable: true %>
-        <%= opcion_menu "Conteo demografía víctimas", 
+        <%= opcion_menu 'Conteo demografía víctimas', 
           sivel2_gen.conteos_personas_path,
           desplegable: true %>
-        <%= opcion_menu "Conteo de victimizaciones individuales", 
+        <%= opcion_menu 'Conteo de victimizaciones individuales', 
           sivel2_gen.conteos_victimizaciones_path,
           desplegable: true %>
-        <%= opcion_menu "Conteo general de víctimas", 
+        <%= opcion_menu 'Conteo general de víctimas', 
           sivel2_gen.conteos_genvic_path,
           desplegable: true %>
       <% end %>
@@ -33,31 +33,31 @@
   <% end %>
   <%= grupo_menus :pull => :right do %>
     <% if !current_usuario.nil? %>
-      <%= despliega_abajo "Documentos" do %>
-        <%= opcion_menu "Manual", 'http://bit.ly/2L7diYC',
+      <%= despliega_abajo 'Documentos' do %>
+        <%= opcion_menu 'Manual', 'http://bit.ly/2L7diYC',
           desplegable: true %>
-        <%= opcion_menu "Nube", heb412_gen.sisini_path,
+        <%= opcion_menu 'Nube', heb412_gen.sisini_path,
           desplegable: true %>
         <% if can? :manage, ::Heb412Gen::Plantillahcm %>
-          <%= opcion_menu "Plantillas para listado en hojas de calculo",
+          <%= opcion_menu 'Plantillas para listado en hojas de calculo',
             heb412_gen.plantillashcm_path,
             desplegable: true %>
         <% end %>
         <% if can? :manage, ::Heb412Gen::Plantillahcr %>
-          <%= opcion_menu "Plantillas para un registro en hoja de calculo",
+          <%= opcion_menu 'Plantillas para un registro en hoja de calculo',
             heb412_gen.plantillashcr_path,
             desplegable: true %>
         <% end %>
         <% if can? :manage, ::Heb412Gen::Plantilladoc %>
-          <%= opcion_menu "Plantillas para un registro en documento",
+          <%= opcion_menu 'Plantillas para un registro en documento',
             heb412_gen.plantillasdoc_path,
             desplegable: true %>
         <% end %>
       <% end %>
-      <%= despliega_abajo "Administrar" do %>
-        <%= opcion_menu "Clave", main_app.editar_registro_usuario_path,
+      <%= despliega_abajo 'Administrar' do %>
+        <%= opcion_menu 'Clave y tema', main_app.editar_registro_usuario_path,
           desplegable: true %>
-        <%= opcion_menu "Colectivos", sip.actoressociales_path,
+        <%= opcion_menu 'Colectivos', sip.actoressociales_path,
           desplegable: true %>
         <% if session[:capturacaso_acordeon] %>
            <%= opcion_menu 'Ficha caso vertical ✓', '/fichacasovertical',
@@ -69,26 +69,26 @@
            %>
         <% end %>
         <% if can? :manage, ::Usuario %>
-          <%= opcion_menu "Usuarios", main_app.usuarios_path,
+          <%= opcion_menu 'Usuarios', main_app.usuarios_path,
             desplegable: true %>
         <% end %>
         <% if can? :manage, :tablasbasicas %>
-          <%= opcion_menu "Tablas Básicas", sivel2_gen.tablasbasicas_path,
+          <%= opcion_menu 'Tablas Básicas', sivel2_gen.tablasbasicas_path,
             desplegable: true %>
         <% end %>
         <% if can? :manage, Sip::Respaldo7z %>
-          <%= opcion_menu "Respaldo cifrado", sip.respaldo7z_path,
+          <%= opcion_menu 'Respaldo cifrado', sip.respaldo7z_path,
             desplegable: true %>
         <% end %>
-        <%= opcion_menu "Ayuda Control de Acceso", 
+        <%= opcion_menu 'Ayuda Control de Acceso', 
           sip.ayuda_controldeacceso_path,
           desplegable: true %>
       <% end %>
       <%= opcion_menu "Salir #{current_usuario.nusuario}", 
         main_app.sign_out_path %>
     <% else %>
-      <%= opcion_menu "Acerca de", sivel2_gen.acercade_path %>
-      <%= opcion_menu "Iniciar Sesión", main_app.new_usuario_session_path %> 
+      <%= opcion_menu 'Acerca de', sivel2_gen.acercade_path %>
+      <%= opcion_menu 'Iniciar Sesión', main_app.new_usuario_session_path %> 
     <% end %>
   <% end %>
 <% end %>
@@ -96,9 +96,9 @@
 <% content_for :piedepagina do %>
   <p><span class='derechos'>Dominio Público de acuerdo a Legislación Colombiana<br/>
     Desarrollado por 
-    <a href="http://www.pasosdeJesus.org" target="_blank">Pasos de Jesús</a>. 
+    <a href='http://www.pasosdeJesus.org' target='_blank'>Pasos de Jesús</a>. 
     2019.
   </span></p>
 <% end %>
 
-<%= render template: "layouts/sip/application" %>
+<%= render template: 'layouts/sip/application' %>
