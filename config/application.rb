@@ -35,6 +35,8 @@ module Sivel2
       'public', 'somosdefensores', 'sivel2', 'heb412'
     )
 
+    config.x.sivel2_consulta_web_publica = false
+
     config.hosts << ENV['CONFIG_HOSTS']
 
   end
