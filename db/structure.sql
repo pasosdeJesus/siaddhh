@@ -2214,6 +2214,50 @@ CREATE TABLE public.sivel2_gen_contexto (
 
 
 --
+-- Name: sivel2_gen_contextovictima; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sivel2_gen_contextovictima (
+    id bigint NOT NULL,
+    nombre character varying(100) NOT NULL,
+    observaciones character varying(5000),
+    fechacreacion date NOT NULL,
+    fechadeshabilitacion date,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: sivel2_gen_contextovictima_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sivel2_gen_contextovictima_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sivel2_gen_contextovictima_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.sivel2_gen_contextovictima_id_seq OWNED BY public.sivel2_gen_contextovictima.id;
+
+
+--
+-- Name: sivel2_gen_contextovictima_victima; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sivel2_gen_contextovictima_victima (
+    contextovictima_id integer,
+    victima_id integer
+);
+
+
+--
 -- Name: sivel2_gen_escolaridad_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -3118,6 +3162,13 @@ ALTER TABLE ONLY public.sivel2_gen_combatiente ALTER COLUMN id SET DEFAULT nextv
 
 
 --
+-- Name: sivel2_gen_contextovictima id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_gen_contextovictima ALTER COLUMN id SET DEFAULT nextval('public.sivel2_gen_contextovictima_id_seq'::regclass);
+
+
+--
 -- Name: sivel2_gen_resagresion id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -3788,6 +3839,14 @@ ALTER TABLE ONLY public.sivel2_gen_combatiente
 
 
 --
+-- Name: sivel2_gen_contextovictima sivel2_gen_contextovictima_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_gen_contextovictima
+    ADD CONSTRAINT sivel2_gen_contextovictima_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: sivel2_gen_resagresion sivel2_gen_resagresion_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4015,6 +4074,20 @@ CREATE INDEX index_sivel2_gen_antecedente_combatiente_on_id_antecedente ON publi
 --
 
 CREATE INDEX index_sivel2_gen_antecedente_combatiente_on_id_combatiente ON public.sivel2_gen_antecedente_combatiente USING btree (id_combatiente);
+
+
+--
+-- Name: index_sivel2_gen_contextovictima_victima_on_contextovictima_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_sivel2_gen_contextovictima_victima_on_contextovictima_id ON public.sivel2_gen_contextovictima_victima USING btree (contextovictima_id);
+
+
+--
+-- Name: index_sivel2_gen_contextovictima_victima_on_victima_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_sivel2_gen_contextovictima_victima_on_victima_id ON public.sivel2_gen_contextovictima_victima USING btree (victima_id);
 
 
 --
@@ -4521,6 +4594,14 @@ ALTER TABLE ONLY public.mr519_gen_encuestausuario
 
 
 --
+-- Name: sivel2_gen_contextovictima_victima fk_rails_1b81b1ccd7; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_gen_contextovictima_victima
+    ADD CONSTRAINT fk_rails_1b81b1ccd7 FOREIGN KEY (contextovictima_id) REFERENCES public.sivel2_gen_contextovictima(id);
+
+
+--
 -- Name: heb412_gen_formulario_plantillahcr fk_rails_1bdf79898c; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4598,6 +4679,14 @@ ALTER TABLE ONLY public.sivel2_gen_caso_presponsable
 
 ALTER TABLE ONLY public.sip_actorsocial
     ADD CONSTRAINT fk_rails_5b21e3a2af FOREIGN KEY (grupoper_id) REFERENCES public.sip_grupoper(id);
+
+
+--
+-- Name: sivel2_gen_contextovictima_victima fk_rails_6322164389; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_gen_contextovictima_victima
+    ADD CONSTRAINT fk_rails_6322164389 FOREIGN KEY (victima_id) REFERENCES public.sivel2_gen_victima(id);
 
 
 --
@@ -5478,6 +5567,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200221181049'),
 ('20200224134339'),
 ('20200228235200'),
-('20200319183515');
+('20200319183515'),
+('20200320152017'),
+('20200324164130');
 
 
