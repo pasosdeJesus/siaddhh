@@ -31,8 +31,8 @@ DOAS=`which doas 2> /dev/null`
 if (test "$?" != "0") then {
 	DOAS="sudo"
 } fi;
-$DOAS su ${USUARIO_AP} -c "cd $DIRAP; RAILS_ENV=production RAILS_RELATIVE_URL_ROOT=${RAILS_RELATIVE_URL_ROOT} bin/rails assets:precompile"
-$DOAS su ${USUARIO_AP} -c "cd $DIRAP; RAILS_RELATIVE_URL_ROOT=${RAILS_RELATIVE_URL_ROOT} RAILS_ENV=production bin/rails sip:indices"
+$DOAS su ${USUARIO_AP} -c "cd $DIRAP; RAILS_ENV=production bin/rails assets:precompile"
+$DOAS su ${USUARIO_AP} -c "cd $DIRAP; RAILS_ENV=production bin/rails sip:indices"
 $DOAS su ${USUARIO_AP} -c "cd $DIRAP; echo \"Iniciando unicorn...\"; CONFIG_HOSTS=${CONFIG_HOSTS} RAILS_ENV=production SECRET_KEY_BASE=${SECRET_KEY_BASE} bundle exec unicorn_rails -c $DIRAP/config/unicorn.conf.minimal.rb  -E production -D"
 
 

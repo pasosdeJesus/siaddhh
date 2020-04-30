@@ -11,7 +11,7 @@ Bundler.require(*Rails.groups)
 module Sivel2
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.0
+    config.load_defaults 6.0
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
@@ -27,7 +27,7 @@ module Sivel2
 
     config.active_record.schema_format = :sql
 
-    #config.relative_url_root = "/somosdefensores/sivel2"
+    config.relative_url_root = "/somosdefensores/sivel2"
 
     config.x.formato_fecha='dd/M/yyyy'
 
