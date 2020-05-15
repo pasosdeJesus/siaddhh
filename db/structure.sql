@@ -2196,6 +2196,24 @@ CREATE VIEW public.sivel2_gen_conscaso1 AS
 
 
 --
+-- Name: sivel2_gen_conscaso; Type: MATERIALIZED VIEW; Schema: public; Owner: -
+--
+
+CREATE MATERIALIZED VIEW public.sivel2_gen_conscaso AS
+ SELECT sivel2_gen_conscaso1.caso_id,
+    sivel2_gen_conscaso1.fecha,
+    sivel2_gen_conscaso1.memo,
+    sivel2_gen_conscaso1.ubicaciones,
+    sivel2_gen_conscaso1.victimas,
+    sivel2_gen_conscaso1.presponsables,
+    sivel2_gen_conscaso1.tipificacion,
+    now() AS ultimo_refresco,
+    to_tsvector('spanish'::regconfig, public.unaccent(((((((((((((sivel2_gen_conscaso1.caso_id || ' '::text) || replace(((sivel2_gen_conscaso1.fecha)::character varying)::text, '-'::text, ' '::text)) || ' '::text) || sivel2_gen_conscaso1.memo) || ' '::text) || sivel2_gen_conscaso1.ubicaciones) || ' '::text) || sivel2_gen_conscaso1.victimas) || ' '::text) || sivel2_gen_conscaso1.presponsables) || ' '::text) || sivel2_gen_conscaso1.tipificacion))) AS q
+   FROM public.sivel2_gen_conscaso1
+  WITH NO DATA;
+
+
+--
 -- Name: sivel2_gen_contexto_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -4014,6 +4032,13 @@ ALTER TABLE ONLY public.sivel2_gen_victima
 
 ALTER TABLE ONLY public.sivel2_gen_vinculoestado
     ADD CONSTRAINT vinculoestado_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: busca_sivel2_gen_conscaso; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX busca_sivel2_gen_conscaso ON public.sivel2_gen_conscaso USING gin (q);
 
 
 --
