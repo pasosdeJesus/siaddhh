@@ -29,7 +29,7 @@ module Sivel2
 
     config.relative_url_root = "/somosdefensores/sivel2"
 
-    config.x.formato_fecha='dd/M/yyyy'
+    config.x.formato_fecha='yyyy-mm-dd'
 
     config.x.heb412_ruta = Rails.root.join(
       'public', 'somosdefensores', 'sivel2', 'heb412'

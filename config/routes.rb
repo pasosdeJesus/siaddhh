@@ -43,7 +43,8 @@ Rails.application.routes.draw do
   end
 
   mount Sip::Engine => "/somosdefensores/sivel2", as: 'sip'
-  mount Sivel2Gen::Engine => "/somosdefensores/sivel2", as: 'sivel2_gen'
+  mount Mr519Gen::Engine => "/somosdefensores/sivel2", as: 'mr519_gen'
   mount Heb412Gen::Engine => "/somosdefensores/sivel2", as: 'heb412_gen'
+  mount Sivel2Gen::Engine => "/somosdefensores/sivel2", as: 'sivel2_gen'
 
 end

@@ -1,6 +1,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 #//= require sip/motor
+#//= require mr519_gen/motor
 #//= require heb412_gen/motor
 #//= require cocoon
 

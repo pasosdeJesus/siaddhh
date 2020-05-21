@@ -14,6 +14,8 @@
           desplegable: true %>
         <%= opcion_menu 'Buscar repetidos', sivel2_gen.buscarrepetidos_path,
           desplegable: true %>
+        <%= opcion_menu "Casos sobre Open Street Maps", 
+          sivel2_gen.casos_mapaosm_path, desplegable: true %>
       <% end %>
       <%= despliega_abajo 'Reportes y conteos' do %>
         <%= opcion_menu 'Listado de víctimas y casos', 
@@ -72,6 +74,7 @@
           <%= opcion_menu 'Usuarios', main_app.usuarios_path,
             desplegable: true %>
         <% end %>
+
         <% if can? :manage, :tablasbasicas %>
           <%= opcion_menu 'Tablas Básicas', sivel2_gen.tablasbasicas_path,
             desplegable: true %>
@@ -79,6 +82,14 @@
         <% if can? :manage, Sip::Respaldo7z %>
           <%= opcion_menu 'Respaldo cifrado', sip.respaldo7z_path,
             desplegable: true %>
+        <% end %>
+        <% if can? :manage, Mr519Gen::Formulario %>
+          <%= opcion_menu "Formularios", 
+            mr519_gen.formularios_path,
+            desplegable: true %>
+        <% end %>
+        <% if can? :manage, Sip::Bitacora %>
+          <%= opcion_menu "Bitácoras", sip.bitacoras_path, desplegable: true %>
         <% end %>
         <%= opcion_menu 'Ayuda Control de Acceso', 
           sip.ayuda_controldeacceso_path,
