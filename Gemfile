@@ -33,11 +33,11 @@ gem 'puma'
 
 gem 'prawn' # Generación de PDF
 
-gem 'prawnto_2',  :require => 'prawnto'
+gem 'prawnto_2', '>= 0.3.0', :require => 'prawnto'
 
 gem 'prawn-table'
 
-gem 'rails', '~> 6.0.0.rc1'
+gem 'rails', '~> 6.0.3.1'
 
 gem 'rails-i18n'
 
