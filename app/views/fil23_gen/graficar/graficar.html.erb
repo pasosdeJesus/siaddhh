@@ -1,0 +1,58 @@
+<%
+    # Como una aplicación shiny puede responder a diversos usuarios
+  # lo que hacemos por ahora es lanzar una que atienda a todos sobre
+  # un proceso nuevo que no bloquee la aplicación rails.
+  # Solo vuelve a iniciarse si un usuario solicita la gráfica
+  # y se detecta que no está operando
+  # Esto no resuelve autenticación, pues cualquie usuario podría
+  # verla corriendo si adivina el puerto.  Pero es un avance, para
+  # autenticación tal vez podría implementars entre otros con
+  # datos de sesión que parece shiny puede usar.
+    ult_numproc = -1
+    pact = []
+    if Fil23Gen::Bifurcacion.all.count > 0
+      ult_numproc = Fil23Gen::Bifurcacion.order(:marcatemporal).last.numproc
+      pact = Sip::ProcesosHelper.procesos_OpenBSD.select{|p| 
+        p[:pid].to_i == ult_numproc}
+    end
+    if pact.count == 0
+      begin
+        ::R.quit
+      rescue
+        puts "::R.quit no funcionó (tal vez ya se había ejecutado)"
+      end
+      numproc = fork {
+        # No usamo aqui ::R porque notamos que puede usar un proceso
+        # de R pegado al proceso principal de ruby asi que bloquea
+        # la aplicación completa
+        miR = RinRuby.new
+        miR.eval <<-EOF
+        print("Iniciando aplicacion R")
+        write(getwd(), stdout())
+        source("#{@fil23_gen_op[:guionR]}")
+        EOF
+        #      byebug
+        miR.eval <<-EOF
+        shinyApp(ui = interfaz, server = servidor, 
+          options = list(host = "#{@fil23_gen_op[:servidor]}", 
+          port = #{@fil23_gen_op[:puerto]}))
+        EOF
+      }
+      if numproc > 0 
+        Fil23Gen::Bifurcacion.create(numproc: numproc,
+                                     marcatemporal: Time.now)
+        sleep 2 # Damos tiempo a aplicacion shiny de arranca antes de continuar presentando iframe
+      else
+        puts "No pudo bifurcarse proceso"
+      end
+    else
+      puts "Ya existe proceso #{pact[0][:pid]} con estado #{pact[0][:stat]}"
+    end
+  %>
+<% 
+  url = @fil23_gen_op[:protocolo] + "://" + @fil23_gen_op[:servidor] + ":" + 
+  @fil23_gen_op[:puerto].to_s
+%>
+<iframe src="<%= url %>" width="100%" height="1024"></iframe>
+
+

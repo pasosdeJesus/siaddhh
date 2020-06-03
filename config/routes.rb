@@ -37,6 +37,9 @@ Rails.application.routes.draw do
 
 
     get '/casos/mapaosm' => 'sivel2_gen/casos#mapaosm'
+  
+    get '/graficar/victimizaciones_por_sexo' => 'fil23_gen/graficar#victimizaciones_por_sexo', 
+      :as => 'graficar_victimizaciones_por_sexo'
 
     root 'sivel2_gen/hogar#index'
 

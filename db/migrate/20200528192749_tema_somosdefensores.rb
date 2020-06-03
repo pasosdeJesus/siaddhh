@@ -6,7 +6,7 @@ class TemaSomosdefensores < ActiveRecord::Migration[6.0]
       fondo = '#f2d9d0',
       color_fuente = '#000000',
       nav_ini = '#f2a285',
-      nav_fin = '#f24405',
+      nav_fin = '#bf1b28',
       nav_fuente = '#ffffff',
       fondo_lista = '#f2a285',
       btn_primario_fondo_ini = '#f2a285',
@@ -41,5 +41,8 @@ class TemaSomosdefensores < ActiveRecord::Migration[6.0]
   end
 
   def down
+    execute <<-SQL
+      DELETE FROM public.sip_tema WHERE id=2;
+    SQL
   end
 end
