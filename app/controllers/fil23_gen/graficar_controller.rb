@@ -52,10 +52,16 @@ module Fil23Gen
         File.unlink(@rutacsv)
       end
       FileUtils.cp(rutatmp, @rutacsv)
+      if ENV['fil23_gen_servidor'].nil?
+        flash[:error] = "No se ha definidio fil23_gen_servidor"
+        redirect_to Railsc.config.relative_ulr_root
+        return
+      end
       @fil23_gen_op = {
-        servidor: "181.143.184.115",
-        puerto: 2902,
-        protocolo: 'http',
+        servidor: ENV['fil23_gen_servidor'],
+        ip: ENV['fil23_gen_ip'],
+        puerto: ENV['fil23_gen_puerto'],
+        protocolo: ENV['fil23_gen_protocolo'],
         guionR: 'lib/R/victimizaciones_por_sexo.R',
         rutacsv: @rutacsv
       }

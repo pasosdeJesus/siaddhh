@@ -9,28 +9,29 @@
 print("** victimizaciones por sexo")
 if(!require(shiny)){
   install.packages("shiny", repos = "https://www.icesi.edu.co/CRAN/")
-  library(shiny)
 }
+library(shiny)
 if(!require(ggplot2)){
   install.packages("ggplot2", repos = "https://www.icesi.edu.co/CRAN/")
-  library(ggplot2)
 }
+library(ggplot2)
 if(!require(rio)){
   install.packages("rio", repos = "https://www.icesi.edu.co/CRAN/")
-  library(rio)
 }
+library(rio)
 if(!require(plyr)){
   install.packages("plyr", repos = "https://www.icesi.edu.co/CRAN/")
-  library(plyr)
 }
+library(plyr)
 if(!require(dplyr)){
   install.packages("dplyr", repos = "https://www.icesi.edu.co/CRAN/")
-  library(dplyr)
 }
+library(dplyr)
 if(!require(svglite)){
   install.packages("svglite", repos = "https://www.icesi.edu.co/CRAN/")
-  library(svglite)
 }
+library(svglite)
+print("** dependencias completas")
 
 
 # Preparación de datos
@@ -169,6 +170,6 @@ servidor <- function(input, output) {
 
 print("Por ejecutar shinyApp")
 # La aplicación se ejecutaría así:
-shinyApp(ui = interfaz, server = servidor, 
-  options = list(host = "181.143.184.115", port = 2902))
+#shinyApp(ui = interfaz, server = servidor, 
+#  options = list(host = "181.143.184.115", port = 2902))
 

@@ -34,7 +34,7 @@
         #      byebug
         miR.eval <<-EOF
         shinyApp(ui = interfaz, server = servidor, 
-          options = list(host = "#{@fil23_gen_op[:servidor]}", 
+          options = list(host = "#{@fil23_gen_op[:ip]}", 
           port = #{@fil23_gen_op[:puerto]}))
         EOF
       }
