@@ -39,6 +39,10 @@ tabla <- import("lib/R/victimizaciones_individuales.csv")
 tabla$sexonac <- factor(tabla$sexonac)
 tabla$fecha <- as.Date(tabla$fecha)
 tabla$categoria_id <- factor(tabla$categoria_id)
+minfecha = min(tabla$fecha)
+print(minfecha)
+maxfecha = max(tabla$fecha)
+print(maxfecha)
 
 print("Por generar interfaz de usuario")
 # Interfaz de usuario
@@ -50,8 +54,8 @@ interfaz <- fluidPage(
         #solidHeader = T, 
         dateRangeInput(inputId = "rango",
           label = "Rango de fechas de la victimización",
-          start = min(tabla$fecha),
-          end = max(tabla$fecha),
+          start = minfecha,
+          end = maxfecha,
           format = "yyyy-mm-dd"),
         selectInput("sexonac", "Sexos de nacimiento",
           choices = levels(tabla$sexonac),
@@ -128,20 +132,21 @@ servidor <- function(input, output) {
   output$descargar_serie_SVG<- downloadHandler(
     filename = function() { paste("serie-sexonac", ".svg", sep = "") },
     content = function(nomarc){
-      ggsave(nomarc, graficaSerie())
+      ggsave(nomarc, graficar_serie())
     }
   )
 
   output$descargar_serie_PNG<- downloadHandler(
     filename = function() {paste("serie-sexonac", ".png", sep = "")},
     content = function(nomarc){
-      ggsave(nomarc, graficaSerie())
+      ggsave(nomarc, graficar_serie())
     }
   )
 
   output$descargar_serie_CSV<- downloadHandler(
     filename = function() {paste("serie-sexonac", ".csv", sep = "")},
     content = function(nomarc){
+      print(nomarc)
       write.csv(serie(), nomarc)
     }
   )
@@ -149,20 +154,21 @@ servidor <- function(input, output) {
   output$descargar_total_SVG <- downloadHandler(
     filename = function() {paste("total-sexonac", ".svg", sep = "")},
     content = function(nomarc){
-      ggsave(nomarc, graficaSerie())
+      ggsave(nomarc, graficar_total())
     }
   )
 
   output$descargar_total_PNG <- downloadHandler(
     filename = function() {paste("total-sexonac", ".png", sep = "")},
     content = function(nomarc){
-      ggsave(nomarc,graficaSerie())
+      ggsave(nomarc,graficar_total())
     }
   )
 
   output$descargar_total_CSV <- downloadHandler(
     filename = function() {paste("total-sexonac", ".csv", sep = "")},
     content = function(nomarc){
+      print(nomarc)
       write.csv(total(), nomarc)
     }
   )
