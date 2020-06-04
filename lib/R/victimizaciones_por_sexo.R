@@ -38,7 +38,7 @@ print("** dependencias completas")
 tabla <- import("lib/R/victimizaciones_individuales.csv")
 tabla$sexonac <- factor(tabla$sexonac)
 tabla$fecha <- as.Date(tabla$fecha)
-tabla$categoria_id <- factor(tabla$categoria_id)
+tabla$categoria_rotulo <- factor(tabla$categoria_rotulo)
 minfecha = min(tabla$fecha)
 print(minfecha)
 maxfecha = max(tabla$fecha)
@@ -61,10 +61,10 @@ interfaz <- fluidPage(
           choices = levels(tabla$sexonac),
           multiple = T,
           selected = levels(tabla$sexonac)),
-        selectInput("categoria_id", "Categorias incluidas",
-          choices = levels(tabla$categoria_id),
+        selectInput("categoria_rotulo", "Categorias incluidas",
+          choices = levels(tabla$categoria_rotulo),
           multiple = T,
-          selected = levels(tabla$categoria_id))
+          selected = levels(tabla$categoria_rotulo))
        )
       ),
     column(width=8,
@@ -92,7 +92,7 @@ servidor <- function(input, output) {
 
   serie <- reactive({
     plyr::count(subset(tabla, sexonac %in% input$sexonac &
-        categoria_id %in% input$categoria_id &
+        categoria_rotulo %in% input$categoria_rotulo &
         fecha >= input$rango[1] & fecha <= input$rango[2]),
       c('fecha', 'sexonac'))
   })
