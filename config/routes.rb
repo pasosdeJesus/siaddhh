@@ -41,6 +41,13 @@ Rails.application.routes.draw do
     get '/graficar/victimizaciones_por_sexo' => 'fil23_gen/graficar#victimizaciones_por_sexo', 
       :as => 'graficar_victimizaciones_por_sexo'
 
+    get '/graficarjs/plotly_victimizaciones_por_sexo' => 'graficarjs#plotly_victimizaciones_por_sexo', 
+      :as => 'graficarjs_plotly_victimizaciones_por_sexo'
+
+    get '/graficarjs/chartjs_victimizaciones_por_sexo' => 'graficarjs#chartjs_victimizaciones_por_sexo', 
+      :as => 'graficarjs_chartjs_victimizaciones_por_sexo'
+
+
     root 'sivel2_gen/hogar#index'
 
   end

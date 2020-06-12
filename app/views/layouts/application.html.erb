@@ -29,6 +29,18 @@
           desplegable: true %>
         <%= opcion_menu 'Graficar victimizaciones individuales por sexo', 
           main_app.graficar_victimizaciones_por_sexo_path,
+          {
+            desplegable: true,
+            data: {turbolinks: false}
+          } %>
+        <%= opcion_menu 'Graficar con plotly vic. ind. por sexo', 
+          main_app.graficarjs_plotly_victimizaciones_por_sexo_path,
+          {
+            desplegable: true,
+            data: {turbolinks: false}
+          } %>
+        <%= opcion_menu 'Graficar con chartjs vic. ind. por sexo', 
+          main_app.graficarjs_chartjs_victimizaciones_por_sexo_path,
           desplegable: true %>
         <%= opcion_menu 'Conteo general de víctimas', 
           sivel2_gen.conteos_genvic_path,

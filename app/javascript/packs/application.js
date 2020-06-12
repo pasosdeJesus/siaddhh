@@ -33,3 +33,32 @@ import 'jquery-ui/ui/focusable'
 
 var L = require('leaflet');
 var mc= require('leaflet.markercluster');
+
+//import * as d3 from 'd3'
+
+//let d3 = require('d3')
+//window.d3 = d3
+
+import d3_serietimpo_vs from '../d3_vs'
+import plotly_serietiempo_vs from '../plotly_vs'
+import chartjs_serietiempo_vs from '../chartjs_vs'
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  var p = new URL(document.URL).pathname.split('/')
+  var p2ult = ''
+  if (p.length>2) { 
+    p2ult = p[p.length - 2] + "/" + p[p.length - 1]
+  }
+  console.log("p2ult=" + p2ult)
+//  if (document.getElementById('div_serietiempo')) {
+  if (p2ult == 'graficarjs/d3_victimizaciones_por_sexo') {
+    d3_serietiempo_vs() 
+  } else if (p2ult == 'graficarjs/plotly_victimizaciones_por_sexo') {
+    plotly_serietiempo_vs() 
+  } else if (p2ult == 'graficarjs/chartjs_victimizaciones_por_sexo') {
+    chartjs_serietiempo_vs() 
+  }
+
+});
+
