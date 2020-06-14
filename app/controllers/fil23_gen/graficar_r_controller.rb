@@ -1,9 +1,9 @@
-# encoding: UTF-8
+# Grafica con R
 
 module Fil23Gen
-  class GraficarController < ApplicationController
+  class GraficarRController < ApplicationController
 
-    def victimizaciones_por_sexo
+    def victimizaciones_individuales
       authorize! :contar, Sivel2Gen::Caso
 
       @rutacsv = File.join(Rails.root, 'lib/R/victimizaciones_individuales.csv').to_s
@@ -65,7 +65,7 @@ module Fil23Gen
         guionR: 'lib/R/victimizaciones_por_sexo.R',
         rutacsv: @rutacsv
       }
-      render 'fil23_gen/graficar/graficar', layout: 'application'
+      render 'fil23_gen/graficar_r/graficar', layout: 'application'
     end
 
   end
