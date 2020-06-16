@@ -22,11 +22,11 @@
           <li role="presentation" class="nav-item"><a href="#basicos" 
             class="fichacambia nav-link active" aria-selected="true" aria-controls="basicos" role="tab" 
             data-toggle="tab">Datos Básicos</a></li>
-          <li role="presentation" class="nav-item"><a href="#victimacolectiva" 
-            class="fichacambia nav-link" aria-controls="victimacolectiva" role="tab" 
+          <li role="presentation" class="nav-item"><a href="#victimascolectivas" 
+            class="fichacambia nav-link" aria-controls="victimascolectivas" role="tab" 
             data-toggle="tab">Colectivo Humano</a></li>
-          <li role="presentation" class="nav-item"><a href="#victima" class="fichacambia nav-link" 
-            aria-controls="victima" role="tab" 
+          <li role="presentation" class="nav-item"><a href="#victimas" class="fichacambia nav-link" 
+            aria-controls="victimas" role="tab" 
             data-toggle="tab">Víctimas Individuales</a></li>
           <li role="presentation" class="nav-item"><a href="#ubicacion" class="fichacambia nav-link" 
             aria-controls="ubicacion" role="tab" 
@@ -34,8 +34,8 @@
           <li role="presentation" class="nav-item"><a href="#contexto" class="fichacambia nav-link" 
             aria-controls="contexto" role="tab" 
             data-toggle="tab">Contexto</a></li>
-          <li role="presentation" class="nav-item"><a href="#presponsable" class="fichacambia nav-link" 
-            aria-controls="presponsable" role="tab" 
+          <li role="presentation" class="nav-item"><a href="#presponsables" class="fichacambia nav-link" 
+            aria-controls="presponsables" role="tab" 
             data-toggle="tab">Presuntos Responsables</a></li>
           <li role="presentation" class="nav-item"><a href="#actos" class="fichacambia nav-link" 
             aria-controls="actos" role="tab" data-toggle="tab">Actos</a></li>
@@ -76,15 +76,15 @@
             <%= render 'contextos', f: f %>
           </div>
 
-          <div role="tabpanel" class="tab-pane fade" id="presponsable">
+          <div role="tabpanel" class="tab-pane fade" id="presponsables">
             <%= render 'presponsables', f: f %>
           </div>
 
-          <div role="tabpanel" class="tab-pane fade" id="victima">
+          <div role="tabpanel" class="tab-pane fade" id="victimas">
             <%= render 'victimas', f: f %>
           </div>
 
-          <div role="tabpanel" class="tab-pane fade" id="victimacolectiva">
+          <div role="tabpanel" class="tab-pane fade" id="victimascolectivas">
             <%= render 'victimascolectivas', f: f %>
           </div>
 

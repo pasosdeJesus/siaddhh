@@ -17,7 +17,7 @@
 
 @sivel2sd_actualiza_victima = (e, victima) ->
   tabla = {}
-  lobj = $('#victima .nested-fields[style!="display: none;"]')
+  lobj = $('#victimas .nested-fields[style!="display: none;"]')
   lobj.each((k, v) ->
     actorsocial_id = $(v).find('select[id$=_persona_attributes_actorsocial_persona_attributes_actorsocial_id]').val()
     pas_id = $(v).find('select[id$=_persona_attributes_actorsocial_persona_attributes_perfilactorsocial_id]').val()
@@ -40,26 +40,27 @@
 
 @sivel2sd_prepara_eventos_unicos = (root, opciones = {}) ->
   sip_arregla_puntomontaje(root)
+  sivel2_gen_prepara_eventos_unicos(root)
 
   # Propagar cambios a victimacolectiva
   $(document).on('change', 
-    '#victimacolectiva [id$=_grupoper_attributes_nombre]', 
+    '#victimascolectivas [id$=_grupoper_attributes_nombre]', 
     sivel2sd_actualiza_victimacolectiva)
   
   $(document).on('cocoon:after-remove', 
-    '#victimacolectiva', 
+    '#victimascolectivas', 
     sivel2sd_actualiza_victimacolectiva)
   
   $(document).on('cocoon:after-insert', 
-    '#victimacolectiva', 
+    '#victimascolectivas', 
     sivel2sd_actualiza_victimacolectiva)
   
-  $(document).on('cocoon:before-remove', '#victimacolectiva', (e, vc) ->
+  $(document).on('cocoon:before-remove', '#victimascolectivas', (e, vc) ->
     return sip_intenta_eliminar_fila(vc, '/victimascolectivas/', 
       DEP_VICTIMACOLECTIVA)
   )
 
-  $(document).on('cocoon:after-insert', '#victima', 
+  $(document).on('cocoon:after-insert', '#victimas', 
     sivel2sd_actualiza_victimacolectiva)
 
   $(document).on('sip:autocompleto_grupoper', 
@@ -68,30 +69,30 @@
 
   # Propagar cambios a victima
   $(document).on('change', 
-    '#victima [id$=_persona_attributes_nombres]', 
+    '#victimas [id$=_persona_attributes_nombres]', 
     sivel2sd_actualiza_victima)
 
   $(document).on('change', 
-    '#victima [id$=_persona_attributes_apellidos]', 
+    '#victimas [id$=_persona_attributes_apellidos]', 
     sivel2sd_actualiza_victima)
 
   $(document).on('change', 
-    '#victima [id$=_persona_attributes_actorsocial_persona_attributes_actorsocial_id]', 
+    '#victimas [id$=_persona_attributes_actorsocial_persona_attributes_actorsocial_id]', 
     sivel2sd_actualiza_victima)
   
   $(document).on('change', 
-    '#victima [id$=_persona_attributes_actorsocial_persona_attributes_perfilactorsocial_id]', 
+    '#victimas [id$=_persona_attributes_actorsocial_persona_attributes_perfilactorsocial_id]', 
     sivel2sd_actualiza_victima)
 
   $(document).on('cocoon:after-remove', 
-    '#victima', 
+    '#victimas', 
     sivel2sd_actualiza_victima)
   
   $(document).on('cocoon:after-insert', 
-    '#victima', 
+    '#victimas', 
     sivel2sd_actualiza_victima)
  
-  $(document).on('cocoon:after-insert', '#victimacolectiva', 
+  $(document).on('cocoon:after-insert', '#victimascolectivas', 
     sivel2sd_actualiza_victima)
 
   $(document).on('sip:autocompleto_persona', 
