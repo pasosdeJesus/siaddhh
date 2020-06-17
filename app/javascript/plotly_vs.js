@@ -40,14 +40,109 @@
 
 // Con base en   https://plotly.com/javascript/line-charts/#styling-line-plot
 function plotly_serietiempo_vs() {
-  Plotly.d3.csv("serie-sexonac.csv", function(datos){ procesar_datos(datos) } );
+  Plotly.d3.csv("serie-sexonac.csv", function(err, datos){ procesar_datos(datos) } );
 
 };
 
 function procesar_datos(filas) {
-
-  console.log(filas);
   var x = [], y1 = [], y2 = [], y3 = [];
+  
+  function unpack(datos, columna){
+    return datos.map(function(fila){ return fila[columna];});
+  }
+  var colsexo = unpack(filas, 'sexonac')
+  var colfecha = unpack(filas, 'fecha')
+  var colfreq = unpack(filas, 'freq')
+  
+  var listadesexos = hallarvalunicos(colsexo)
+  var fechasPresentes = [];
+  var freqsPresentes = [];
+  
+  function hallarvalunicos(valores){
+    var valoresunicos = []
+    for (var i = 0; i < valores.length; i++ ){
+              if (valoresunicos.indexOf(valores[i]) === -1 ){
+                valoresunicos.push(valores[i]);
+                }
+          }
+    return valoresunicos
+  }
+  
+  function obtenerSegunSexo(sexoSeleccionado) {
+    fechasPresentes = [];
+    freqsPresentes = [];
+    for (var i = 0 ; i < colsexo.length ; i++){
+      if ( colsexo[i] === sexoSeleccionado ) {
+        fechasPresentes.push(colfecha[i]);
+        freqsPresentes.push(colfreq[i]);
+      }
+    }
+  };
+
+  var filtrosContainer = document.querySelector('.filtros'),
+    plotContainer = document.querySelector('[data-num="0"'),
+    plotEl = plotContainer.querySelector('.plot'),
+    sexoSelector = filtrosContainer.querySelector('#sexonac');
+
+  function asignarOpciones(arraydevalores, selector) {
+    for (var i = 0; i < arraydevalores.length;  i++) {
+                  var opcionActual = document.createElement('option');
+                  opcionActual.selected = true;
+                  opcionActual.text = arraydevalores[i];
+                  selector.appendChild(opcionActual);
+        }
+    }
+  
+  asignarOpciones(listadesexos, sexoSelector);
+  function graficarSegunFiltro(sexoSeleccionado) {
+    var trazosTotales = []
+    var colors =['rgb(64, 219, 82)', 'rgb(219, 64, 82)', 'rgb(64, 82, 219)'] 
+    for (var i=0; i < sexoSeleccionado.length; i++){
+      obtenerSegunSexo(sexoSeleccionado[i]);
+      var trazo = {
+           x: fechasPresentes,
+           y: freqsPresentes,
+           type: 'scatter',
+           mode: 'lines+markers',
+           name: sexoSeleccionado[i],
+           line: {
+             color: colors[i],
+             width: 1
+           },
+           marker: {
+             size: 12,
+             opacity: 0.5
+           }
+       };
+      trazosTotales.push(trazo)
+    }
+    var data = trazosTotales;
+    var layout = {
+                  title:'Grafica para ' + sexoSeleccionado,
+              };
+
+    Plotly.newPlot('divplot', data, layout, {showSendToCloud: true});
+  };
+  function actualizaGrafica(){
+    function getSelectValues(select) {
+        var result = [];
+        var options = select && select.options;
+        var opt;
+
+        for (var i=0, iLen=options.length; i<iLen; i++) {
+              opt = options[i];
+
+              if (opt.selected) {
+                      result.push(opt.value || opt.text);
+                    }
+            }
+        return result;
+    }
+    var sexoselegidos = getSelectValues(sexoSelector)
+    graficarSegunFiltro(sexoselegidos);
+  }
+  actualizaGrafica()
+  sexoSelector.addEventListener('change', actualizaGrafica, false);
 
   //var parseTime = d3.timeParse("%Y-%m-%d");
 
@@ -66,6 +161,7 @@ function procesar_datos(filas) {
     y2.push(datos2[f]['M'])
     y3.push(datos2[f]['S'])
   })
+
 
   hacerSerieTiempoPlotly( x, y1, y2, y3);
 }
