@@ -34,7 +34,7 @@ import 'jquery-ui/ui/focusable'
 var L = require('leaflet');
 var mc= require('leaflet.markercluster');
 
-import plotly_serietiempo_vs from '../plotly_vs'
+import plotly_serietiempo_actos from '../plotly_actos'
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   console.log("p2ult=" + p2ult)
   if (p2ult == 'graficar/actos_individuales') {
-    plotly_serietiempo_vs() 
+    plotly_serietiempo_actos() 
   }
 
 });
