@@ -95,10 +95,13 @@ function actualizarTrazosPresentados(etiquetas) {
     responsive: true, 
     displaylogo: false, 
     locale: 'es',
-    showLink: true
+    showEditInChartStudio: true,
+    plotlyServerURL: "https://chart-studio.plotly.com",
+    height: 340, 
   }
 
-  Plotly.react('div_serietiempo', trazosPresentados, 
+  Plotly.newPlot('div_serietiempo', trazosPresentados, 
+    {title: 'Serie de tiempo de actos', showlegend: false},
     configuracion);
 
   var valorBarras = []
@@ -135,6 +138,7 @@ function procesar_datos(filas, variable) {
       opcionActual.text = arraydevalores[i];
       selector.appendChild(opcionActual);
     }
+    $(selector).trigger('chosen:updated')
   }
 
 
@@ -201,7 +205,7 @@ function procesar_datos(filas, variable) {
   asignarOpciones(etiquetasPosibles, selectorCategoria);
   actualizarGrafica()
   selectorCategoria.addEventListener('change', actualizarGrafica, false);
-
+  $(selectorCategoria).chosen().change(actualizarGrafica);
 
 }
 

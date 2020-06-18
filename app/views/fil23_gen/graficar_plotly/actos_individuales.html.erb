@@ -3,21 +3,26 @@
 
 <div class="row">
   <div class="col-sm-4">
-    <div class="well" width="12" title="Filtro" status="info">
+    <div class="card">
+      <h5 class="card-title">Filtro</h5>
       <div class="form-group shiny-input-container">
         <label class="control-label" for="presponsable">Presuntos responsables</label>
         <div class="filtros">
-          <select id="presponsable" class="presponsableselect" multiple="multiple" >
+          <select id="presponsable" class="presponsableselect chosen-select" multiple="multiple" >
           </select>
-          <script type="application/json" data-for="presponsable">{}</script>
+            <script type="application/json" data-for="presponsable">{}</script>
         </div>
       </div>
-    </div>
+    </div> <!-- card -->
   </div>
   <div class="col-sm-8">
-    <div id="div_serietiempo" class="plot">
+    <div class="card">
+      <div class="card-body plot" id="div_serietiempo" style="height:400px">
+      </div>
     </div>
-    <div id="div_barras">
+    <div class="card">
+      <div class="card-body plot" id="div_barras" style="height: 400px">
+      </div>
     </div>
   </div>
 </div>
