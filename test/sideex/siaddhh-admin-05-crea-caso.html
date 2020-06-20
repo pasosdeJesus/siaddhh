@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+	<title>siaddhh-admin-05-crea-caso</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-datos-basicos</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>id=navbarDropdownCasos<datalist><option>id=navbarDropdownCasos</option><option>link=Casos</option><option>css=#navbarDropdownCasos</option><option>//a[contains(text(),'Casos')]</option><option>//a[@id='navbarDropdownCasos']</option><option>//div[@id='navbarSupportedContent']/ul/li/a</option><option>//a[contains(@href, '#')]</option><option>//li/a</option></datalist></td><td>36,27</td>
+</tr>
+<tr><td>clickAt</td><td>link=Listado<datalist><option>link=Listado</option><option>css=a.dropdown-item</option><option>//a[contains(text(),'Listado')]</option><option>//div[@id='navbarSupportedContent']/ul/li/div/a</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos')]</option><option>//div/a</option></datalist></td><td>42,13</td>
+</tr>
+<tr><td>clickAt</td><td>link=Nuevo<datalist><option>link=Nuevo</option><option>css=a.btn.btn-primary</option><option>xpath=(//a[contains(text(),'Nuevo')])[2]</option><option>xpath=(//a[contains(@href, '/somosdefensores/sivel2/casos/nuevo')])[2]</option><option>//div/div/a</option></datalist></td><td>40,20</td>
+</tr>
+<tr><td>clickAt</td><td>id=caso_fecha_localizada<datalist><option>id=caso_fecha_localizada</option><option>name=caso[fecha_localizada]</option><option>css=#caso_fecha_localizada</option><option>//input[@id='caso_fecha_localizada']</option><option>//div[@id='basicos']/div/div/div/input</option><option>//div[2]/div/div/div/div/div/input</option></datalist></td><td>89,18</td>
+</tr>
+<tr><td>clickAt</td><td>//tr[2]/td[5]<datalist><option>//tr[2]/td[5]</option></datalist></td><td>3,12</td>
+</tr>
+<tr><td>clickAt</td><td>id=caso_titulo<datalist><option>id=caso_titulo</option><option>name=caso[titulo]</option><option>css=#caso_titulo</option><option>//input[@id='caso_titulo']</option><option>//div[@id='basicos']/div[2]/input</option><option>//div/div[2]/input</option></datalist></td><td>55,9</td>
+</tr>
+<tr><td>type</td><td>id=caso_titulo<datalist><option>id=caso_titulo</option><option>name=caso[titulo]</option><option>css=#caso_titulo</option><option>//input[@id='caso_titulo']</option><option>//div[@id='basicos']/div[2]/input</option><option>//div/div[2]/input</option></datalist></td><td>Maria Olarte</td>
+</tr>
+<tr><td>clickAt</td><td>id=caso_hora<datalist><option>id=caso_hora</option><option>name=caso[hora]</option><option>css=#caso_hora</option><option>//input[@id='caso_hora']</option><option>//div[@id='basicos']/div[3]/div/div/input</option><option>//div[3]/div/div/input</option></datalist></td><td>43,19</td>
+</tr>
+<tr><td>type</td><td>id=caso_hora<datalist><option>id=caso_hora</option><option>name=caso[hora]</option><option>css=#caso_hora</option><option>//input[@id='caso_hora']</option><option>//div[@id='basicos']/div[3]/div/div/input</option><option>//div[3]/div/div/input</option></datalist></td><td>4 pm</td>
+</tr>
+<tr><td>clickAt</td><td>id=caso_duracion<datalist><option>id=caso_duracion</option><option>name=caso[duracion]</option><option>css=#caso_duracion</option><option>//input[@id='caso_duracion']</option><option>//div[@id='basicos']/div[3]/div[2]/div/input</option><option>//div[3]/div[2]/div/input</option></datalist></td><td>113,18</td>
+</tr>
+<tr><td>type</td><td>id=caso_duracion<datalist><option>id=caso_duracion</option><option>name=caso[duracion]</option><option>css=#caso_duracion</option><option>//input[@id='caso_duracion']</option><option>//div[@id='basicos']/div[3]/div[2]/div/input</option><option>//div[3]/div[2]/div/input</option></datalist></td><td>2 dias</td>
+</tr>
+<tr><td>select</td><td>id=caso_id_intervalo<datalist><option>id=caso_id_intervalo</option><option>name=caso[id_intervalo]</option><option>css=#caso_id_intervalo</option><option>//select[@id='caso_id_intervalo']</option><option>//div[@id='basicos']/div[3]/div[3]/div/select</option><option>//select</option></datalist></td><td>label=NOCHE</td>
+</tr>
+<tr><td>clickAt</td><td>id=caso_id_intervalo<datalist><option>id=caso_id_intervalo</option><option>name=caso[id_intervalo]</option><option>css=#caso_id_intervalo</option><option>//select[@id='caso_id_intervalo']</option><option>//div[@id='basicos']/div[3]/div[3]/div/select</option><option>//select</option></datalist></td><td>-858,-370</td>
+</tr>
+<tr><td>runScript</td><td>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')<datalist><option>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')</option></datalist></td><td></td>
+</tr>
+<tr><td>addSelection</td><td>id=caso_region_ids<datalist><option>id=caso_region_ids</option><option>css=#caso_region_ids</option><option>//select[@id='caso_region_ids']</option><option>//div[@id='basicos']/div[4]/div/div/select</option><option>//div[4]/div/div/select</option></datalist></td><td>label=AMAZONIA</td>
+</tr>
+<tr><td>clickAt</td><td>css=option[value="14"]<datalist><option>css=option[value="14"]</option><option>//option[@value='14']</option><option>//select[@id='caso_region_ids']/option</option><option>//div[4]/div/div/select/option</option></datalist></td><td>42,9</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129866']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>52,20</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Caso</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-colectivo-humano</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/129863/edita')]</option><option>//div[4]/a[2]</option></datalist></td><td>31,13</td>
+</tr>
+<tr><td>clickAt</td><td>link=Colectivo Humano<datalist><option>link=Colectivo Humano</option><option>//a[contains(text(),'Colectivo Humano')]</option><option>//form[@id='edit_caso_129867']/div/div[2]/ul/li[2]/a</option><option>//a[contains(@href, '#victimascolectivas')]</option><option>//div[2]/ul/li[2]/a</option></datalist></td><td>105,22</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir Víctima Colectiva<datalist><option>link=Añadir Víctima Colectiva</option><option>css=#victimascolectivas &gt; div.links &gt; a.btn-primary.add_fields</option><option>//a[contains(text(),'Añadir Víctima Colectiva')]</option><option>//div[@id='victimascolectivas']/div/a</option><option>xpath=(//a[contains(@href, '#')])[22]</option><option>//div[8]/div/a</option></datalist></td><td>130,12</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div[2]/input<datalist><option>id=caso_victimacolectiva_attributes_2223_grupoper_attributes_nombre</option><option>name=caso[victimacolectiva_attributes][2223][grupoper_attributes][nombre]</option><option>css=#caso_victimacolectiva_attributes_2223_grupoper_attributes_nombre</option><option>//input[@id='caso_victimacolectiva_attributes_2223_grupoper_attributes_nombre']</option><option>//div[@id='victimascolectivas']/div/div/div[2]/div[2]/input</option><option>//div[2]/div[2]/input</option></datalist></td><td>57,13</td>
+</tr>
+<tr><td>type</td><td>//div[2]/div[2]/input<datalist><option>id=caso_victimacolectiva_attributes_2223_grupoper_attributes_nombre</option><option>name=caso[victimacolectiva_attributes][2223][grupoper_attributes][nombre]</option><option>css=#caso_victimacolectiva_attributes_2223_grupoper_attributes_nombre</option><option>//input[@id='caso_victimacolectiva_attributes_2223_grupoper_attributes_nombre']</option><option>//div[@id='victimascolectivas']/div/div/div[2]/div[2]/input</option><option>//div[2]/div[2]/input</option></datalist></td><td>San Juan</td>
+</tr>
+<tr><td>clickAt</td><td>css=body<datalist><option>css=body</option><option>//body</option></datalist></td><td>58,273</td>
+</tr>
+<tr><td>runScript</td><td>$('[type=number]').removeAttr('type')<datalist><option>$('[type=number]').removeAttr('type')</option><option>$('#rangoedad_limiteinferior').removeAttr('type')</option><option>$('#pais_codiso').removeAttr('type')</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>//div[5]/div/div/input<datalist><option>id=caso_victimacolectiva_attributes_2223_personasaprox</option><option>name=caso[victimacolectiva_attributes][2223][personasaprox]</option><option>css=#caso_victimacolectiva_attributes_2223_personasaprox</option><option>//input[@id='caso_victimacolectiva_attributes_2223_personasaprox']</option><option>//div[@id='victimascolectivas']/div/div/div[2]/div[5]/div/div/input</option><option>//div[5]/div/div/input</option></datalist></td><td>234,9</td>
+</tr>
+<tr><td>type</td><td>//div[5]/div/div/input<datalist><option>id=caso_victimacolectiva_attributes_2223_personasaprox</option><option>name=caso[victimacolectiva_attributes][2223][personasaprox]</option><option>css=#caso_victimacolectiva_attributes_2223_personasaprox</option><option>//input[@id='caso_victimacolectiva_attributes_2223_personasaprox']</option><option>//div[@id='victimascolectivas']/div/div/div[2]/div[5]/div/div/input</option><option>//div[5]/div/div/input</option></datalist></td><td>10</td>
+</tr>
+<tr><td>clickAt</td><td>//div[5]/div[2]/div/input<datalist><option>id=caso_victimacolectiva_attributes_2223_actorsocial_attributes_fechafundacion</option><option>name=caso[victimacolectiva_attributes][2223][actorsocial_attributes][fechafundacion]</option><option>css=#caso_victimacolectiva_attributes_2223_actorsocial_attributes_fechafundacion</option><option>//input[@id='caso_victimacolectiva_attributes_2223_actorsocial_attributes_fechafundacion']</option><option>//div[@id='victimascolectivas']/div/div/div[2]/div[5]/div[2]/div/input</option><option>//div[5]/div[2]/div/input</option></datalist></td><td>64,10</td>
+</tr>
+<tr><td>clickAt</td><td>css=td.old.day<datalist><option>css=td.old.day</option><option>//td</option></datalist></td><td>20,16</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129867']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>84,22</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Caso</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-victimas-individuales</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/129863/edita')]</option><option>//div[4]/a[2]</option></datalist></td><td>31,13</td>
+</tr>
+<tr><td>clickAt</td><td>link=Víctimas Individuales<datalist><option>link=Víctimas Individuales</option><option>//a[contains(text(),'Víctimas Individuales')]</option><option>//form[@id='edit_caso_129867']/div/div[2]/ul/li[3]/a</option><option>xpath=(//a[contains(@href, '#victimas')])[2]</option><option>//div[2]/ul/li[3]/a</option></datalist></td><td>86,23</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir Víctima<datalist><option>link=Añadir Víctima</option><option>css=#victimas &gt; div.links &gt; a.btn-primary.add_fields</option><option>//a[contains(text(),'Añadir Víctima')]</option><option>//div[@id='victimas']/div/a</option><option>xpath=(//a[contains(@href, '#')])[21]</option><option>//div[7]/div/a</option></datalist></td><td>51,5</td>
+</tr>
+<tr><td>clickAt</td><td>//div[7]/div/div/div/div[2]/div/div/input<datalist><option>id=caso_victima_attributes_4122_persona_attributes_nombres</option><option>name=caso[victima_attributes][4122][persona_attributes][nombres]</option><option>css=#caso_victima_attributes_4122_persona_attributes_nombres</option><option>//input[@id='caso_victima_attributes_4122_persona_attributes_nombres']</option><option>//div[@id='victimas']/div/div/div/div[2]/div/div/input</option><option>//div[7]/div/div/div/div[2]/div/div/input</option></datalist></td><td>99,19</td>
+</tr>
+<tr><td>type</td><td>//div[7]/div/div/div/div[2]/div/div/input<datalist><option>id=caso_victima_attributes_4122_persona_attributes_nombres</option><option>name=caso[victima_attributes][4122][persona_attributes][nombres]</option><option>css=#caso_victima_attributes_4122_persona_attributes_nombres</option><option>//input[@id='caso_victima_attributes_4122_persona_attributes_nombres']</option><option>//div[@id='victimas']/div/div/div/div[2]/div/div/input</option><option>//div[7]/div/div/div/div[2]/div/div/input</option></datalist></td><td>aaa</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div[2]/div/input<datalist><option>id=caso_victima_attributes_4122_persona_attributes_apellidos</option><option>name=caso[victima_attributes][4122][persona_attributes][apellidos]</option><option>css=#caso_victima_attributes_4122_persona_attributes_apellidos</option><option>//input[@id='caso_victima_attributes_4122_persona_attributes_apellidos']</option><option>//div[@id='victimas']/div/div/div/div[2]/div[2]/div/input</option><option>//div[2]/div[2]/div/input</option></datalist></td><td>53,18</td>
+</tr>
+<tr><td>type</td><td>//div[2]/div[2]/div/input<datalist><option>id=caso_victima_attributes_4122_persona_attributes_apellidos</option><option>name=caso[victima_attributes][4122][persona_attributes][apellidos]</option><option>css=#caso_victima_attributes_4122_persona_attributes_apellidos</option><option>//input[@id='caso_victima_attributes_4122_persona_attributes_apellidos']</option><option>//div[@id='victimas']/div/div/div/div[2]/div[2]/div/input</option><option>//div[2]/div[2]/div/input</option></datalist></td><td>bbb</td>
+</tr>
+<tr><td>select</td><td>//div[7]/div/div/div/div[3]/div/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_tdocumento_id</option><option>name=caso[victima_attributes][4122][persona_attributes][tdocumento_id]</option><option>css=#caso_victima_attributes_4122_persona_attributes_tdocumento_id</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_tdocumento_id']</option><option>//div[@id='victimas']/div/div/div/div[3]/div/div/select</option><option>//div[7]/div/div/div/div[3]/div/div/select</option></datalist></td><td>label=CÉDULA DE CIUDADANÍA</td>
+</tr>
+<tr><td>clickAt</td><td>//div[7]/div/div/div/div[3]/div/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_tdocumento_id</option><option>name=caso[victima_attributes][4122][persona_attributes][tdocumento_id]</option><option>css=#caso_victima_attributes_4122_persona_attributes_tdocumento_id</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_tdocumento_id']</option><option>//div[@id='victimas']/div/div/div/div[3]/div/div/select</option><option>//div[7]/div/div/div/div[3]/div/div/select</option></datalist></td><td>-90,-294</td>
+</tr>
+<tr><td>clickAt</td><td>//div[7]/div/div/div/div[3]/div[2]/div/input<datalist><option>id=caso_victima_attributes_4122_persona_attributes_numerodocumento</option><option>name=caso[victima_attributes][4122][persona_attributes][numerodocumento]</option><option>css=#caso_victima_attributes_4122_persona_attributes_numerodocumento</option><option>//input[@id='caso_victima_attributes_4122_persona_attributes_numerodocumento']</option><option>//div[@id='victimas']/div/div/div/div[3]/div[2]/div/input</option><option>//div[7]/div/div/div/div[3]/div[2]/div/input</option></datalist></td><td>135,18</td>
+</tr>
+<tr><td>type</td><td>//div[7]/div/div/div/div[3]/div[2]/div/input<datalist><option>id=caso_victima_attributes_4122_persona_attributes_numerodocumento</option><option>name=caso[victima_attributes][4122][persona_attributes][numerodocumento]</option><option>css=#caso_victima_attributes_4122_persona_attributes_numerodocumento</option><option>//input[@id='caso_victima_attributes_4122_persona_attributes_numerodocumento']</option><option>//div[@id='victimas']/div/div/div/div[3]/div[2]/div/input</option><option>//div[7]/div/div/div/div[3]/div[2]/div/input</option></datalist></td><td>554433227</td>
+</tr>
+<tr><td>select</td><td>//div[7]/div/div/div/div[5]/div/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_anionac</option><option>name=caso[victima_attributes][4122][persona_attributes][anionac]</option><option>css=#caso_victima_attributes_4122_persona_attributes_anionac</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_anionac']</option><option>//div[@id='victimas']/div/div/div/div[5]/div/div/select</option><option>//div[7]/div/div/div/div[5]/div/div/select</option></datalist></td><td>label=1980</td>
+</tr>
+<tr><td>clickAt</td><td>//div[7]/div/div/div/div[5]/div/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_anionac</option><option>name=caso[victima_attributes][4122][persona_attributes][anionac]</option><option>css=#caso_victima_attributes_4122_persona_attributes_anionac</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_anionac']</option><option>//div[@id='victimas']/div/div/div/div[5]/div/div/select</option><option>//div[7]/div/div/div/div[5]/div/div/select</option></datalist></td><td>-90,-408</td>
+</tr>
+<tr><td>select</td><td>//div[6]/div/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_mesnac</option><option>name=caso[victima_attributes][4122][persona_attributes][mesnac]</option><option>css=#caso_victima_attributes_4122_persona_attributes_mesnac</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_mesnac']</option><option>//div[@id='victimas']/div/div/div/div[6]/div/div/select</option><option>//div[6]/div/div/select</option></datalist></td><td>label=SEPTIEMBRE</td>
+</tr>
+<tr><td>clickAt</td><td>//div[6]/div/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_mesnac</option><option>name=caso[victima_attributes][4122][persona_attributes][mesnac]</option><option>css=#caso_victima_attributes_4122_persona_attributes_mesnac</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_mesnac']</option><option>//div[@id='victimas']/div/div/div/div[6]/div/div/select</option><option>//div[6]/div/div/select</option></datalist></td><td>-90,-484</td>
+</tr>
+<tr><td>select</td><td>//div[6]/div[2]/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_dianac</option><option>name=caso[victima_attributes][4122][persona_attributes][dianac]</option><option>css=#caso_victima_attributes_4122_persona_attributes_dianac</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_dianac']</option><option>//div[@id='victimas']/div/div/div/div[6]/div[2]/div/select</option><option>//div[6]/div[2]/div/select</option></datalist></td><td>label=24</td>
+</tr>
+<tr><td>clickAt</td><td>//div[6]/div[2]/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_dianac</option><option>name=caso[victima_attributes][4122][persona_attributes][dianac]</option><option>css=#caso_victima_attributes_4122_persona_attributes_dianac</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_dianac']</option><option>//div[@id='victimas']/div/div/div/div[6]/div[2]/div/select</option><option>//div[6]/div[2]/div/select</option></datalist></td><td>-470,-484</td>
+</tr>
+<tr><td>select</td><td>//div[6]/div[3]/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_sexo</option><option>name=caso[victima_attributes][4122][persona_attributes][sexo]</option><option>css=#caso_victima_attributes_4122_persona_attributes_sexo</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_sexo']</option><option>//div[@id='victimas']/div/div/div/div[6]/div[3]/div/select</option><option>//div[6]/div[3]/div/select</option></datalist></td><td>label=MASCULINO</td>
+</tr>
+<tr><td>clickAt</td><td>//div[6]/div[3]/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_sexo</option><option>name=caso[victima_attributes][4122][persona_attributes][sexo]</option><option>css=#caso_victima_attributes_4122_persona_attributes_sexo</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_sexo']</option><option>//div[@id='victimas']/div/div/div/div[6]/div[3]/div/select</option><option>//div[6]/div[3]/div/select</option></datalist></td><td>-850,-484</td>
+</tr>
+<tr><td>select</td><td>//div[7]/div/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_id_pais</option><option>name=caso[victima_attributes][4122][persona_attributes][id_pais]</option><option>css=#caso_victima_attributes_4122_persona_attributes_id_pais</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_id_pais']</option><option>//div[@id='victimas']/div/div/div/div[7]/div/div/select</option><option>//div[7]/div/div/select</option></datalist></td><td>label=COLOMBIA</td>
+</tr>
+<tr><td>clickAt</td><td>//div[7]/div/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_id_pais</option><option>name=caso[victima_attributes][4122][persona_attributes][id_pais]</option><option>css=#caso_victima_attributes_4122_persona_attributes_id_pais</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_id_pais']</option><option>//div[@id='victimas']/div/div/div/div[7]/div/div/select</option><option>//div[7]/div/div/select</option></datalist></td><td>158,11</td>
+</tr>
+<tr><td>select</td><td>//div[7]/div[2]/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_id_departamento</option><option>name=caso[victima_attributes][4122][persona_attributes][id_departamento]</option><option>css=#caso_victima_attributes_4122_persona_attributes_id_departamento</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_id_departamento']</option><option>//div[@id='victimas']/div/div/div/div[7]/div[2]/div/select</option><option>//div[7]/div[2]/div/select</option></datalist></td><td>label=ANTIOQUIA</td>
+</tr>
+<tr><td>clickAt</td><td>//div[7]/div[2]/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_id_departamento</option><option>name=caso[victima_attributes][4122][persona_attributes][id_departamento]</option><option>css=#caso_victima_attributes_4122_persona_attributes_id_departamento</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_id_departamento']</option><option>//div[@id='victimas']/div/div/div/div[7]/div[2]/div/select</option><option>//div[7]/div[2]/div/select</option></datalist></td><td>-660,-176</td>
+</tr>
+<tr><td>select</td><td>//div[8]/div/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_id_municipio</option><option>name=caso[victima_attributes][4122][persona_attributes][id_municipio]</option><option>css=#caso_victima_attributes_4122_persona_attributes_id_municipio</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_id_municipio']</option><option>//div[@id='victimas']/div/div/div/div[8]/div/div/select</option><option>//div[8]/div/div/select</option></datalist></td><td>label=AMAGÁ</td>
+</tr>
+<tr><td>clickAt</td><td>//div[8]/div/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_id_municipio</option><option>name=caso[victima_attributes][4122][persona_attributes][id_municipio]</option><option>css=#caso_victima_attributes_4122_persona_attributes_id_municipio</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_id_municipio']</option><option>//div[@id='victimas']/div/div/div/div[8]/div/div/select</option><option>//div[8]/div/div/select</option></datalist></td><td>-90,-252</td>
+</tr>
+<tr><td>select</td><td>//div[8]/div[2]/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_id_clase</option><option>name=caso[victima_attributes][4122][persona_attributes][id_clase]</option><option>css=#caso_victima_attributes_4122_persona_attributes_id_clase</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_id_clase']</option><option>//div[@id='victimas']/div/div/div/div[8]/div[2]/div/select</option><option>//div[8]/div[2]/div/select</option></datalist></td><td>label=LA GUALÍ</td>
+</tr>
+<tr><td>clickAt</td><td>//div[8]/div[2]/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_id_clase</option><option>name=caso[victima_attributes][4122][persona_attributes][id_clase]</option><option>css=#caso_victima_attributes_4122_persona_attributes_id_clase</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_id_clase']</option><option>//div[@id='victimas']/div/div/div/div[8]/div[2]/div/select</option><option>//div[8]/div[2]/div/select</option></datalist></td><td>-660,-252</td>
+</tr>
+<tr><td>clickAt</td><td>//div[10]/div/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_actorsocial_persona_attributes_actorsocial_id</option><option>name=caso[victima_attributes][4122][persona_attributes][actorsocial_persona_attributes][actorsocial_id]</option><option>css=#caso_victima_attributes_4122_persona_attributes_actorsocial_persona_attributes_actorsocial_id</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_actorsocial_persona_attributes_actorsocial_id']</option><option>//div[@id='victimas']/div/div/div/div[10]/div/div/select</option><option>//div[10]/div/div/select</option></datalist></td><td>-90,-328</td>
+</tr>
+<tr><td>select</td><td>//div[10]/div[2]/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_actorsocial_persona_attributes_perfilactorsocial_id</option><option>name=caso[victima_attributes][4122][persona_attributes][actorsocial_persona_attributes][perfilactorsocial_id]</option><option>css=#caso_victima_attributes_4122_persona_attributes_actorsocial_persona_attributes_perfilactorsocial_id</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_actorsocial_persona_attributes_perfilactorsocial_id']</option><option>//div[@id='victimas']/div/div/div/div[10]/div[2]/div/select</option><option>//div[10]/div[2]/div/select</option></datalist></td><td>label=FAMILIAR DE DEFENSOR/A O DE LÍDER SOCIAL</td>
+</tr>
+<tr><td>clickAt</td><td>//div[10]/div[2]/div/select<datalist><option>id=caso_victima_attributes_4122_persona_attributes_actorsocial_persona_attributes_perfilactorsocial_id</option><option>name=caso[victima_attributes][4122][persona_attributes][actorsocial_persona_attributes][perfilactorsocial_id]</option><option>css=#caso_victima_attributes_4122_persona_attributes_actorsocial_persona_attributes_perfilactorsocial_id</option><option>//select[@id='caso_victima_attributes_4122_persona_attributes_actorsocial_persona_attributes_perfilactorsocial_id']</option><option>//div[@id='victimas']/div/div/div/div[10]/div[2]/div/select</option><option>//div[10]/div[2]/div/select</option></datalist></td><td>-660,-328</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/div/input<datalist><option>id=caso_victima_attributes_4122_otraorganizacion</option><option>name=caso[victima_attributes][4122][otraorganizacion]</option><option>css=#caso_victima_attributes_4122_otraorganizacion</option><option>//input[@id='caso_victima_attributes_4122_otraorganizacion']</option><option>//div[@id='victimas']/div/div/div[2]/div/div/input</option><option>//div[2]/div/div/input</option></datalist></td><td>130,20</td>
+</tr>
+<tr><td>runScript</td><td>$('[type=number]').removeAttr('type')<datalist><option>$('[type=number]').removeAttr('type')</option><option>$('#rangoedad_limiteinferior').removeAttr('type')</option><option>$('#pais_codiso').removeAttr('type')</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>//div[7]/div/div/div[3]/div/div/input<datalist><option>id=caso_victima_attributes_4122_hijos</option><option>name=caso[victima_attributes][4122][hijos]</option><option>css=#caso_victima_attributes_4122_hijos</option><option>//input[@id='caso_victima_attributes_4122_hijos']</option><option>//div[@id='victimas']/div/div/div[3]/div/div/input</option><option>//div[7]/div/div/div[3]/div/div/input</option></datalist></td><td>124,13</td>
+</tr>
+<tr><td>type</td><td>//div[7]/div/div/div[3]/div/div/input<datalist><option>id=caso_victima_attributes_4122_hijos</option><option>name=caso[victima_attributes][4122][hijos]</option><option>css=#caso_victima_attributes_4122_hijos</option><option>//input[@id='caso_victima_attributes_4122_hijos']</option><option>//div[@id='victimas']/div/div/div[3]/div/div/input</option><option>//div[7]/div/div/div[3]/div/div/input</option></datalist></td><td>4</td>
+</tr>
+<tr><td>select</td><td>//div[3]/div[2]/div/select<datalist><option>id=caso_victima_attributes_4122_orientacionsexual</option><option>name=caso[victima_attributes][4122][orientacionsexual]</option><option>css=#caso_victima_attributes_4122_orientacionsexual</option><option>//select[@id='caso_victima_attributes_4122_orientacionsexual']</option><option>//div[@id='victimas']/div/div/div[3]/div[2]/div/select</option><option>//div[3]/div[2]/div/select</option></datalist></td><td>label=HETEROSEXUAL</td>
+</tr>
+<tr><td>clickAt</td><td>//div[3]/div[2]/div/select<datalist><option>id=caso_victima_attributes_4122_orientacionsexual</option><option>name=caso[victima_attributes][4122][orientacionsexual]</option><option>css=#caso_victima_attributes_4122_orientacionsexual</option><option>//select[@id='caso_victima_attributes_4122_orientacionsexual']</option><option>//div[@id='victimas']/div/div/div[3]/div[2]/div/select</option><option>//div[3]/div[2]/div/select</option></datalist></td><td>-660,-480</td>
+</tr>
+<tr><td>select</td><td>//div[7]/div/div/div[4]/div/div/select<datalist><option>id=caso_victima_attributes_4122_id_sectorsocial</option><option>name=caso[victima_attributes][4122][id_sectorsocial]</option><option>css=#caso_victima_attributes_4122_id_sectorsocial</option><option>//select[@id='caso_victima_attributes_4122_id_sectorsocial']</option><option>//div[@id='victimas']/div/div/div[4]/div/div/select</option><option>//div[7]/div/div/div[4]/div/div/select</option></datalist></td><td>label=CAMPESINO</td>
+</tr>
+<tr><td>clickAt</td><td>//div[7]/div/div/div[4]/div/div/select<datalist><option>id=caso_victima_attributes_4122_id_sectorsocial</option><option>name=caso[victima_attributes][4122][id_sectorsocial]</option><option>css=#caso_victima_attributes_4122_id_sectorsocial</option><option>//select[@id='caso_victima_attributes_4122_id_sectorsocial']</option><option>//div[@id='victimas']/div/div/div[4]/div/div/select</option><option>//div[7]/div/div/div[4]/div/div/select</option></datalist></td><td>-90,-350</td>
+</tr>
+<tr><td>select</td><td>//div[4]/div[2]/div/select<datalist><option>id=caso_victima_attributes_4122_id_vinculoestado</option><option>name=caso[victima_attributes][4122][id_vinculoestado]</option><option>css=#caso_victima_attributes_4122_id_vinculoestado</option><option>//select[@id='caso_victima_attributes_4122_id_vinculoestado']</option><option>//div[@id='victimas']/div/div/div[4]/div[2]/div/select</option><option>//div[4]/div[2]/div/select</option></datalist></td><td>label=PROCURADOR</td>
+</tr>
+<tr><td>clickAt</td><td>//div[4]/div[2]/div/select<datalist><option>id=caso_victima_attributes_4122_id_vinculoestado</option><option>name=caso[victima_attributes][4122][id_vinculoestado]</option><option>css=#caso_victima_attributes_4122_id_vinculoestado</option><option>//select[@id='caso_victima_attributes_4122_id_vinculoestado']</option><option>//div[@id='victimas']/div/div/div[4]/div[2]/div/select</option><option>//div[4]/div[2]/div/select</option></datalist></td><td>-660,-350</td>
+</tr>
+<tr><td>select</td><td>//div[5]/div/div/select<datalist><option>id=caso_victima_attributes_4122_id_profesion</option><option>name=caso[victima_attributes][4122][id_profesion]</option><option>css=#caso_victima_attributes_4122_id_profesion</option><option>//select[@id='caso_victima_attributes_4122_id_profesion']</option><option>//div[@id='victimas']/div/div/div[5]/div/div/select</option><option>//div[5]/div/div/select</option></datalist></td><td>label=PERIODISTA DEFENSOR(A) DD.HH</td>
+</tr>
+<tr><td>clickAt</td><td>//div[5]/div/div/select<datalist><option>id=caso_victima_attributes_4122_id_profesion</option><option>name=caso[victima_attributes][4122][id_profesion]</option><option>css=#caso_victima_attributes_4122_id_profesion</option><option>//select[@id='caso_victima_attributes_4122_id_profesion']</option><option>//div[@id='victimas']/div/div/div[5]/div/div/select</option><option>//div[5]/div/div/select</option></datalist></td><td>-90,-426</td>
+</tr>
+<tr><td>select</td><td>//div[5]/div[2]/div/select<datalist><option>id=caso_victima_attributes_4122_id_etnia</option><option>name=caso[victima_attributes][4122][id_etnia]</option><option>css=#caso_victima_attributes_4122_id_etnia</option><option>//select[@id='caso_victima_attributes_4122_id_etnia']</option><option>//div[@id='victimas']/div/div/div[5]/div[2]/div/select</option><option>//div[5]/div[2]/div/select</option></datalist></td><td>label=SÁLIBA</td>
+</tr>
+<tr><td>clickAt</td><td>//div[5]/div[2]/div/select<datalist><option>id=caso_victima_attributes_4122_id_etnia</option><option>name=caso[victima_attributes][4122][id_etnia]</option><option>css=#caso_victima_attributes_4122_id_etnia</option><option>//select[@id='caso_victima_attributes_4122_id_etnia']</option><option>//div[@id='victimas']/div/div/div[5]/div[2]/div/select</option><option>//div[5]/div[2]/div/select</option></datalist></td><td>-660,-426</td>
+</tr>
+<tr><td>select</td><td>//div[6]/select<datalist><option>id=caso_victima_attributes_4122_tipoamenaza_id</option><option>name=caso[victima_attributes][4122][tipoamenaza_id]</option><option>css=#caso_victima_attributes_4122_tipoamenaza_id</option><option>//select[@id='caso_victima_attributes_4122_tipoamenaza_id']</option><option>//div[@id='victimas']/div/div/div[6]/select</option><option>//div[6]/select</option></datalist></td><td>label=ASESINATO-ATENTADO DE FAMILIAR</td>
+</tr>
+<tr><td>clickAt</td><td>//div[6]/select<datalist><option>id=caso_victima_attributes_4122_tipoamenaza_id</option><option>name=caso[victima_attributes][4122][tipoamenaza_id]</option><option>css=#caso_victima_attributes_4122_tipoamenaza_id</option><option>//select[@id='caso_victima_attributes_4122_tipoamenaza_id']</option><option>//div[@id='victimas']/div/div/div[6]/select</option><option>//div[6]/select</option></datalist></td><td>-90,-502</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129867']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>102,20</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Caso</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-localizacion  </td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/129863/edita')]</option><option>//div[4]/a[2]</option></datalist></td><td>31,13</td>
+</tr>
+<tr><td>clickAt</td><td>link=Localización<datalist><option>link=Localización</option><option>//a[contains(text(),'Localización')]</option><option>//form[@id='edit_caso_129867']/div/div[2]/ul/li[4]/a</option><option>//a[contains(@href, '#ubicacion')]</option><option>//li[4]/a</option></datalist></td><td>54,17</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir Ubicación<datalist><option>link=Añadir Ubicación</option><option>css=a.btn-primary.add_fields</option><option>//a[contains(text(),'Añadir Ubicación')]</option><option>//div[@id='ubicacion']/div/a</option><option>xpath=(//a[contains(@href, '#')])[17]</option><option>//div[2]/div/a</option></datalist></td><td>35,5</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104709_id_departamento</option><option>name=caso[ubicacion_attributes][104709][id_departamento]</option><option>css=#caso_ubicacion_attributes_104709_id_departamento</option><option>//select[@id='caso_ubicacion_attributes_104709_id_departamento']</option><option>//div[@id='ubicacion']/div/div/div/div[2]/div/select</option><option>//div[2]/div/select</option></datalist></td><td>label=ANTIOQUIA</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104709_id_departamento</option><option>name=caso[ubicacion_attributes][104709][id_departamento]</option><option>css=#caso_ubicacion_attributes_104709_id_departamento</option><option>//select[@id='caso_ubicacion_attributes_104709_id_departamento']</option><option>//div[@id='ubicacion']/div/div/div/div[2]/div/select</option><option>//div[2]/div/select</option></datalist></td><td>-668,-218</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div/div/select<datalist><option>id=caso_ubicacion_attributes_104709_id_municipio</option><option>name=caso[ubicacion_attributes][104709][id_municipio]</option><option>css=#caso_ubicacion_attributes_104709_id_municipio</option><option>//select[@id='caso_ubicacion_attributes_104709_id_municipio']</option><option>//div[@id='ubicacion']/div/div/div[2]/div/div/select</option><option>//div[2]/div/div/select</option></datalist></td><td>label=AMAGÁ</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/div/select<datalist><option>id=caso_ubicacion_attributes_104709_id_municipio</option><option>name=caso[ubicacion_attributes][104709][id_municipio]</option><option>css=#caso_ubicacion_attributes_104709_id_municipio</option><option>//select[@id='caso_ubicacion_attributes_104709_id_municipio']</option><option>//div[@id='ubicacion']/div/div/div[2]/div/div/select</option><option>//div[2]/div/div/select</option></datalist></td><td>-98,-294</td>
+</tr>
+<tr><td>select</td><td>//div[2]/div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104709_id_clase</option><option>name=caso[ubicacion_attributes][104709][id_clase]</option><option>css=#caso_ubicacion_attributes_104709_id_clase</option><option>//select[@id='caso_ubicacion_attributes_104709_id_clase']</option><option>//div[@id='ubicacion']/div/div/div[2]/div[2]/div/select</option><option>//div[2]/div[2]/div/select</option></datalist></td><td>label=LA GUALÍ</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div[2]/div/select<datalist><option>id=caso_ubicacion_attributes_104709_id_clase</option><option>name=caso[ubicacion_attributes][104709][id_clase]</option><option>css=#caso_ubicacion_attributes_104709_id_clase</option><option>//select[@id='caso_ubicacion_attributes_104709_id_clase']</option><option>//div[@id='ubicacion']/div/div/div[2]/div[2]/div/select</option><option>//div[2]/div[2]/div/select</option></datalist></td><td>-668,-294</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/div[2]/div/div/div[3]/div/div/input<datalist><option>id=caso_ubicacion_attributes_104709_lugar</option><option>name=caso[ubicacion_attributes][104709][lugar]</option><option>css=#caso_ubicacion_attributes_104709_lugar</option><option>//input[@id='caso_ubicacion_attributes_104709_lugar']</option><option>//div[@id='ubicacion']/div/div/div[3]/div/div/input</option><option>//div[2]/div/div[2]/div/div/div[3]/div/div/input</option></datalist></td><td>136,17</td>
+</tr>
+<tr><td>type</td><td>//div[2]/div/div[2]/div/div/div[3]/div/div/input<datalist><option>id=caso_ubicacion_attributes_104709_lugar</option><option>name=caso[ubicacion_attributes][104709][lugar]</option><option>css=#caso_ubicacion_attributes_104709_lugar</option><option>//input[@id='caso_ubicacion_attributes_104709_lugar']</option><option>//div[@id='ubicacion']/div/div/div[3]/div/div/input</option><option>//div[2]/div/div[2]/div/div/div[3]/div/div/input</option></datalist></td><td>Vereda Saltoalto</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div/div[2]/div/div/div[3]/div[2]/div/input<datalist><option>id=caso_ubicacion_attributes_104709_sitio</option><option>name=caso[ubicacion_attributes][104709][sitio]</option><option>css=#caso_ubicacion_attributes_104709_sitio</option><option>//input[@id='caso_ubicacion_attributes_104709_sitio']</option><option>//div[@id='ubicacion']/div/div/div[3]/div[2]/div/input</option><option>//div[2]/div/div[2]/div/div/div[3]/div[2]/div/input</option></datalist></td><td>92,12</td>
+</tr>
+<tr><td>type</td><td>//div[2]/div/div[2]/div/div/div[3]/div[2]/div/input<datalist><option>id=caso_ubicacion_attributes_104709_sitio</option><option>name=caso[ubicacion_attributes][104709][sitio]</option><option>css=#caso_ubicacion_attributes_104709_sitio</option><option>//input[@id='caso_ubicacion_attributes_104709_sitio']</option><option>//div[@id='ubicacion']/div/div/div[3]/div[2]/div/input</option><option>//div[2]/div/div[2]/div/div/div[3]/div[2]/div/input</option></datalist></td><td>Finca Los Robles</td>
+</tr>
+<tr><td>clickAt</td><td>//div[3]/div/input[2]<datalist><option>id=caso_ubicacion_attributes_104709_principal</option><option>css=#caso_ubicacion_attributes_104709_principal</option><option>//input[@id='caso_ubicacion_attributes_104709_principal']</option><option>//div[@id='ubicacion']/div/div/div[3]/div[3]/div/input[2]</option><option>//div[3]/div/input[2]</option></datalist></td><td>76,9</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129867']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>64,24</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Caso</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-contexto</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/129863/edita')]</option><option>//div[4]/a[2]</option></datalist></td><td>31,13</td>
+</tr>
+<tr><td>clickAt</td><td>link=Contexto<datalist><option>link=Contexto</option><option>//a[contains(text(),'Contexto')]</option><option>//form[@id='edit_caso_129867']/div/div[2]/ul/li[5]/a</option><option>//a[contains(@href, '#contexto')]</option><option>//li[5]/a</option></datalist></td><td>26,20</td>
+</tr>
+<tr><td>addSelection</td><td>id=caso_contexto_ids<datalist><option>id=caso_contexto_ids</option><option>css=#caso_contexto_ids</option><option>//select[@id='caso_contexto_ids']</option><option>//div[@id='contexto']/div/div/div/select</option><option>//div[5]/div/div/div/select</option></datalist></td><td>label=ACCIONES BÉLICAS</td>
+</tr>
+<tr><td>clickAt</td><td>css=#caso_contexto_ids &gt; option[value="5"]<datalist><option>css=#caso_contexto_ids &gt; option[value="5"]</option><option>xpath=(//option[@value='5'])[4]</option><option>//select[@id='caso_contexto_ids']/option</option><option>//div[5]/div/div/div/select/option</option></datalist></td><td>119,2</td>
+</tr>
+<tr><td>addSelection</td><td>id=caso_antecedente_ids<datalist><option>id=caso_antecedente_ids</option><option>css=#caso_antecedente_ids</option><option>//select[@id='caso_antecedente_ids']</option><option>//div[@id='contexto']/div/div[2]/div/select</option><option>//div[5]/div/div[2]/div/select</option></datalist></td><td>label=AMENAZA</td>
+</tr>
+<tr><td>clickAt</td><td>css=#caso_antecedente_ids &gt; option[value="1"]<datalist><option>css=#caso_antecedente_ids &gt; option[value="1"]</option><option>xpath=(//option[@value='1'])[4]</option><option>//select[@id='caso_antecedente_ids']/option[2]</option><option>//div[5]/div/div[2]/div/select/option[2]</option></datalist></td><td>51,7</td>
+</tr>
+<tr><td>clickAt</td><td>id=caso_bienes<datalist><option>id=caso_bienes</option><option>name=caso[bienes]</option><option>css=#caso_bienes</option><option>//textarea[@id='caso_bienes']</option><option>//div[@id='contexto']/div[2]/textarea</option><option>//textarea</option></datalist></td><td>46,2</td>
+</tr>
+<tr><td>type</td><td>id=caso_bienes<datalist><option>id=caso_bienes</option><option>name=caso[bienes]</option><option>css=#caso_bienes</option><option>//textarea[@id='caso_bienes']</option><option>//div[@id='contexto']/div[2]/textarea</option><option>//textarea</option></datalist></td><td>finca y animales</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129867']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>33,13</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Caso</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-presuntos-responsables</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/129863/edita')]</option><option>//div[4]/a[2]</option></datalist></td><td>31,13</td>
+</tr>
+<tr><td>clickAt</td><td>link=Presuntos Responsables<datalist><option>link=Presuntos Responsables</option><option>//a[contains(text(),'Presuntos Responsables')]</option><option>//form[@id='edit_caso_129867']/div/div[2]/ul/li[6]/a</option><option>//a[contains(@href, '#presponsables')]</option><option>//li[6]/a</option></datalist></td><td>77,20</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir presunto responsable<datalist><option>link=Añadir presunto responsable</option><option>css=#presponsables &gt; div.links &gt; a.btn-primary.add_fields</option><option>//a[contains(text(),'Añadir presunto responsable')]</option><option>//div[@id='presponsables']/div/a</option><option>xpath=(//a[contains(@href, '#')])[21]</option><option>//div[6]/div/a</option></datalist></td><td>149,13</td>
+</tr>
+<tr><td>select</td><td>//div[6]/div/div/div/div/div/select<datalist><option>id=caso_caso_presponsable_attributes_1288621488_id_presponsable</option><option>name=caso[caso_presponsable_attributes][1288621488][id_presponsable]</option><option>css=#caso_caso_presponsable_attributes_1288621488_id_presponsable</option><option>//select[@id='caso_caso_presponsable_attributes_1288621488_id_presponsable']</option><option>//div[@id='presponsables']/div/div/div/div/div/select</option><option>//div[6]/div/div/div/div/div/select</option></datalist></td><td>label=AUTODEFENSAS DE CUNDINAMARCA</td>
+</tr>
+<tr><td>clickAt</td><td>//div[6]/div/div/div/div/div/select<datalist><option>id=caso_caso_presponsable_attributes_1288621488_id_presponsable</option><option>name=caso[caso_presponsable_attributes][1288621488][id_presponsable]</option><option>css=#caso_caso_presponsable_attributes_1288621488_id_presponsable</option><option>//select[@id='caso_caso_presponsable_attributes_1288621488_id_presponsable']</option><option>//div[@id='presponsables']/div/div/div/div/div/select</option><option>//div[6]/div/div/div/div/div/select</option></datalist></td><td>-98,-218</td>
+</tr>
+<tr><td>clickAt</td><td>//div[6]/div/div/div[2]/div/div/input<datalist><option>id=caso_caso_presponsable_attributes_1288621488_bloque</option><option>name=caso[caso_presponsable_attributes][1288621488][bloque]</option><option>css=#caso_caso_presponsable_attributes_1288621488_bloque</option><option>//input[@id='caso_caso_presponsable_attributes_1288621488_bloque']</option><option>//div[@id='presponsables']/div/div/div[2]/div/div/input</option><option>//div[6]/div/div/div[2]/div/div/input</option></datalist></td><td>160,12</td>
+</tr>
+<tr><td>type</td><td>//div[6]/div/div/div[2]/div/div/input<datalist><option>id=caso_caso_presponsable_attributes_1288621488_bloque</option><option>name=caso[caso_presponsable_attributes][1288621488][bloque]</option><option>css=#caso_caso_presponsable_attributes_1288621488_bloque</option><option>//input[@id='caso_caso_presponsable_attributes_1288621488_bloque']</option><option>//div[@id='presponsables']/div/div/div[2]/div/div/input</option><option>//div[6]/div/div/div[2]/div/div/input</option></datalist></td><td>septimo</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div[2]/div/input<datalist><option>id=caso_caso_presponsable_attributes_1288621488_frente</option><option>name=caso[caso_presponsable_attributes][1288621488][frente]</option><option>css=#caso_caso_presponsable_attributes_1288621488_frente</option><option>//input[@id='caso_caso_presponsable_attributes_1288621488_frente']</option><option>//div[@id='presponsables']/div/div/div[2]/div[2]/div/input</option><option>//div[2]/div[2]/div/input</option></datalist></td><td>86,10</td>
+</tr>
+<tr><td>type</td><td>//div[2]/div[2]/div/input<datalist><option>id=caso_caso_presponsable_attributes_1288621488_frente</option><option>name=caso[caso_presponsable_attributes][1288621488][frente]</option><option>css=#caso_caso_presponsable_attributes_1288621488_frente</option><option>//input[@id='caso_caso_presponsable_attributes_1288621488_frente']</option><option>//div[@id='presponsables']/div/div/div[2]/div[2]/div/input</option><option>//div[2]/div[2]/div/input</option></datalist></td><td>Nacional</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div[3]/div/input<datalist><option>id=caso_caso_presponsable_attributes_1288621488_division</option><option>name=caso[caso_presponsable_attributes][1288621488][division]</option><option>css=#caso_caso_presponsable_attributes_1288621488_division</option><option>//input[@id='caso_caso_presponsable_attributes_1288621488_division']</option><option>//div[@id='presponsables']/div/div/div[2]/div[3]/div/input</option><option>//div[2]/div[3]/div/input</option></datalist></td><td>134,17</td>
+</tr>
+<tr><td>type</td><td>//div[2]/div[3]/div/input<datalist><option>id=caso_caso_presponsable_attributes_1288621488_division</option><option>name=caso[caso_presponsable_attributes][1288621488][division]</option><option>css=#caso_caso_presponsable_attributes_1288621488_division</option><option>//input[@id='caso_caso_presponsable_attributes_1288621488_division']</option><option>//div[@id='presponsables']/div/div/div[2]/div[3]/div/input</option><option>//div[2]/div[3]/div/input</option></datalist></td><td>13</td>
+</tr>
+<tr><td>clickAt</td><td>//div[6]/div/div/div[3]/div/div/input<datalist><option>id=caso_caso_presponsable_attributes_1288621488_brigada</option><option>name=caso[caso_presponsable_attributes][1288621488][brigada]</option><option>css=#caso_caso_presponsable_attributes_1288621488_brigada</option><option>//input[@id='caso_caso_presponsable_attributes_1288621488_brigada']</option><option>//div[@id='presponsables']/div/div/div[3]/div/div/input</option><option>//div[6]/div/div/div[3]/div/div/input</option></datalist></td><td>176,13</td>
+</tr>
+<tr><td>type</td><td>//div[6]/div/div/div[3]/div/div/input<datalist><option>id=caso_caso_presponsable_attributes_1288621488_brigada</option><option>name=caso[caso_presponsable_attributes][1288621488][brigada]</option><option>css=#caso_caso_presponsable_attributes_1288621488_brigada</option><option>//input[@id='caso_caso_presponsable_attributes_1288621488_brigada']</option><option>//div[@id='presponsables']/div/div/div[3]/div/div/input</option><option>//div[6]/div/div/div[3]/div/div/input</option></datalist></td><td>45</td>
+</tr>
+<tr><td>clickAt</td><td>//div[6]/div/div/div[3]/div[2]/div/input<datalist><option>id=caso_caso_presponsable_attributes_1288621488_batallon</option><option>name=caso[caso_presponsable_attributes][1288621488][batallon]</option><option>css=#caso_caso_presponsable_attributes_1288621488_batallon</option><option>//input[@id='caso_caso_presponsable_attributes_1288621488_batallon']</option><option>//div[@id='presponsables']/div/div/div[3]/div[2]/div/input</option><option>//div[6]/div/div/div[3]/div[2]/div/input</option></datalist></td><td>86,16</td>
+</tr>
+<tr><td>type</td><td>//div[6]/div/div/div[3]/div[2]/div/input<datalist><option>id=caso_caso_presponsable_attributes_1288621488_batallon</option><option>name=caso[caso_presponsable_attributes][1288621488][batallon]</option><option>css=#caso_caso_presponsable_attributes_1288621488_batallon</option><option>//input[@id='caso_caso_presponsable_attributes_1288621488_batallon']</option><option>//div[@id='presponsables']/div/div/div[3]/div[2]/div/input</option><option>//div[6]/div/div/div[3]/div[2]/div/input</option></datalist></td><td>34</td>
+</tr>
+<tr><td>clickAt</td><td>//div[6]/div/div/div[3]/div[3]/div/input<datalist><option>id=caso_caso_presponsable_attributes_1288621488_otro</option><option>name=caso[caso_presponsable_attributes][1288621488][otro]</option><option>css=#caso_caso_presponsable_attributes_1288621488_otro</option><option>//input[@id='caso_caso_presponsable_attributes_1288621488_otro']</option><option>//div[@id='presponsables']/div/div/div[3]/div[3]/div/input</option><option>//div[6]/div/div/div[3]/div[3]/div/input</option></datalist></td><td>65,17</td>
+</tr>
+<tr><td>type</td><td>//div[6]/div/div/div[3]/div[3]/div/input<datalist><option>id=caso_caso_presponsable_attributes_1288621488_otro</option><option>name=caso[caso_presponsable_attributes][1288621488][otro]</option><option>css=#caso_caso_presponsable_attributes_1288621488_otro</option><option>//input[@id='caso_caso_presponsable_attributes_1288621488_otro']</option><option>//div[@id='presponsables']/div/div/div[3]/div[3]/div/input</option><option>//div[6]/div/div/div[3]/div[3]/div/input</option></datalist></td><td>Fernando Lopez</td>
+</tr>
+<tr><td>runScript</td><td>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')<datalist><option>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')</option></datalist></td><td></td>
+</tr>
+<tr><td>addSelection</td><td>//div[4]/select<datalist><option>id=caso_caso_presponsable_attributes_1288621490_categoria_ids</option><option>css=#caso_caso_presponsable_attributes_1288621490_categoria_ids</option><option>//select[@id='caso_caso_presponsable_attributes_1288621490_categoria_ids']</option><option>//div[@id='presponsables']/div/div/div[4]/select</option><option>//div[4]/select</option></datalist></td><td>label=C63 EMBOSCADA</td>
+</tr>
+<tr><td>clickAt</td><td>css=option[value="63"]<datalist><option>css=option[value="63"]</option><option>//option[@value='63']</option><option>//select[@id='caso_caso_presponsable_attributes_1288621490_categoria_ids']/option[2]</option><option>//div[4]/select/option[2]</option></datalist></td><td>49,8</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129867']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>87,19</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Caso</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-fuentes-frecuentes</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/129863/edita')]</option><option>//div[4]/a[2]</option></datalist></td><td>31,13</td>
+</tr>
+<tr><td>clickAt</td><td>link=Fuentes Frecuentes<datalist><option>link=Fuentes Frecuentes</option><option>//a[contains(text(),'Fuentes Frecuentes')]</option><option>//form[@id='edit_caso_129867']/div/div[2]/ul/li[9]/a</option><option>//a[contains(@href, '#fuenteprensa')]</option><option>//li[9]/a</option></datalist></td><td>84,28</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir Fuente Frecuente<datalist><option>link=Añadir Fuente Frecuente</option><option>css=#fuenteprensa &gt; div.links &gt; a.btn-primary.add_fields</option><option>//a[contains(text(),'Añadir Fuente Frecuente')]</option><option>//div[@id='fuenteprensa']/div/a</option><option>xpath=(//a[contains(@href, '#')])[19]</option><option>//div[3]/div/a</option></datalist></td><td>127,11</td>
+</tr>
+<tr><td>clickAt</td><td>//div[3]/div/div/div/div/div/input<datalist><option>id=caso_caso_fuenteprensa_attributes_1563_fecha_localizada</option><option>name=caso[caso_fuenteprensa_attributes][1563][fecha_localizada]</option><option>css=#caso_caso_fuenteprensa_attributes_1563_fecha_localizada</option><option>//input[@id='caso_caso_fuenteprensa_attributes_1563_fecha_localizada']</option><option>//div[@id='fuenteprensa']/div/div/div/div/div/input</option><option>//div[3]/div/div/div/div/div/input</option></datalist></td><td>72,14</td>
+</tr>
+<tr><td>clickAt</td><td>//tr[3]/td<datalist><option>//tr[3]/td</option></datalist></td><td>21,8</td>
+</tr>
+<tr><td>select</td><td>//div[3]/div/div/div/div[2]/div/select<datalist><option>id=caso_caso_fuenteprensa_attributes_1554_fuenteprensa_id</option><option>name=caso[caso_fuenteprensa_attributes][1554][fuenteprensa_id]</option><option>css=#caso_caso_fuenteprensa_attributes_1554_fuenteprensa_id</option><option>//select[@id='caso_caso_fuenteprensa_attributes_1554_fuenteprensa_id']</option><option>//div[@id='fuenteprensa']/div/div/div/div[2]/div/select</option><option>//div[3]/div/div/div/div[2]/div/select</option></datalist></td><td>label=BANDATOS</td>
+</tr>
+<tr><td>clickAt</td><td>//div[3]/div/div/div/div[2]/div/select<datalist><option>id=caso_caso_fuenteprensa_attributes_1554_fuenteprensa_id</option><option>name=caso[caso_fuenteprensa_attributes][1554][fuenteprensa_id]</option><option>css=#caso_caso_fuenteprensa_attributes_1554_fuenteprensa_id</option><option>//select[@id='caso_caso_fuenteprensa_attributes_1554_fuenteprensa_id']</option><option>//div[@id='fuenteprensa']/div/div/div/div[2]/div/select</option><option>//div[3]/div/div/div/div[2]/div/select</option></datalist></td><td>-668,-218</td>
+</tr>
+<tr><td>clickAt</td><td>//div[3]/div/div/div[2]/div/div/input<datalist><option>id=caso_caso_fuenteprensa_attributes_1554_ubicacion</option><option>name=caso[caso_fuenteprensa_attributes][1554][ubicacion]</option><option>css=#caso_caso_fuenteprensa_attributes_1554_ubicacion</option><option>//input[@id='caso_caso_fuenteprensa_attributes_1554_ubicacion']</option><option>//div[@id='fuenteprensa']/div/div/div[2]/div/div/input</option><option>//div[3]/div/div/div[2]/div/div/input</option></datalist></td><td>78,23</td>
+</tr>
+<tr><td>type</td><td>//div[3]/div/div/div[2]/div/div/input<datalist><option>id=caso_caso_fuenteprensa_attributes_1554_ubicacion</option><option>name=caso[caso_fuenteprensa_attributes][1554][ubicacion]</option><option>css=#caso_caso_fuenteprensa_attributes_1554_ubicacion</option><option>//input[@id='caso_caso_fuenteprensa_attributes_1554_ubicacion']</option><option>//div[@id='fuenteprensa']/div/div/div[2]/div/div/input</option><option>//div[3]/div/div/div[2]/div/div/input</option></datalist></td><td>politicos</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/div[2]/div/input<datalist><option>id=caso_caso_fuenteprensa_attributes_1554_clasificacion</option><option>name=caso[caso_fuenteprensa_attributes][1554][clasificacion]</option><option>css=#caso_caso_fuenteprensa_attributes_1554_clasificacion</option><option>//input[@id='caso_caso_fuenteprensa_attributes_1554_clasificacion']</option><option>//div[@id='fuenteprensa']/div/div/div[2]/div[2]/div/input</option><option>//div[2]/div[2]/div/input</option></datalist></td><td>67,8</td>
+</tr>
+<tr><td>type</td><td>//div[2]/div[2]/div/input<datalist><option>id=caso_caso_fuenteprensa_attributes_1554_clasificacion</option><option>name=caso[caso_fuenteprensa_attributes][1554][clasificacion]</option><option>css=#caso_caso_fuenteprensa_attributes_1554_clasificacion</option><option>//input[@id='caso_caso_fuenteprensa_attributes_1554_clasificacion']</option><option>//div[@id='fuenteprensa']/div/div/div[2]/div[2]/div/input</option><option>//div[2]/div[2]/div/input</option></datalist></td><td>Amenazas</td>
+</tr>
+<tr><td>clickAt</td><td>//div[3]/div/div/div[3]/div/div/input<datalist><option>id=caso_caso_fuenteprensa_attributes_1554_ubicacionfisica</option><option>name=caso[caso_fuenteprensa_attributes][1554][ubicacionfisica]</option><option>css=#caso_caso_fuenteprensa_attributes_1554_ubicacionfisica</option><option>//input[@id='caso_caso_fuenteprensa_attributes_1554_ubicacionfisica']</option><option>//div[@id='fuenteprensa']/div/div/div[3]/div/div/input</option><option>//div[3]/div/div/div[3]/div/div/input</option></datalist></td><td>153,9</td>
+</tr>
+<tr><td>type</td><td>//div[3]/div/div/div[3]/div/div/input<datalist><option>id=caso_caso_fuenteprensa_attributes_1554_ubicacionfisica</option><option>name=caso[caso_fuenteprensa_attributes][1554][ubicacionfisica]</option><option>css=#caso_caso_fuenteprensa_attributes_1554_ubicacionfisica</option><option>//input[@id='caso_caso_fuenteprensa_attributes_1554_ubicacionfisica']</option><option>//div[@id='fuenteprensa']/div/div/div[3]/div/div/input</option><option>//div[3]/div/div/div[3]/div/div/input</option></datalist></td><td>aaa</td>
+</tr>
+<tr><td>clickAt</td><td>//div[3]/div[2]/div/select<datalist><option>id=caso_caso_fuenteprensa_attributes_1554_anexo_caso_id</option><option>name=caso[caso_fuenteprensa_attributes][1554][anexo_caso_id]</option><option>css=#caso_caso_fuenteprensa_attributes_1554_anexo_caso_id</option><option>//select[@id='caso_caso_fuenteprensa_attributes_1554_anexo_caso_id']</option><option>//div[@id='fuenteprensa']/div/div/div[3]/div[2]/div/select</option><option>//div[3]/div[2]/div/select</option></datalist></td><td>-668,-370</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129867']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>84,11</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Caso</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-otras-fuentes</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/129863/edita')]</option><option>//div[4]/a[2]</option></datalist></td><td>31,13</td>
+</tr>
+<tr><td>clickAt</td><td>link=Otras Fuentes<datalist><option>link=Otras Fuentes</option><option>//a[contains(text(),'Otras Fuentes')]</option><option>//form[@id='edit_caso_129867']/div/div[2]/ul/li[10]/a</option><option>//a[contains(@href, '#fotra')]</option><option>//li[10]/a</option></datalist></td><td>81,24</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir Otra Fuente<datalist><option>link=Añadir Otra Fuente</option><option>css=#fotra &gt; div.links &gt; a.btn-primary.add_fields</option><option>//a[contains(text(),'Añadir Otra Fuente')]</option><option>//div[@id='fotra']/div/a</option><option>xpath=(//a[contains(@href, '#')])[21]</option><option>//div[4]/div/a</option></datalist></td><td>90,13</td>
+</tr>
+<tr><td>clickAt</td><td>//div[4]/div/div/div/div/div/input<datalist><option>id=caso_caso_fotra_attributes_389_fecha_localizada</option><option>name=caso[caso_fotra_attributes][389][fecha_localizada]</option><option>css=#caso_caso_fotra_attributes_389_fecha_localizada</option><option>//input[@id='caso_caso_fotra_attributes_389_fecha_localizada']</option><option>//div[@id='fotra']/div/div/div/div/div/input</option><option>//div[4]/div/div/div/div/div/input</option></datalist></td><td>103,13</td>
+</tr>
+<tr><td>clickAt</td><td>//tr[3]/td<datalist><option>//tr[3]/td</option></datalist></td><td>14,20</td>
+</tr>
+<tr><td>clickAt</td><td>//div[4]/div/div/div/div[2]/div/input<datalist><option>id=caso_caso_fotra_attributes_389_nombre</option><option>name=caso[caso_fotra_attributes][389][nombre]</option><option>css=#caso_caso_fotra_attributes_389_nombre</option><option>//input[@id='caso_caso_fotra_attributes_389_nombre']</option><option>//div[@id='fotra']/div/div/div/div[2]/div/input</option><option>//div[4]/div/div/div/div[2]/div/input</option></datalist></td><td>73,9</td>
+</tr>
+<tr><td>type</td><td>//div[4]/div/div/div/div[2]/div/input<datalist><option>id=caso_caso_fotra_attributes_389_nombre</option><option>name=caso[caso_fotra_attributes][389][nombre]</option><option>css=#caso_caso_fotra_attributes_389_nombre</option><option>//input[@id='caso_caso_fotra_attributes_389_nombre']</option><option>//div[@id='fotra']/div/div/div/div[2]/div/input</option><option>//div[4]/div/div/div/div[2]/div/input</option></datalist></td><td>El Soberano</td>
+</tr>
+<tr><td>clickAt</td><td>//div[4]/div/div/div[2]/div/div/input<datalist><option>id=caso_caso_fotra_attributes_389_anotacion</option><option>name=caso[caso_fotra_attributes][389][anotacion]</option><option>css=#caso_caso_fotra_attributes_389_anotacion</option><option>//input[@id='caso_caso_fotra_attributes_389_anotacion']</option><option>//div[@id='fotra']/div/div/div[2]/div/div/input</option><option>//div[4]/div/div/div[2]/div/div/input</option></datalist></td><td>128,9</td>
+</tr>
+<tr><td>type</td><td>//div[4]/div/div/div[2]/div/div/input<datalist><option>id=caso_caso_fotra_attributes_389_anotacion</option><option>name=caso[caso_fotra_attributes][389][anotacion]</option><option>css=#caso_caso_fotra_attributes_389_anotacion</option><option>//input[@id='caso_caso_fotra_attributes_389_anotacion']</option><option>//div[@id='fotra']/div/div/div[2]/div/div/input</option><option>//div[4]/div/div/div[2]/div/div/input</option></datalist></td><td>estaba en el lugar de los hechos</td>
+</tr>
+<tr><td>select</td><td>//div[4]/div/div/div[2]/div[2]/div/select<datalist><option>id=caso_caso_fotra_attributes_389_tfuente</option><option>name=caso[caso_fotra_attributes][389][tfuente]</option><option>css=#caso_caso_fotra_attributes_389_tfuente</option><option>//select[@id='caso_caso_fotra_attributes_389_tfuente']</option><option>//div[@id='fotra']/div/div/div[2]/div[2]/div/select</option><option>//div[4]/div/div/div[2]/div[2]/div/select</option></datalist></td><td>label=Indirecta</td>
+</tr>
+<tr><td>clickAt</td><td>//div[4]/div/div/div[2]/div[2]/div/select<datalist><option>id=caso_caso_fotra_attributes_389_tfuente</option><option>name=caso[caso_fotra_attributes][389][tfuente]</option><option>css=#caso_caso_fotra_attributes_389_tfuente</option><option>//select[@id='caso_caso_fotra_attributes_389_tfuente']</option><option>//div[@id='fotra']/div/div/div[2]/div[2]/div/select</option><option>//div[4]/div/div/div[2]/div[2]/div/select</option></datalist></td><td>-668,-294</td>
+</tr>
+<tr><td>clickAt</td><td>//div[4]/div/div/div[3]/div/div/input<datalist><option>id=caso_caso_fotra_attributes_389_ubicacionfisica</option><option>name=caso[caso_fotra_attributes][389][ubicacionfisica]</option><option>css=#caso_caso_fotra_attributes_389_ubicacionfisica</option><option>//input[@id='caso_caso_fotra_attributes_389_ubicacionfisica']</option><option>//div[@id='fotra']/div/div/div[3]/div/div/input</option><option>//div[4]/div/div/div[3]/div/div/input</option></datalist></td><td>68,20</td>
+</tr>
+<tr><td>type</td><td>//div[4]/div/div/div[3]/div/div/input<datalist><option>id=caso_caso_fotra_attributes_389_ubicacionfisica</option><option>name=caso[caso_fotra_attributes][389][ubicacionfisica]</option><option>css=#caso_caso_fotra_attributes_389_ubicacionfisica</option><option>//input[@id='caso_caso_fotra_attributes_389_ubicacionfisica']</option><option>//div[@id='fotra']/div/div/div[3]/div/div/input</option><option>//div[4]/div/div/div[3]/div/div/input</option></datalist></td><td>archivos</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129867']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>81,3</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Caso</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-memo</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/129863/edita')]</option><option>//div[4]/a[2]</option></datalist></td><td>31,13</td>
+</tr>
+<tr><td>clickAt</td><td>link=Memo<datalist><option>link=Memo</option><option>//a[contains(text(),'Memo')]</option><option>//form[@id='edit_caso_129867']/div/div[2]/ul/li[11]/a</option><option>//a[contains(@href, '#descripcion')]</option><option>//li[11]/a</option></datalist></td><td>46,21</td>
+</tr>
+<tr><td>clickAt</td><td>css=div.input.text.optional.caso_memo<datalist><option>css=div.input.text.optional.caso_memo</option><option>//div[@id='descripcion']/div</option><option>//div[11]/div</option></datalist></td><td>179,34</td>
+</tr>
+<tr><td>type</td><td>id=caso_memo<datalist><option>id=caso_memo</option><option>name=caso[memo]</option><option>css=#caso_memo</option><option>//textarea[@id='caso_memo']</option><option>//div[@id='descripcion']/div/textarea</option><option>//div[11]/div/textarea</option></datalist></td><td>aassddffgg</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129867']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>98,20</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Caso</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-etiquetas</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/129863/edita')]</option><option>//div[4]/a[2]</option></datalist></td><td>31,13</td>
+</tr>
+<tr><td>clickAt</td><td>link=Etiquetas<datalist><option>link=Etiquetas</option><option>//a[contains(text(),'Etiquetas')]</option><option>//form[@id='edit_caso_129867']/div/div[2]/ul/li[12]/a</option><option>//a[contains(@href, '#etiquetas')]</option><option>//li[12]/a</option></datalist></td><td>63,13</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir Etiqueta<datalist><option>link=Añadir Etiqueta</option><option>css=#etiquetas &gt; div.links &gt; a.btn-primary.add_fields</option><option>//a[contains(text(),'Añadir Etiqueta')]</option><option>//div[@id='etiquetas']/div/a</option><option>xpath=(//a[contains(@href, '#')])[35]</option><option>//div[13]/div/a</option></datalist></td><td>73,8</td>
+</tr>
+<tr><td>select</td><td>//div[13]/div/div/div/div/div/select<datalist><option>id=caso_caso_etiqueta_attributes_1592678963705_id_etiqueta</option><option>name=caso[caso_etiqueta_attributes][1592678963705][id_etiqueta]</option><option>css=#caso_caso_etiqueta_attributes_1592678963705_id_etiqueta</option><option>//select[@id='caso_caso_etiqueta_attributes_1592678963705_id_etiqueta']</option><option>//div[@id='etiquetas']/div/div/div/div/div/select</option><option>//div[13]/div/div/div/div/div/select</option></datalist></td><td>label=SINCODH:PUBLICO</td>
+</tr>
+<tr><td>clickAt</td><td>//div[13]/div/div/div/div/div/select<datalist><option>id=caso_caso_etiqueta_attributes_1592678963705_id_etiqueta</option><option>name=caso[caso_etiqueta_attributes][1592678963705][id_etiqueta]</option><option>css=#caso_caso_etiqueta_attributes_1592678963705_id_etiqueta</option><option>//select[@id='caso_caso_etiqueta_attributes_1592678963705_id_etiqueta']</option><option>//div[@id='etiquetas']/div/div/div/div/div/select</option><option>//div[13]/div/div/div/div/div/select</option></datalist></td><td>-98,-218</td>
+</tr>
+<tr><td>clickAt</td><td>//div[13]/div/div/div[3]/input<datalist><option>id=caso_caso_etiqueta_attributes_1592678963705_observaciones</option><option>name=caso[caso_etiqueta_attributes][1592678963705][observaciones]</option><option>css=#caso_caso_etiqueta_attributes_1592678963705_observaciones</option><option>//input[@id='caso_caso_etiqueta_attributes_1592678963705_observaciones']</option><option>//div[@id='etiquetas']/div/div/div[3]/input</option><option>//div[13]/div/div/div[3]/input</option></datalist></td><td>157,15</td>
+</tr>
+<tr><td>type</td><td>//div[13]/div/div/div[3]/input<datalist><option>id=caso_caso_etiqueta_attributes_1592678963705_observaciones</option><option>name=caso[caso_etiqueta_attributes][1592678963705][observaciones]</option><option>css=#caso_caso_etiqueta_attributes_1592678963705_observaciones</option><option>//input[@id='caso_caso_etiqueta_attributes_1592678963705_observaciones']</option><option>//div[@id='etiquetas']/div/div/div[3]/input</option><option>//div[13]/div/div/div[3]/input</option></datalist></td><td>publico</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129867']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>85,19</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Caso</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-actos</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/129863/edita')]</option><option>//div[4]/a[2]</option></datalist></td><td>31,13</td>
+</tr>
+<tr><td>clickAt</td><td>link=Actos<datalist><option>link=Actos</option><option>//a[contains(text(),'Actos')]</option><option>//form[@id='edit_caso_129867']/div/div[2]/ul/li[7]/a</option><option>//a[contains(@href, '#actos')]</option><option>//li[7]/a</option></datalist></td><td>31,19</td>
+</tr>
+<tr><td>addSelection</td><td>id=caso_acto_id_presponsable<datalist><option>id=caso_acto_id_presponsable</option><option>name=caso_acto_id_presponsable[]</option><option>css=#caso_acto_id_presponsable</option><option>//select[@id='caso_acto_id_presponsable']</option><option>//div[@id='actos']/div/div[2]/div/select</option><option>//div[10]/div/div[2]/div/select</option></datalist></td><td>label=AUTODEFENSAS DE CUNDINAMARCA</td>
+</tr>
+<tr><td>clickAt</td><td>css=#caso_acto_id_presponsable &gt; option[value="22"]<datalist><option>css=#caso_acto_id_presponsable &gt; option[value="22"]</option><option>xpath=(//option[@value='22'])[9]</option><option>//select[@id='caso_acto_id_presponsable']/option</option><option>//div[10]/div/div[2]/div/select/option</option></datalist></td><td>226,11</td>
+</tr>
+<tr><td>addSelection</td><td>id=caso_acto_id_categoria<datalist><option>id=caso_acto_id_categoria</option><option>name=caso_acto_id_categoria[]</option><option>css=#caso_acto_id_categoria</option><option>//select[@id='caso_acto_id_categoria']</option><option>//div[@id='actos']/div/div[2]/div[2]/select</option><option>//div[2]/select</option></datalist></td><td>label=A12 TORTURA</td>
+</tr>
+<tr><td>clickAt</td><td>css=#caso_acto_id_categoria &gt; option[value="12"]<datalist><option>css=#caso_acto_id_categoria &gt; option[value="12"]</option><option>xpath=(//option[@value='12'])[11]</option><option>//select[@id='caso_acto_id_categoria']/option[3]</option><option>//div[2]/select/option[3]</option></datalist></td><td>83,1</td>
+</tr>
+<tr><td>addSelection</td><td>id=caso_acto_id_persona<datalist><option>id=caso_acto_id_persona</option><option>name=caso_acto_id_persona[]</option><option>css=#caso_acto_id_persona</option><option>//select[@id='caso_acto_id_persona']</option><option>//div[@id='actos']/div/div[2]/div[3]/select</option><option>//div[3]/select</option></datalist></td><td>label=aaa bbb</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir Acto(s)<datalist><option>link=Añadir Acto(s)</option><option>css=a.agregaractos.btn.btn-primary</option><option>//a[contains(text(),'Añadir Acto(s)')]</option><option>//div[@id='actos']/div/div[2]/a</option><option>xpath=(//a[contains(@href, '#')])[28]</option><option>//div[10]/div/div[2]/a</option></datalist></td><td>64,16</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129867']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>55,20</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Caso</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">caso-actos-colectivos</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/somosdefensores/sivel2/casos/129863/edita')]</option><option>//div[4]/a[2]</option></datalist></td><td>31,13</td>
+</tr>
+<tr><td>clickAt</td><td>link=Actos<datalist><option>link=Actos</option><option>//a[contains(text(),'Actos')]</option><option>//form[@id='edit_caso_129867']/div/div[2]/ul/li[7]/a</option><option>//a[contains(@href, '#actos')]</option><option>//li[7]/a</option></datalist></td><td>31,19</td>
+</tr>
+<tr><td>addSelection</td><td>id=caso_actocolectivo_id_presponsable<datalist><option>id=caso_actocolectivo_id_presponsable</option><option>name=caso_actocolectivo_id_presponsable[]</option><option>css=#caso_actocolectivo_id_presponsable</option><option>//select[@id='caso_actocolectivo_id_presponsable']</option><option>//div[@id='actos']/div[2]/div[2]/div/select</option><option>//div[10]/div[2]/div[2]/div/select</option></datalist></td><td>label=AUTODEFENSAS DE CUNDINAMARCA</td>
+</tr>
+<tr><td>clickAt</td><td>css=#caso_actocolectivo_id_presponsable &gt; option[value="22"]<datalist><option>css=#caso_actocolectivo_id_presponsable &gt; option[value="22"]</option><option>xpath=(//option[@value='22'])[11]</option><option>//select[@id='caso_actocolectivo_id_presponsable']/option</option><option>//div[10]/div[2]/div[2]/div/select/option</option></datalist></td><td>67,3</td>
+</tr>
+<tr><td>addSelection</td><td>id=caso_actocolectivo_id_categoria<datalist><option>id=caso_actocolectivo_id_categoria</option><option>name=caso_actocolectivo_id_categoria[]</option><option>css=#caso_actocolectivo_id_categoria</option><option>//select[@id='caso_actocolectivo_id_categoria']</option><option>//div[@id='actos']/div[2]/div[2]/div[2]/select</option><option>//div[2]/div[2]/div[2]/select</option></datalist></td><td>label=A28 COLECTIVO AMENAZADO</td>
+</tr>
+<tr><td>clickAt</td><td>css=#caso_actocolectivo_id_categoria &gt; option[value="28"]<datalist><option>css=#caso_actocolectivo_id_categoria &gt; option[value="28"]</option><option>xpath=(//option[@value='28'])[8]</option><option>//select[@id='caso_actocolectivo_id_categoria']/option[3]</option><option>//div[2]/div[2]/div[2]/select/option[3]</option></datalist></td><td>95,4</td>
+</tr>
+<tr><td>addSelection</td><td>id=caso_actocolectivo_id_grupoper<datalist><option>id=caso_actocolectivo_id_grupoper</option><option>name=caso_actocolectivo_id_grupoper[]</option><option>css=#caso_actocolectivo_id_grupoper</option><option>//select[@id='caso_actocolectivo_id_grupoper']</option><option>//div[@id='actos']/div[2]/div[2]/div[3]/select</option><option>//div[2]/div[2]/div[3]/select</option></datalist></td><td>label=San Juan</td>
+</tr>
+<tr><td>clickAt</td><td>link=Añadir Acto(s) Colectivo<datalist><option>link=Añadir Acto(s) Colectivo</option><option>css=a.agregaractoscolectivos.btn.btn-primary</option><option>//a[contains(text(),'Añadir Acto(s) Colectivo')]</option><option>//div[@id='actos']/div[2]/div[2]/a</option><option>xpath=(//a[contains(@href, '#')])[30]</option><option>//div[10]/div[2]/div[2]/a</option></datalist></td><td>126,23</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_129867']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>79,16</td>
+</tr>
+<tr><td>assertText</td><td>css=h1<datalist><option>css=h1</option><option>//h1</option></datalist></td><td>Caso</td>
+</tr>
+</tbody></table>
+</body>
+</html>
