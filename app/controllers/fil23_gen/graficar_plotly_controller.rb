@@ -6,7 +6,7 @@ module Fil23Gen
     def actos_individuales
       authorize! :contar, Sivel2Gen::Caso
 
-      @rutacsv = File.join(Rails.root, 'public/somosdefensores/sivel2/graficar/actos_individuales.csv').to_s
+      @rutacsv = File.join(Rails.root, 'public/somosdefensores/sivel2/conteos/actos_individuales.csv').to_s
 
       tarc = Tempfile.new(['actos_individuales', '.csv'], '/var/www/tmp/')
       rutatmp = tarc.path
@@ -53,7 +53,8 @@ module Fil23Gen
         guionR: 'lib/R/victimizaciones_por_sexo.R',
         rutacsv: @rutacsv
       }
-      render 'fil23_gen/graficar_plotly/actos_individuales', layout: 'application'
+      render 'fil23_gen/graficar_plotly/actos_individuales', 
+        layout: 'application'
     end
 
   end

@@ -121,7 +121,7 @@ function actualizarTrazosPresentados(etiquetas) {
 
 
 function plotly_serietiempo_actos() {
-  Plotly.d3.csv("actos_individuales.csv", function(err, datos) { 
+  Plotly.d3.csv("../conteos/actos_individuales.csv", function(err, datos) { 
     procesar_datos(datos, 'presponsable') 
   });
 };
