@@ -6,7 +6,7 @@ module Fil23Gen
     def victimizaciones_individuales
       authorize! :contar, Sivel2Gen::Caso
 
-      @rutacsv = File.join(Rails.root, 'lib/R/victimizaciones_individuales.csv').to_s
+      @rutacsv = File.join(Rails.root, 'public/somosdefensores/sivel2/conteos/victimizaciones_individuales.csv').to_s
 
       tarc = Tempfile.new(['victimizaciones_individuales', '.csv'], '/var/www/tmp/')
       rutatmp = tarc.path

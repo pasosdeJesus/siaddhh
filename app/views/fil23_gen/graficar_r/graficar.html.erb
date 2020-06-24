@@ -29,6 +29,7 @@
         miR.eval <<-EOF
         print("Iniciando aplicacion R")
         write(getwd(), stdout())
+        rutacsv="#{@fil23_gen_op[:rutacsv]}"
         source("#{@fil23_gen_op[:guionR]}")
         EOF
         #      byebug

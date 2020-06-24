@@ -35,7 +35,8 @@ print("** dependencias completas")
 
 
 # Preparación de datos
-tabla <- import("lib/R/victimizaciones_individuales.csv")
+print(rutacsv)
+tabla <- import(rutacsv)
 tabla$sexonac <- factor(tabla$sexonac)
 tabla$fecha <- as.Date(tabla$fecha)
 tabla$categoria_rotulo <- factor(tabla$categoria_rotulo)

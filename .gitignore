@@ -48,3 +48,10 @@ app/views/hogar/_local.html.erb
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+public/somosdefensores/sivel2/conteos/
+.RData
+.Rhistory
+config/credentials.yml.enc
+public/heb412
+public/somosdefensores/sivel2/heb412/somosdefensores  

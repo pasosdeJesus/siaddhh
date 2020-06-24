@@ -9,6 +9,7 @@ Ver instrucciones en <https://github.com/pasosdeJesus/sivel2>
 
 
 El script por ubicar en /etc/rc.d/s:
+
 ```
 #!/bin/sh
 servicio="CONFIG_HOSTS=miservidor.org PUERTOUNICORN=2022 DIRAP=/var/www/htdocs/sivel2_somosdefensores URLBASE=/somosdefensores/sivel2/ USUARIO_AP=miusuario SECRET_KEY_BASE=df /var/www/htdocs/sivel2_somosdefensores/bin/u.sh"
@@ -32,3 +33,15 @@ rc_stop() {
 
 rc_cmd $1
 ```
+
+En `/etc/nginx/nginx.conf` además de la configuración tipica:
+
+```
+        location ^~ /somosdefensores/sivel2/conteos/ {
+                gzip_static on;
+                add_header Cache-Control public;
+                root /var/www/htdocs/sivel2_somosdefensores/public/;
+        }
+```
+
+
