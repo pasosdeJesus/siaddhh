@@ -88,7 +88,8 @@ interfaz <- dashboardPage(skin = "blue",
     fluidRow(infoBoxOutput("vict_n")),
     fluidRow(
       box(
-        title = "Serie de tiempo", 
+	width = 12,
+	title = "Serie de tiempo", 
         status = "primary", 
         solidHeader = T,
         collapsible = T,
@@ -96,8 +97,11 @@ interfaz <- dashboardPage(skin = "blue",
         downloadButton("descargar_serie_SVG", "SVG"),
         downloadButton("descargar_serie_PNG", "PNG"),
         downloadButton("descargar_serie_CSV", "CSV")
-        ),
+        )
+      ),
+    fluidRow(
       box(
+	width = 12,
         title = "Totales",
         status = "primary",
         solidHeader = T,
