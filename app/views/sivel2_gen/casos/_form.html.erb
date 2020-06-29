@@ -28,11 +28,11 @@
           <li role="presentation" class="nav-item"><a href="#victimas" class="fichacambia nav-link" 
             aria-controls="victimas" role="tab" 
             data-toggle="tab">Víctimas Individuales</a></li>
-          <li role="presentation" class="nav-item"><a href="#ubicacion" class="fichacambia nav-link" 
-            aria-controls="ubicacion" role="tab" 
+          <li role="presentation" class="nav-item"><a href="#ubicaciones" class="fichacambia nav-link" 
+            aria-controls="ubicaciones" role="tab" 
             data-toggle="tab">Localización</a></li>
-          <li role="presentation" class="nav-item"><a href="#contexto" class="fichacambia nav-link" 
-            aria-controls="contexto" role="tab" 
+          <li role="presentation" class="nav-item"><a href="#contextos" class="fichacambia nav-link" 
+            aria-controls="contextos" role="tab" 
             data-toggle="tab">Contexto</a></li>
           <li role="presentation" class="nav-item"><a href="#presponsables" class="fichacambia nav-link" 
             aria-controls="presponsables" role="tab" 
@@ -41,11 +41,11 @@
             aria-controls="actos" role="tab" data-toggle="tab">Actos</a></li>
           <li role="presentation" class="nav-item"><a href="#anexos" class="fichacambia nav-link" 
             aria-controls="anexos" role="tab" data-toggle="tab">Anexos</a></li>
-          <li role="presentation" class="nav-item"><a href="#fuenteprensa" class="fichacambia nav-link" 
-            aria-controls="fuenteprensa" role="tab" 
+          <li role="presentation" class="nav-item"><a href="#fuentesprensa" class="fichacambia nav-link" 
+            aria-controls="fuentesprensa" role="tab" 
             data-toggle="tab">Fuentes Frecuentes</a></li>
-          <li role="presentation" class="nav-item"><a href="#fotra" class="fichacambia nav-link" 
-            aria-controls="fotra" role="tab" 
+          <li role="presentation" class="nav-item"><a href="#fotras" class="fichacambia nav-link" 
+            aria-controls="fotras" role="tab" 
             data-toggle="tab">Otras Fuentes</a></li>
           <li role="presentation" class="nav-item"><a href="#descripcion" class="fichacambia nav-link" 
             aria-controls="descripcion" role="tab" 
@@ -60,19 +60,19 @@
             <%= render 'basicos', f: f %>
           </div> 
 
-          <div role="tabpanel" class="tab-pane fade" id="ubicacion">
+          <div role="tabpanel" class="tab-pane fade" id="ubicaciones">
             <%= render 'ubicaciones', f: f %>
           </div>
 
-          <div role="tabpanel" class="tab-pane fade" id="fuenteprensa">
+          <div role="tabpanel" class="tab-pane fade" id="fuentesprensa">
             <%= render 'fuentesprensa', f: f %>
           </div>
 
-          <div role="tabpanel" class="tab-pane fade" id="fotra">
+          <div role="tabpanel" class="tab-pane fade" id="fotras">
             <%= render 'fotras', f: f %>
           </div>
 
-          <div role="tabpanel" class="tab-pane fade" id="contexto">
+          <div role="tabpanel" class="tab-pane fade" id="contextos">
             <%= render 'contextos', f: f %>
           </div>
 
@@ -88,7 +88,7 @@
             <%= render 'victimascolectivas', f: f %>
           </div>
 
-          <div role="tabpanel" class="tab-pane fade" id="combatiente">
+          <div role="tabpanel" class="tab-pane fade" id="combatientes">
             <%= render 'combatientes', f: f %>
           </div>
 

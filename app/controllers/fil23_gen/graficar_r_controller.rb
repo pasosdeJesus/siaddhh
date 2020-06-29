@@ -92,7 +92,6 @@ module Fil23Gen
         ppuerto = fspuerto[2].to_i
         puts "ppuerto=#{ppuerto}"
         puts "lproc=#{lproc}"
-        byebug
         dppuerto = lproc.select{|p| p[:pid].to_i == ppuerto}[0]
         puts "dppuerto=#{dppuerto}"
         if dppuerto[:ppid] != dmiproc[:ppid]
