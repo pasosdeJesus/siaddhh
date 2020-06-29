@@ -38,15 +38,38 @@
 //
 // Este enfoque basta para aplicaciones WEB (conectadas continuo a Internet).
 
-var ejex = []  // Valores en eje x
-var etiquetasPosibles = []  // Etiquetas posibles
-var series_ejey = {} // Series posibles en eje y indexadas por etiquetas
-var trazosPresentados = [] // de plotly llenados por actualiarTrazosPresentados
 
+// CSV:
+// fecha, presponsable, sexonac, ..., cuenta
+// 2020-03-01, PARAMILITARES, F, ...,5
+// Las gráficas analizaran solo una variable i.e columna e.g presponsable
+//   Serie de tiempo: Una linea por categoria de la variable analizada
+//      fecha vs. cuenta por categoria
+//    Barra: cuenta por categoria (en todo el tiempo)
+
+
+//DATOS DEL CSV REORGANIZADOS
+var datosr = {} // Reorganiza datos de CSV en este diccionario cuyas
+  // llaves son fechas donde hay datos, el valor en cada fecha es
+  // un diccioneario indexado por las categorias de la variable y 
+  // el valor en cada una es la suma de cuenta por categoria
+var datosrFechamin; // Fecha minima en CSV
+var datosrFechamax; // Fecha máxima en CSV
+var datosrEtiquetas = []  // Etiquetas o categorias posibles en CSV para la variable
+
+
+// DATOS PRESENTADOS
+// Las siguientes dependen de las selecciones del usuario en el filtro
+var ejex = []  // Valores en eje x
+var seriesEjey = {} // Series posibles en eje y indexadas por etiquetas
+
+// DATOS PRESENTADOS COMO LOS REQUIERE PLOTLY
+var trazosPresentados = [] // de plotly llenados por actualiarTrazosPresentados
 var totalesEtiqueta = {} // Totales por etiqueta
 
+
 // Recibe etiquetas por presentar y actualiza variable trazosPresentados
-// dejando justo las series de series_ejey que corresponden a esas etiquetas
+// dejando justo las series de seriesEjey que corresponden a esas etiquetas
 function actualizarTrazosPresentados(etiquetas) {
   var etiquetasP = []
   var i = 0
@@ -79,7 +102,7 @@ function actualizarTrazosPresentados(etiquetas) {
   agregar.forEach(function (e) {
     trazosPresentados.push({
       x: ejex, 
-      y: series_ejey[e],
+      y: seriesEjey[e],
       stackgroup: 'uno',
       //type: 'scatter',
       //mode: 'lines',
@@ -120,94 +143,156 @@ function actualizarTrazosPresentados(etiquetas) {
 }
 
 
+
+// Recibe fecha inicia, fecha final y etiquetas a presentar
+// actualiza datos presentados para que corresponda a ese rango
+// y etiquetas
+function recalcularSeriesPresentadas(fechaini, fechafin, etiquetas) {
+  totalesEtiqueta = {}
+  ejex= []
+  seriesEjey = {}
+  trazosPresentados = [] 
+  Object.keys(datosr).sort().forEach(function(fecha) {
+    if (fecha >= fechaini & fecha <= fechafin) {
+      ejex.push(fecha)
+      datosrEtiquetas.forEach(function(e) {
+        if (typeof datosr[fecha][e] == 'undefined') {
+          datosr[fecha][e] = 0
+        }
+        if (typeof seriesEjey[e] == 'undefined') {
+          seriesEjey[e] = []
+        }
+        seriesEjey[e].push(datosr[fecha][e])
+        if (typeof totalesEtiqueta[e] == 'undefined') {
+          totalesEtiqueta[e] = datosr[fecha][e]
+        } else {
+          totalesEtiqueta[e] += datosr[fecha][e]
+        }
+      })
+    }
+  })
+  
+  actualizarTrazosPresentados(etiquetas) 
+}
+
+
+// Asigna opciones a un cuadro de selección múltiple inicialmente vacio
+// selector es selector del campo de selección múltiple
+// opciones es vector con las opciones a crear
+// seltodo indica si todas deben elegirse por omisión
+function seleccionmAsignarOpciones(selector, opciones, seltodo = true) {
+  for (var i = 0; i < opciones.length;  i++) {
+    var opcionActual = document.createElement('option');
+    if (seltodo) {
+      opcionActual.selected = true;
+    }
+    opcionActual.text = opciones[i];
+    selector.appendChild(opcionActual);
+  }
+  $(selector).trigger('chosen:updated')
+}
+
+
+// Retorna opciones elegidas en un campo de selección múltiple
+function seleccionmOpcionesElegidas(selector) {
+  var res = [];
+  var opciones = selector && selector.options;
+  var op;
+
+  for (var i = 0, t = opciones.length; i < t; i++) {
+    op = opciones[i];
+
+    if (op.selected) {
+      res.push(op.value || op.text);
+    }
+  }
+  return res;
+}
+
+
+// Lee CSV, reorganiza los datos, prepara campos de filtro
+// Prepara series y presenta datos
+// Activa eventos ante cambios en campos de filtro que repintan lo necesario
+function procesar_datos(filas, variable) {
+
+  var contenedorFiltros = document.querySelector('.filtros'),
+    selectorCategoria= contenedorFiltros.querySelector('#presponsable'),
+    campoFechaini = contenedorFiltros.querySelector('#fechaini'),
+    campoFechafin = contenedorFiltros.querySelector('#fechafin')
+  ;
+
+  var dicEtiquetas = {}
+  filas.forEach(function(r) {
+    dicEtiquetas[r[variable]] = 0
+    if (typeof datosr[r.fecha] == 'undefined') {
+      datosr[r.fecha] = {}
+      if (typeof datosrFechamin == 'undefined' || r.fecha < datosrFechamin) {
+        datosrFechamin = r.fecha
+      }
+      if (typeof datosrFechamax == 'undefined' || r.fecha > datosrFechamax) {
+        datosrFechamax = r.fecha
+      }
+    }
+    if (typeof datosr[r.fecha][r[variable]] == 'undefined') {
+      datosr[r.fecha][r[variable]] = +r.cuenta
+    } else {
+      datosr[r.fecha][r[variable]] += +r.cuenta
+    }
+  })
+
+  datosrEtiquetas = Object.keys(dicEtiquetas)
+
+  seleccionmAsignarOpciones(selectorCategoria, datosrEtiquetas, true);
+  campoFechaini.value = datosrFechamin
+  campoFechafin.value = datosrFechamax
+
+
+  /*var colores = {
+     'F': 'rgb(219, 64, 82)',
+    'M': 'rgb(64, 219, 82)',
+    'S': 'rgb(64, 82, 219)'
+  } */
+
+  function actualizarGraficaFechas() {
+    var opelegidas = seleccionmOpcionesElegidas(selectorCategoria)
+    var fechaini = campoFechaini.value
+    var fechafin = campoFechafin.value
+
+    recalcularSeriesPresentadas(fechaini, fechafin, opelegidas);
+  }
+
+
+  function actualizarGraficaEtiquetas(){
+    var opelegidas = seleccionmOpcionesElegidas(selectorCategoria)
+    actualizarTrazosPresentados(opelegidas);
+  }
+
+
+  actualizarGraficaFechas()
+
+
+  $(selectorCategoria).chosen().change(actualizarGraficaEtiquetas)
+  $(campoFechaini).datepicker({    
+    format: window.formato_fecha, 
+    autoclose: true, 
+    todayHighlight: true, 
+    language: 'es' 
+  }).on('changeDate', (ev) => actualizarGraficaFechas())
+  $(campoFechafin).datepicker({    
+    format: window.formato_fecha, 
+    autoclose: true, 
+    todayHighlight: true, 
+    language: 'es' 
+  }).on('changeDate', (ev) => actualizarGraficaFechas())
+
+
+}
+
+
 function plotly_serietiempo_actos() {
   Plotly.d3.csv("../conteos/actos_individuales.csv", function(err, datos) { 
     procesar_datos(datos, 'presponsable') 
   });
 };
-
-function procesar_datos(filas, variable) {
-
-  var contenedorFiltros = document.querySelector('.filtros'),
-    selectorCategoria= contenedorFiltros.querySelector('#presponsable');
-
-  function asignarOpciones(arraydevalores, selector) {
-    for (var i = 0; i < arraydevalores.length;  i++) {
-      var opcionActual = document.createElement('option');
-      opcionActual.selected = true;
-      opcionActual.text = arraydevalores[i];
-      selector.appendChild(opcionActual);
-    }
-    $(selector).trigger('chosen:updated')
-  }
-
-
-  var datos2 = {}
-  var dicEtiquetas = {}
-  filas.forEach(function(r) {
-    dicEtiquetas[r[variable]] = 0
-    if (typeof datos2[r.fecha] == 'undefined') {
-      datos2[r.fecha] = {}
-    }
-    if (typeof datos2[r.fecha][r[variable]] == 'undefined') {
-      datos2[r.fecha][r[variable]] = +r.cuenta
-    } else {
-      datos2[r.fecha][r[variable]] += +r.cuenta
-    }
-  })
-
-  etiquetasPosibles = Object.keys(dicEtiquetas)
-  totalesEtiqueta = {}
-  Object.keys(datos2).sort().forEach(function(f) {
-    var fecha = f; //parseTime(f)
-    ejex.push(fecha)
-    etiquetasPosibles.forEach(function(e) {
-      if (typeof datos2[f][e] == 'undefined') {
-        datos2[f][e] = 0
-      }
-      if (typeof series_ejey[e] == 'undefined') {
-        series_ejey[e] = []
-      }
-      series_ejey[e].push(datos2[f][e])
-      if (typeof totalesEtiqueta[e] == 'undefined') {
-        totalesEtiqueta[e] = datos2[f][e]
-      } else {
-        totalesEtiqueta[e] += datos2[f][e]
-      }
-    })
-  })
-  var colores = {
-    'F': 'rgb(219, 64, 82)',
-    'M': 'rgb(64, 219, 82)',
-    'S': 'rgb(64, 82, 219)'
-  }
-
-  function actualizarGrafica(){
-    function opcionesElegidas(seleccionm) {
-      var res = [];
-      var opciones = seleccionm && seleccionm.options;
-      var op;
-
-      for (var i = 0, t = opciones.length; i < t; i++) {
-        op = opciones[i];
-
-        if (op.selected) {
-          res.push(op.value || op.text);
-        }
-      }
-      return res;
-    }
-    var opelegidas = opcionesElegidas(selectorCategoria)
-    actualizarTrazosPresentados(opelegidas);
-  }
-
-
-  asignarOpciones(etiquetasPosibles, selectorCategoria);
-  actualizarGrafica()
-  selectorCategoria.addEventListener('change', actualizarGrafica, false);
-  $(selectorCategoria).chosen().change(actualizarGrafica);
-
-}
-
 
 export default plotly_serietiempo_actos;
