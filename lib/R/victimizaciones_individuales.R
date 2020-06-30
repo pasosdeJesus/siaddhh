@@ -172,23 +172,14 @@ servidor <- function(input, output, session) {
       ggplot(data = datos(), aes(x = SexoNac, fill = SexoNac))+
         geom_bar()+ ylab("Victimizaciones") +
         geom_text(stat = 'count', aes(label = ..count..), vjust = 1)
-        #geom_bar(stat="identity", position=position_dodge()) +
-        #geom_text(aes(label=freq), vjust=1.6, color="white",
-        #  position = position_dodge(0.9), size=3.5) +
-        #labs(title='Totales por sexo de nacimiento',
-        #  y='Victimizaciones', x= 'Sexo de nacimiento') +
-        #theme(legend.position="none")
     } else if (input$var == 'Departamento') {
       ggplot(data = datos(), aes(x = Departamento, fill = Departamento))+
         geom_bar()+ ylab("Victimizaciones") +
-        geom_text(stat = 'count', aes(label = ..count..), vjust = 1)
-      #ggplot(data = total(), aes(x = Departamento , y = freq, fill = Departamento))+
-      #  geom_bar(stat="identity", position=position_dodge()) +
-      #  geom_text(aes(label=freq), vjust=1.6, color="white",
-      #    position = position_dodge(0.9), size=3.5) +
-      #  labs(title='Totales por departamento',
-      #    y='Victimizaciones', x= 'Departamento') +
-      #  theme(legend.position="none")
+        geom_text(stat = 'count', aes(label = ..count..), vjust = 1) +
+	theme(
+	    axis.text.x = element_blank(),
+	    axis.ticks.x = element_blank()
+	)
     } else if (input$var == 'Categoria') {
       ggplot(data = datos(), aes(x = Categoria, fill = Categoria))+
         geom_bar()+ ylab("Victimizaciones") +
@@ -197,14 +188,6 @@ servidor <- function(input, output, session) {
 	    axis.text.x = element_blank(),
 	    axis.ticks.x = element_blank()
 	)
-
-      #ggplot(data = total(), aes(x = Categoria, y = freq, fill = Categoria))+
-      #  geom_bar(stat="identity", position=position_dodge()) +
-      #  geom_text(aes(label=freq), vjust=1.6, color="white",
-      #    position = position_dodge(0.9), size=3.5) +
-      #  labs(title='Totales por categoria',
-      #    y='Victimizaciones', x= 'Categoria') +
-      #  theme(legend.position="none")
     } 
 
   })
