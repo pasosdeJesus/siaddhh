@@ -1,12 +1,13 @@
-# Victimizaciones por sexo de nacimiento
-# Autor inicial: Andres Mauricio Galeano agaleano@cinep.org.co
+# Victimizaciones individuales
+# Autores: Andres Mauricio Galeano agaleano@cinep.org.co 
+#   y Vladimir Támara  vtamara@pasosdeJesus.org
 
 # Nomenclatura: shiny usa CamelCase comenzando en minúscula
 # R usa más _
 # Usamos más _
 # Variables que podamos poner en español, las ponemos en español
 
-print("** victimizaciones por sexo")
+print("** victimizaciones individuales")
 if(!require(shiny)){
   install.packages("shiny", repos = "https://www.icesi.edu.co/CRAN/")
 }
@@ -30,11 +31,16 @@ library(dplyr)
 if(!require(svglite)){
   install.packages("svglite", repos = "https://www.icesi.edu.co/CRAN/")
 }
+library(svglite)
 if(!require(shinydashboard)){
   install.packages("shinydashboard", repos = "https://www.icesi.edu.co/CRAN/")
   library(shinydashboard)
 }
-library(svglite)
+if(!require(shinyWidgets)){
+  install.packages("shinyWidgets", repos = "https://www.icesi.edu.co/CRAN/")
+  library(shinyWidgets)
+}
+
 print("** dependencias completas")
 
 
@@ -70,18 +76,36 @@ interfaz <- dashboardPage(skin = "blue",
       multiple = F,
       selected = NULL,
       selectize = T),
-    selectInput("sexonac", "Sexos incluidos",
+    pickerInput("sexonac", "Sexos incluidos",
       choices = levels(tablasub$SexoNac),
       multiple = T,
-      selected = levels(tablasub$SexoNac)),
-    selectInput("categoria_rotulo", "Categorias de violencia incluidas",
+      selected = levels(tablasub$SexoNac),
+      choicesOpt = list(
+        style=rep(("color: black; background:lightgrey;"),50))),
+    pickerInput("categoria_rotulo", "Categorias de violencia incluidas",
       choices = levels(tablasub$Categoria),
       multiple = T,
-      selected = levels(tablasub$Categoria)),
-    selectInput("departamento", "Departamentos incluidos",
+      selected = levels(tablasub$Categoria),
+      options = pickerOptions(
+        actionsBox = T,
+        liveSearch = T,
+        noneSelectedText = "Seleccione:",
+        noneResultsText = "Valor no encontrado",
+        virtualScroll = T),
+      choicesOpt = list(
+        style=rep(("color: black; background:lightgrey;"),50))),
+    pickerInput("departamento", "Departamentos incluidos",
       choices = levels(tablasub$Departamento),
       multiple = T,
-      selected = levels(tablasub$Departamento))
+      selected = levels(tablasub$Departamento),
+      options = pickerOptions(
+        actionsBox = T,
+        liveSearch = T,
+        noneSelectedText = "Seleccione:",
+        noneResultsText = "Valor no encontrado",
+        virtualScroll = T),
+      choicesOpt = list(
+        style=rep(("color: black; background:lightgrey;"),50)))
     ),
   dashboardBody(
     tags$head(tags$style(HTML('.info-box {min-height: 45px; width: 300px;} .info-box-icon {height: 45px; line-height: 45px;} .info-box-content {padding-top: 0px; padding-bottom: 0px;}'))),
@@ -160,7 +184,9 @@ servidor <- function(input, output, session) {
       geom_line() + geom_point() +
       labs(title='Serie de tiempo por categoria',
         y='Victimizaciones', x= 'Fecha') +
-      theme(legend.position="top", legend.title = element_blank())
+      theme(legend.position="top", 
+	    legend.title = element_blank()
+      )
     }
 
   })
@@ -170,34 +196,22 @@ servidor <- function(input, output, session) {
       ggplot(data = datos(), aes(x = SexoNac, fill = SexoNac))+
         geom_bar()+ ylab("Victimizaciones") +
         geom_text(stat = 'count', aes(label = ..count..), vjust = 1)
-        #geom_bar(stat="identity", position=position_dodge()) +
-        #geom_text(aes(label=freq), vjust=1.6, color="white",
-        #  position = position_dodge(0.9), size=3.5) +
-        #labs(title='Totales por sexo de nacimiento',
-        #  y='Victimizaciones', x= 'Sexo de nacimiento') +
-        #theme(legend.position="none")
     } else if (input$var == 'Departamento') {
       ggplot(data = datos(), aes(x = Departamento, fill = Departamento))+
         geom_bar()+ ylab("Victimizaciones") +
-        geom_text(stat = 'count', aes(label = ..count..), vjust = 1)
-      #ggplot(data = total(), aes(x = Departamento , y = freq, fill = Departamento))+
-      #  geom_bar(stat="identity", position=position_dodge()) +
-      #  geom_text(aes(label=freq), vjust=1.6, color="white",
-      #    position = position_dodge(0.9), size=3.5) +
-      #  labs(title='Totales por departamento',
-      #    y='Victimizaciones', x= 'Departamento') +
-      #  theme(legend.position="none")
+        geom_text(stat = 'count', aes(label = ..count..), vjust = 1) +
+	theme(
+	    axis.text.x = element_blank(),
+	    axis.ticks.x = element_blank()
+	)
     } else if (input$var == 'Categoria') {
       ggplot(data = datos(), aes(x = Categoria, fill = Categoria))+
         geom_bar()+ ylab("Victimizaciones") +
-        geom_text(stat = 'count', aes(label = ..count..), vjust = 1)
-      #ggplot(data = total(), aes(x = Categoria, y = freq, fill = Categoria))+
-      #  geom_bar(stat="identity", position=position_dodge()) +
-      #  geom_text(aes(label=freq), vjust=1.6, color="white",
-      #    position = position_dodge(0.9), size=3.5) +
-      #  labs(title='Totales por categoria',
-      #    y='Victimizaciones', x= 'Categoria') +
-      #  theme(legend.position="none")
+        geom_text(stat = 'count', aes(label = ..count..), vjust = 1)+
+	theme(
+	    axis.text.x = element_blank(),
+	    axis.ticks.x = element_blank()
+	)
     } 
 
   })
@@ -254,6 +268,13 @@ servidor <- function(input, output, session) {
       write.csv(total(), nomarc)
     }
   )
+
+  output$vict_n <- renderValueBox({
+    infoBox('Victimizaciones',
+      paste0(nrow(datos())), 
+      icon = icon('list-alt'),
+      color = 'yellow')
+  })
 }
 
 print("Por ejecutar shinyApp")
