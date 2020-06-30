@@ -282,7 +282,7 @@ servidor <- function(input, output, session) {
     infoBox('Victimizaciones',
       paste0(nrow(datos())), 
       icon = icon('list-alt'),
-      color = 'red;')
+      color = 'red')
   })
 }
 
