@@ -93,7 +93,7 @@ interfaz <- dashboardPage(skin = "blue",
         noneResultsText = "Valor no encontrado",
         virtualScroll = T),
       choicesOpt = list(
-        style=rep(("color: black; background:lightgrey;"),50))),
+        style=rep(("color: black; background: lightgrey;"),50))),
     pickerInput("departamento", "Departamentos incluidos",
       choices = levels(tablasub$Departamento),
       multiple = T,
@@ -105,16 +105,25 @@ interfaz <- dashboardPage(skin = "blue",
         noneResultsText = "Valor no encontrado",
         virtualScroll = T),
       choicesOpt = list(
-        style=rep(("color: black; background:lightgrey;"),50)))
+        style=rep(("color: black; background: lightgrey;"),50)))
     ),
   dashboardBody(
-    tags$head(tags$style(HTML('.info-box {min-height: 45px; width: 300px;} .info-box-icon {height: 45px; line-height: 45px;} .info-box-content {padding-top: 0px; padding-bottom: 0px;}'))),
+    tags$head(tags$style(HTML('
+	.info-box { min-height: 45px; width: 300px;} 
+	.info-box-icon {height: 45px; line-height: 45px;} 
+	.info-box-content {padding-top: 0px; padding-bottom: 0px;}
+	.skin-blue .left-side, 
+	.skin-blue .main-sidebar, 
+	.skin-blue .wrapper {
+	  background-color: #bf1b28;
+	}
+	'))),
     fluidRow(infoBoxOutput("vict_n")),
     fluidRow(
       box(
 	width = 12,
 	title = "Serie de tiempo", 
-        status = "primary", 
+        color = "red", 
         solidHeader = T,
         collapsible = T,
         plotOutput("graficar_serie"),
@@ -127,7 +136,7 @@ interfaz <- dashboardPage(skin = "blue",
       box(
 	width = 12,
         title = "Totales",
-        status = "primary",
+        color = "red",
         solidHeader = T,
         collapsible = T,
         plotOutput("graficar_total"),
@@ -273,7 +282,7 @@ servidor <- function(input, output, session) {
     infoBox('Victimizaciones',
       paste0(nrow(datos())), 
       icon = icon('list-alt'),
-      color = 'yellow')
+      color = 'red;')
   })
 }
 
