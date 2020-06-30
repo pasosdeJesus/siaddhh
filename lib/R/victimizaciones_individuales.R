@@ -160,7 +160,9 @@ servidor <- function(input, output, session) {
       geom_line() + geom_point() +
       labs(title='Serie de tiempo por categoria',
         y='Victimizaciones', x= 'Fecha') +
-      theme(legend.position="top", legend.title = element_blank())
+      theme(legend.position="top", 
+	    legend.title = element_blank()
+      )
     }
 
   })
@@ -190,7 +192,12 @@ servidor <- function(input, output, session) {
     } else if (input$var == 'Categoria') {
       ggplot(data = datos(), aes(x = Categoria, fill = Categoria))+
         geom_bar()+ ylab("Victimizaciones") +
-        geom_text(stat = 'count', aes(label = ..count..), vjust = 1)
+        geom_text(stat = 'count', aes(label = ..count..), vjust = 1)+
+	theme(
+	    axis.text.x = element_blank(),
+	    axis.ticks.x = element_blank()
+	)
+
       #ggplot(data = total(), aes(x = Categoria, y = freq, fill = Categoria))+
       #  geom_bar(stat="identity", position=position_dodge()) +
       #  geom_text(aes(label=freq), vjust=1.6, color="white",

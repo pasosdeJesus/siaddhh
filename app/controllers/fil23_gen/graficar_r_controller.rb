@@ -68,12 +68,12 @@ module Fil23Gen
       # En realidad basta uno, porque todos los trabajadores pueden
       # dirigir al mismo puerto.
       #
-      # Hemos notado que en ocasiones que el proceso R pero no el
-      # trbajador, y en ocasiones el trabajador pero no el maestro.
+      # Hemos notado que en ocasiones queda el proceso R pero no el
+      # trbajador, y en ocasiones queda el trabajador pero no el maestro.
       # Incluso arrancando de nuevo el maestro.
-      # En ocasiones responde por el puerto pero con un mensjae de error.
+      # En ocasiones responde por el puerto pero con un mensaje de error.
       #
-      # Nos parece mejor detectar si el puerto reservador ya está bajo el 
+      # Nos parece mejor detectar si el puerto reservado ya está bajo el 
       # control de un proceso con el gpid del trabajador que corre y en caso
       # afirmativo verificar que responda shiny.  Si no se cumple alguna
       # de estas condiciones, mejor matar el proceso que corre en 
@@ -145,7 +145,7 @@ module Fil23Gen
         if numproc > 0 
           # Fil23Gen::Bifurcacion.create(numproc: numproc,
           #   marcatemporal: Time.now)
-          sleep 2 # Damos tiempo a aplicacion shiny de arranca antes de continuar presentando iframe
+          sleep 3 # Damos tiempo a aplicacion shiny de arranca antes de continuar presentando iframe
         else
           puts "No pudo bifurcarse proceso"
           render inline: 'No pudo bifurcarse proceso para shiny', 
