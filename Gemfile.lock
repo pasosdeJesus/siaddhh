@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 07fc8cb5d28718150f848ee5438a3e636b3dc304
+  revision: 64fb20008b5943ae773dcc83656ba798e33d4772
   specs:
     heb412_gen (1.0.b6)
       mr519_gen
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/mr519_gen.git
-  revision: e046cb75e36f62d5d24644ac383e4390efb68955
+  revision: 2dc27fd913116150a6980d60b1d40b7c9049e529
   specs:
     mr519_gen (0.2.0)
       rails (~> 6.0.0.rc1, >= 6.0.0.rc1)
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 017d3ee2e9b7b0deed82ba05111147020613b279
+  revision: 9e48233363e3552ea2e4eb64992fbbffd78c5ac5
   specs:
     sip (2.0.b10)
       cancancan
@@ -36,9 +36,9 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 3e8494b3524383f57ce49583e8c83a87421939de
+  revision: 508b1d0d595b7aefa49e22c940cb27851a33e7a5
   specs:
-    sivel2_gen (2.0b11)
+    sivel2_gen (2.0b12)
       devise
       jquery-rails
       rails
@@ -111,7 +111,7 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     andand (1.3.3)
-    bcrypt (3.1.15)
+    bcrypt (3.1.16)
     bigdecimal (2.0.0)
     bindex (0.8.1)
     bootsnap (1.4.8)
@@ -184,7 +184,7 @@ GEM
     mimemagic (0.3.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.14.1)
+    minitest (5.14.2)
     msgpack (1.3.3)
     nio4r (2.5.2)
     nokogiri (1.10.10)
@@ -210,7 +210,7 @@ GEM
     prawnto_2 (0.3.0)
       prawn (>= 1.0.0)
       rails (>= 3.2)
-    public_suffix (4.0.5)
+    public_suffix (4.0.6)
     puma (4.3.5)
       nio4r (~> 2.0)
     rack (2.2.3)
@@ -304,8 +304,8 @@ GEM
     unicorn (5.6.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
-    warden (1.2.8)
-      rack (>= 2.0.6)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.0.4)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
