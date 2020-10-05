@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 75c4035a26e931973c4fa5a72ab7136cf11b8754
+  revision: 6adc02075bf4a268c52d2571192d3e1924addbd0
   specs:
     heb412_gen (1.0.b6)
       mr519_gen
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/mr519_gen.git
-  revision: 3941567101d7540278b84cd5496680c7a4c25613
+  revision: de9490bd74be0849cd06dc8e59732bb72a6e0eb0
   specs:
     mr519_gen (0.2.0)
       rails (~> 6.0.0.rc1, >= 6.0.0.rc1)
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: f8363ea2ed1beb9e3dedf170ada4fcfd00e883cd
+  revision: 78877560abaf9ed806c54fdc401c6f6ff5a4578e
   specs:
     sip (2.0.b10)
       cancancan
@@ -36,7 +36,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 8ad6a69f5ddc49d94867d5116f7440f8c9d620fa
+  revision: 65845db4c0ce6a5a715e38d9c96e97540df10399
   specs:
     sivel2_gen (2.0b12)
       devise
@@ -144,7 +144,7 @@ GEM
     colorize (0.8.1)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
-    devise (4.7.2)
+    devise (4.7.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0)
@@ -207,11 +207,11 @@ GEM
       ttfunk (~> 1.6)
     prawn-table (0.2.2)
       prawn (>= 1.3.0, < 3.0.0)
-    prawnto_2 (0.3.0)
+    prawnto_2 (0.3.1)
       prawn (>= 1.0.0)
       rails (>= 3.2)
     public_suffix (4.0.6)
-    puma (5.0.0)
+    puma (5.0.2)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-proxy (0.6.5)
@@ -250,7 +250,7 @@ GEM
     raindrops (0.19.1)
     rake (13.0.1)
     redcarpet (3.5.0)
-    regexp_parser (1.7.1)
+    regexp_parser (1.8.1)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -271,13 +271,13 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (2.3.0)
-    simple_form (5.0.2)
+    simple_form (5.0.3)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
     simplecov (0.19.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
-    simplecov-html (0.12.2)
+    simplecov-html (0.12.3)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -295,7 +295,7 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    twitter_cldr (6.1.0)
+    twitter_cldr (6.2.0)
       camertron-eprun
       cldr-plurals-runtime-rb (~> 1.0)
       tzinfo
