@@ -1,5 +1,8 @@
 # SIADDHH
-[![Estado Construcción](https://api.travis-ci.org/pasosdeJesus/sivel2_somosdefensores.svg?branch=master)](https://travis-ci.org/pasosdeJesus/sivel2_somosdefensores) [![Clima del Código](https://codeclimate.com/github/pasosdeJesus/sivel2_somosdefensores/badges/gpa.svg)](https://codeclimate.com/github/pasosdeJesus/sivel2_somosdefensores) [![Cobertura de Pruebas](https://codeclimate.com/github/pasosdeJesus/sivel2_somosdefensores/badges/coverage.svg)](https://codeclimate.com/github/pasosdeJesus/sivel2_somosdefensores) [![security](https://hakiri.io/github/pasosdeJesus/sivel2_somosdefensores/master.svg)](https://hakiri.io/github/pasosdeJesus/sivel2_somosdefensores/master) [![Dependencias](https://gemnasium.com/pasosdeJesus/sivel2_somosdefensores.svg)](https://gemnasium.com/pasosdeJesus/sivel2_somosdefensores) 
+
+
+[![Revisado por Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com) [![Estado Construcción](https://api.travis-ci.org/pasosdeJesus/sivel2_somosdefensores.svg?branch=master)](https://travis-ci.org/pasosdeJesus/sivel2_somosdefensores) [![Clima del Código](https://codeclimate.com/github/pasosdeJesus/sivel2_somosdefensores/badges/gpa.svg)](https://codeclimate.com/github/pasosdeJesus/sivel2_somosdefensores) [![Cobertura de Pruebas](https://codeclimate.com/github/pasosdeJesus/sivel2_somosdefensores/badges/coverage.svg)](https://codeclimate.com/github/pasosdeJesus/sivel2_somosdefensores) [![security](https://hakiri.io/github/pasosdeJesus/sivel2_somosdefensores/master.svg)](https://hakiri.io/github/pasosdeJesus/sivel2_somosdefensores/master)
+
 ![Logo de sivel2](https://raw.githubusercontent.com/pasosdeJesus/sivel2/master/public/images/logo.jpg)
 
 
