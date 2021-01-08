@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '>=2.4'
+ruby '>=2.7.1'
 
 
 gem 'bcrypt'
@@ -25,7 +25,7 @@ gem 'libxml-ruby'
 
 gem 'odf-report' # Genera ODT
 
-gem 'nokogiri', '>=1.11.0.rc4'
+gem 'nokogiri', '>=1.11.1'
 
 gem 'paperclip' # Maneja adjuntos
 
@@ -39,7 +39,7 @@ gem 'prawnto_2',  :require => 'prawnto'
 
 gem 'prawn-table'
 
-gem 'rails', '~> 6.1.0'
+gem 'rails', '~> 6.0.3.4'
 
 gem 'rails-i18n'
 
