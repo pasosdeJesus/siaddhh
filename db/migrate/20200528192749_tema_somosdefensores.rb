@@ -21,7 +21,10 @@ class TemaSomosdefensores < ActiveRecord::Migration[6.0]
       alerta_exito_fondo = '#f2a285',
       alerta_exito_fuente = '#000000',
       alerta_problema_fondo = '#bf1b28',
-      alerta_problema_fuente = '#ffffff'
+      alerta_problema_fuente = '#ffffff',
+      color_flota_subitem_fuente = '#266dd3',
+      color_flota_subitem_fondo = '#ffffff'
+
       WHERE id=1;
 
     INSERT INTO public.sip_tema (id, nombre, observaciones, nav_ini, 
