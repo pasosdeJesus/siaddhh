@@ -1,22 +1,18 @@
-# encoding: utf-8
 
-require File.expand_path('../boot', __FILE__)
-
+require_relative 'boot'
 require 'rails/all'
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
+# Requiere gemas listas en el Gemfile, incluyendo las
+# limitadas a :test, :development, o :production.
 Bundler.require(*Rails.groups)
 
 module Sivel2
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
-
     # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initialize
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    #config.load_defaults 6.0
+    # Application configuration should go into files in config/initializers
+    # -- all .rb files in that directory are automatically loaded.
+
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     config.time_zone = 'America/Bogota'
@@ -27,17 +23,35 @@ module Sivel2
 
     config.active_record.schema_format = :sql
 
-    config.relative_url_root = "/somosdefensores/sivel2"
+    config.hosts <<  ENV.fetch('CONFIG_HOSTS', 'defensor.info').downcase
 
-    config.x.formato_fecha='yyyy-mm-dd'
+    #config.relative_url_root = ENV.fetch(
+    #  'RUTA_RELATIVA', "/somosdefensores/sivel2")
 
-    config.x.heb412_ruta = Rails.root.join(
-      'public', 'somosdefensores', 'sivel2', 'heb412'
+    # sip
+    config.x.formato_fecha = ENV.fetch('FORMATO_FECHA', 'yyyy-mm-dd')
+
+    # heb412
+    config.x.heb412_ruta = Pathname(
+                ENV.fetch('HEB412_RUTA', Rails.root.join(
+                  'public', 'somosdefensores', 'sivel2', 'heb412'
+                ).to_s)
     )
 
-    config.x.sivel2_consulta_web_publica = false
+    # sivel2
+    config.x.sivel2_consulta_web_publica = 
+      (ENV['SIVEL2_CONSWEB_PUBLICA'] && ENV['SIVEL2_CONSWEB_PUBLICA'] != '')
 
-    config.hosts << ENV['CONFIG_HOSTS']
+    config.x.sivel2_consweb_max = ENV.fetch('SIVEL2_CONSWEB_MAX', 2000)
+
+    config.x.sivel2_consweb_epilogo = ENV.fetch(
+      'SIVEL2_CONSWEB_EPILOGO', 
+      "<br>Si requiere más puede suscribirse a SIVeL Pro"
+    ).html_safe
+
+    config.x.sivel2_mapaosm_diasatras = ENV.fetch(
+      'SIVEL2_CONSWEB_EPILOGO', 182)
 
   end
 end
+
