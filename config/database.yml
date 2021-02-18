@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: /var/www/var/run/postgresql
+  username: <%= ENV.fetch('BD_USUARIO', 'sipdes') %>
+  password: <%= ENV.fetch('BD_CLAVE') %>
+
+development:
+  <<: *default
+  database: <%= ENV.fetch('BD_DES', 'sivel2sd_des') %>
+
+test:
+  <<: *default
+  database: <%= ENV.fetch('BD_PRUEBA', 'sivel2sd_pru') %>
+
+production:
+  <<: *default
+  database: <%= ENV.fetch('BD_PRO', 'sivel2sd_pro') %>
