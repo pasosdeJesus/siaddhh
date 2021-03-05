@@ -25,8 +25,8 @@ module Sivel2
 
     config.hosts <<  ENV.fetch('CONFIG_HOSTS', 'defensor.info').downcase
 
-    #config.relative_url_root = ENV.fetch(
-    #  'RUTA_RELATIVA', "/somosdefensores/sivel2")
+    config.relative_url_root = ENV.fetch(
+      'RUTA_RELATIVA', "/somosdefensores/sivel2")
 
     # sip
     config.x.formato_fecha = ENV.fetch('FORMATO_FECHA', 'yyyy-mm-dd')
@@ -50,7 +50,7 @@ module Sivel2
     ).html_safe
 
     config.x.sivel2_mapaosm_diasatras = ENV.fetch(
-      'SIVEL2_CONSWEB_EPILOGO', 182)
+      'SIVEL2_MAPAOSM_DIASATRAS', 182)
 
   end
 end
