@@ -197,7 +197,7 @@ module Fil23Gen
       FileUtils.cp(rutatmp, @rutacsv)
       if ENV['fil23_gen_servidor'].nil?
         flash[:error] = "No se ha definidio fil23_gen_servidor"
-        redirect_to Railsc.config.relative_ulr_root
+        redirect_to Rails.configuration.relative_url_root
         return
       end
       @fil23_gen_op = {
