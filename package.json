@@ -11,6 +11,7 @@
     "expose-loader": "^0.7.5",
     "font-awesome": "^4.7.0",
     "gridstack": "^0.6.0",
+    "is-svg": "^4.2.2",
     "jquery": "^3.6.0",
     "jquery-ui": "^1.12.1",
     "leaflet": "^1.6.0",
