@@ -1,4 +1,3 @@
-# encoding: UTF-8
 require 'date'
 require 'sivel2_gen/concerns/controllers/personas_controller' 
 
@@ -12,8 +11,8 @@ module Sip
     end
 
     def remplazar_antes_destruir_p
-      Sip::ActorsocialPersona.where(persona_id: @personaant.id).
-        where(actorsocial_id: nil).destroy_all
+      Sip::OrgsocialPersona.where(persona_id: @personaant.id).
+        where(orgsocial_id: nil).destroy_all
       true
     end
 

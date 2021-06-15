@@ -130,23 +130,23 @@
     </div>
   </div> 
 
-<% if !f.object.actorsocial_persona %>
-  <% f.object.actorsocial_persona = Sip::ActorsocialPersona.new %>
+<% if !f.object.orgsocial_persona %>
+  <% f.object.orgsocial_persona = Sip::OrgsocialPersona.new %>
 <% end %>
-<%= f.fields_for :actorsocial_persona do |ap| %>
+<%= f.fields_for :orgsocial_persona do |ap| %>
   <%= ap.input :id, as: :hidden %>
 
   <div class="row">
     <div class="col-md-6">
-      <%= ap.association :actorsocial,
-        collection: Sip::Actorsocial.where("id IN (SELECT actorsocial_id FROM
+      <%= ap.association :orgsocial,
+        collection: Sip::Orgsocial.where("id IN (SELECT orgsocial_id FROM
       public.sivel2_gen_victimacolectiva WHERE id_caso=?)", @caso.id),
       label_method: lambda {|t| t.grupoper.nombre},
       value_method: :id %>
     </div>
     <div class="col-md-6">
-      <%= ap.association :perfilactorsocial,
-        collection: Sip::Perfilactorsocial.all,
+      <%= ap.association :perfilorgsocial,
+        collection: Sip::Perfilorgsocial.all,
         label_method: :nombre,
         value_method: :id %>
     </div>

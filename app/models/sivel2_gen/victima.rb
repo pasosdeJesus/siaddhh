@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 require 'sivel2_gen/concerns/models/victima'
 
 module Sivel2Gen
@@ -15,10 +13,10 @@ module Sivel2Gen
       when 'perfilliderazgo'
         self.profesion ? self.profesion.nombre : ''
       when 'colectivohumano'
-        if self.persona && self.persona.actorsocial_persona &&
-            self.persona.actorsocial_persona.actorsocial_id &&
-            self.persona.actorsocial_persona.actorsocial.grupoper_id
-          return self.persona.actorsocial_persona.actorsocial.grupoper.nombre
+        if self.persona && self.persona.orgsocial_persona &&
+            self.persona.orgsocial_persona.orgsocial_id &&
+            self.persona.orgsocial_persona.orgsocial.grupoper_id
+          return self.persona.orgsocial_persona.orgsocial.grupoper.nombre
         end
         return ''
       when /tamenaza[0-9]+/

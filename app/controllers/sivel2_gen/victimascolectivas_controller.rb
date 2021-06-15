@@ -17,26 +17,26 @@ module Sivel2Gen
           end
           return
         end
-        @actorsocial = Sip::Actorsocial.new
-        @actorsocial.grupoper_id = @grupoper.id
-        @actorsocial.save!
+        @orgsocial = Sip::Orgsocial.new
+        @orgsocial.grupoper_id = @grupoper.id
+        @orgsocial.save!
         @victimacolectiva.id_caso = params[:caso_id]
         @victimacolectiva.id_grupoper = @grupoper.id
-        @victimacolectiva.actorsocial_id = @actorsocial.id
+        @victimacolectiva.orgsocial_id = @orgsocial.id
         if @victimacolectiva.save
           respond_to do |format|
             format.js { render json: {
               'victimacolectiva' => @victimacolectiva.id.to_s,
               'grupoper' => @grupoper.id.to_s,
-              'actorsocial' => @actorsocial.id.to_s } }
+              'orgsocial' => @orgsocial.id.to_s } }
             format.json { render json: {
               'victimacolectiva' => @victimacolectiva.id.to_s,
               'grupoper' => @grupoper.id.to_s,
-              'actorsocial' => @actorsocial.id.to_s }, status: :created }
+              'orgsocial' => @orgsocial.id.to_s }, status: :created }
             format.html { render json: {
               'victimacolectiva' => @victimacolectiva.id.to_s,
               'grupoper' => @grupoper.id.to_s,
-              'actorsocial' => @actorsocial.id.to_s } }
+              'orgsocial' => @orgsocial.id.to_s } }
           end
         else
           respond_to do |format|

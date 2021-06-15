@@ -23,27 +23,27 @@ module Sivel2Gen
         end
         @victima.id_caso = params[:caso_id]
         @victima.id_persona = @persona.id
-        @actorsocial_persona = Sip::ActorsocialPersona.new
-        @actorsocial_persona.persona_id = @persona.id
-        @actorsocial_persona.actorsocial_id = nil
-        @actorsocial_persona.perfilactorsocial_id = nil
-        @actorsocial_persona.save!
+        @orgsocial_persona = Sip::OrgsocialPersona.new
+        @orgsocial_persona.persona_id = @persona.id
+        @orgsocial_persona.orgsocial_id = nil
+        @orgsocial_persona.perfilorgsocial_id = nil
+        @orgsocial_persona.save!
         if @victima.save
           respond_to do |format|
             format.js { render json: {
               'victima' => @victima.id.to_s,
               'persona' => @persona.id.to_s,
-              'actorsocial_persona' => @actorsocial_persona.id.to_s
+              'orgsocial_persona' => @orgsocial_persona.id.to_s
             } }
             format.json { render json: {
               'victima' => @victima.id.to_s, 
               'persona' => @persona.id.to_s,
-              'actorsocial_persona' => @actorsocial_persona.id.to_s
+              'orgsocial_persona' => @orgsocial_persona.id.to_s
             }, status: :created }
             format.html { render json: {
               'victima' => @victima.id.to_s, 
               'persona' => @persona.id.to_s,
-              'actorsocial_persona' => @actorsocial_persona.id.to_s
+              'orgsocial_persona' => @orgsocial_persona.id.to_s
             } }
           end
         else

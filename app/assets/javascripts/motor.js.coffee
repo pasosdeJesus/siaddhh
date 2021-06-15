@@ -6,12 +6,12 @@
 #//= require cocoon
 
 @DEP_VICTIMACOLECTIVA = [
-    'select[id^=caso_victima_attributes][id$=_actorsocial_id]',
+    'select[id^=caso_victima_attributes][id$=_orgsocial_id]',
   ]
 
 @sivel2sd_actualiza_victimacolectiva = (e, victimacolectiva) ->
   sip_actualiza_cuadros_seleccion_dependientes('victimacolectiva', 
-    '_actorsocial_attributes_id', '_grupoper_attributes_nombre', 
+    '_orgsocial_attributes_id', '_grupoper_attributes_nombre', 
     DEP_VICTIMACOLECTIVA, true)
 
 
@@ -19,9 +19,9 @@
   tabla = {}
   lobj = $('#victimas .nested-fields[style!="display: none;"]')
   lobj.each((k, v) ->
-    actorsocial_id = $(v).find('select[id$=_persona_attributes_actorsocial_persona_attributes_actorsocial_id]').val()
-    pas_id = $(v).find('select[id$=_persona_attributes_actorsocial_persona_attributes_perfilactorsocial_id]').val()
-    epas_id = $(v).find('select[id$=_persona_attributes_actorsocial_persona_attributes_perfilactorsocial_id]').attr('id')
+    orgsocial_id = $(v).find('select[id$=_persona_attributes_orgsocial_persona_attributes_orgsocial_id]').val()
+    pas_id = $(v).find('select[id$=_persona_attributes_orgsocial_persona_attributes_perfilorgsocial_id]').val()
+    epas_id = $(v).find('select[id$=_persona_attributes_orgsocial_persona_attributes_perfilorgsocial_id]').attr('id')
     nom = $(v).find('input[id$=_persona_attributes_nombres]').val() 
     ape = $(v).find('input[id$=_persona_attributes_apellidos]').val() 
     perfil = ''
@@ -30,13 +30,13 @@
     f = '<tr><td>' + nom + '</td>' +
       '<td>' + ape + '</td>' + 
       '<td>' + perfil + '</td></tr>'
-    if typeof tabla[actorsocial_id] == 'undefined'
-      tabla[actorsocial_id] = f
+    if typeof tabla[orgsocial_id] == 'undefined'
+      tabla[orgsocial_id] = f
     else
-      tabla[actorsocial_id] += f
+      tabla[orgsocial_id] += f
   )
   for k,v of tabla
-    $('#tabla_victima_actorsocial_' + k + ' tbody').html(v)
+    $('#tabla_victima_orgsocial_' + k + ' tbody').html(v)
 
 @sivel2sd_prepara_eventos_unicos = (root, opciones = {}) ->
   sip_arregla_puntomontaje(root)
@@ -77,11 +77,11 @@
     sivel2sd_actualiza_victima)
 
   $(document).on('change', 
-    '#victimas [id$=_persona_attributes_actorsocial_persona_attributes_actorsocial_id]', 
+    '#victimas [id$=_persona_attributes_orgsocial_persona_attributes_orgsocial_id]', 
     sivel2sd_actualiza_victima)
   
   $(document).on('change', 
-    '#victimas [id$=_persona_attributes_actorsocial_persona_attributes_perfilactorsocial_id]', 
+    '#victimas [id$=_persona_attributes_orgsocial_persona_attributes_perfilorgsocial_id]', 
     sivel2sd_actualiza_victima)
 
   $(document).on('cocoon:after-remove', 

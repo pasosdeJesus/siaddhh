@@ -2,22 +2,22 @@
 es:
   activerecord:
     attributes:
-      "sip/actorsocial":
-        Actorsocial: Colectivo
-        Actoressociales: Colectivos
+      "sip/orgsocial":
+        Orgsocial: Colectivo
+        Orgsociales: Colectivos
         fechafundacion: Fecha de fundación
-      "sip/perfilactorsocial":
-        Perfilactorsocial: Perfil en colectivo
-        Perfilesactorsocial: Perfiles en colectivo
-      "sip/actorsocial_persona":
-        actorsocial: Colectivo al que pertenece
-        perfilactorsocial: Perfil en el colectivo
+      "sip/perfilorgsocial":
+        Perfilorgsocial: Perfil en colectivo
+        Perfilesorgsocial: Perfiles en colectivo
+      "sip/orgsocial_persona":
+        orgsocial: Colectivo al que pertenece
+        perfilorgsocial: Perfil en el colectivo
       "sip/fuenteprensa":
         Fuenteprensa: Fuente frecuente
         Fuentesprensa: Fuentes frecuentes
-      "sip/sectoractor":
-        Sectoractor: Sector del colectivo
-        Sectoresactores: Sectores de colectivos
+      "sip/sectororgsocial":
+        Sectororgsocial: Sector del colectivo
+        Sectoresorgsocial: Sectores de colectivos
       "sivel2_gen/organizacion":
         Organizacion: Organización social
         Organizaciones: Organizaciones sociales

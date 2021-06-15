@@ -3,11 +3,11 @@
     <% if !f.object.grupoper %>
       <% f.object.grupoper = Sip::Grupoper.new %>
     <% end %>
-    <% if !f.object.actorsocial %>
-      <% f.object.actorsocial = ::Sip::Actorsocial.new %>
-      <% f.object.actorsocial.grupoper = f.object.grupoper %>
+    <% if !f.object.orgsocial %>
+      <% f.object.orgsocial = ::Sip::Orgsocial.new %>
+      <% f.object.orgsocial.grupoper = f.object.grupoper %>
     <% end %>
-    <% @actorsocial = f.object.actorsocial %>
+    <% @orgsocial = f.object.orgsocial %>
        
     <%= render 'colectivo_campos', :f => f %>
 

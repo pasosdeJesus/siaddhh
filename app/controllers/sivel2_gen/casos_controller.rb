@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 require 'sivel2_gen/concerns/controllers/casos_controller'
 
 module Sivel2Gen
@@ -25,10 +23,10 @@ module Sivel2Gen
     def update
       if params[:caso] && params[:caso][:victimacolectiva_attributes]
         params[:caso][:victimacolectiva_attributes].each { |i,v|
-          if v[:actorsocial_attributes] && 
-            v[:actorsocial_attributes][:grupoper_id] &&
+          if v[:orgsocial_attributes] && 
+            v[:orgsocial_attributes][:grupoper_id] &&
             v[:grupoper_attributes] && v[:grupoper_attributes][:id]
-            v[:actorsocial_attributes][:grupoper_id]=v[:grupoper_attributes][:id]
+            v[:orgsocial_attributes][:grupoper_id]=v[:grupoper_attributes][:id]
           end
         }
       end
@@ -37,11 +35,11 @@ module Sivel2Gen
           puts "Victima colectiva debería tener grupoper"
           exit 1
         end
-        if v.grupoper && !v.actorsocial
-          v.actorsocial = Sip::Actorsocial.new
+        if v.grupoper && !v.orgsocial
+          v.orgsocial = Sip::Orgsocial.new
         end
-        if v.grupoper.id != v.actorsocial.grupoper_id
-          v.actorsocial.grupoper_id=v.grupoper.id
+        if v.grupoper.id != v.orgsocial.grupoper_id
+          v.orgsocial.grupoper_id=v.grupoper.id
           v.save!(validate: false)
         end
       end
@@ -49,20 +47,20 @@ module Sivel2Gen
     end
 
     def caso_params
-      # Añadimos actorsocial en victima colectiva
+      # Añadimos orgsocial en victima colectiva
       lp = lista_params
       hlp = lp[lp.length - 1] # Los primeros son escalares, el ultimo hash
       vc = hlp[:victimacolectiva_attributes]
       hvc = vc[vc.length - 1]
-      hvc[:actorsocial_attributes] = [:id, :grupoper_id, :fechafundacion]
+      hvc[:orgsocial_attributes] = [:id, :grupoper_id, :fechafundacion]
       # Añadimos otraorg y tipoamenza en victima
       v = hlp[:victima_attributes] = [:otraorganizacion, :tipoamenaza_id] + 
         hlp[:victima_attributes]
       # Añadimos actor social en persona
       hv = v[v.length - 1]
       p = hv[:persona_attributes]
-      p << { actorsocial_persona_attributes: 
-             [:id, :actorsocial_id, :perfilactorsocial_id] }
+      p << { orgsocial_persona_attributes: 
+             [:id, :orgsocial_id, :perfilorgsocial_id] }
       params.require(:caso).permit(lp)
     end
        

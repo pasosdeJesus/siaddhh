@@ -1,14 +1,12 @@
-# encoding: UTF-8
-
 require 'sivel2_gen/concerns/models/victimacolectiva'
 
 module Sivel2Gen
   class Victimacolectiva < ActiveRecord::Base
     include Sivel2Gen::Concerns::Models::Victimacolectiva
 
-    belongs_to :actorsocial, class_name: 'Sip::Actorsocial',
-      foreign_key: 'actorsocial_id', validate: true, optional: true
-    accepts_nested_attributes_for :actorsocial, reject_if: :all_blank
+    belongs_to :orgsocial, class_name: 'Sip::Orgsocial',
+      foreign_key: 'orgsocial_id', validate: true, optional: true
+    accepts_nested_attributes_for :orgsocial, reject_if: :all_blank
 
   end
 end

@@ -8,14 +8,14 @@ module Sip
    
     # Busca y lista grupo(s) de persona
     def remplazar_antes_salvar_vc
-      @actorant = @victimacolectiva.actorsocial
-      @actorsocial = Sip::Actorsocial.
+      @orgsocialant = @victimacolectiva.orgsocial
+      @orgsocial = Sip::Orgsocial.
         where(grupoper_id: @grupoper.id).order(:id).first
-      @victimacolectiva.actorsocial = @actorsocial
+      @victimacolectiva.orgsocial = @orgsocial
     end
 
     def remplazar_antes_destruir_gp
-        @actorant.destroy
+        @orgsocialant.destroy
     end
 
 
