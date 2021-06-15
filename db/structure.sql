@@ -3171,7 +3171,7 @@ CREATE TABLE public.sivel2_gen_victimacolectiva (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     id integer DEFAULT nextval('public.sivel2_gen_victimacolectiva_id_seq'::regclass) NOT NULL,
-    actorsocial_id integer
+    orgsocial_id integer
 );
 
 
@@ -5360,7 +5360,7 @@ ALTER TABLE ONLY public.sip_ubicacionpre
 --
 
 ALTER TABLE ONLY public.sivel2_gen_victimacolectiva
-    ADD CONSTRAINT fk_rails_c2122aade4 FOREIGN KEY (actorsocial_id) REFERENCES public.sip_orgsocial(id);
+    ADD CONSTRAINT fk_rails_c2122aade4 FOREIGN KEY (orgsocial_id) REFERENCES public.sip_orgsocial(id);
 
 
 --
@@ -6118,6 +6118,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210531223906'),
 ('20210601023450'),
 ('20210601023557'),
-('20210614120835');
+('20210614120835'),
+('20210615033329');
 
 
