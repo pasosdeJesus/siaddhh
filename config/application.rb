@@ -29,7 +29,7 @@ module Sivel2
       'RUTA_RELATIVA', "/somosdefensores/sivel2")
 
     # sip
-    config.x.formato_fecha = ENV.fetch('FORMATO_FECHA', 'yyyy-mm-dd')
+    config.x.formato_fecha = ENV.fetch('SIP_FORMATO_FECHA', 'yyyy-mm-dd')
 
     # heb412
     config.x.heb412_ruta = Pathname(

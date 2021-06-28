@@ -1,9 +1,9 @@
 # encoding: UTF-8
-require_dependency "sip/concerns/controllers/actoressociales_controller"
+require_dependency "sip/concerns/controllers/orgsociales_controller"
 
 module Sip
-  class ActoressocialesController < Sip::ModelosController
-    include Sip::Concerns::Controllers::ActoressocialesController
+  class OrgsocialesController < Sip::ModelosController
+    include Sip::Concerns::Controllers::OrgsocialesController
 
           def atributos_index
             [ :id, 

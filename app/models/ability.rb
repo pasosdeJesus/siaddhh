@@ -17,7 +17,7 @@ class Ability  < Sivel2Gen::Ability
     Sip::Ability::BASICAS_PROPIAS + 
       Sivel2Gen::Ability::BASICAS_PROPIAS - [
         ['Sip', 'oficina'],
-        ['Sip', 'sectoractor'],
+        ['Sip', 'sectororgsocial'],
         ['Sivel2Gen', 'actividadoficio'],
         ['Sivel2Gen', 'escolaridad'],
         ['Sivel2Gen', 'estadocivil'],

@@ -67,7 +67,7 @@
       <%= despliega_abajo 'Administrar' do %>
         <%= opcion_menu 'Clave y tema', main_app.editar_registro_usuario_path,
           desplegable: true %>
-        <%= opcion_menu 'Colectivos', sip.actoressociales_path,
+        <%= opcion_menu 'Colectivos', sip.orgsociales_path,
           desplegable: true %>
         <% if session[:capturacaso_acordeon] %>
            <%= opcion_menu 'Ficha caso vertical ✓', '/fichacasovertical',
