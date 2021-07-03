@@ -39,7 +39,7 @@ test:
     - apt install dirmngr --install-recommends
     - apt install software-properties-common
     - apt install apt-transport-https
-    - apt install r-base
+    - apt install -y -qq r-base
     - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
     - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
     - apt-get update -qq && apt-get -o dir::cache::archives="$APT_CACHE_DIR" install -yqq yarn
