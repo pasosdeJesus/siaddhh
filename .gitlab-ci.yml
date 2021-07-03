@@ -35,10 +35,13 @@ test:
     - ruby -v
     - export APT_CACHE_DIR=`pwd`/apt-cache && mkdir -pv $APT_CACHE_DIR
     - apt-get update -yy && apt-get install build-essential libpq-dev postgresql-client -y
-    - apt-get install -y -qq nodejs
-    - apt install dirmngr --install-recommends
-    - apt install software-properties-common
-    - apt install apt-transport-https
+    - curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
+    - bash ./nodesource_setup.sh
+    - apt install -y -qq nodejs
+    - node -v
+    - apt install -y -qq dirmngr --install-recommends
+    - apt install -y -qq software-properties-common
+    - apt install -y -qq apt-transport-https
     - apt install -y -qq r-base
     - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
     - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
