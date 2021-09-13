@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  scope 'somosdefensores/sivel2' do 
+  rutarel = ENV.fetch('RUTA_RELATIVA', 'somosdefensores/sivel2')
+  scope rutarel do 
     devise_scope :usuario do
       get 'sign_out' => 'devise/sessions#destroy'
 
@@ -47,9 +48,9 @@ Rails.application.routes.draw do
 
   end
 
-  mount Sip::Engine => "/somosdefensores/sivel2", as: 'sip'
-  mount Mr519Gen::Engine => "/somosdefensores/sivel2", as: 'mr519_gen'
-  mount Heb412Gen::Engine => "/somosdefensores/sivel2", as: 'heb412_gen'
-  mount Sivel2Gen::Engine => "/somosdefensores/sivel2", as: 'sivel2_gen'
+  mount Sip::Engine => rutarel, as: 'sip'
+  mount Mr519Gen::Engine => rutarel, as: 'mr519_gen'
+  mount Heb412Gen::Engine => rutarel, as: 'heb412_gen'
+  mount Sivel2Gen::Engine => rutarel, as: 'sivel2_gen'
 
 end
