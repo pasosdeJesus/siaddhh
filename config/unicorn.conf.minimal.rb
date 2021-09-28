@@ -20,7 +20,7 @@ if !ENV['PROCESOSUNICORN'].nil?
 end
 
 listen ENV['PUERTOUNICORN'] # by default Unicorn listens on port 8080
-APP_PATH = ENV['DIRAP'] #"/var/www/htdocs/sivel2"
+APP_PATH = ENV['DIRAP'] #"/var/www/htdocs/siaddhh"
 working_directory APP_PATH
 worker_processes procesos # this should be >= nr_cpus
 pid APP_PATH + "/tmp/pids/unicorn.pid"

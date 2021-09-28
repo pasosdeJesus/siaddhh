@@ -20,13 +20,13 @@ module Fil23Gen
       lproc = Sip::ProcesosHelper.procesos_OpenBSD
       # En modo desarrollo, usando puma la estructura de procesos cuando no se ha ejecutado shiny es:
       # - bin/corre.sh
-      #   |- ruby: puma 4.3.5 (ssl://...) [sivel2_somosdefensores] (ruby27)
+      #   |- ruby: puma 4.3.5 (ssl://...) [siaddhh] (ruby27)
       #      |- /usr/local/lib/R/bin/exec/R --interactive --slave
       #
       # Y una vez se ejecuta shiny en un proceso hijo (eliminando la instancia inicial de R e iniciando una en el proceso hijo):
       # - bin/corre.sh
-      #   |- ruby: puma 4.3.5 (ssl://...) [sivel2_somosdefensores] (ruby27)
-      #     |- ruby: puma 4.3.5 (ssl://...) [sivel2_somosdefensores] (ruby27)
+      #   |- ruby: puma 4.3.5 (ssl://...) [siadhh] (ruby27)
+      #     |- ruby: puma 4.3.5 (ssl://...) [siaddhh] (ruby27)
       #        |- /usr/local/lib/R/bin/exec/R --interactive --slave
       # - sh -c /usr/local/bin/xdg-open "http://1...:2902" > /dev/null 2>&1 || /usr/local/bin/xdg-open "http://192.168.77.78:2902" &
       #   |- /bin/sh /usr/local/bin/xdg-open http://1...:2902"
@@ -39,25 +39,25 @@ module Fil23Gen
       #
       # Y una vez se cierra el chrome que intenta abrir queda:
       #  - /bin/sh bin/corre.sh
-      #    |- ruby: puma 4.3.5 (ssl://1...) [sivel2_somosdefensores] (ruby27)
-      #       |- ruby: puma 4.3.5 (ssl://1...) [sivel2_somosdefensores] (ruby27)
+      #    |- ruby: puma 4.3.5 (ssl://1...) [siaddhh] (ruby27)
+      #       |- ruby: puma 4.3.5 (ssl://1...) [siaddhh] (ruby27)
       #         |- /usr/local/lib/R/bin/exec/R --interactive --slave
       #
       # Y en modo producción con Unicorn cuando no ha ejecutado shiny:
       #
-      #  - ruby27: unicorn_rails master -c /var/www/htdocs/sivel2_somosdefensores/config/unicorn.conf.minimal.rb -E production -D (ruby27)
-      #   |- ruby27: unicorn_rails worker[1] -c /var/www/htdocs/sivel2_somosdefensores/config/unicorn.conf.minimal.rb -E production -D (ruby27)
+      #  - ruby27: unicorn_rails master -c /var/www/htdocs/siaddhh/config/unicorn.conf.minimal.rb -E production -D (ruby27)
+      #   |- ruby27: unicorn_rails worker[1] -c /var/www/htdocs/siaddhh/config/unicorn.conf.minimal.rb -E production -D (ruby27)
       #     |- /usr/local/lib/R/bin/exec/R --interactive --slave
-      #   |- ruby27: unicorn_rails worker[0] -c /var/www/htdocs/sivel2_somosdefensores/config/unicorn.conf.minimal.rb -E production -D (ruby27)
+      #   |- ruby27: unicorn_rails worker[0] -c /var/www/htdocs/siaddhh/config/unicorn.conf.minimal.rb -E production -D (ruby27)
       #     |- /usr/local/lib/R/bin/exec/R --interactive --slave
       #
       #  Cuando ejecuta shiny:
       #
-      #  - ruby27: unicorn_rails master -c /var/www/htdocs/sivel2_somosdefensores/config/unicorn.conf.minimal.rb -E production -D (ruby27)
-      #   |- ruby27: unicorn_rails worker[1] -c /var/www/htdocs/sivel2_somosdefensores/config/unicorn.conf.minimal.rb -E production -D (ruby27)
-      #     |- ruby27: unicorn_rails worker[1] -c /var/www/htdocs/sivel2_somosdefensores/config/unicorn.conf.minimal.rb -E production -D (ruby27)
+      #  - ruby27: unicorn_rails master -c /var/www/htdocs/siaddhh/config/unicorn.conf.minimal.rb -E production -D (ruby27)
+      #   |- ruby27: unicorn_rails worker[1] -c /var/www/htdocs/siaddhh/config/unicorn.conf.minimal.rb -E production -D (ruby27)
+      #     |- ruby27: unicorn_rails worker[1] -c /var/www/htdocs/siaddhh/config/unicorn.conf.minimal.rb -E production -D (ruby27)
       #       |- /usr/local/lib/R/bin/exec/R --interactive --slave
-      #   |- ruby27: unicorn_rails worker[0] -c /var/www/htdocs/sivel2_somosdefensores/config/unicorn.conf.minimal.rb -E production -D (ruby27)
+      #   |- ruby27: unicorn_rails worker[0] -c /var/www/htdocs/siaddhh/config/unicorn.conf.minimal.rb -E production -D (ruby27)
       #     |- /usr/local/lib/R/bin/exec/R --interactive --slave
       
       # En todos los casos los proceso comparten el mismo gpid
@@ -162,7 +162,7 @@ module Fil23Gen
     def victimizaciones_individuales
       authorize! :contar, Sivel2Gen::Caso
 
-      @rutacsv = File.join(Rails.root, 'public/somosdefensores/sivel2/csv/victimizaciones_individuales.csv').to_s
+      @rutacsv = File.join(Rails.root, 'public/somosdefensores/siaddhh/csv/victimizaciones_individuales.csv').to_s
 
       tarc = Tempfile.new(['victimizaciones_individuales', '.csv'], '/var/www/tmp/')
       rutatmp = tarc.path

@@ -22,7 +22,7 @@ if (test "${RAILS_RELATIVE_URL_ROOT}" != "") then {
 } fi;
 
 echo "Iniciando unicorn..."; 
-SECRET_KEY_BASE=${SECRET_KEY_BASE} bundle exec unicorn_rails -c ../sivel2/config/unicorn.conf.minimal.rb  -E production -D
+SECRET_KEY_BASE=${SECRET_KEY_BASE} bundle exec unicorn_rails -c ../siaddhh/config/unicorn.conf.minimal.rb  -E production -D
 
 
   

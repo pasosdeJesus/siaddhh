@@ -9,13 +9,13 @@
     'select[id^=caso_victima_attributes][id$=_orgsocial_id]',
   ]
 
-@sivel2sd_actualiza_victimacolectiva = (e, victimacolectiva) ->
+@siaddhh_actualiza_victimacolectiva = (e, victimacolectiva) ->
   sip_actualiza_cuadros_seleccion_dependientes('victimacolectiva', 
     '_orgsocial_attributes_id', '_grupoper_attributes_nombre', 
     DEP_VICTIMACOLECTIVA, true)
 
 
-@sivel2sd_actualiza_victima = (e, victima) ->
+@siaddhh_actualiza_victima = (e, victima) ->
   tabla = {}
   lobj = $('#victimas .nested-fields[style!="display: none;"]')
   lobj.each((k, v) ->
@@ -38,22 +38,22 @@
   for k,v of tabla
     $('#tabla_victima_orgsocial_' + k + ' tbody').html(v)
 
-@sivel2sd_prepara_eventos_unicos = (root, opciones = {}) ->
+@siaddhh_prepara_eventos_unicos = (root, opciones = {}) ->
   sip_arregla_puntomontaje(root)
   sivel2_gen_prepara_eventos_unicos(root)
 
   # Propagar cambios a victimacolectiva
   $(document).on('change', 
     '#victimascolectivas [id$=_grupoper_attributes_nombre]', 
-    sivel2sd_actualiza_victimacolectiva)
+    siaddhh_actualiza_victimacolectiva)
   
   $(document).on('cocoon:after-remove', 
     '#victimascolectivas', 
-    sivel2sd_actualiza_victimacolectiva)
+    siaddhh_actualiza_victimacolectiva)
   
   $(document).on('cocoon:after-insert', 
     '#victimascolectivas', 
-    sivel2sd_actualiza_victimacolectiva)
+    siaddhh_actualiza_victimacolectiva)
   
   $(document).on('cocoon:before-remove', '#victimascolectivas', (e, vc) ->
     return sip_intenta_eliminar_fila(vc, '/victimascolectivas/', 
@@ -61,42 +61,42 @@
   )
 
   $(document).on('cocoon:after-insert', '#victimas', 
-    sivel2sd_actualiza_victimacolectiva)
+    siaddhh_actualiza_victimacolectiva)
 
   $(document).on('sip:autocompleto_grupoper', 
-    sivel2sd_actualiza_victimacolectiva)
+    siaddhh_actualiza_victimacolectiva)
 
 
   # Propagar cambios a victima
   $(document).on('change', 
     '#victimas [id$=_persona_attributes_nombres]', 
-    sivel2sd_actualiza_victima)
+    siaddhh_actualiza_victima)
 
   $(document).on('change', 
     '#victimas [id$=_persona_attributes_apellidos]', 
-    sivel2sd_actualiza_victima)
+    siaddhh_actualiza_victima)
 
   $(document).on('change', 
     '#victimas [id$=_persona_attributes_orgsocial_persona_attributes_orgsocial_id]', 
-    sivel2sd_actualiza_victima)
+    siaddhh_actualiza_victima)
   
   $(document).on('change', 
     '#victimas [id$=_persona_attributes_orgsocial_persona_attributes_perfilorgsocial_id]', 
-    sivel2sd_actualiza_victima)
+    siaddhh_actualiza_victima)
 
   $(document).on('cocoon:after-remove', 
     '#victimas', 
-    sivel2sd_actualiza_victima)
+    siaddhh_actualiza_victima)
   
   $(document).on('cocoon:after-insert', 
     '#victimas', 
-    sivel2sd_actualiza_victima)
+    siaddhh_actualiza_victima)
  
   $(document).on('cocoon:after-insert', '#victimascolectivas', 
-    sivel2sd_actualiza_victima)
+    siaddhh_actualiza_victima)
 
   $(document).on('sip:autocompleto_persona', 
-    sivel2sd_actualiza_victima)
+    siaddhh_actualiza_victima)
 
 
  

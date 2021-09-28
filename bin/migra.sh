@@ -8,7 +8,7 @@ if (test "${RAILS_ENV}" = "") then {
 	RAILS_ENV=development
 } fi;
 if (test "$RC" = "") then {
-	export RC=sivel2;
+	export RC=siaddhh
 } fi;
 bin/detiene.sh
 if (test "$?" != "0") then { 

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  rutarel = ENV.fetch('RUTA_RELATIVA', 'somosdefensores/sivel2')
+  rutarel = ENV.fetch('RUTA_RELATIVA', 'somosdefensores/siaddhh')
   scope rutarel do 
     devise_scope :usuario do
       get 'sign_out' => 'devise/sessions#destroy'

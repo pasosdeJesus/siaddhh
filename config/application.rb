@@ -26,7 +26,7 @@ module Sivel2
     config.hosts <<  ENV.fetch('CONFIG_HOSTS', 'defensor.info').downcase
 
     config.relative_url_root = ENV.fetch(
-      'RUTA_RELATIVA', "/somosdefensores/sivel2")
+      'RUTA_RELATIVA', "/somosdefensores/siaddhh")
 
     # sip
     config.x.formato_fecha = ENV.fetch('SIP_FORMATO_FECHA', 'yyyy-mm-dd')
@@ -34,11 +34,11 @@ module Sivel2
     # heb412
     config.x.heb412_ruta = Pathname(
                 ENV.fetch('HEB412_RUTA', Rails.root.join(
-                  'public', 'somosdefensores', 'sivel2', 'heb412'
+                  'public', 'somosdefensores', 'siaddhh', 'heb412'
                 ).to_s)
     )
 
-    # sivel2
+    # sivel2_gen
     config.x.sivel2_consulta_web_publica = 
       (ENV['SIVEL2_CONSWEB_PUBLICA'] && ENV['SIVEL2_CONSWEB_PUBLICA'] != '')
 

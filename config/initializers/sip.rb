@@ -5,10 +5,6 @@ Sip.setup do |config|
                                  "#{Rails.root}/archivos/anexos")
   config.ruta_volcados = ENV.fetch('SIP_RUTA_VOLCADOS',
                                    "#{Rails.root}/archivos/bd")
-  # En heroku los anexos son super-temporales
-  if ENV["HEROKU_POSTGRESQL_MAUVE_URL"]
-    config.ruta_anexos = "#{Rails.root}/tmp/"
-  end
   config.titulo = "#{ENV.fetch('SIP_TITULO', 'SIADDHH')} #{Sivel2Gen::VERSION}"
 
   config.colorom_fondo = '#f2d9d0'

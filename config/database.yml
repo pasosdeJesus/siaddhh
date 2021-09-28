@@ -8,12 +8,12 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV.fetch('BD_DES', 'sivel2sd_des') %>
+  database: <%= ENV.fetch('BD_DES', 'siaddhh_des') %>
 
 test:
   <<: *default
-  database: <%= ENV.fetch('BD_PRUEBA', 'sivel2sd_pru') %>
+  database: <%= ENV.fetch('BD_PRUEBA', 'siaddhh_pru') %>
 
 production:
   <<: *default
-  database: <%= ENV.fetch('BD_PRO', 'sivel2sd_pro') %>
+  database: <%= ENV.fetch('BD_PRO', 'siaddhh_pro') %>

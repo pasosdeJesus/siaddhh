@@ -19,13 +19,13 @@ config/database.yml
 *core
 
 public/assets/*
-public/somosdefensores/sivel2/assets
+public/somosdefensores/siaddhh/assets
 config/initializers/sip.rb
 config/application.rb
 config/routes.rb
 archivos/
 public/heb412/
-public/sivel2/
+public/siaddhh/
 config/initializers/punto_montaje.rb
 .byebug_history
 app/views/sip/hogar/
@@ -38,7 +38,7 @@ bin/migra.sh
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-public/somosdefensores/sivel2/heb412/generados/
+public/somosdefensores/siaddhh/heb412/generados/
 app/views/hogar/_local.html.erb
 .env
 
@@ -49,9 +49,9 @@ app/views/hogar/_local.html.erb
 yarn-debug.log*
 .yarn-integrity
 
-public/somosdefensores/sivel2/conteos/
+public/somosdefensores/siaddhh/conteos/
 .RData
 .Rhistory
 config/credentials.yml.enc
 public/heb412
-public/somosdefensores/sivel2/heb412/somosdefensores  
+public/somosdefensores/siaddhh/heb412/somosdefensores  

@@ -5,7 +5,7 @@ if (test -f ".env") then {
 	. .env
 } fi;
 if (test "$RC" = "") then {
-	RC=sivel2
+	RC=siaddhh
 } fi;
 if (test "$RAILS_ENV" = "production") then {
 	if (test ! -f /etc/rc.d/$RC) then {
