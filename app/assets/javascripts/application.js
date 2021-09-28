@@ -25,7 +25,7 @@ document.addEventListener('turbolinks:load', function() {
 	mr519_gen_prepara_eventos_comunes(root);
 	heb412_gen_prepara_eventos_comunes(root);
 	sivel2_gen_prepara_eventos_comunes(root);
-	sivel2sd_prepara_eventos_unicos(root);
+	siaddhh_prepara_eventos_unicos(root);
       
 	$('[data-behaviour~=datepicker]').datepicker({
 		format: root.formato_fecha,

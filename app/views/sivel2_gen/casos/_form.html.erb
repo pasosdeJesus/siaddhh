@@ -19,92 +19,93 @@
 
       <div role="tabpanel">
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="nav-item"><a href="#basicos" 
-            class="fichacambia nav-link active" aria-selected="true" aria-controls="basicos" role="tab" 
-            data-toggle="tab">Datos Básicos</a></li>
-          <li role="presentation" class="nav-item"><a href="#victimascolectivas" 
-            class="fichacambia nav-link" aria-controls="victimascolectivas" role="tab" 
-            data-toggle="tab">Colectivo Humano</a></li>
-          <li role="presentation" class="nav-item"><a href="#victimas" class="fichacambia nav-link" 
-            aria-controls="victimas" role="tab" 
-            data-toggle="tab">Víctimas Individuales</a></li>
-          <li role="presentation" class="nav-item"><a href="#ubicaciones" class="fichacambia nav-link" 
-            aria-controls="ubicaciones" role="tab" 
-            data-toggle="tab">Localización</a></li>
-          <li role="presentation" class="nav-item"><a href="#contextos" class="fichacambia nav-link" 
-            aria-controls="contextos" role="tab" 
-            data-toggle="tab">Contexto</a></li>
-          <li role="presentation" class="nav-item"><a href="#presponsables" class="fichacambia nav-link" 
-            aria-controls="presponsables" role="tab" 
-            data-toggle="tab">Presuntos Responsables</a></li>
-          <li role="presentation" class="nav-item"><a href="#actos" class="fichacambia nav-link" 
-            aria-controls="actos" role="tab" data-toggle="tab">Actos</a></li>
-          <li role="presentation" class="nav-item"><a href="#anexos" class="fichacambia nav-link" 
-            aria-controls="anexos" role="tab" data-toggle="tab">Anexos</a></li>
-          <li role="presentation" class="nav-item"><a href="#fuentesprensa" class="fichacambia nav-link" 
-            aria-controls="fuentesprensa" role="tab" 
-            data-toggle="tab">Fuentes Frecuentes</a></li>
-          <li role="presentation" class="nav-item"><a href="#fotras" class="fichacambia nav-link" 
-            aria-controls="fotras" role="tab" 
-            data-toggle="tab">Otras Fuentes</a></li>
-          <li role="presentation" class="nav-item"><a href="#descripcion" class="fichacambia nav-link" 
-            aria-controls="descripcion" role="tab" 
-            data-toggle="tab">Memo</a></li>
-          <li role="presentation" class="nav-item"><a href="#etiquetas" class="fichacambia nav-link" 
-            aria-controls="etiquetas" role="tab" data-toggle="tab">
-              Etiquetas
-          </a></li>
+          <li role="presentation" class="nav-item">
+            <button class="fichacambia nav-link active" id="basicos-tab" data-bs-toggle="tab" data-bs-target="#basicos" type="button" role="tab" aria-controls="basicos" aria-selected="true">Datos Básicos</button>
+          </li>
+          <li role="presentation" class="nav-item">
+            <button class="fichacambia nav-link" id="victimascolectivas-tab" data-bs-toggle="tab" data-bs-target="#victimascolectivas" type="button" role="tab" aria-controls="victimascolectivas" aria-selected="false">Colectivo Humano</button>
+          </li>
+          <li role="presentation" class="nav-item">
+            <button class="fichacambia nav-link" id="victimas-tab" data-bs-toggle="tab" data-bs-target="#victimas" type="button" role="tab" aria-controls="victimas" aria-selected="false">Víctimas Individuales</button>
+          </li>
+          <li role="presentation" class="nav-item">
+            <button class="fichacambia nav-link" id="ubicaciones-tab" data-bs-toggle="tab" data-bs-target="#ubicaciones" type="button" role="tab" aria-controls="ubicaciones" aria-selected="false">Localización</button>
+          </li>
+          <li role="presentation" class="nav-item">
+            <button class="fichacambia nav-link" id="contextos-tab" data-bs-toggle="tab" data-bs-target="#contextos" type="button" role="tab" aria-controls="contextos" aria-selected="false">Contexto</button>
+          </li>
+          <li role="presentation" class="nav-item">
+            <button class="fichacambia nav-link" id="presponsables-tab" data-bs-toggle="tab" data-bs-target="#presponsables" type="button" role="tab" aria-controls="presponsables" aria-selected="false">Presuntos Responsables</button>
+          </li>
+          <li role="presentation" class="nav-item">
+            <button class="fichacambia nav-link" id="actos-tab" data-bs-toggle="tab" data-bs-target="#actos" type="button" role="tab" aria-controls="actos" aria-selected="false">Actos</button>
+          </li>
+          <li role="presentation" class="nav-item">
+            <button class="fichacambia nav-link" id="anexos-tab" data-bs-toggle="tab" data-bs-target="#anexos" type="button" role="tab" aria-controls="anexos" aria-selected="false">Anexos</button>
+          </li>
+          <li role="presentation" class="nav-item"> 
+            <button class="fichacambia nav-link" id="fuentesprensa-tab" data-bs-toggle="tab" data-bs-target="#fuentesprensa" type="button" role="tab" aria-controls="fuentesprensa" aria-selected="false">Fuentes Frecuentes</button>
+          </li>
+          <li role="presentation" class="nav-item"> 
+            <button class="fichacambia nav-link" id="fotras-tab" data-bs-toggle="tab" data-bs-target="#fotras" type="button" role="tab" aria-controls="fotras" aria-selected="false">Otras Fuentes</button>
+          </li>
+          <li role="presentation" class="nav-item"> 
+            <button class="fichacambia nav-link" id="descripcion-tab" data-bs-toggle="tab" data-bs-target="#descripcion" type="button" role="tab" aria-controls="descripcion" aria-selected="false">Memo</button>
+          </li>
+          <li role="presentation" class="nav-item">
+            <button class="fichacambia nav-link" id="etiquetas-tab" data-bs-toggle="tab" data-bs-target="#etiquetas" type="button" role="tab" aria-controls="etiquetas" aria-selected="false">Etiquetas</button>
+          </li>
         </ul>
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane fade active show" id="basicos">
+          <div role="tabpanel" class="tab-pane fade active show" id="basicos" aria-labelledby="basicos-tab">
             <%= render 'basicos', f: f %>
           </div> 
 
-          <div role="tabpanel" class="tab-pane fade" id="ubicaciones">
-            <%= render 'ubicaciones', f: f %>
-          </div>
-
-          <div role="tabpanel" class="tab-pane fade" id="fuentesprensa">
-            <%= render 'fuentesprensa', f: f %>
-          </div>
-
-          <div role="tabpanel" class="tab-pane fade" id="fotras">
-            <%= render 'fotras', f: f %>
-          </div>
-
-          <div role="tabpanel" class="tab-pane fade" id="contextos">
-            <%= render 'contextos', f: f %>
-          </div>
-
-          <div role="tabpanel" class="tab-pane fade" id="presponsables">
-            <%= render 'presponsables', f: f %>
-          </div>
-
-          <div role="tabpanel" class="tab-pane fade" id="victimas">
-            <%= render 'victimas', f: f %>
-          </div>
-
-          <div role="tabpanel" class="tab-pane fade" id="victimascolectivas">
+          <div role="tabpanel" class="tab-pane fade" id="victimascolectivas" aria-labelledby="victimascolectivas-tab">
             <%= render 'victimascolectivas', f: f %>
           </div>
 
-          <div role="tabpanel" class="tab-pane fade" id="combatientes">
-            <%= render 'combatientes', f: f %>
+          <div role="tabpanel" class="tab-pane fade" id="victimas" aria-labelledby="victimas-tab">
+            <%= render 'victimas', f: f %>
           </div>
 
-          <div role="tabpanel" class="tab-pane fade" id="actos">
+          <div role="tabpanel" class="tab-pane fade" id="ubicaciones" aria-labelledby="ubicaciones-tab">
+            <%= render 'ubicaciones', f: f %>
+          </div>
+
+          <div role="tabpanel" class="tab-pane fade" id="contextos" aria-labelledby="contextos-tab">
+            <%= render 'contextos', f: f %>
+          </div>
+
+          <div role="tabpanel" class="tab-pane fade" id="presponsables" aria-labelledby="presponsables-tab">
+            <%= render 'presponsables', f: f %>
+          </div>
+
+          <div role="tabpanel" class="tab-pane fade" id="actos" aria-labelledby="actos-tab">
             <%= render 'actos', f: f %> 
           </div>
 
-          <div role="tabpanel" class="tab-pane fade" id="descripcion">
-            <%= render 'memo', f: f %>
-          </div>
-
-          <div role="tabpanel" class="tab-pane fade" id="anexos">
+          <div role="tabpanel" class="tab-pane fade" id="anexos" aria-labelledby="anexos-tab">
             <%= render 'sivel2_gen/casos/anexos', f: f %>
           </div>
 
-          <div role="tabpanel" class="tab-pane fade" id="etiquetas">
+          <div role="tabpanel" class="tab-pane fade" id="fuentesprensa" aria-labelledby="fuentesprensa-tab">
+            <%= render 'fuentesprensa', f: f %>
+          </div>
+
+          <div role="tabpanel" class="tab-pane fade" id="fotras" aria-labelledby="fotras-tab">
+            <%= render 'fotras', f: f %>
+          </div>
+
+          <div role="tabpanel" class="tab-pane fade" id="combatientes" aria-labelledby="combatientes-tab">
+            <%= render 'combatientes', f: f %>
+          </div>
+
+          <div role="tabpanel" class="tab-pane fade" id="descripcion" aria-labelledby="descripcion-tab">
+            <%= render 'memo', f: f %>
+          </div>
+
+          <div role="tabpanel" class="tab-pane fade" id="etiquetas" aria-labelledby="etiquetas-tab">
             <%= render 'etiquetas', f: f %>
           </div>
 
