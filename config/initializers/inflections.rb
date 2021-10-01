@@ -18,4 +18,5 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'orgsocial', 'orgsociales'
   inflect.irregular 'perfilorgsocial', 'perfilesorgsocial'
   inflect.irregular 'tipoamenaza', 'tiposamenaza'
+  inflect.irregular 'tipoanexo', 'tiposanexo'
 end
