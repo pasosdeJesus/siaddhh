@@ -56,6 +56,9 @@ module Sivel2Gen
       # Añadimos otraorg y tipoamenza en victima
       v = hlp[:victima_attributes] = [:otraorganizacion, :tipoamenaza_id] + 
         hlp[:victima_attributes]
+      # Añadimos tipoanexo a anexocaso
+      ac = hlp[:anexo_caso_attributes] = [:tipoanexo_id] + 
+        hlp[:anexo_caso_attributes]
       # Añadimos org social en persona
       hv = v[v.length - 1]
       p = hv[:persona_attributes]

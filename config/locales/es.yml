@@ -18,6 +18,9 @@ es:
       "sip/sectororgsocial":
         Sectororgsocial: Sector del colectivo
         Sectoresorgsocial: Sectores de colectivos
+      "sip/tipoanexo":
+        Tipoanexo: Tipo de anexo
+        Tiposanexo: Tipos de anexo
       "sivel2_gen/organizacion":
         Organizacion: Organización social
         Organizaciones: Organizaciones sociales
