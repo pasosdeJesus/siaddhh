@@ -1,0 +1,11 @@
+<div class="offset-md-4 col-md-2">
+  <%= f.button :submit, 'Contar', class: 'btn btn-default' %>
+</div>
+<div class="col-md-2">
+  <%= link_to 'Ver mapa',
+    main_app.mapadepvic_path,
+    id: 'mapadevic_boton',
+    onclick: 'sip_completa_enlace(null, \'mapadevic_boton\', null, ' +
+      main_app.mapadepvic_path + ')', 
+    class: 'btn btn-default', target: '_blank' %>
+</div>

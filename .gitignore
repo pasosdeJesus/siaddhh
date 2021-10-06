@@ -38,7 +38,6 @@ bin/migra.sh
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-public/somosdefensores/siaddhh/heb412/generados/
 app/views/hogar/_local.html.erb
 .env
 
@@ -49,9 +48,11 @@ app/views/hogar/_local.html.erb
 yarn-debug.log*
 .yarn-integrity
 
-public/somosdefensores/siaddhh/conteos/
 .RData
 .Rhistory
 config/credentials.yml.enc
 public/heb412
-public/somosdefensores/siaddhh/heb412/somosdefensores  
+public/somosdefensores/siaddhh/conteos/
+public/somosdefensores/siaddhh/heb412/
+public/somosdefensores/siaddhh/csv/
+public/somosdefensores/sivel2/
