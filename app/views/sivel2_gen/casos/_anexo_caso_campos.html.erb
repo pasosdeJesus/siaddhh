@@ -38,14 +38,16 @@
     <% end %> <!-- f.simple_fields_for :sip_anexo -->
     <div class="row">
       <div class="col-md-6">
+        Tipo de anexo
         <%= f.association :tipoanexo, 
           collection: Sip::Tipoanexo.all, 
           label_method: :nombre,
-          value_method: :id
+          value_method: :id,
+          label: false
         %>
+        <%= link_to_remove_association "Eliminar Anexo", f, 
+          :class => 'btn-danger' 
+        %> 
       </div>
-    <%= link_to_remove_association "Eliminar Anexo", f, 
-      :class => 'btn-danger' 
-    %> 
   </div>
 </div>
