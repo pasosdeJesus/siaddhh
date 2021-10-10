@@ -660,7 +660,8 @@ CREATE VIEW public.cvt1 AS
      JOIN public.sivel2_gen_victima victima ON (((victima.id_persona = acto.id_persona) AND (victima.id_caso = caso.id))))
      JOIN public.sip_persona persona ON ((persona.id = acto.id_persona)))
      LEFT JOIN public.sip_ubicacion ubicacion ON ((caso.ubicacion_id = ubicacion.id)))
-     LEFT JOIN public.sip_departamento departamento ON ((ubicacion.id_departamento = departamento.id)));
+     LEFT JOIN public.sip_departamento departamento ON ((ubicacion.id_departamento = departamento.id)))
+  WHERE ((supracategoria.id_tviolencia)::text = 'A'::text);
 
 
 --
@@ -1909,6 +1910,40 @@ ALTER SEQUENCE public.sip_tema_id_seq OWNED BY public.sip_tema.id;
 
 
 --
+-- Name: sip_tipoanexo; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sip_tipoanexo (
+    id bigint NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
+    observaciones character varying(5000),
+    fechacreacion date NOT NULL,
+    fechadeshabilitacion date,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: sip_tipoanexo_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sip_tipoanexo_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sip_tipoanexo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.sip_tipoanexo_id_seq OWNED BY public.sip_tipoanexo.id;
+
+
+--
 -- Name: sip_trelacion; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2096,7 +2131,8 @@ CREATE TABLE public.sivel2_gen_anexo_caso (
     id_fotra integer,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    id_anexo integer NOT NULL
+    id_anexo integer NOT NULL,
+    tipoanexo_id integer
 );
 
 
@@ -3487,6 +3523,13 @@ ALTER TABLE ONLY public.sip_tema ALTER COLUMN id SET DEFAULT nextval('public.sip
 
 
 --
+-- Name: sip_tipoanexo id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sip_tipoanexo ALTER COLUMN id SET DEFAULT nextval('public.sip_tipoanexo_id_seq'::regclass);
+
+
+--
 -- Name: sip_trivalente id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -4110,6 +4153,14 @@ ALTER TABLE ONLY public.sip_sectororgsocial
 
 ALTER TABLE ONLY public.sip_tema
     ADD CONSTRAINT sip_tema_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sip_tipoanexo sip_tipoanexo_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sip_tipoanexo
+    ADD CONSTRAINT sip_tipoanexo_pkey PRIMARY KEY (id);
 
 
 --
@@ -5127,6 +5178,14 @@ ALTER TABLE ONLY public.sivel2_gen_filiacion_victimacolectiva
 
 ALTER TABLE ONLY public.sip_municipio
     ADD CONSTRAINT fk_rails_089870a38d FOREIGN KEY (id_departamento) REFERENCES public.sip_departamento(id);
+
+
+--
+-- Name: sivel2_gen_anexo_caso fk_rails_0c680d15ac; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_gen_anexo_caso
+    ADD CONSTRAINT fk_rails_0c680d15ac FOREIGN KEY (tipoanexo_id) REFERENCES public.sip_tipoanexo(id);
 
 
 --
@@ -6244,6 +6303,9 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210728214424'),
 ('20210730120340'),
 ('20210823162357'),
-('20210924022913');
+('20210924022913'),
+('20211001090946'),
+('20211001092004'),
+('20211001101742');
 
 
