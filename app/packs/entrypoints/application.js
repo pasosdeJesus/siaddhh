@@ -35,6 +35,11 @@ import 'jquery-ui/ui/widgets/autocomplete'
 import 'jquery-ui/ui/data'
 import 'jquery-ui/ui/focusable'
 
+
+// Apexcharts
+import ApexCharts from 'apexcharts'
+window.ApexCharts = ApexCharts
+
 var L = require('leaflet');
 var mc= require('leaflet.markercluster');
 

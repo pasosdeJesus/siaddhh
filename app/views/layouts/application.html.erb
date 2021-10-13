@@ -27,17 +27,22 @@
         <%= opcion_menu 'Conteo de victimizaciones individuales', 
           sivel2_gen.conteos_victimizaciones_path,
           desplegable: true %>
-        <%= opcion_menu 'Graficar victimizaciones individuales', 
-          main_app.graficar_victimizaciones_individuales_path,
-          desplegable: true %>
-        <%= opcion_menu 'Graficar actos individuales', 
-          main_app.graficar_actos_individuales_path,
-          'data-turbolinks' => false,
-          desplegable: true %>
-
         <%= opcion_menu 'Conteo general de víctimas', 
           sivel2_gen.conteos_genvic_path,
           desplegable: true %>
+        <%= opcion_menu 'Graficar victimizaciones individuales', 
+          sivel2_gen.graficar_victimizaciones_individuales_path,
+          'data-turbolinks' => false,
+          desplegable: true %>
+        <%= opcion_menu 'Graficar actos individuales', 
+          sivel2_gen.graficar_actos_individuales_path,
+          'data-turbolinks' => false,
+          desplegable: true %>
+        <%= opcion_menu 'Mapa de victimizaciones por departamento', 
+          sivel2_gen.mapadepvic_path,
+          'data-turbolinks' => false,
+          desplegable: true %>
+
       <% end %>
     <% end %>
   <% end %>

@@ -39,14 +39,6 @@ Rails.application.routes.draw do
 
     get '/casos/mapaosm' => 'sivel2_gen/casos#mapaosm'
 
-    get '/mapadep/victimizaciones' => 'sivel2_gen/mapadep#victimizaciones',
-      as: :mapadepvic
-
-    get '/graficar/victimizaciones_individuales' => 'fil23_gen/graficar_r#victimizaciones_individuales', 
-      :as => 'graficar_victimizaciones_individuales'
-    get '/graficar/actos_individuales' => 'fil23_gen/graficar_plotly#actos_individuales', 
-      :as => 'graficar_actos_individuales'
-
     root 'sivel2_gen/hogar#index'
 
   end

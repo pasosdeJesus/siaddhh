@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 ruby '>=3.0.1'
 
 
-gem 'bcrypt'
+gem 'apexcharts'
 
-gem 'bigdecimal'
+gem 'bcrypt'
 
 gem 'bootsnap', '>=1.1.0', require: false
 
@@ -60,7 +60,7 @@ gem 'twitter_cldr' # ICU con CLDR
 
 gem 'tzinfo' # Zonas horarias
 
-gem 'webpacker', '~> 6.0.0.rc.1'
+gem 'webpacker', '6.0.0.rc.1'
 
 gem 'will_paginate' # Listados en páginas
 
