@@ -44,8 +44,6 @@ gem 'rails-i18n'
 
 gem 'redcarpet'
 
-gem 'rinruby'
-
 gem 'rspreadsheet'
 
 gem 'rubyzip', '>=2.0.0'
