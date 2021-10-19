@@ -14,6 +14,7 @@ variables:
   POSTGRES_DB: sivel2sd_pru
   POSTGRES_HOST_AUTH_METHOD: trust
   NOKOGIRI_USE_SYSTEM_LIBRARIES: "true"
+  CC_TEST_REPORTER_ID: "c2a7e158db9b413eadf0917234ca56bd98067fbb365038e988bb48111e06b105"
 
 
 stages:
@@ -49,6 +50,9 @@ test:
     - yarn install
     - gem install bundler --no-document
     - bundle install --jobs $(nproc) "${FLAGS[@]}"
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+    - chmod +x ./cc-test-reporter
+    - ./cc-test-reporter before-build
     - cp .env.gitlab .env
     - cp db/structure.sql db/structure.sql.copia 
     - sed -e 's/provider = libc,//g;s/SET default_table_access_method.*/-- &/g' db/structure.sql.copia > db/structure.sql 
@@ -56,5 +60,6 @@ test:
     - bin/rails sip:indices
   script:
     - CONFIG_HOSTS=www.example.com bin/rails test
+    - ./cc-test-reporter after-build -t simplecov --exit-code $?
 
 
