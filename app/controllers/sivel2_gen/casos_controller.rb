@@ -46,6 +46,10 @@ module Sivel2Gen
       update_gen
     end
 
+    def campos_filtro1_gen
+      campos_filtro1 + [:profesion_id]
+    end
+ 
     def caso_params
       # Añadimos orgsocial en victima colectiva
       lp = lista_params
