@@ -3,6 +3,8 @@
 module Fil23Gen
   class GraficarRController < ApplicationController
 
+    # Autorización no estándar por función
+   
     # Si hace falta arranca aplicación shiny
     def arranca_ap_shiny
       # Como una aplicación shiny puede responder a diversos usuarios

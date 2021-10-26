@@ -1,5 +1,5 @@
-# encoding: UTF-8
 require 'date'
+
 module Sivel2Gen
   class VictimascolectivasController < ApplicationController
     load_and_authorize_resource class: Sivel2Gen::Victimacolectiva
