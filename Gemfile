@@ -11,7 +11,8 @@ gem 'bootsnap', '>=1.1.0', require: false
 
 gem 'cancancan'
 
-gem 'cocoon', git: 'https://github.com/vtamara/cocoon.git', branch: 'new_id_with_ajax' # Formularios anidados (algunos con ajax)
+gem 'cocoon', git: 'https://github.com/vtamara/cocoon.git', 
+  branch: 'new_id_with_ajax' # Formularios anidados (algunos con ajax)
 
 gem 'coffee-rails'# CoffeeScript para recuersos .js.coffee y vistas
 
