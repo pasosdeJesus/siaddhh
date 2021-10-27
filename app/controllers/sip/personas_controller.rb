@@ -3,6 +3,8 @@ require 'sivel2_gen/concerns/controllers/personas_controller'
 
 module Sip
   class PersonasController < ApplicationController
+
+    load_and_authorize_resource class: Sip::Persona
     include Sivel2Gen::Concerns::Controllers::PersonasController
    
     # Busca y lista persona
