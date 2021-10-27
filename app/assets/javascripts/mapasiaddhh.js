@@ -1,4 +1,7 @@
-function filtrar_por_categoria(usuario_autenticado){
+function filtrar_adicionales(usuario_autenticado){
+  filtros_adicionales = []
+
+  // filtrar por categoria de vida si es consulta publica
   filtro_cat = ''
   if (!usuario_autenticado){
     // Categorias que sean perder la vida 
@@ -7,7 +10,18 @@ function filtrar_por_categoria(usuario_autenticado){
       filtro_cat += '&filtro[categoria_id][]=' + elem
     );
   }
-  return filtro_cat
+  filtros_adicionales.push(filtro_cat)
+
+  //Filtrar por profesion/liderazgo
+  filtro_lid = ''
+  var tliderazgo = $('#tliderazgo').val();
+  for(var tl in tliderazgo){
+    if (tliderazgo != undefined && tliderazgo != 0){
+      filtro_lid += '&filtro[profesion_id][]=' + tliderazgo[tl];
+    }
+  }
+  filtros_adicionales.push(filtro_lid)
+  return filtros_adicionales;
 }
 
 function obtener_info_victimas(victimas, prresp, caso){
