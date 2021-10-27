@@ -28,6 +28,9 @@ module Sivel2
     config.relative_url_root = ENV.fetch(
       'RUTA_RELATIVA', "/somosdefensores/siaddhh")
 
+    config.action_dispatch.default_headers = {
+      'X-Frame-Options' => 'ALLOW'
+    }
     # sip
     config.x.formato_fecha = ENV.fetch('SIP_FORMATO_FECHA', 'yyyy-mm-dd')
 
@@ -51,6 +54,9 @@ module Sivel2
 
     config.x.sivel2_mapaosm_diasatras = ENV.fetch(
       'SIVEL2_MAPAOSM_DIASATRAS', 182)
+
+    config.x.origen_cors = ENV.fetch('ORIGEN_CORS','').split(',')
+    puts "config.x.origen_cors=#{config.x.origen_cors.inspect}"
 
   end
 end
