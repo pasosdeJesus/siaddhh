@@ -1,5 +1,5 @@
 <div class= "row">
-  <div class="col-sm-2">
+  <div class="col-sm-3">
     <input class= "campo-mapa-osm" name="num" type="hidden" value="200" />
     <div>Fecha Desde:</div>
     <input type="text" 
@@ -12,19 +12,7 @@
              fecha_estandar_local(@fechadesde) %>"
            size="11"/>
   </div>
-  <div class="col-sm-2">
-    <div>Fecha Hasta:</div>
-        <input type="text" 
-               name="hasta" 
-               class="campo-mapa-osm form-control seleccion-mapa-osm"
-               placeholder= "Hasta" 
-               id="campo-hasta"
-               data-behaviour="datepicker" 
-               value="<%= Sip::FormatoFechaHelper::
-                 fecha_estandar_local(@fechahasta) %>"
-               size="11"/>
-  </div>
-  <div class="col-sm-2">
+  <div class="col-sm-3">
     <div>
       <div>Departamento:</div>
       <div>
@@ -38,7 +26,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-2">
+  <div class="col-sm-3">
     <div>
       <div>P. Responsable:</div>
       <div>
@@ -51,7 +39,7 @@
     </div>
   </div>
   <% if current_usuario %>
-  <div class="col-sm-2">
+  <div class="col-sm-3">
     <div>
       <div>Violencia:</div>
       <div>
@@ -67,13 +55,28 @@
   <% end %>
 </div>
 <div class= "row">
-  <div class="col-sm-4">
+  <div class="col-sm-3">
+    <div>Fecha Hasta:</div>
+        <input type="text" 
+               name="hasta" 
+               class="campo-mapa-osm form-control seleccion-mapa-osm"
+               placeholder= "Hasta" 
+               id="campo-hasta"
+               data-behaviour="datepicker" 
+               value="<%= Sip::FormatoFechaHelper::
+                 fecha_estandar_local(@fechahasta) %>"
+               size="11"/>
   </div>
-  <div class="col-sm-8">
+
+  <div class="col-sm-3">
+  </div>
+  <div class="col-sm-3">
     <div>
       <div>Tipo de Liderazgo:</div>
       <div>
-        <select name="tliderazgo" multiple="multiple" class="seleccion-mapa-osm form-control chosen-select" id="tliderazgo" >
+        <select name="tliderazgo" class="seleccion-mapa-osm form-control" id="tliderazgo" >
+          <option value="0">Mostrar todos</option>
+          <option value="">-----------------------</option>
           <%= options_for_select(Sivel2Gen::Profesion.all.collect { |d|
             [d.nombre, d.id ] }.sort)%>
         </select>
