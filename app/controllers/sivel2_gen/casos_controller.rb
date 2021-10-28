@@ -1,4 +1,5 @@
 require 'sivel2_gen/concerns/controllers/casos_controller'
+require 'csv'
 
 module Sivel2Gen
   class CasosController < Heb412Gen::ModelosController
@@ -20,6 +21,19 @@ module Sivel2Gen
         }
     end
 
+    def presenta_mas_index(formato)
+      formato.csv {
+        atributos = %w{caso_id fecha ubicaciones victimas presponsables tipificacion memo}
+        r = CSV.generate(headers: true) do |csv|
+          csv << atributos
+          @conscaso.try(:each) do |caso|
+            csv << atributos.map{ |atr| caso.send(atr) }
+          end
+        end
+        send_data r, filename: "casos-somosdefensores.csv" 
+      }
+    end
+    
     def update
       if params[:caso] && params[:caso][:victimacolectiva_attributes]
         params[:caso][:victimacolectiva_attributes].each { |i,v|

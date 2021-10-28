@@ -18,29 +18,32 @@
 //= require_tree .
 
 document.addEventListener('turbolinks:load', function() {
-	var root;
-  	root = typeof exports !== "undefined" && exports !== null ? 
-	  exports : window;
-	sip_prepara_eventos_comunes(root, false, false);
-	mr519_gen_prepara_eventos_comunes(root);
-	heb412_gen_prepara_eventos_comunes(root);
-	sivel2_gen_prepara_eventos_comunes(root);
-	siaddhh_prepara_eventos_unicos(root);
-      
-	$('[data-behaviour~=datepicker]').datepicker({
-		format: root.formato_fecha,
-		autoclose: true,
-		todayHighlight: true,
-		language: 'es'	
-	});
-	$('.chosen-select').chosen({
-		allow_single_deselect: true,
-		no_results_text: 'No hay opciones',
-		placeholder_text_multiple: 'Elija una o más opciones',
-		placeholder_text_single: 'Elija una opción',
-		width: '200px'
-	});
+  var root;
+  root = typeof exports !== "undefined" && exports !== null ? 
+    exports : window;
+  sip_prepara_eventos_comunes(root, false, false);
+  mr519_gen_prepara_eventos_comunes(root);
+  heb412_gen_prepara_eventos_comunes(root);
+  sivel2_gen_prepara_eventos_comunes(root);
+  siaddhh_prepara_eventos_unicos(root);
 
+  $('[data-behaviour~=datepicker]').datepicker({
+    format: root.formato_fecha,
+    autoclose: true,
+    todayHighlight: true,
+    language: 'es'	
+  });
+  $('.chosen-select').chosen({
+    allow_single_deselect: true,
+    no_results_text: 'No hay opciones',
+    placeholder_text_multiple: 'Elija una o más opciones',
+    placeholder_text_single: 'Elija una opción',
+    width: '200px'
+  });
+
+  $(document).on('click', '#descargar-casos-osm', function() {
+    siaddhh_DescargarCasosOsm(usuario_aut_global)
+  })
 });
 
 

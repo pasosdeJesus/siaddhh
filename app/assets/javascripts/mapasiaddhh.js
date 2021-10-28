@@ -49,3 +49,21 @@ function obtener_info_victimas(victimas, prresp, caso){
   victimasCont += '</td></tr></table></div>';
   return victimasCont
 }
+
+
+function siaddhh_DescargarCasosOsm(autenticado) {
+  var root = window;
+  if (typeof root.formato_fecha == 'undefined') {
+    sip_prepara_eventos_comunes(root)
+  }
+  url = armarRutaConsulta(root, 'casos.csv', false)
+
+  // Método para descargar de
+  // https://stackoverflow.com/questions/3749231/download-file-using-javascript-jquery
+  var enlace= document.createElement("a");
+  enlace.setAttribute('download', 'casos-somosdefensores.csv');
+  enlace.href = url;
+  document.body.appendChild(enlace);
+  enlace.click();
+  enlace.remove();
+}

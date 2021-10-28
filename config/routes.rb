@@ -38,7 +38,8 @@ Rails.application.routes.draw do
 
 
     get '/casos/mapaosm' => 'sivel2_gen/casos#mapaosm'
-
+#    match '/casos.csv' => 'sivel2_gen/casos#index', via: :get, 
+#      defaults: { format: :csv }
     root 'sivel2_gen/hogar#index'
 
   end
