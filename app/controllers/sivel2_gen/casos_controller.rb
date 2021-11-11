@@ -57,7 +57,6 @@ module Sivel2Gen
           v.save!(validate: false)
         end
       end
-      byebug
       update_gen
     end
 
