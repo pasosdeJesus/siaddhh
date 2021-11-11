@@ -68,20 +68,24 @@ module Sivel2Gen
       # Añadimos orgsocial en victima colectiva
       lp = lista_params
       hlp = lp[lp.length - 1] # Los primeros son escalares, el ultimo hash
-      vc = hlp[:victimacolectiva_attributes]
-      hvc = vc[vc.length - 1]
-      hvc[:orgsocial_attributes] = [:id, :grupoper_id, :fechafundacion]
-      # Añadimos otraorg y tipoamenza en victima
-      v = hlp[:victima_attributes] = [:otraorganizacion, :tipoamenaza_id] + 
-        hlp[:victima_attributes]
-      # Añadimos tipoanexo a anexocaso
-      ac = hlp[:anexo_caso_attributes] = [:tipoanexo_id] + 
-        hlp[:anexo_caso_attributes]
+      if hlp && hlp[:victimacolectiva_attributes]
+        vc = hlp[:victimacolectiva_attributes]
+        hvc = vc[vc.length - 1]
+        hvc[:orgsocial_attributes] = [:id, :grupoper_id, :fechafundacion]
+        # Añadimos otraorg y tipoamenza en victima
+        v = hlp[:victima_attributes] = [:otraorganizacion, :tipoamenaza_id] + 
+          hlp[:victima_attributes]
+        # Añadimos tipoanexo a anexocaso
+        ac = hlp[:anexo_caso_attributes] = [:tipoanexo_id] + 
+          hlp[:anexo_caso_attributes]
+      end
       # Añadimos org social en persona
       hv = v[v.length - 1]
-      p = hv[:persona_attributes]
-      p << { orgsocial_persona_attributes: 
-             [:id, :orgsocial_id, :perfilorgsocial_id] }
+      if hv && hv[:persona_attributes]
+        p = hv[:persona_attributes]
+        p << { orgsocial_persona_attributes: 
+               [:id, :orgsocial_id, :perfilorgsocial_id] }
+      end
       params.require(:caso).permit(lp)
     end
        
