@@ -49,10 +49,11 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: cd30285a9299127544c9d838f28680380feaccd5
+  revision: ca70fa5c30df2617bb7dedc9e572576113169df7
   branch: main
   specs:
     sivel2_gen (2.1a1)
+      color
       devise
       jquery-rails
       rails
@@ -162,6 +163,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    color (1.8)
     colorize (0.8.1)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
@@ -343,9 +345,9 @@ GEM
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.2.2)
-      actionpack (>= 4.0)
-      activesupport (>= 4.0)
+    sprockets-rails (3.3.0)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     terrapin (0.6.0)
       climate_control (>= 0.0.3, < 1.0)
