@@ -49,7 +49,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 326faebb2e3c65e2857fe6f1b982b4c5afe86b1f
+  revision: c81b83aee422f52834b101896cbebda4d35b891d
   branch: main
   specs:
     sivel2_gen (2.1a1)
@@ -397,6 +397,7 @@ DEPENDENCIES
   capybara
   cocoon!
   coffee-rails
+  color
   colorize
   devise
   devise-i18n
