@@ -409,7 +409,7 @@ CREATE VIEW public.cben1 AS
     subv.id_victima,
     subv.id_persona,
     1 AS npersona,
-    persona.sexo
+    victima.id_etnia
    FROM public.sivel2_gen_caso caso,
     public.sivel2_gen_victima victima,
     ( SELECT sivel2_gen_victima.id_persona,
@@ -502,7 +502,7 @@ CREATE SEQUENCE public.sip_municipio_id_seq
 --
 
 CREATE TABLE public.sip_municipio (
-    id_munlocal integer NOT NULL,
+    id_munlocal integer,
     nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     latitud double precision,
     longitud double precision,
@@ -559,7 +559,7 @@ CREATE VIEW public.cben2 AS
     cben1.id_victima,
     cben1.id_persona,
     cben1.npersona,
-    cben1.sexo,
+    cben1.id_etnia,
     ubicacion.id_departamento,
     departamento.nombre AS departamento_nombre,
     ubicacion.id_municipio,
@@ -572,7 +572,7 @@ CREATE VIEW public.cben2 AS
      LEFT JOIN public.sip_departamento departamento ON ((ubicacion.id_departamento = departamento.id)))
      LEFT JOIN public.sip_municipio municipio ON ((ubicacion.id_municipio = municipio.id)))
      LEFT JOIN public.sip_clase clase ON ((ubicacion.id_clase = clase.id)))
-  GROUP BY cben1.id_caso, cben1.id_victima, cben1.id_persona, cben1.npersona, cben1.sexo, ubicacion.id_departamento, departamento.nombre, ubicacion.id_municipio, municipio.nombre, ubicacion.id_clase, clase.nombre;
+  GROUP BY cben1.id_caso, cben1.id_victima, cben1.id_persona, cben1.npersona, cben1.id_etnia, ubicacion.id_departamento, departamento.nombre, ubicacion.id_municipio, municipio.nombre, ubicacion.id_clase, clase.nombre;
 
 
 --
@@ -650,13 +650,18 @@ CREATE VIEW public.cvt1 AS
     acto.id_persona,
     acto.id_categoria,
     supracategoria.id_tviolencia,
-    categoria.nombre AS categoria
-   FROM (((((public.sivel2_gen_acto acto
+    categoria.nombre AS categoria,
+    ubicacion.id_departamento,
+    departamento.id_deplocal AS departamento_divipola,
+    initcap((departamento.nombre)::text) AS departamento_nombre
+   FROM (((((((public.sivel2_gen_acto acto
      JOIN public.sivel2_gen_caso caso ON ((acto.id_caso = caso.id)))
      JOIN public.sivel2_gen_categoria categoria ON ((acto.id_categoria = categoria.id)))
      JOIN public.sivel2_gen_supracategoria supracategoria ON ((categoria.supracategoria_id = supracategoria.id)))
      JOIN public.sivel2_gen_victima victima ON (((victima.id_persona = acto.id_persona) AND (victima.id_caso = caso.id))))
-     JOIN public.sip_persona persona ON ((persona.id = acto.id_persona)));
+     JOIN public.sip_persona persona ON ((persona.id = acto.id_persona)))
+     LEFT JOIN public.sip_ubicacion ubicacion ON ((caso.ubicacion_id = ubicacion.id)))
+     LEFT JOIN public.sip_departamento departamento ON ((ubicacion.id_departamento = departamento.id)));
 
 
 --
@@ -1516,36 +1521,6 @@ CREATE TABLE public.sip_grupoper (
 --
 
 COMMENT ON TABLE public.sip_grupoper IS 'Creado por sip';
-
-
---
--- Name: sip_mundep_sinorden; Type: VIEW; Schema: public; Owner: -
---
-
-CREATE VIEW public.sip_mundep_sinorden AS
- SELECT ((sip_departamento.id_deplocal * 1000) + sip_municipio.id_munlocal) AS idlocal,
-    (((sip_municipio.nombre)::text || ' / '::text) || (sip_departamento.nombre)::text) AS nombre
-   FROM (public.sip_municipio
-     JOIN public.sip_departamento ON ((sip_municipio.id_departamento = sip_departamento.id)))
-  WHERE ((sip_departamento.id_pais = 170) AND (sip_municipio.fechadeshabilitacion IS NULL) AND (sip_departamento.fechadeshabilitacion IS NULL))
-UNION
- SELECT sip_departamento.id_deplocal AS idlocal,
-    sip_departamento.nombre
-   FROM public.sip_departamento
-  WHERE ((sip_departamento.id_pais = 170) AND (sip_departamento.fechadeshabilitacion IS NULL));
-
-
---
--- Name: sip_mundep; Type: MATERIALIZED VIEW; Schema: public; Owner: -
---
-
-CREATE MATERIALIZED VIEW public.sip_mundep AS
- SELECT sip_mundep_sinorden.idlocal,
-    sip_mundep_sinorden.nombre,
-    to_tsvector('spanish'::regconfig, public.unaccent(sip_mundep_sinorden.nombre)) AS mundep
-   FROM public.sip_mundep_sinorden
-  ORDER BY (sip_mundep_sinorden.nombre COLLATE public.es_co_utf_8)
-  WITH NO DATA;
 
 
 --
@@ -4750,13 +4725,6 @@ CREATE INDEX indice_sivel2_gen_categoria_sobre_supracategoria_id ON public.sivel
 
 
 --
--- Name: sip_busca_mundep; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX sip_busca_mundep ON public.sip_mundep USING gin (mundep);
-
-
---
 -- Name: sip_nombre_ubicacionpre_b; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -6368,6 +6336,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20211019121200'),
 ('20211020221141'),
 ('20211024105450'),
-('20211024105507');
+('20211024105507'),
+('20211112110416');
 
 
