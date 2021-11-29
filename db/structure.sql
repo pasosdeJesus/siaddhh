@@ -286,45 +286,6 @@ CREATE SEQUENCE public.caso_presponsable_seq
 
 
 --
--- Name: sip_persona_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.sip_persona_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: sip_persona; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.sip_persona (
-    id integer DEFAULT nextval('public.sip_persona_id_seq'::regclass) NOT NULL,
-    nombres character varying(100) NOT NULL COLLATE public.es_co_utf_8,
-    apellidos character varying(100) NOT NULL COLLATE public.es_co_utf_8,
-    anionac integer,
-    mesnac integer,
-    dianac integer,
-    sexo character(1) NOT NULL,
-    numerodocumento character varying(100),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    id_pais integer,
-    nacionalde integer,
-    tdocumento_id integer,
-    id_departamento integer,
-    id_municipio integer,
-    id_clase integer,
-    CONSTRAINT persona_check CHECK (((dianac IS NULL) OR (((dianac >= 1) AND (((mesnac = 1) OR (mesnac = 3) OR (mesnac = 5) OR (mesnac = 7) OR (mesnac = 8) OR (mesnac = 10) OR (mesnac = 12)) AND (dianac <= 31))) OR (((mesnac = 4) OR (mesnac = 6) OR (mesnac = 9) OR (mesnac = 11)) AND (dianac <= 30)) OR ((mesnac = 2) AND (dianac <= 29))))),
-    CONSTRAINT persona_mesnac_check CHECK (((mesnac IS NULL) OR ((mesnac >= 1) AND (mesnac <= 12)))),
-    CONSTRAINT persona_sexo_check CHECK (((sexo = 'S'::bpchar) OR (sexo = 'F'::bpchar) OR (sexo = 'M'::bpchar)))
-);
-
-
---
 -- Name: sivel2_gen_caso_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -409,15 +370,14 @@ CREATE VIEW public.cben1 AS
     subv.id_victima,
     subv.id_persona,
     1 AS npersona,
-    victima.id_etnia
+    'total'::text AS total
    FROM public.sivel2_gen_caso caso,
     public.sivel2_gen_victima victima,
     ( SELECT sivel2_gen_victima.id_persona,
             max(sivel2_gen_victima.id) AS id_victima
            FROM public.sivel2_gen_victima
-          GROUP BY sivel2_gen_victima.id_persona) subv,
-    public.sip_persona persona
-  WHERE ((subv.id_victima = victima.id) AND (caso.id = victima.id_caso) AND (persona.id = victima.id_persona));
+          GROUP BY sivel2_gen_victima.id_persona) subv
+  WHERE ((subv.id_victima = victima.id) AND (caso.id = victima.id_caso));
 
 
 --
@@ -559,7 +519,7 @@ CREATE VIEW public.cben2 AS
     cben1.id_victima,
     cben1.id_persona,
     cben1.npersona,
-    cben1.id_etnia,
+    cben1.total,
     ubicacion.id_departamento,
     departamento.nombre AS departamento_nombre,
     ubicacion.id_municipio,
@@ -572,7 +532,46 @@ CREATE VIEW public.cben2 AS
      LEFT JOIN public.sip_departamento departamento ON ((ubicacion.id_departamento = departamento.id)))
      LEFT JOIN public.sip_municipio municipio ON ((ubicacion.id_municipio = municipio.id)))
      LEFT JOIN public.sip_clase clase ON ((ubicacion.id_clase = clase.id)))
-  GROUP BY cben1.id_caso, cben1.id_victima, cben1.id_persona, cben1.npersona, cben1.id_etnia, ubicacion.id_departamento, departamento.nombre, ubicacion.id_municipio, municipio.nombre, ubicacion.id_clase, clase.nombre;
+  GROUP BY cben1.id_caso, cben1.id_victima, cben1.id_persona, cben1.npersona, cben1.total, ubicacion.id_departamento, departamento.nombre, ubicacion.id_municipio, municipio.nombre, ubicacion.id_clase, clase.nombre;
+
+
+--
+-- Name: sip_persona_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sip_persona_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sip_persona; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sip_persona (
+    id integer DEFAULT nextval('public.sip_persona_id_seq'::regclass) NOT NULL,
+    nombres character varying(100) NOT NULL COLLATE public.es_co_utf_8,
+    apellidos character varying(100) NOT NULL COLLATE public.es_co_utf_8,
+    anionac integer,
+    mesnac integer,
+    dianac integer,
+    sexo character(1) NOT NULL,
+    numerodocumento character varying(100),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    id_pais integer,
+    nacionalde integer,
+    tdocumento_id integer,
+    id_departamento integer,
+    id_municipio integer,
+    id_clase integer,
+    CONSTRAINT persona_check CHECK (((dianac IS NULL) OR (((dianac >= 1) AND (((mesnac = 1) OR (mesnac = 3) OR (mesnac = 5) OR (mesnac = 7) OR (mesnac = 8) OR (mesnac = 10) OR (mesnac = 12)) AND (dianac <= 31))) OR (((mesnac = 4) OR (mesnac = 6) OR (mesnac = 9) OR (mesnac = 11)) AND (dianac <= 30)) OR ((mesnac = 2) AND (dianac <= 29))))),
+    CONSTRAINT persona_mesnac_check CHECK (((mesnac IS NULL) OR ((mesnac >= 1) AND (mesnac <= 12)))),
+    CONSTRAINT persona_sexo_check CHECK (((sexo = 'S'::bpchar) OR (sexo = 'F'::bpchar) OR (sexo = 'M'::bpchar)))
+);
 
 
 --
@@ -4725,10 +4724,38 @@ CREATE INDEX indice_sivel2_gen_categoria_sobre_supracategoria_id ON public.sivel
 
 
 --
+-- Name: sip_clase_id_municipio; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sip_clase_id_municipio ON public.sip_clase USING btree (id_municipio);
+
+
+--
+-- Name: sip_departamento_id_pais; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sip_departamento_id_pais ON public.sip_departamento USING btree (id_pais);
+
+
+--
+-- Name: sip_municipio_id_departamento; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sip_municipio_id_departamento ON public.sip_municipio USING btree (id_departamento);
+
+
+--
 -- Name: sip_nombre_ubicacionpre_b; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX sip_nombre_ubicacionpre_b ON public.sip_ubicacionpre USING gin (to_tsvector('spanish'::regconfig, public.f_unaccent((nombre)::text)));
+
+
+--
+-- Name: sip_persona_anionac; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sip_persona_anionac ON public.sip_persona USING btree (anionac);
 
 
 --
@@ -4739,10 +4766,24 @@ CREATE INDEX sip_persona_anionac_ind ON public.sip_persona USING btree (anionac)
 
 
 --
+-- Name: sip_persona_sexo; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sip_persona_sexo ON public.sip_persona USING btree (sexo);
+
+
+--
 -- Name: sip_persona_sexo_ind; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX sip_persona_sexo_ind ON public.sip_persona USING btree (sexo);
+
+
+--
+-- Name: sivel2_gen_caso_anio_mes; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sivel2_gen_caso_anio_mes ON public.sivel2_gen_caso USING btree (((((date_part('year'::text, (fecha)::timestamp without time zone))::text || '-'::text) || lpad((date_part('month'::text, (fecha)::timestamp without time zone))::text, 2, '0'::text))));
 
 
 --
@@ -4760,10 +4801,87 @@ CREATE INDEX sivel2_gen_obs_fildep_u_idx ON public.sivel2_gen_observador_filtrod
 
 
 --
+-- Name: sivel2_gen_victima_id_caso; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sivel2_gen_victima_id_caso ON public.sivel2_gen_victima USING btree (id_caso);
+
+
+--
+-- Name: sivel2_gen_victima_id_etnia; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sivel2_gen_victima_id_etnia ON public.sivel2_gen_victima USING btree (id_etnia);
+
+
+--
+-- Name: sivel2_gen_victima_id_filiacion; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sivel2_gen_victima_id_filiacion ON public.sivel2_gen_victima USING btree (id_filiacion);
+
+
+--
+-- Name: sivel2_gen_victima_id_iglesia; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sivel2_gen_victima_id_iglesia ON public.sivel2_gen_victima USING btree (id_iglesia);
+
+
+--
+-- Name: sivel2_gen_victima_id_organizacion; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sivel2_gen_victima_id_organizacion ON public.sivel2_gen_victima USING btree (id_organizacion);
+
+
+--
+-- Name: sivel2_gen_victima_id_persona; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sivel2_gen_victima_id_persona ON public.sivel2_gen_victima USING btree (id_persona);
+
+
+--
+-- Name: sivel2_gen_victima_id_profesion; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sivel2_gen_victima_id_profesion ON public.sivel2_gen_victima USING btree (id_profesion);
+
+
+--
+-- Name: sivel2_gen_victima_id_rangoedad; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sivel2_gen_victima_id_rangoedad ON public.sivel2_gen_victima USING btree (id_rangoedad);
+
+
+--
 -- Name: sivel2_gen_victima_id_rangoedad_ind; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX sivel2_gen_victima_id_rangoedad_ind ON public.sivel2_gen_victima USING btree (id_rangoedad);
+
+
+--
+-- Name: sivel2_gen_victima_id_sectorsocial; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sivel2_gen_victima_id_sectorsocial ON public.sivel2_gen_victima USING btree (id_sectorsocial);
+
+
+--
+-- Name: sivel2_gen_victima_id_vinculoestado; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sivel2_gen_victima_id_vinculoestado ON public.sivel2_gen_victima USING btree (id_vinculoestado);
+
+
+--
+-- Name: sivel2_gen_victima_orientacionsexual; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sivel2_gen_victima_orientacionsexual ON public.sivel2_gen_victima USING btree (orientacionsexual);
 
 
 --
@@ -6338,6 +6456,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20211024105450'),
 ('20211024105507'),
 ('20211112110416'),
-('20211117200456');
+('20211117200456'),
+('20211119085218'),
+('20211119110211');
 
 
