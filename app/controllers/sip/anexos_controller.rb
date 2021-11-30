@@ -22,6 +22,7 @@ module Sip
       if anexo_caso[0].tipoanexo
         tipoanexo = anexo_caso[0].tipoanexo.id
         if tipoanexo == 2
+          authorize! :fotopublica, Sivel2Gen::Caso
           descarga_anexo_gen
         else
           authorize! :descarga_anexo, Sip::Anexo
