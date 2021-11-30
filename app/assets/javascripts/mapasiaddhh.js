@@ -26,12 +26,13 @@ function filtrar_adicionales(usuario_autenticado){
 
 function obtener_info_victimas(victimas, prresp, caso){
   ruta_foto = caso.fotos_victimas;
-  var victimasCont = '<div>' 
+  var victimasCont = '<div class="text-center">'
   if(ruta_foto){
-    for(var rf in ruta_foto){
-      victimasCont += '<img class="m-3" src="'+ ruta_foto[rf] +'" style="height:7vw;width:4vw;">'
-    }
+    primera = jQuery.map(ruta_foto, function(n, i ){return n })[0]
+    victimasCont += '<img class="m-3 img-fluid" src="'+ primera +'" style="height: 30vh; width: 20vh">'
+
   }
+  victimasCont += '</div>' 
   victimasCont += '<table>' +
   '<tr><td>Victimas:</td><td>';
   for(var cv in victimas) {

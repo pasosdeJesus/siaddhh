@@ -24,12 +24,10 @@ json.caso do
       json.set! v.persona.id, v.persona.nombres + ' ' + v.persona.apellidos if v.persona
     end
   end
-  if current_usuario
-    anexos_fotos = @caso.anexo_caso.where(tipoanexo_id: 2).pluck(:id_anexo)
-    json.fotos_victimas do 
-      anexos_fotos.each do |anexo|
-        json.set! anexo.to_s, sip.descarga_anexo_path(anexo.to_s) 
-      end
+  anexos_fotos = @caso.anexo_caso.where(tipoanexo_id: 2).pluck(:id_anexo)
+  json.fotos_victimas do 
+    anexos_fotos.each do |anexo|
+      json.set! anexo.to_s, sip.descarga_anexo_path(anexo.to_s) 
     end
   end
 end
