@@ -106,5 +106,35 @@
     inserted.find('select[class*=chosen-select]').chosen()
   )
 
+  mtc = $("#filtro_mostrar_todos_cat")
+  mtc.change ->
+    qtc = $("#filtro_quitar_todos_cat")
+    if($(this).is(":checked"))
+      $('#filtro_categoria option').prop('selected', true);
+      $("#filtro_categoria").trigger('chosen:updated')
+    else
+      $("#filtro_categoria :selected").prop("selected", false); 
+      $("#filtro_categoria").trigger('chosen:updated')
+
+  ftv = $("#filtro_tviolencia_id")
+  ftv.change ->
+    fc = $("#filtro_categoria")
+    cats = fc.html()
+    tviolencia = $("#filtro_tviolencia_id :selected").text()
+    filtro = "optgroup[label='".concat(tviolencia).concat("']")
+    $("#filtro_categoria :selected").prop("selected", false); 
+    fc.trigger('chosen:updated')
+    $sel = $('select[name="filtro[categoria][]"]')
+    val = $(this).val()
+    $('span > optgroup', $sel).unwrap()
+    if (val != "")
+      $('optgroup:not([label="' + tviolencia + '"])', $sel).wrap('<span/>');
+      fc.trigger('chosen:updated')
+      $('#filtro_categoria option').prop('selected', true);
+      fc.trigger('chosen:updated')
+    else
+      fc.html(cats)
+      fc.trigger('chosen:updated')
+
   return
 
