@@ -1,0 +1,17 @@
+<%= render :partial => "sivel2_gen/casos/filtro_mapaosm" %>
+<div class= "row">
+  <div class="col-sm-2">
+    <button id="agregar-casos-osm" type="button" class="btn btn-primary">Filtrar</button>
+  </div>
+  <div class="col-sm-2">
+    <div class="alert alert-success" role="alert">
+      <span class="nrcasos" id="nrcasos"></span>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <%= render partial: 'mapaosm_masbotones' %>
+    <div id="cargador" class="spinner-border text-secondary" role="status">
+      <span class='sr-only'>Cargando...</span>
+    </div>
+  </div>
+</div>
