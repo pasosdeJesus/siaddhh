@@ -24,7 +24,7 @@ json.caso do
       json.set! v.persona.id, v.persona.nombres + ' ' + v.persona.apellidos if v.persona
     end
   end
-  if current_usuario
+  if can? :fotopublica, Sivel2Gen::Caso
     anexos_fotos = @caso.anexo_caso.where(tipoanexo_id: 2).pluck(:id_anexo)
     json.fotos_victimas do 
       anexos_fotos.each do |anexo|

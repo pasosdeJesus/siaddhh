@@ -71,5 +71,11 @@ class Ability  < Sivel2Gen::Ability
     end
   end
 
+  def initialize_sivel2_gen(usuario = nil)
+    Sivel2Gen::Ability.initialize_sivel2_gen(self, usuario)
+    if !usuario && Rails.application.config.x.sivel2_consulta_web_publica
+      self.can :fotopublica, Sivel2Gen::Caso
+    end
+  end
 end
 
