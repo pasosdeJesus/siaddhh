@@ -16,6 +16,6 @@
  *= require_self
  */
 
-.cardbodyosm{
-  background-color: orange;
+.seleccion-mapa-osm {
+    background-color: rgb(208, 56, 1);
 }
