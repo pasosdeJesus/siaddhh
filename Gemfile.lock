@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: aeb30bb8bfd544d3c949ba94b99cf564aaa47885
+  revision: 094397c6f94e79dc2585e3c92da1b9a50089fade
   branch: main
   specs:
     sip (2.0)
@@ -49,7 +49,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 1cb14a8800a3c7414ef0994b30a7ed02dd45a352
+  revision: 01e2fbb33787c91dfde910f9831be4ae5ace6c8d
   branch: main
   specs:
     sivel2_gen (2.1a1)
@@ -57,6 +57,13 @@ GIT
       devise
       jquery-rails
       rails
+
+GIT
+  remote: https://github.com/vtamara/cocoon.git
+  revision: 9f1892403c3dbdb8f7d457a06f237ff58e7dfb07
+  branch: new_id_with_ajax
+  specs:
+    cocoon (1.2.11)
 
 GEM
   remote: https://rubygems.org/
