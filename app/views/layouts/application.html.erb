@@ -1,5 +1,9 @@
 <% content_for :titulo do %>
+  <% if defined?(current_usuario) && current_usuario %>
     <%= Sip.titulo %>
+  <% else %>
+    SIADDHH
+  <% end %>
 <% end %>
 
 <% content_for :menu do %>
@@ -112,7 +116,9 @@
         main_app.sign_out_path %>
     <% else %>
       <%= opcion_menu 'Acerca de', sivel2_gen.acercade_path %>
-      <%= opcion_menu 'Iniciar Sesión', main_app.new_usuario_session_path %> 
+      <% if ENV.fetch('SIADDHH_PUBLICO', '0') == '0' %>
+        <%= opcion_menu 'Iniciar Sesión', main_app.new_usuario_session_path %> 
+      <% end %>
     <% end %>
   <% end %>
 <% end %>

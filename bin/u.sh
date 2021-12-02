@@ -54,6 +54,7 @@ $DOAS su - ${USUARIO_AP} -c "cd $DIRAP;
     SIVEL2_CONSWEB_PIE=\"${SIVEL2_CONSWEB_PIE}\" \
     SIVEL2_CONSWEB_PUBLICA=\"${SIVEL2_CONSWEB_PUBLICA}\" \
     SIVEL2_MAPAOSM_DIASATRAS=\"${SIVEL2_MAPAOSM_DIASATRAS}\" \
+    SIADDHH_PUBLICO=\"${SIADDHH_PUBLICO}\" \
     fil23_gen_servidor=\"${fil23_gen_servidor}\" \
     fil23_gen_ip=\"${fil23_gen_ip}\" \
     fil23_gen_puerto=\"${fil23_gen_puerto}\" \
