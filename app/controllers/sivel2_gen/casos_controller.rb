@@ -15,6 +15,13 @@ module Sivel2Gen
     end
 
     def inicializa_index
+      ## No autenticados ven solo casos que sean perder la vida
+      if !current_usuario 
+        cats = [10, 20, 30, 40, 50, 87, 97, 701, 703]
+        ##Categorias que sean perder la vida
+        casos_actuales = @conscaso
+        @conscaso = casos_actuales.joins(:acto).where(acto: {id_categoria: cats}) 
+      end
       @plantillas = Heb412Gen::Plantillahcm.where(
         vista: 'Caso').select('nombremenu, id').map { |c| 
           [c.nombremenu, c.id] 
