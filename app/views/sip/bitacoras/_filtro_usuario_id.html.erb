@@ -1,0 +1,10 @@
+<%= f.input :bususuario_id,
+  collection: Usuario.habilitados,
+  value_method: :id,
+  label_method: lambda {|us| us.nusuario + "-" + us.nombre},
+  include_blank: true,
+  label: false,
+  input_html: {
+    class: 'chosen-select'
+  }
+%>
