@@ -82,45 +82,46 @@
     <div class="row filtro-fila">
       <div class="offset-sm-0 col-sm-3 offset-md-1 col-md-1">
       </div>
-      <div class="col-sm-9">
-        <div class="card-header" id="headingOne">
-             <a data-bs-toggle="collapse" href="#collapsecat" role="button" aria-expanded="false" aria-controls="collapsecat">
-            Filtro por categoría
-            </a>
-        </div>
-        <div id="collapsecat" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body">
-            <%= f.input :mostrar_cats, 
-              :collection => [[1, 'Escoger todo'], [0, 'Quitar todos'],[2, 'Algunos']], 
-              :label_method => :last, 
-              :value_method => :first,
-              :as => :radio_buttons, 
-              :item_wrapper_class => 'form-check-inline',
-              :disabled => 2,
-              :checked => 1,
-              :input_html => {
-                'data-contarautomatico' => ''}
-              %>
-             <% cats = Sivel2Gen::Categoria.habilitados.pluck(:id) %>
-             <%= f.input :categoria, 
-               collection: Sivel2Gen::Categoria.habilitados.group_by{ |c| c.supracategoria.id_tviolencia},
-               as: :grouped_select, 
-               group_method: :last, 
-               group_label_method: lambda { |ca| Sivel2Gen::Tviolencia.find(ca[0]).nombre}, 
-               value_method: :id,
-               label_method: lambda { |cat| "#{Sivel2Gen::Supracategoria.find(cat.supracategoria_id.to_i).id_tviolencia}#{cat.id.to_s} #{cat.nombre}" },
-               selected: cats,
-               input_html: { 
-                 "data-contarautomatico" => "",
-                 class: 'chosen-select',
-                 multiple: true
-               }
-             %>
-
-          </div>
-        </div>
-      </div>
-    </div>
+      <div class="col-sm-9 accordion" id='colcategorias'>
+        <%= item_acordeon_bs('colcategorias', 'colcategorias2', 'Filtro por categoría', false) do %> 
+          <div class='row'>
+            <div class='col-sm-9'>
+              <% cats = Sivel2Gen::Categoria.habilitados.pluck(:id) %>
+              <%= f.input :categoria, 
+                collection: Sivel2Gen::Categoria.habilitados.group_by{ |c| 
+                  c.supracategoria.id_tviolencia},
+                    as: :grouped_select, 
+                    group_method: :last, 
+                    group_label_method: lambda { |ca| Sivel2Gen::Tviolencia.find(ca[0]).nombre}, 
+                    value_method: :id,
+                    label_method: lambda { |cat| "#{Sivel2Gen::Supracategoria.find(cat.supracategoria_id.to_i).id_tviolencia}#{cat.id.to_s} #{cat.nombre}" },
+                    selected: cats,
+                    label: false,
+                    input_html: { 
+                      "data-contarautomatico" => "",
+                      class: 'chosen-select',
+                      multiple: true
+                    }
+                  %>
+            </div>
+            <div class='col-sm-3'>
+              <%= f.input :mostrar_cats, 
+                collection: [[1, 'Escoger todos'], [2, 'Algunos'], [0, 'Quitar todos']], 
+                label_method: :last, 
+                value_method: :first,
+                as: :radio_buttons, 
+                item_wrapper_class: 'form-check-inline',
+                disabled: 2,
+                checked: 1,
+                label: '',
+                input_html:  {
+                  'data-contarautomatico' => ''}
+                %>
+            </div>
+          </div> <!-- row -->
+        <% end %>
+      </div> <!-- colcategorias -->
+    </div> <!-- row -->
 
     <div class="row filtro-fila">
       <div class="offset-sm-0 col-sm-3 offset-md-1 col-md-1">
