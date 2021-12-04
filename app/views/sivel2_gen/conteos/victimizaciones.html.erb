@@ -90,12 +90,17 @@
         </div>
         <div id="collapsecat" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
           <div class="card-body">
-             <%= f.input :mostrar_todos_cat, 
-               as: :boolean,
-               label: "Escoger todos / ninguno",
-               boolean_style: :inline,
-               :input_html => { :checked => true }
-             %>
+            <%= f.input :mostrar_cats, 
+              :collection => [[1, 'Escoger todo'], [0, 'Quitar todos'],[2, 'Algunos']], 
+              :label_method => :last, 
+              :value_method => :first,
+              :as => :radio_buttons, 
+              :item_wrapper_class => 'form-check-inline',
+              :disabled => 2,
+              :checked => 1,
+              :input_html => {
+                'data-contarautomatico' => ''}
+              %>
              <% cats = Sivel2Gen::Categoria.habilitados.pluck(:id) %>
              <%= f.input :categoria, 
                collection: Sivel2Gen::Categoria.habilitados.group_by{ |c| c.supracategoria.id_tviolencia},

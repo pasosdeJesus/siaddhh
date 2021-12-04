@@ -106,15 +106,26 @@
     inserted.find('select[class*=chosen-select]').chosen()
   )
 
-  mtc = $("#filtro_mostrar_todos_cat")
+  mtc = $("input[name='filtro[mostrar_cats]']")
   mtc.change ->
-    qtc = $("#filtro_quitar_todos_cat")
-    if($(this).is(":checked"))
+    if($(this).val() == "1")
       $('#filtro_categoria option').prop('selected', true);
       $("#filtro_categoria").trigger('chosen:updated')
-    else
+    if($(this).val() == "0")
       $("#filtro_categoria :selected").prop("selected", false); 
       $("#filtro_categoria").trigger('chosen:updated')
+
+  fcat = $("#filtro_categoria")
+  fcat.change ->
+    alguno = $("#filtro_mostrar_cats_2")
+    ninguno = $("#filtro_mostrar_cats_0")
+    op_totales = this.options.length
+    op_sel = $(this).val().length
+    if(op_sel > 0)
+      alguno.prop("checked", true);
+    else
+      ninguno.prop("checked", true);
+
 
   ftv = $("#filtro_tviolencia_id")
   ftv.change ->

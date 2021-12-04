@@ -21,8 +21,16 @@ module Sivel2Gen
 
     def filtros_victimizaciones_gen(pFini, pFfin, pTviolencia, pEtiqueta1, pEtiqueta2, pExcluirCateRep,
       pSegun, pDepartamento, pMunicipio, pCategoria)
-      pCategoria = params[:filtro] ? params[:filtro][:categoria] : Sivel2Gen::Categoria.habilitados.pluck(:id)
+      mostrar_cats = params[:filtro] ? params[:filtro][:mostrar_cats] : ""
+      case mostrar_cats
+      when "1"
+        pCategoria = Sivel2Gen::Categoria.habilitados.pluck(:id)
+      when "0"
+        pCategoria = []
+      when ""
+        pCategoria = params[:filtro] ? params[:filtro][:categoria] : Sivel2Gen::Categoria.habilitados.pluck(:id)
 
+      end
       tcons1 = genconsulta_victimizaciones(
         pFini, pFfin, pTviolencia, pEtiqueta1, pEtiqueta2, pExcluirCateRep, pSegun,
         pDepartamento, pMunicipio, pCategoria
@@ -81,6 +89,8 @@ module Sivel2Gen
       end
       if (!pCategoria.empty? && pCategoria != [""])
         where1 = " categoria.id IN (#{(pCategoria - ['']).join(', ')}) "
+      else 
+        where1 = " categoria.id IN ('-1') "
       end
 
       if (pExcluirCateRep == '1')
