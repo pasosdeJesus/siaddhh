@@ -106,14 +106,18 @@
             </div>
             <div class='col-sm-3'>
               <%= f.input :mostrar_cats, 
-                collection: [[1, 'Escoger todos'], [2, 'Algunos'], [0, 'Quitar todos']], 
+                collection: [
+                  [1, 'Escoger todas'], [2, 'Algunas'], [0, 'Quitar todas']
+                ], 
                 label_method: :last, 
                 value_method: :first,
                 as: :radio_buttons, 
                 item_wrapper_class: 'form-check-inline',
                 disabled: 2,
                 checked: 1,
+                required: false,
                 label: '',
+                legend: false,
                 input_html:  {
                   'data-contarautomatico' => ''}
                 %>

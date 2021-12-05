@@ -23,15 +23,8 @@ module Sivel2Gen
       pSegun, pDepartamento, pMunicipio, pCategoria)
       mostrar_cats = params[:filtro] ? params[:filtro][:mostrar_cats] : ""
       lcat = Sivel2Gen::Categoria.habilitados.pluck(:id)
-      case mostrar_cats
-      when "1"
-        pCategoria = lcat
-      when "0"
-        pCategoria = []
-      else
-        pCategoria = params[:filtro] && params[:filtro][:categoria] ?
+      pCategoria = params[:filtro] && params[:filtro][:categoria] ?
           lcat & params[:filtro][:categoria].map(&:to_i) : lcat
-      end
       tcons1 = genconsulta_victimizaciones(
         pFini, pFfin, pTviolencia, pEtiqueta1, pEtiqueta2, pExcluirCateRep, pSegun,
         pDepartamento, pMunicipio, pCategoria
