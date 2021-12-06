@@ -1,0 +1,8 @@
+<%= f.input :busoperacion,
+  collection: Sip::Bitacora.all.pluck(:operacion).uniq , 
+  include_blank: true,
+  label: false,
+  input_html: {
+    class: 'chosen-select'
+  }
+%>

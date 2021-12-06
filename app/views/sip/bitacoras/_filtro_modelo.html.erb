@@ -1,0 +1,9 @@
+<%= f.input :busmodelo,
+  collection: ActiveRecord::Base.descendants.map{|mode| mode.to_s}, 
+  include_blank: true,
+  label: false,
+  input_html: {
+    class: 'chosen-select',
+    'data-enviarautomatico' => ''
+  }
+%>
