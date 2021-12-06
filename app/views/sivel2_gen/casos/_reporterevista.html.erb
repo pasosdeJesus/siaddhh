@@ -1,0 +1,41 @@
+<% # caso debe tener objeto por presentar Sivel2Gen::Caso %>
+<% if @incluir && @incluir.include?('casoid') %>
+  <a href='<%= sivel2_gen.caso_path(caso.id) %>'><%= caso.id %></a>
+<% end %>
+<p>
+<% if @incluir && @incluir.include?('fecha') %>
+  <%= I18n.localize(caso.fecha, format: '%B %d/%Y').capitalize %>
+<% end %>
+</p>
+
+<% caso.victima.each do |v| %>
+  <%= v.persona.presenta_nombre %> <br>
+<% end %>
+
+<% if caso.ubicacion.count > 0 %>
+  <%if  caso.ubicacion[0].municipio %>
+    Municipio <%= caso.ubicacion[0].municipio.nombre %>, 
+  <% end %>
+  <%if  caso.ubicacion[0].departamento %>
+    <%= caso.ubicacion[0].departamento.nombre %>
+  <% end %>
+<% end %>
+
+<% caso.victima.each do |v| %>
+  <%= v.sectorsocial.nombre if v.sectorsocial %>
+  <% if v.profesion %>
+    - <%= v.profesion.nombre if v.profesion %> <br>
+  <% end %>
+<% end %>
+
+<% caso.ubicacion[0].lugar if caso.ubicacion  && 
+      caso.ubicacion[0] && caso.ubicacion[0].lugar %><br>
+
+<p>
+<% if caso.presponsable %>
+  Presunto Reponsable: <%= caso.presponsable.map(&:nombre).join("; ") %>
+<% end %>
+</p>
+<p> <%= caso.memo %> </p>
+
+<hr/>
