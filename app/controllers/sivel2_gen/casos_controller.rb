@@ -68,7 +68,7 @@ module Sivel2Gen
     end
 
     def campos_filtro1_gen
-      campos_filtro1 + [:profesion_id]
+      campos_filtro1 + [:profesion_id] + [:editadopor_id]
     end
  
     def caso_params
