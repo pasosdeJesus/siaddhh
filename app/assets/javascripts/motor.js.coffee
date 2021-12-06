@@ -3,6 +3,7 @@
 #//= require sip/motor
 #//= require mr519_gen/motor
 #//= require heb412_gen/motor
+#//= require sivel2_gen/motor
 #//= require cocoon
 
 @DEP_VICTIMACOLECTIVA = [
@@ -105,47 +106,6 @@
   $(document).on('cocoon:after-insert', '', (e,inserted) ->
     inserted.find('select[class*=chosen-select]').chosen()
   )
-
-  mtc = $("input[name='filtro[mostrar_cats]']")
-  mtc.change ->
-    if($(this).val() == "1")
-      $('#filtro_categoria option').prop('selected', true);
-      $("#filtro_categoria").trigger('chosen:updated')
-    if($(this).val() == "0")
-      $("#filtro_categoria :selected").prop("selected", false); 
-      $("#filtro_categoria").trigger('chosen:updated')
-
-  fcat = $("#filtro_categoria")
-  fcat.change ->
-    alguno = $("#filtro_mostrar_cats_2")
-    ninguno = $("#filtro_mostrar_cats_0")
-    op_totales = this.options.length
-    op_sel = $(this).val().length
-    if(op_sel > 0)
-      alguno.prop("checked", true);
-    else
-      ninguno.prop("checked", true);
-
-
-  ftv = $("#filtro_tviolencia_id")
-  ftv.change ->
-    fc = $("#filtro_categoria")
-    cats = fc.html()
-    tviolencia = $("#filtro_tviolencia_id :selected").text()
-    filtro = "optgroup[label='".concat(tviolencia).concat("']")
-    $("#filtro_categoria :selected").prop("selected", false); 
-    fc.trigger('chosen:updated')
-    $sel = $('select[name="filtro[categoria][]"]')
-    val = $(this).val()
-    $('span > optgroup', $sel).unwrap()
-    if (val != "")
-      $('optgroup:not([label="' + tviolencia + '"])', $sel).wrap('<span/>');
-      fc.trigger('chosen:updated')
-      $('#filtro_categoria option').prop('selected', true);
-      fc.trigger('chosen:updated')
-    else
-      fc.html(cats)
-      fc.trigger('chosen:updated')
 
   return
 

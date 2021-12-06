@@ -660,7 +660,7 @@ CREATE VIEW public.cvt1 AS
      JOIN public.sivel2_gen_supracategoria supracategoria ON ((categoria.supracategoria_id = supracategoria.id)))
      JOIN public.sivel2_gen_victima victima ON (((victima.id_persona = acto.id_persona) AND (victima.id_caso = caso.id))))
      JOIN public.sip_persona persona ON ((persona.id = acto.id_persona)))
-  WHERE (categoria.id = '-1'::integer);
+  WHERE (((supracategoria.id_tviolencia)::text = 'C'::text) AND (categoria.id = ANY (ARRAY[397, 527, 427, 777, 297, 197, 296, 396, 196, 426, 776, 526, 25, 73, 45, 15, 35, 55, 65, 92, 50, 40, 67, 801, 90, 37, 26, 57, 16, 46, 80, 85, 66, 64, 703, 18, 706, 49, 59, 28, 38, 401, 501, 904, 402, 17, 231, 331, 502, 705, 62, 104, 906, 713, 101, 76, 21, 302, 11, 27, 903, 34, 902, 102, 301, 24, 14, 10, 30, 20, 772, 192, 422, 292, 522, 392, 63, 93, 525, 195, 425, 775, 295, 395, 714, 78, 424, 774, 294, 194, 524, 394, 89, 905, 86, 701, 68, 241, 715, 141, 341, 704, 702, 43, 23, 53, 33, 13, 88, 98, 84, 709, 711, 707, 708, 710, 87, 97, 717, 917, 716, 916, 91, 95, 718, 423, 193, 773, 293, 523, 393, 48, 58, 75, 69, 41, 74, 22, 72, 47, 36, 56, 12, 291, 421, 391, 521, 191, 771, 520, 77, 29, 39, 420, 19, 712])));
 
 
 --

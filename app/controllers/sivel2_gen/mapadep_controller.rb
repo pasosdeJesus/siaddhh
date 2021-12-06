@@ -15,7 +15,7 @@ module Sivel2Gen
           " (#{Sivel2Gen::Tviolencia.find(pTviolencia).nomcorto})"
       end
       @mapadep_titulorangos = 'Rango de agresiones'
-      @mapadep_fuente = 'Fuente: SIADDHH https://www.somosdefensores.org/siaddhh/'
+      @mapadep_fuente = 'Fuente: SIADDHH https://www.somosdefensores.org/mapa_asesinatos/'
     end
 
 
