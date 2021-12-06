@@ -4,17 +4,24 @@
 <% end %>
 <p>
 <% if @incluir && @incluir.include?('fecha') %>
-  <%= I18n.localize(caso.fecha, format: '%B %d/%Y').capitalize %>
+  <%= I18n.localize(caso.fecha, format: '%d de %B de %Y').capitalize %>
 <% end %>
 </p>
 
 <% caso.victima.each do |v| %>
-  <%= v.persona.presenta_nombre %> <br>
+  <span style='color: orange'><%= v.persona.presenta_nombre %></span> <br>
+  
+  <% pac = caso.anexo_caso.where(tipoanexo_id: 2) %>
+  <% if pac.count > 0 %>
+    <div class="text-center">
+      <img class="m-3 img-fluid" src="<%= sip.descarga_anexo_path(pac.first.id_anexo) %>" style="max-height: 45vh; width: 35vh">
+    </div>
+  <% end %>
 <% end %>
 
 <% if caso.ubicacion.count > 0 %>
   <%if  caso.ubicacion[0].municipio %>
-    Municipio <%= caso.ubicacion[0].municipio.nombre %>, 
+    <%= caso.ubicacion[0].municipio.nombre %>, 
   <% end %>
   <%if  caso.ubicacion[0].departamento %>
     <%= caso.ubicacion[0].departamento.nombre %>
@@ -31,11 +38,12 @@
 <% caso.ubicacion[0].lugar if caso.ubicacion  && 
       caso.ubicacion[0] && caso.ubicacion[0].lugar %><br>
 
+<p> <%= caso.memo %> </p>
+
 <p>
 <% if caso.presponsable %>
   Presunto Reponsable: <%= caso.presponsable.map(&:nombre).join("; ") %>
 <% end %>
 </p>
-<p> <%= caso.memo %> </p>
 
 <hr/>

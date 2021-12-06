@@ -22,10 +22,17 @@ module Sivel2Gen
         casos_actuales = @conscaso
         @conscaso = casos_actuales.joins(:acto).where(acto: {id_categoria: cats}) 
       end
-      @plantillas = Heb412Gen::Plantillahcm.where(
-        vista: 'Caso').select('nombremenu, id').map { |c| 
+
+      @plantillas = Heb412Gen::Plantillahcm.where(vista: 'Caso').
+        select('nombremenu, id').map { |c| 
           [c.nombremenu, c.id] 
         }
+      @plantillas += [
+          ['Reporte Revista HTML', 'reprevista.html'],
+          ['Reporte Revista no bélicas HTML', 'reprevistanobelicas.html'],
+          ['Reporte General HTML', 'repgeneral.html'],
+          ['Exportar a JSON', 'reprevista.json']]
+
     end
 
     def presenta_mas_index(formato)
