@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 4a5999dd54a9575b5c2e540e61585e6038b1305d
+  revision: 9bd49d8d0d364cd79e6706ae68de21b6143bcc53
   branch: main
   specs:
     sip (2.0)
@@ -49,7 +49,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 05590ca1a894cbb0de433e2462cf890657c4f193
+  revision: 638fe60387c4ec2c4676a0c1e3375609e6c59fc7
   branch: main
   specs:
     sivel2_gen (2.1a1)
@@ -307,7 +307,7 @@ GEM
       method_source
       rake (>= 0.13)
       thor (~> 1.0)
-    raindrops (0.19.2)
+    raindrops (0.20.0)
     rake (13.0.6)
     redcarpet (3.5.1)
     regexp_parser (2.2.0)
