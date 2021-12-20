@@ -417,7 +417,7 @@ CREATE VIEW public.cben1 AS
            FROM public.sivel2_gen_victima
           GROUP BY sivel2_gen_victima.id_persona) subv,
     public.sip_persona persona
-  WHERE ((subv.id_victima = victima.id) AND (caso.id = victima.id_caso) AND ((persona.anionac IS NULL) OR (persona.anionac = ANY (ARRAY[1970, 1978, 1980, 1983, 1985, 1993, 1995, 1998, 2000]))) AND (victima.id_etnia = ANY (ARRAY[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110])) AND ((((date_part('year'::text, caso.fecha))::text || '-'::text) || lpad((date_part('month'::text, caso.fecha))::text, 2, '0'::text)) = ANY (ARRAY['2018-08'::text, '2021-06'::text, '2021-10'::text, '2021-11'::text])) AND (victima.id_organizacion = ANY (ARRAY[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17])) AND (victima.id_profesion = ANY (ARRAY[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113])) AND (victima.id_rangoedad = ANY (ARRAY[1, 2, 3, 4, 5, 6])) AND (victima.id_sectorsocial = ANY (ARRAY[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])) AND (persona.sexo = ANY (ARRAY['F'::bpchar, 'M'::bpchar, 'S'::bpchar])) AND (persona.id = victima.id_persona));
+  WHERE ((subv.id_victima = victima.id) AND (caso.id = victima.id_caso) AND ((persona.anionac IS NULL) OR (persona.anionac = ANY (ARRAY[1970, 1978, 1980, 1983, 1985, 1993, 1995, 1998, 2000]))) AND (victima.id_etnia = ANY (ARRAY[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110])) AND ((((date_part('year'::text, caso.fecha))::text || '-'::text) || lpad((date_part('month'::text, caso.fecha))::text, 2, '0'::text)) = ANY (ARRAY['2018-08'::text, '2021-06'::text, '2021-09'::text, '2021-10'::text, '2021-11'::text])) AND (victima.id_organizacion = ANY (ARRAY[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17])) AND (victima.id_profesion = ANY (ARRAY[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113])) AND (victima.id_rangoedad = ANY (ARRAY[1, 2, 3, 4, 5, 6])) AND (victima.id_sectorsocial = ANY (ARRAY[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])) AND (persona.sexo = ANY (ARRAY['F'::bpchar, 'M'::bpchar, 'S'::bpchar])) AND (persona.id = victima.id_persona));
 
 
 --
@@ -653,14 +653,19 @@ CREATE VIEW public.cvt1 AS
     acto.id_persona,
     acto.id_categoria,
     supracategoria.id_tviolencia,
-    categoria.nombre AS categoria
-   FROM (((((public.sivel2_gen_acto acto
+    categoria.nombre AS categoria,
+    ubicacion.id_departamento,
+    departamento.id_deplocal AS departamento_divipola,
+    initcap((departamento.nombre)::text) AS departamento_nombre
+   FROM (((((((public.sivel2_gen_acto acto
      JOIN public.sivel2_gen_caso caso ON ((acto.id_caso = caso.id)))
      JOIN public.sivel2_gen_categoria categoria ON ((acto.id_categoria = categoria.id)))
      JOIN public.sivel2_gen_supracategoria supracategoria ON ((categoria.supracategoria_id = supracategoria.id)))
      JOIN public.sivel2_gen_victima victima ON (((victima.id_persona = acto.id_persona) AND (victima.id_caso = caso.id))))
      JOIN public.sip_persona persona ON ((persona.id = acto.id_persona)))
-  WHERE (categoria.id = ANY (ARRAY[397, 527, 427, 777, 297, 197, 296, 396, 196, 426, 776, 526, 25, 73, 45, 15, 35, 55, 65, 92, 50, 40, 67, 801, 90, 37, 26, 57, 16, 46, 80, 85, 66, 64, 703, 18, 706, 49, 59, 28, 38, 401, 501, 904, 402, 17, 231, 331, 502, 705, 62, 104, 906, 713, 101, 76, 21, 302, 11, 27, 903, 34, 902, 102, 301, 24, 14, 10, 30, 20, 772, 192, 422, 292, 522, 392, 63, 93, 525, 195, 425, 775, 295, 395, 714, 78, 424, 774, 294, 194, 524, 394, 89, 905, 86, 701, 68, 241, 715, 141, 341, 704, 702, 43, 23, 53, 33, 13, 88, 98, 84, 709, 711, 707, 708, 710, 87, 97, 717, 917, 716, 916, 91, 95, 718, 423, 193, 773, 293, 523, 393, 48, 58, 75, 69, 41, 74, 22, 72, 47, 36, 56, 12, 291, 421, 391, 521, 191, 771, 520, 77, 29, 39, 420, 19, 712]));
+     LEFT JOIN public.sip_ubicacion ubicacion ON ((caso.ubicacion_id = ubicacion.id)))
+     LEFT JOIN public.sip_departamento departamento ON ((ubicacion.id_departamento = departamento.id)))
+  WHERE (categoria.id = ANY (ARRAY[197, 297, 527, 777, 427, 397, 776, 426, 396, 196, 296, 526, 15, 35, 25, 73, 45, 55, 65, 92, 50, 40, 67, 801, 90, 46, 26, 16, 37, 57, 80, 85, 66, 64, 703, 706, 28, 49, 38, 59, 18, 501, 401, 904, 231, 17, 331, 402, 502, 705, 62, 906, 104, 713, 101, 21, 11, 302, 76, 903, 34, 27, 102, 902, 14, 24, 301, 20, 10, 30, 772, 192, 422, 292, 522, 392, 63, 93, 525, 195, 425, 775, 295, 395, 714, 78, 424, 774, 294, 194, 524, 394, 89, 905, 86, 701, 68, 241, 715, 141, 341, 704, 702, 43, 23, 53, 33, 13, 88, 98, 84, 709, 711, 707, 708, 710, 87, 97, 717, 917, 716, 916, 91, 95, 718, 423, 193, 773, 293, 523, 393, 48, 58, 75, 69, 41, 74, 22, 72, 47, 36, 56, 12, 291, 421, 391, 521, 191, 771, 520, 77, 29, 39, 420, 19, 712]));
 
 
 --
@@ -6459,6 +6464,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20211117200456'),
 ('20211119085218'),
 ('20211119110211'),
-('20211207000110');
+('20211207000110'),
+('20211216125250');
 
 
