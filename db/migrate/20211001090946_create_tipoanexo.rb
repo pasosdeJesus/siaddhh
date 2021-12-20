@@ -1,4 +1,4 @@
-include Sip::MigracionHelper
+include Sip::SqlHelper
 class CreateTipoanexo < ActiveRecord::Migration[6.1]
   def up
     create_table :sip_tipoanexo do |t|
