@@ -6,6 +6,12 @@ module Sivel2Gen
     load_and_authorize_resource class: Sivel2Gen::Caso
     include Sivel2Gen::Concerns::Controllers::ConteosController
 
+    def personas_post_consulta_final
+      @colorg = pColormax = Sip::SqlHelper.
+        escapar_param(params, [:filtro, 'colormax'], '#00ff00')
+    end
+
+
     def personas_arma_filtros
       f = personas_arma_filtros_sivel2_gen
       f.delete(

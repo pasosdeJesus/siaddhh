@@ -409,7 +409,7 @@ CREATE VIEW public.cben1 AS
     subv.id_victima,
     subv.id_persona,
     1 AS npersona,
-    'total'::text AS total
+    persona.sexo
    FROM public.sivel2_gen_caso caso,
     public.sivel2_gen_victima victima,
     ( SELECT sivel2_gen_victima.id_persona,
@@ -559,7 +559,7 @@ CREATE VIEW public.cben2 AS
     cben1.id_victima,
     cben1.id_persona,
     cben1.npersona,
-    cben1.total,
+    cben1.sexo,
     ubicacion.id_departamento,
     departamento.id_deplocal AS departamento_divipola,
     departamento.nombre AS departamento_nombre,
@@ -575,7 +575,7 @@ CREATE VIEW public.cben2 AS
      LEFT JOIN public.sip_departamento departamento ON ((ubicacion.id_departamento = departamento.id)))
      LEFT JOIN public.sip_municipio municipio ON ((ubicacion.id_municipio = municipio.id)))
      LEFT JOIN public.sip_clase clase ON ((ubicacion.id_clase = clase.id)))
-  GROUP BY cben1.id_caso, cben1.id_victima, cben1.id_persona, cben1.npersona, cben1.total, ubicacion.id_departamento, departamento.id_deplocal, departamento.nombre, ubicacion.id_municipio, municipio.id_munlocal, municipio.nombre, ubicacion.id_clase, clase.id_clalocal, clase.nombre;
+  GROUP BY cben1.id_caso, cben1.id_victima, cben1.id_persona, cben1.npersona, cben1.sexo, ubicacion.id_departamento, departamento.id_deplocal, departamento.nombre, ubicacion.id_municipio, municipio.id_munlocal, municipio.nombre, ubicacion.id_clase, clase.id_clalocal, clase.nombre;
 
 
 --
@@ -654,18 +654,18 @@ CREATE VIEW public.cvt1 AS
     acto.id_categoria,
     supracategoria.id_tviolencia,
     categoria.nombre AS categoria,
-    ubicacion.id_departamento,
-    departamento.id_deplocal AS departamento_divipola,
-    initcap((departamento.nombre)::text) AS departamento_nombre
+    ((supracategoria.id_tviolencia)::text || (categoria.id)::text) AS nomcategoria,
+    departamento.nombre AS departamento_nombre,
+    departamento.id_deplocal AS departamento_divipola
    FROM (((((((public.sivel2_gen_acto acto
      JOIN public.sivel2_gen_caso caso ON ((acto.id_caso = caso.id)))
      JOIN public.sivel2_gen_categoria categoria ON ((acto.id_categoria = categoria.id)))
      JOIN public.sivel2_gen_supracategoria supracategoria ON ((categoria.supracategoria_id = supracategoria.id)))
      JOIN public.sivel2_gen_victima victima ON (((victima.id_persona = acto.id_persona) AND (victima.id_caso = caso.id))))
      JOIN public.sip_persona persona ON ((persona.id = acto.id_persona)))
-     LEFT JOIN public.sip_ubicacion ubicacion ON ((caso.ubicacion_id = ubicacion.id)))
-     LEFT JOIN public.sip_departamento departamento ON ((ubicacion.id_departamento = departamento.id)))
-  WHERE (categoria.id = ANY (ARRAY[197, 297, 527, 777, 427, 397, 776, 426, 396, 196, 296, 526, 15, 35, 25, 73, 45, 55, 65, 92, 50, 40, 67, 801, 90, 46, 26, 16, 37, 57, 80, 85, 66, 64, 703, 706, 28, 49, 38, 59, 18, 501, 401, 904, 231, 17, 331, 402, 502, 705, 62, 906, 104, 713, 101, 21, 11, 302, 76, 903, 34, 27, 102, 902, 14, 24, 301, 20, 10, 30, 772, 192, 422, 292, 522, 392, 63, 93, 525, 195, 425, 775, 295, 395, 714, 78, 424, 774, 294, 194, 524, 394, 89, 905, 86, 701, 68, 241, 715, 141, 341, 704, 702, 43, 23, 53, 33, 13, 88, 98, 84, 709, 711, 707, 708, 710, 87, 97, 717, 917, 716, 916, 91, 95, 718, 423, 193, 773, 293, 523, 393, 48, 58, 75, 69, 41, 74, 22, 72, 47, 36, 56, 12, 291, 421, 391, 521, 191, 771, 520, 77, 29, 39, 420, 19, 712]));
+     JOIN public.sip_ubicacion ubicacion ON ((ubicacion.id = caso.ubicacion_id)))
+     LEFT JOIN public.sip_departamento departamento ON ((departamento.id = ubicacion.id_departamento)))
+  WHERE ((caso.fecha >= '2018-08-31'::date) AND (caso.fecha <= '2021-11-11'::date) AND (categoria.id = ANY (ARRAY[197, 297, 527, 777, 427, 397, 776, 426, 396, 196, 296, 526, 15, 35, 25, 73, 45, 55, 65, 92, 50, 40, 67, 801, 90, 46, 26, 16, 37, 57, 80, 85, 66, 64, 703, 706, 28, 49, 38, 59, 18, 501, 401, 904, 231, 17, 331, 402, 502, 705, 62, 906, 104, 713, 101, 21, 11, 302, 76, 903, 34, 27, 102, 902, 14, 24, 301, 20, 10, 30, 772, 192, 422, 292, 522, 392, 63, 93, 525, 195, 425, 775, 295, 395, 714, 78, 424, 774, 294, 194, 524, 394, 89, 905, 86, 701, 68, 241, 715, 141, 341, 704, 702, 43, 23, 53, 33, 13, 88, 98, 84, 709, 711, 707, 708, 710, 87, 97, 717, 917, 716, 916, 91, 95, 718, 423, 193, 773, 293, 523, 393, 48, 58, 75, 69, 41, 74, 22, 72, 47, 36, 56, 12, 291, 421, 391, 521, 191, 771, 520, 77, 29, 39, 420, 19, 712])) AND (departamento.id = ANY (ARRAY[3, 4, 7, 11, 13, 15, 17, 20, 24, 27, 29, 32, 33, 34, 35, 37, 38, 39, 41, 42, 43, 45, 46, 47, 48, 50, 51, 52, 53, 55, 56, 57, 58, 59, 100009])) AND (persona.sexo = ANY (ARRAY['F'::bpchar, 'M'::bpchar, 'S'::bpchar])));
 
 
 --
