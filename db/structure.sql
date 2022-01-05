@@ -24,13 +24,6 @@ CREATE EXTENSION IF NOT EXISTS unaccent WITH SCHEMA public;
 
 
 --
--- Name: EXTENSION unaccent; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION unaccent IS 'text search dictionary that removes accents';
-
-
---
 -- Name: completa_obs(character varying, character varying); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -409,7 +402,7 @@ CREATE VIEW public.cben1 AS
     subv.id_victima,
     subv.id_persona,
     1 AS npersona,
-    persona.sexo
+    'total'::text AS total
    FROM public.sivel2_gen_caso caso,
     public.sivel2_gen_victima victima,
     ( SELECT sivel2_gen_victima.id_persona,
@@ -559,7 +552,7 @@ CREATE VIEW public.cben2 AS
     cben1.id_victima,
     cben1.id_persona,
     cben1.npersona,
-    cben1.sexo,
+    cben1.total,
     ubicacion.id_departamento,
     departamento.id_deplocal AS departamento_divipola,
     departamento.nombre AS departamento_nombre,
@@ -575,7 +568,7 @@ CREATE VIEW public.cben2 AS
      LEFT JOIN public.sip_departamento departamento ON ((ubicacion.id_departamento = departamento.id)))
      LEFT JOIN public.sip_municipio municipio ON ((ubicacion.id_municipio = municipio.id)))
      LEFT JOIN public.sip_clase clase ON ((ubicacion.id_clase = clase.id)))
-  GROUP BY cben1.id_caso, cben1.id_victima, cben1.id_persona, cben1.npersona, cben1.sexo, ubicacion.id_departamento, departamento.id_deplocal, departamento.nombre, ubicacion.id_municipio, municipio.id_munlocal, municipio.nombre, ubicacion.id_clase, clase.id_clalocal, clase.nombre;
+  GROUP BY cben1.id_caso, cben1.id_victima, cben1.id_persona, cben1.npersona, cben1.total, ubicacion.id_departamento, departamento.id_deplocal, departamento.nombre, ubicacion.id_municipio, municipio.id_munlocal, municipio.nombre, ubicacion.id_clase, clase.id_clalocal, clase.nombre;
 
 
 --
@@ -1518,13 +1511,6 @@ CREATE TABLE public.sip_grupoper (
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
-
-
---
--- Name: TABLE sip_grupoper; Type: COMMENT; Schema: public; Owner: -
---
-
-COMMENT ON TABLE public.sip_grupoper IS 'Creado por sip';
 
 
 --
