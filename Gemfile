@@ -5,6 +5,8 @@ ruby '>=3.0.1'
 
 gem 'apexcharts'
 
+gem 'babel-transpiler'
+
 gem 'bcrypt'
 
 gem 'bootsnap', '>=1.1.0', require: false
@@ -61,12 +63,13 @@ gem 'simple_form' # Formularios simples
 
 gem 'sprockets-rails'
 
-gem 'turbolinks' # Seguir enlaces más rápido. Ver: https://github.com/rails/turbolinks
+gem 'stimulus-rails'
+
+gem 'turbo-rails'
 
 gem 'twitter_cldr' # ICU con CLDR
 
 gem 'tzinfo' # Zonas horarias
-
 
 gem 'will_paginate' # Listados en páginas
 

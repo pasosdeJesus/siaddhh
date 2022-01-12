@@ -10,8 +10,8 @@
 
     <%=  yield(:linkhref) if content_for?(:linkhref) %>
 
-    <%= stylesheet_link_tag "application", :media => "all", 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload',
+    <%= stylesheet_link_tag "application", :media => "all", 'data-turbo-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload',
       defer: false %>
     <!-- Seguimios usando sprockets mientras:
       1. Pasamos javascript en assets/javascript a modulos
