@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/kreeti/kt-paperclip.git
-  revision: 1328a1a69f88c9bab911c305455e67ca4daa0b5a
+  revision: a077561f75d6ef064dbd4f4806b519cb3df28c88
   specs:
     kt-paperclip (7.0.1)
       activemodel (>= 4.2.0)
