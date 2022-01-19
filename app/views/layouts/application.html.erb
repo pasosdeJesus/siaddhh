@@ -6,6 +6,10 @@
   <% end %>
 <% end %>
 
+<% content_for :enlace_marca do %>
+  <%= sivel2_gen.casos_mapaosm_path %>
+<% end %>
+
 <% content_for :menu do %>
   <%= grupo_menus do %>
     <% if !current_usuario.nil? %>

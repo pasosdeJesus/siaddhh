@@ -80,7 +80,7 @@ gem 'will_paginate' # Listados en páginas
 
 gem 'sip', # Motor generico
   git: 'https://github.com/pasosdeJesus/sip.git', branch: :rails7jses
-  #path: '../sip'
+  #path: '../sip-rails7'
 
 gem 'mr519_gen', # Motor de gestion de formularios y encuestas
   git: 'https://github.com/pasosdeJesus/mr519_gen.git', branch: :rails7jses
@@ -92,7 +92,7 @@ gem 'heb412_gen',  # Motor de nube y llenado de plantillas
 
 gem 'sivel2_gen', # Motor Cor1440_gen
   git: 'https://github.com/pasosdeJesus/sivel2_gen.git', branch: :rails7jses
-  #path: '../sivel2_gen'
+  #path: '../sivel2_gen-rails7'
 
 
 group :development do
@@ -112,6 +112,8 @@ end
 
 
 group :test do
+  gem 'cuprite'
+
   gem 'capybara'
 
   gem 'selenium-webdriver'
