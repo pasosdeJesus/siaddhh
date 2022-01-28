@@ -1,7 +1,9 @@
-<%= f.simple_fields_for :persona do |p| %>
-  <%= render partial: 'sip/personas/persona_campos', 
-    locals: {f: p, fvictima: f}  %>
-<% end %>
+<div class='campos-persona-con-victima-id'>
+  <%= f.simple_fields_for :persona do |p| %>
+    <%= render partial: 'sip/personas/persona_campos', 
+      locals: {f: p, fvictima: f}  %>
+  <% end %>
+</div>
 
 <div class="row">
   <div class="col-md-6">
