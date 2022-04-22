@@ -2,6 +2,7 @@ class DeplocalNoobliga < ActiveRecord::Migration[6.1]
   def up
     execute <<-SQL
       DROP VIEW IF EXISTS cben2;
+      DROP VIEW IF EXISTS cvt1;
     SQL
     change_column :sip_departamento, :id_deplocal, :integer, null: true
   end
@@ -9,6 +10,7 @@ class DeplocalNoobliga < ActiveRecord::Migration[6.1]
   def down
     execute <<-SQL
       DROP VIEW IF EXISTS cben2;
+      DROP VIEW IF EXISTS cvt1;
     SQL
     change_column :sip_departamento, :id_deplocal, :integer, null: false
   end

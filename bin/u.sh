@@ -59,6 +59,6 @@ $DOAS su - ${USUARIO_AP} -c "cd $DIRAP;
     fil23_gen_ip=\"${fil23_gen_ip}\" \
     fil23_gen_puerto=\"${fil23_gen_puerto}\" \
     fil23_gen_protocolo=\"${fil23_gen_protocolo}\" \
-    bundle exec /usr/local/bin/unicorn_rails \
+    bundle exec unicorn_rails \
       -c ${DIRAP}/config/unicorn.conf.minimal.rb  -E production -D"
 
