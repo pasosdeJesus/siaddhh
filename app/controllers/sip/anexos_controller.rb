@@ -24,11 +24,12 @@ module Sip
         if tipoanexo == 2
           authorize! :fotopublica, Sivel2Gen::Caso
           descarga_anexo_gen
-        else
-          authorize! :descarga_anexo, Sip::Anexo
-          descarga_anexo_gen
+          return
         end
       end
+      authorize! :descarga_anexo, Sip::Anexo
+      descarga_anexo_gen
     end
+
   end
 end
