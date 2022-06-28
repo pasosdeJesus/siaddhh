@@ -1557,6 +1557,36 @@ CREATE TABLE public.sip_grupoper (
 
 
 --
+-- Name: sip_mundep_sinorden; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public.sip_mundep_sinorden AS
+ SELECT ((sip_departamento.id_deplocal * 1000) + sip_municipio.id_munlocal) AS idlocal,
+    (((sip_municipio.nombre)::text || ' / '::text) || (sip_departamento.nombre)::text) AS nombre
+   FROM (public.sip_municipio
+     JOIN public.sip_departamento ON ((sip_municipio.id_departamento = sip_departamento.id)))
+  WHERE ((sip_departamento.id_pais = 170) AND (sip_municipio.fechadeshabilitacion IS NULL) AND (sip_departamento.fechadeshabilitacion IS NULL))
+UNION
+ SELECT sip_departamento.id_deplocal AS idlocal,
+    sip_departamento.nombre
+   FROM public.sip_departamento
+  WHERE ((sip_departamento.id_pais = 170) AND (sip_departamento.fechadeshabilitacion IS NULL));
+
+
+--
+-- Name: sip_mundep; Type: MATERIALIZED VIEW; Schema: public; Owner: -
+--
+
+CREATE MATERIALIZED VIEW public.sip_mundep AS
+ SELECT sip_mundep_sinorden.idlocal,
+    sip_mundep_sinorden.nombre,
+    to_tsvector('spanish'::regconfig, public.unaccent(sip_mundep_sinorden.nombre)) AS mundep
+   FROM public.sip_mundep_sinorden
+  ORDER BY (sip_mundep_sinorden.nombre COLLATE public.es_co_utf_8)
+  WITH NO DATA;
+
+
+--
 -- Name: sip_oficina_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -5022,6 +5052,13 @@ CREATE INDEX indice_sivel2_gen_caso_sobre_ubicacion_id ON public.sivel2_gen_caso
 --
 
 CREATE INDEX indice_sivel2_gen_categoria_sobre_supracategoria_id ON public.sivel2_gen_categoria USING btree (supracategoria_id);
+
+
+--
+-- Name: sip_busca_mundep; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sip_busca_mundep ON public.sip_mundep USING gin (mundep);
 
 
 --
