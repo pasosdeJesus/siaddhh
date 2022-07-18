@@ -29,7 +29,7 @@
     "postcss": "^8.2.10"
   },
   "devDependencies": {
-    "glob-parent": "^5.1.2",
+    "glob-parent": "^6.0.1",
     "normalize-url": "^4.5.1",
     "postcss": "^8.2.10"
   },
