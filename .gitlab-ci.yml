@@ -38,6 +38,7 @@ test:
     - apt-get update -yy && apt-get install build-essential libpq-dev postgresql-client -y
     - curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
     - bash ./nodesource_setup.sh
+    - curl -fsSL https://deb.nodesource.com/setup_16.x | bash - # https://www.linuxcapable.com/how-to-install-node-js-14-lts-16-npm-on-debian-11-bullseye/
     - apt install -y -qq nodejs
     - node -v
     - apt install -y -qq dirmngr --install-recommends
