@@ -1,10 +1,10 @@
 <div class='control-group nested-fields'>
   <div class="controls">
     <% if !f.object.grupoper %>
-      <% f.object.grupoper = Sip::Grupoper.new %>
+      <% f.object.grupoper = Msip::Grupoper.new %>
     <% end %>
     <% if !f.object.orgsocial %>
-      <% f.object.orgsocial = ::Sip::Orgsocial.new %>
+      <% f.object.orgsocial = ::Msip::Orgsocial.new %>
       <% f.object.orgsocial.grupoper = f.object.grupoper %>
     <% end %>
     <% @orgsocial = f.object.orgsocial %>

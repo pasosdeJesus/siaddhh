@@ -35,11 +35,11 @@ before_install:
         - bundle install
         - yarn install
         - cp config/database.travis.yml config/database.yml
-        - cp config/initializers/sip.rb.plantilla config/initializers/sip.rb
+        - cp config/initializers/msip.rb.plantilla config/initializers/msip.rb
         - cp db/structure.sql db/structure.sql.copia # travis no soporta PostreSQL 10
         - sed -e 's/provider = libc,//g;s/SET default_table_access_method.*/-- &/g' db/structure.sql.copia > db/structure.sql 
         - bundle exec rails db:setup
-        - bundle exec rails sip:indices
+        - bundle exec rails msip:indices
 
 script: 
         - bundle exec rails test -b

@@ -55,7 +55,7 @@ function obtener_info_victimas(victimas, prresp, caso){
 function siaddhh_DescargarCasosOsm(autenticado) {
   var root = window;
   if (typeof root.formato_fecha == 'undefined') {
-    sip_prepara_eventos_comunes(root)
+    msip_prepara_eventos_comunes(root)
   }
   url = armarRutaConsulta(root, 'casos.csv', false)
 

@@ -1,9 +1,9 @@
 
-require 'sip/concerns/models/bitacora'
+require 'msip/concerns/models/bitacora'
 
-module Sip
+module Msip
   class Bitacora < ActiveRecord::Base
-    include Sip::Concerns::Models::Bitacora
+    include Msip::Concerns::Models::Bitacora
 
     scope :filtro_modelo, lambda { |t|
       where(modelo: t)
@@ -32,7 +32,7 @@ module Sip
     scope :filtro_fecha, lambda { |f|
       where('CAST(fecha AS DATE) 
               = ?', 
-            Sip::FormatoFechaHelper.
+            Msip::FormatoFechaHelper.
             fecha_local_estandar(f)
            )
     }

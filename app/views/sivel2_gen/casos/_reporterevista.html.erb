@@ -14,7 +14,7 @@
   <% pac = caso.anexo_caso.where(tipoanexo_id: 2) %>
   <% if pac.count > 0 %>
     <div class="text-center">
-      <img class="m-3 img-fluid" src="<%= sip.descarga_anexo_path(pac.first.id_anexo) %>" style="max-height: 45vh; width: 35vh">
+      <img class="m-3 img-fluid" src="<%= msip.descarga_anexo_path(pac.first.id_anexo) %>" style="max-height: 45vh; width: 35vh">
     </div>
   <% end %>
 <% end %>

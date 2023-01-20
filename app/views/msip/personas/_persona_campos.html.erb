@@ -26,7 +26,7 @@
   <div class="row">
     <div class="col-md-6">
       <%= f.input :tdocumento_id,
-        collection: Sip::Tdocumento.habilitados,
+        collection: Msip::Tdocumento.habilitados,
         label: "Tipo de Documento",
         label_method: :nombre,
         value_method: :id %>
@@ -98,14 +98,14 @@
   <div class="row">
     <div class="col-md-6">
       <%= f.association :pais,
-        collection: Sip::Pais.habilitados,
+        collection: Msip::Pais.habilitados,
         label: "País de Nacimiento",
         label_method: :nombre,
         value_method: :id %>
     </div>
     <div class="col-md-6">
       <%= f.association :departamento,
-        collection: (Sip::Departamento.habilitados.where(
+        collection: (Msip::Departamento.habilitados.where(
           id_pais: f.object.id_pais)),
           label: "Estado/Departamento de Nacimiento",
           label_method: :nombre,
@@ -116,7 +116,7 @@
   <div class="row">
     <div class="col-md-6">
       <%= f.association :municipio,
-        collection: ( Sip::Municipio.habilitados.where(
+        collection: ( Msip::Municipio.habilitados.where(
           id_departamento: f.object.id_departamento)),
           label: "Municipio de Nacimiento",
           label_method: :nombre,
@@ -124,7 +124,7 @@
     </div>
     <div class="col-md-6">
       <%= f.association :clase,
-        collection: (Sip::Clase.habilitados.where(
+        collection: (Msip::Clase.habilitados.where(
           id_municipio: f.object.id_municipio)),
           label: "Centro Poblado de Nacimiento",
           label_method: :nombre,
@@ -133,7 +133,7 @@
   </div> 
 
 <% if !f.object.orgsocial_persona %>
-  <% f.object.orgsocial_persona = Sip::OrgsocialPersona.new %>
+  <% f.object.orgsocial_persona = Msip::OrgsocialPersona.new %>
 <% end %>
 <%= f.fields_for :orgsocial_persona do |ap| %>
   <%= ap.input :id, as: :hidden %>
@@ -141,14 +141,14 @@
   <div class="row">
     <div class="col-md-6">
       <%= ap.association :orgsocial,
-        collection: Sip::Orgsocial.where("id IN (SELECT orgsocial_id FROM
+        collection: Msip::Orgsocial.where("id IN (SELECT orgsocial_id FROM
       public.sivel2_gen_victimacolectiva WHERE id_caso=?)", @caso.id),
       label_method: lambda {|t| t.grupoper.nombre},
       value_method: :id %>
     </div>
     <div class="col-md-6">
       <%= ap.association :perfilorgsocial,
-        collection: Sip::Perfilorgsocial.all,
+        collection: Msip::Perfilorgsocial.all,
         label_method: :nombre,
         value_method: :id %>
     </div>

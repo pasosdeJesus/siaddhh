@@ -7,7 +7,7 @@ module Sivel2Gen
     include Sivel2Gen::Concerns::Controllers::ConteosController
 
     def personas_post_consulta_final
-      @colorg = pColormax = Sip::SqlHelper.
+      @colorg = pColormax = Msip::SqlHelper.
         escapar_param(params, [:filtro, 'colormax'], '#00ff00')
     end
 

@@ -1,6 +1,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-#//= require sip/motor
+#//= require msip/motor
 #//= require mr519_gen/motor
 #//= require heb412_gen/motor
 #//= require sivel2_gen/motor
@@ -11,7 +11,7 @@
   ]
 
 @siaddhh_actualiza_victimacolectiva = (e, victimacolectiva) ->
-  sip_actualiza_cuadros_seleccion_dependientes('victimacolectiva', 
+  msip_actualiza_cuadros_seleccion_dependientes('victimacolectiva', 
     '_orgsocial_attributes_id', '_grupoper_attributes_nombre', 
     DEP_VICTIMACOLECTIVA, true)
 
@@ -40,7 +40,7 @@
     $('#tabla_victima_orgsocial_' + k + ' tbody').html(v)
 
 @siaddhh_prepara_eventos_unicos = (root, opciones = {}) ->
-  sip_arregla_puntomontaje(root)
+  msip_arregla_puntomontaje(root)
   sivel2_gen_prepara_eventos_unicos(root)
 
   # Propagar cambios a victimacolectiva
@@ -57,14 +57,14 @@
     siaddhh_actualiza_victimacolectiva)
   
   $(document).on('cocoon:before-remove', '#victimascolectivas', (e, vc) ->
-    return sip_intenta_eliminar_fila(vc, '/victimascolectivas/', 
+    return msip_intenta_eliminar_fila(vc, '/victimascolectivas/', 
       DEP_VICTIMACOLECTIVA)
   )
 
   $(document).on('cocoon:after-insert', '#victimas', 
     siaddhh_actualiza_victimacolectiva)
 
-  $(document).on('sip:autocompleto_grupoper', 
+  $(document).on('msip:autocompleto_grupoper', 
     siaddhh_actualiza_victimacolectiva)
 
 
@@ -96,7 +96,7 @@
   $(document).on('cocoon:after-insert', '#victimascolectivas', 
     siaddhh_actualiza_victima)
 
-  $(document).on('sip:autocompleto_persona', 
+  $(document).on('msip:autocompleto_persona', 
     siaddhh_actualiza_victima)
 
 

@@ -6,7 +6,7 @@ json.caso do
   json.fecha @caso.fecha if @caso.fecha
   json.hora @caso.hora if @caso.hora
   if @caso.ubicacion_id
-    ub = Sip::Ubicacion.find(@caso.ubicacion_id)
+    ub = Msip::Ubicacion.find(@caso.ubicacion_id)
     json.departamento ub.departamento.nombre if ub.departamento
     json.municipio ub.municipio.nombre if ub.municipio
     json.centro_poblado ub.clase.nombre if ub.clase
@@ -28,7 +28,7 @@ json.caso do
     anexos_fotos = @caso.anexo_caso.where(tipoanexo_id: 2).pluck(:id_anexo)
     json.fotos_victimas do 
       anexos_fotos.each do |anexo|
-        json.set! anexo.to_s, sip.descarga_anexo_path(anexo.to_s) 
+        json.set! anexo.to_s, msip.descarga_anexo_path(anexo.to_s) 
       end
     end
   end

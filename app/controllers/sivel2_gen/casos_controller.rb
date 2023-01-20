@@ -64,7 +64,7 @@ module Sivel2Gen
           exit 1
         end
         if v.grupoper && !v.orgsocial
-          v.orgsocial = Sip::Orgsocial.new
+          v.orgsocial = Msip::Orgsocial.new
         end
         if v.grupoper.id != v.orgsocial.grupoper_id
           v.orgsocial.grupoper_id=v.grupoper.id

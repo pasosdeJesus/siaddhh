@@ -33,7 +33,7 @@ module Sivel2
     config.action_dispatch.default_headers = {
       'X-Frame-Options' => 'ALLOW'
     }
-    # sip
+    # msip
     config.x.formato_fecha = ENV.fetch('SIP_FORMATO_FECHA', 'yyyy-mm-dd')
 
     # heb412

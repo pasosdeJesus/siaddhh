@@ -19,7 +19,7 @@ module Fil23Gen
 
       ult_numproc = -1
       pact = [] # Proceso ruby donde se corrió R y que sigue activo
-      lproc = Sip::ProcesosHelper.procesos_OpenBSD
+      lproc = Msip::ProcesosHelper.procesos_OpenBSD
       # En modo desarrollo, usando puma la estructura de procesos cuando no se ha ejecutado shiny es:
       # - bin/corre.sh
       #   |- ruby: puma 4.3.5 (ssl://...) [siaddhh] (ruby27)
@@ -185,12 +185,12 @@ module Fil23Gen
         "JOIN sivel2_gen_caso AS caso ON caso.id = acto.id_caso " \
         "JOIN sivel2_gen_categoria AS categoria ON categoria.id=acto.id_categoria " \
         "JOIN sivel2_gen_supracategoria AS supracategoria ON supracategoria.id = categoria.supracategoria_id " \
-        "JOIN sip_persona AS persona ON persona.id = acto.id_persona " \
+        "JOIN msip_persona AS persona ON persona.id = acto.id_persona " \
         "JOIN sivel2_gen_victima AS victima ON " \
         "  victima.id_caso=acto.id_caso AND " \
         "  victima.id_persona=acto.id_persona " \
-        "LEFT JOIN sip_ubicacion AS ubicacion ON ubicacion.id=caso.ubicacion_id " \
-        "LEFT JOIN sip_departamento AS departamento ON ubicacion.id_departamento=departamento.id " \
+        "LEFT JOIN msip_ubicacion AS ubicacion ON ubicacion.id=caso.ubicacion_id " \
+        "LEFT JOIN msip_departamento AS departamento ON ubicacion.id_departamento=departamento.id " \
         ") TO '#{rutatmp}' DELIMITER ',' CSV HEADER;" 
       res = ActiveRecord::Base.connection.execute(sql)
       if File.exist?(@rutacsv)

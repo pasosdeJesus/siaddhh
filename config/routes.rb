@@ -44,7 +44,7 @@ Rails.application.routes.draw do
 
   end
 
-  mount Sip::Engine => rutarel, as: 'sip'
+  mount Msip::Engine => rutarel, as: 'msip'
   mount Mr519Gen::Engine => rutarel, as: 'mr519_gen'
   mount Heb412Gen::Engine => rutarel, as: 'heb412_gen'
   mount Sivel2Gen::Engine => rutarel, as: 'sivel2_gen'

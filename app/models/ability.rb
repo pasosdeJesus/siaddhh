@@ -9,15 +9,15 @@ class Ability  < Sivel2Gen::Ability
   end
 
   BASICAS_PROPIAS = [
-    ['Sip', 'tipoanexo'],
+    ['Msip', 'tipoanexo'],
     ['', 'tipoamenaza']
   ]
 
   def tablasbasicas 
-    Sip::Ability::BASICAS_PROPIAS + 
+    Msip::Ability::BASICAS_PROPIAS + 
       Sivel2Gen::Ability::BASICAS_PROPIAS - [
-        ['Sip', 'oficina'],
-        ['Sip', 'sectororgsocial'],
+        ['Msip', 'oficina'],
+        ['Msip', 'sectororgsocial'],
         ['Sivel2Gen', 'actividadoficio'],
         ['Sivel2Gen', 'escolaridad'],
         ['Sivel2Gen', 'estadocivil'],

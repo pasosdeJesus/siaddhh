@@ -1,16 +1,16 @@
 require 'date'
 require 'sivel2_gen/concerns/controllers/gruposper_controller' 
 
-module Sip
+module Msip
   class GruposperController < ApplicationController
 
-    load_and_authorize_resource class: Sip::Grupoper
+    load_and_authorize_resource class: Msip::Grupoper
     include Sivel2Gen::Concerns::Controllers::GruposperController
    
     # Busca y lista grupo(s) de persona
     def remplazar_antes_salvar_vc
       @orgsocialant = @victimacolectiva.orgsocial
-      @orgsocial = Sip::Orgsocial.
+      @orgsocial = Msip::Orgsocial.
         where(grupoper_id: @grupoper.id).order(:id).first
       @victimacolectiva.orgsocial = @orgsocial
     end

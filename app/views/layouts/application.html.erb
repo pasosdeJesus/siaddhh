@@ -1,6 +1,6 @@
 <% content_for :titulo do %>
   <% if defined?(current_usuario) && current_usuario %>
-    <%= Sip.titulo %>
+    <%= Msip.titulo %>
   <% else %>
     SIADDHH
   <% end %>
@@ -80,7 +80,7 @@
       <%= despliega_abajo 'Administrar' do %>
         <%= opcion_menu 'Clave y tema', main_app.editar_registro_usuario_path,
           desplegable: true %>
-        <%= opcion_menu 'Colectivos', sip.orgsociales_path,
+        <%= opcion_menu 'Colectivos', msip.orgsociales_path,
           desplegable: true %>
         <% if session[:capturacaso_acordeon] %>
            <%= opcion_menu 'Ficha caso vertical ✓', '/fichacasovertical',
@@ -100,8 +100,8 @@
           <%= opcion_menu 'Tablas Básicas', sivel2_gen.tablasbasicas_path,
             desplegable: true %>
         <% end %>
-        <% if can? :manage, Sip::Respaldo7z %>
-          <%= opcion_menu 'Respaldo cifrado', sip.respaldo7z_path,
+        <% if can? :manage, Msip::Respaldo7z %>
+          <%= opcion_menu 'Respaldo cifrado', msip.respaldo7z_path,
             desplegable: true %>
         <% end %>
         <% if can? :manage, Mr519Gen::Formulario %>
@@ -109,11 +109,11 @@
             mr519_gen.formularios_path,
             desplegable: true %>
         <% end %>
-        <% if can? :manage, Sip::Bitacora %>
-          <%= opcion_menu "Bitácoras", sip.bitacoras_path, desplegable: true %>
+        <% if can? :manage, Msip::Bitacora %>
+          <%= opcion_menu "Bitácoras", msip.bitacoras_path, desplegable: true %>
         <% end %>
         <%= opcion_menu 'Ayuda Control de Acceso', 
-          sip.ayuda_controldeacceso_path,
+          msip.ayuda_controldeacceso_path,
           desplegable: true %>
       <% end %>
       <%= opcion_menu "Salir #{current_usuario.nusuario}", 
@@ -137,4 +137,4 @@
   </span></p>
 <% end %>
 
-<%= render template: 'layouts/sip/application' %>
+<%= render template: 'layouts/msip/application' %>

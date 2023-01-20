@@ -1,5 +1,5 @@
 module Admin
-  class TiposamenazaController < Sip::Admin::BasicasController
+  class TiposamenazaController < Msip::Admin::BasicasController
     before_action :set_tipoamenaza, 
       only: [:show, :edit, :update, :destroy]
     load_and_authorize_resource  class: ::Tipoamenaza

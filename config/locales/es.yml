@@ -2,23 +2,23 @@
 es:
   activerecord:
     attributes:
-      "sip/orgsocial":
+      "msip/orgsocial":
         Orgsocial: Colectivo
         Orgsociales: Colectivos
         fechafundacion: Fecha de fundación
-      "sip/perfilorgsocial":
+      "msip/perfilorgsocial":
         Perfilorgsocial: Perfil en colectivo
         Perfilesorgsocial: Perfiles en colectivo
-      "sip/orgsocial_persona":
+      "msip/orgsocial_persona":
         orgsocial: Colectivo al que pertenece
         perfilorgsocial: Perfil en el colectivo
-      "sip/fuenteprensa":
+      "msip/fuenteprensa":
         Fuenteprensa: Fuente frecuente
         Fuentesprensa: Fuentes frecuentes
-      "sip/sectororgsocial":
+      "msip/sectororgsocial":
         Sectororgsocial: Sector del colectivo
         Sectoresorgsocial: Sectores de colectivos
-      "sip/tipoanexo":
+      "msip/tipoanexo":
         Tipoanexo: Tipo de anexo
         Tiposanexo: Tipos de anexo
       "sivel2_gen/organizacion":

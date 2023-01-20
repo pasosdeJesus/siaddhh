@@ -1,10 +1,10 @@
-require 'sip/concerns/controllers/usuarios_controller'
+require 'msip/concerns/controllers/usuarios_controller'
 
 class UsuariosController < Heb412Gen::ModelosController
 
   # No se autoriza por ser requerido para autenticación
  
-  include Sip::Concerns::Controllers::UsuariosController
+  include Msip::Concerns::Controllers::UsuariosController
 
   def vistas_manejadas
     ['Usuario']

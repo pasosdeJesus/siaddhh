@@ -9,7 +9,7 @@ module Sivel2Gen
     # params[:caso_id].  Pone valores simples en los campos requeridos
     def nuevo
       if params[:caso_id]
-        @persona = Sip::Persona.new
+        @persona = Msip::Persona.new
         @victima = Victima.new
         @persona.nombres = 'N'
         @persona.apellidos = 'N'
@@ -22,7 +22,7 @@ module Sivel2Gen
         end
         @victima.id_caso = params[:caso_id]
         @victima.id_persona = @persona.id
-        @orgsocial_persona = Sip::OrgsocialPersona.new
+        @orgsocial_persona = Msip::OrgsocialPersona.new
         @orgsocial_persona.persona_id = @persona.id
         @orgsocial_persona.orgsocial_id = nil
         @orgsocial_persona.perfilorgsocial_id = nil
