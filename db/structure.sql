@@ -262,18 +262,6 @@ CREATE FUNCTION public.soundexespm(entrada text) RETURNS text
 
 
 --
--- Name: acto_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.acto_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
 -- Name: anexo_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -299,30 +287,6 @@ CREATE TABLE public.ar_internal_metadata (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
-
-
---
--- Name: caso_etiqueta_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.caso_etiqueta_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: caso_presponsable_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.caso_presponsable_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
 
 
 --
@@ -400,10 +364,10 @@ CREATE TABLE public.sivel2_gen_caso (
 
 
 --
--- Name: victima_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: sivel2_gen_victima_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE public.victima_seq
+CREATE SEQUENCE public.sivel2_gen_victima_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -432,7 +396,7 @@ CREATE TABLE public.sivel2_gen_victima (
     orientacionsexual character(1) DEFAULT 'S'::bpchar NOT NULL,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    id integer DEFAULT nextval('public.victima_seq'::regclass) NOT NULL,
+    id integer DEFAULT nextval('public.sivel2_gen_victima_id_seq'::regclass) NOT NULL,
     otraorganizacion character varying(500),
     tipoamenaza_id integer,
     CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100)))),
@@ -491,6 +455,11 @@ CREATE TABLE public.msip_clase (
     observaciones character varying(5000) COLLATE public.es_co_utf_8,
     ultvigenciaini date,
     ultvigenciafin date,
+    svgruta character varying,
+    svgcdx integer,
+    svgcdy integer,
+    svgcdancho integer,
+    svgcdalto integer,
     CONSTRAINT clase_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -528,6 +497,11 @@ CREATE TABLE public.msip_departamento (
     codreg integer,
     ultvigenciaini date,
     ultvigenciafin date,
+    svgruta character varying,
+    svgcdx integer,
+    svgcdy integer,
+    svgcdancho integer,
+    svgcdalto integer,
     CONSTRAINT departamento_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -564,6 +538,11 @@ CREATE TABLE public.msip_municipio (
     ultvigenciaini date,
     ultvigenciafin date,
     tipomun character varying(32),
+    svgruta character varying,
+    svgcdx integer,
+    svgcdy integer,
+    svgcdancho integer,
+    svgcdalto integer,
     CONSTRAINT municipio_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -630,6 +609,18 @@ CREATE VIEW public.cben2 AS
 
 
 --
+-- Name: sivel2_gen_acto_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sivel2_gen_acto_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
 -- Name: sivel2_gen_acto; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -640,7 +631,7 @@ CREATE TABLE public.sivel2_gen_acto (
     id_caso integer NOT NULL,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    id integer DEFAULT nextval('public.acto_seq'::regclass) NOT NULL
+    id integer DEFAULT nextval('public.sivel2_gen_acto_id_seq'::regclass) NOT NULL
 );
 
 
@@ -747,18 +738,6 @@ CREATE SEQUENCE public.fil23_gen_bifurcacion_id_seq
 --
 
 ALTER SEQUENCE public.fil23_gen_bifurcacion_id_seq OWNED BY public.fil23_gen_bifurcacion.id;
-
-
---
--- Name: fotra_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.fotra_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
 
 
 --
@@ -1132,12 +1111,10 @@ ALTER SEQUENCE public.mr519_gen_campo_id_seq OWNED BY public.mr519_gen_campo.id;
 CREATE TABLE public.mr519_gen_encuestapersona (
     id bigint NOT NULL,
     persona_id integer,
-    formulario_id integer,
     fecha date,
-    fechainicio date NOT NULL,
-    fechafin date,
     adurl character varying(32),
-    respuestafor_id integer
+    respuestafor_id integer,
+    planencuesta_id integer
 );
 
 
@@ -1350,15 +1327,6 @@ CREATE SEQUENCE public.mr519_gen_valorcampo_id_seq
 --
 
 ALTER SEQUENCE public.mr519_gen_valorcampo_id_seq OWNED BY public.mr519_gen_valorcampo.id;
-
-
---
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.schema_migrations (
-    version character varying(255) NOT NULL
-);
 
 
 --
@@ -1624,10 +1592,10 @@ CREATE TABLE public.msip_grupo (
 
 
 --
--- Name: grupo_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: msip_grupo_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE public.grupo_id_seq
+CREATE SEQUENCE public.msip_grupo_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1636,10 +1604,10 @@ CREATE SEQUENCE public.grupo_id_seq
 
 
 --
--- Name: grupo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: msip_grupo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE public.grupo_id_seq OWNED BY public.msip_grupo.id;
+ALTER SEQUENCE public.msip_grupo_id_seq OWNED BY public.msip_grupo.id;
 
 
 --
@@ -1848,7 +1816,12 @@ CREATE TABLE public.msip_pais (
     nombreiso_ingles character varying(512),
     nombreiso_frances character varying(512),
     ultvigenciaini date,
-    ultvigenciafin date
+    ultvigenciafin date,
+    svgruta character varying,
+    svgcdx integer,
+    svgcdy integer,
+    svgcdancho integer,
+    svgcdalto integer
 );
 
 
@@ -2154,40 +2127,6 @@ ALTER SEQUENCE public.msip_tema_id_seq OWNED BY public.msip_tema.id;
 
 
 --
--- Name: msip_tipoanexo; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.msip_tipoanexo (
-    id bigint NOT NULL,
-    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
-    observaciones character varying(5000),
-    fechacreacion date NOT NULL,
-    fechadeshabilitacion date,
-    created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
-);
-
-
---
--- Name: msip_tipoanexo_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.msip_tipoanexo_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: msip_tipoanexo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.msip_tipoanexo_id_seq OWNED BY public.msip_tipoanexo.id;
-
-
---
 -- Name: msip_tipoorg; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2380,6 +2319,49 @@ ALTER SEQUENCE public.msip_vereda_id_seq OWNED BY public.msip_vereda.id;
 
 
 --
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.schema_migrations (
+    version character varying(255) NOT NULL
+);
+
+
+--
+-- Name: sip_tipoanexo; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sip_tipoanexo (
+    id bigint NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
+    observaciones character varying(5000),
+    fechacreacion date NOT NULL,
+    fechadeshabilitacion date,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: sip_tipoanexo_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sip_tipoanexo_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sip_tipoanexo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.sip_tipoanexo_id_seq OWNED BY public.sip_tipoanexo.id;
+
+
+--
 -- Name: sivel2_gen_actividadoficio_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -2556,6 +2538,18 @@ CREATE TABLE public.sivel2_gen_caso_contexto (
 
 
 --
+-- Name: sivel2_gen_caso_etiqueta_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sivel2_gen_caso_etiqueta_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
 -- Name: sivel2_gen_caso_etiqueta; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2567,15 +2561,15 @@ CREATE TABLE public.sivel2_gen_caso_etiqueta (
     observaciones character varying(5000),
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    id integer DEFAULT nextval('public.caso_etiqueta_seq'::regclass) NOT NULL
+    id integer DEFAULT nextval('public.sivel2_gen_caso_etiqueta_id_seq'::regclass) NOT NULL
 );
 
 
 --
--- Name: sivel2_gen_caso_fotra_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: sivel2_gen_caso_fotra_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE public.sivel2_gen_caso_fotra_seq
+CREATE SEQUENCE public.sivel2_gen_caso_fotra_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -2597,7 +2591,7 @@ CREATE TABLE public.sivel2_gen_caso_fotra (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
-    id integer DEFAULT nextval('public.sivel2_gen_caso_fotra_seq'::regclass) NOT NULL,
+    id integer DEFAULT nextval('public.sivel2_gen_caso_fotra_id_seq'::regclass) NOT NULL,
     anexo_caso_id integer
 );
 
@@ -2615,10 +2609,10 @@ CREATE TABLE public.sivel2_gen_caso_frontera (
 
 
 --
--- Name: sivel2_gen_caso_fuenteprensa_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: sivel2_gen_caso_fuenteprensa_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE public.sivel2_gen_caso_fuenteprensa_seq
+CREATE SEQUENCE public.sivel2_gen_caso_fuenteprensa_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -2639,9 +2633,21 @@ CREATE TABLE public.sivel2_gen_caso_fuenteprensa (
     id_caso integer NOT NULL,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    id integer DEFAULT nextval('public.sivel2_gen_caso_fuenteprensa_seq'::regclass) NOT NULL,
+    id integer DEFAULT nextval('public.sivel2_gen_caso_fuenteprensa_id_seq'::regclass) NOT NULL,
     anexo_caso_id integer
 );
+
+
+--
+-- Name: sivel2_gen_caso_presponsable_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sivel2_gen_caso_presponsable_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -2655,7 +2661,7 @@ CREATE TABLE public.sivel2_gen_caso_presponsable (
     bloque character varying(50),
     frente character varying(50),
     otro character varying(500),
-    id integer DEFAULT nextval('public.caso_presponsable_seq'::regclass) NOT NULL,
+    id integer DEFAULT nextval('public.sivel2_gen_caso_presponsable_id_seq'::regclass) NOT NULL,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     subdivision character varying
@@ -3064,11 +3070,23 @@ CREATE TABLE public.sivel2_gen_filiacion_victimacolectiva (
 --
 
 CREATE TABLE public.sivel2_gen_fotra (
-    id integer DEFAULT nextval('public.fotra_seq'::regclass) NOT NULL,
+    id integer DEFAULT nextval(('sivel2_gen_fotra_id_seq'::text)::regclass) NOT NULL,
     nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
+
+
+--
+-- Name: sivel2_gen_fotra_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sivel2_gen_fotra_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
 
 
 --
@@ -3828,7 +3846,7 @@ ALTER TABLE ONLY public.msip_estadosol ALTER COLUMN id SET DEFAULT nextval('publ
 -- Name: msip_grupo id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.msip_grupo ALTER COLUMN id SET DEFAULT nextval('public.grupo_id_seq'::regclass);
+ALTER TABLE ONLY public.msip_grupo ALTER COLUMN id SET DEFAULT nextval('public.msip_grupo_id_seq'::regclass);
 
 
 --
@@ -3902,13 +3920,6 @@ ALTER TABLE ONLY public.msip_tema ALTER COLUMN id SET DEFAULT nextval('public.ms
 
 
 --
--- Name: msip_tipoanexo id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_tipoanexo ALTER COLUMN id SET DEFAULT nextval('public.msip_tipoanexo_id_seq'::regclass);
-
-
---
 -- Name: msip_tipoorg id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -3934,6 +3945,13 @@ ALTER TABLE ONLY public.msip_ubicacionpre ALTER COLUMN id SET DEFAULT nextval('p
 --
 
 ALTER TABLE ONLY public.msip_vereda ALTER COLUMN id SET DEFAULT nextval('public.msip_vereda_id_seq'::regclass);
+
+
+--
+-- Name: sip_tipoanexo id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sip_tipoanexo ALTER COLUMN id SET DEFAULT nextval('public.sip_tipoanexo_id_seq'::regclass);
 
 
 --
@@ -4001,14 +4019,6 @@ ALTER TABLE ONLY public.sivel2_gen_acto
 
 ALTER TABLE ONLY public.sivel2_gen_acto
     ADD CONSTRAINT acto_pkey PRIMARY KEY (id);
-
-
---
--- Name: sivel2_gen_anexo_caso anexo_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sivel2_gen_anexo_caso
-    ADD CONSTRAINT anexo_pkey PRIMARY KEY (id);
 
 
 --
@@ -4097,14 +4107,6 @@ ALTER TABLE ONLY public.sivel2_gen_escolaridad
 
 ALTER TABLE ONLY public.sivel2_gen_estadocivil
     ADD CONSTRAINT estadocivil_pkey PRIMARY KEY (id);
-
-
---
--- Name: msip_etiqueta etiqueta_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_etiqueta
-    ADD CONSTRAINT etiqueta_pkey PRIMARY KEY (id);
 
 
 --
@@ -4308,86 +4310,6 @@ ALTER TABLE ONLY public.mr519_gen_valorcampo
 
 
 --
--- Name: sivel2_gen_organizacion organizacion_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sivel2_gen_organizacion
-    ADD CONSTRAINT organizacion_pkey PRIMARY KEY (id);
-
-
---
--- Name: msip_pais pais_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_pais
-    ADD CONSTRAINT pais_pkey PRIMARY KEY (id);
-
-
---
--- Name: sivel2_gen_pconsolidado pconsolidado_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sivel2_gen_pconsolidado
-    ADD CONSTRAINT pconsolidado_pkey PRIMARY KEY (id);
-
-
---
--- Name: msip_persona persona_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_persona
-    ADD CONSTRAINT persona_pkey PRIMARY KEY (id);
-
-
---
--- Name: sivel2_gen_presponsable presponsable_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sivel2_gen_presponsable
-    ADD CONSTRAINT presponsable_pkey PRIMARY KEY (id);
-
-
---
--- Name: sivel2_gen_profesion profesion_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sivel2_gen_profesion
-    ADD CONSTRAINT profesion_pkey PRIMARY KEY (id);
-
-
---
--- Name: sivel2_gen_rangoedad rangoedad_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sivel2_gen_rangoedad
-    ADD CONSTRAINT rangoedad_pkey PRIMARY KEY (id);
-
-
---
--- Name: sivel2_gen_region region_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sivel2_gen_region
-    ADD CONSTRAINT region_pkey PRIMARY KEY (id);
-
-
---
--- Name: msip_oficina regionsjr_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_oficina
-    ADD CONSTRAINT regionsjr_pkey PRIMARY KEY (id);
-
-
---
--- Name: sivel2_gen_sectorsocial sectorsocial_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sivel2_gen_sectorsocial
-    ADD CONSTRAINT sectorsocial_pkey PRIMARY KEY (id);
-
-
---
 -- Name: msip_anexo msip_anexo_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4476,6 +4398,14 @@ ALTER TABLE ONLY public.msip_estadosol
 
 
 --
+-- Name: msip_etiqueta msip_etiqueta_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_etiqueta
+    ADD CONSTRAINT msip_etiqueta_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: msip_fuenteprensa msip_fuenteprensa_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4532,6 +4462,14 @@ ALTER TABLE ONLY public.msip_municipio
 
 
 --
+-- Name: msip_oficina msip_oficina_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_oficina
+    ADD CONSTRAINT msip_oficina_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: msip_orgsocial_persona msip_orgsocial_persona_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4564,11 +4502,27 @@ ALTER TABLE ONLY public.msip_pais_histvigencia
 
 
 --
+-- Name: msip_pais msip_pais_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_pais
+    ADD CONSTRAINT msip_pais_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: msip_perfilorgsocial msip_perfilorgsocial_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.msip_perfilorgsocial
     ADD CONSTRAINT msip_perfilorgsocial_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: msip_persona msip_persona_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_persona
+    ADD CONSTRAINT msip_persona_pkey PRIMARY KEY (id);
 
 
 --
@@ -4612,19 +4566,27 @@ ALTER TABLE ONLY public.msip_solicitud
 
 
 --
+-- Name: msip_tclase msip_tclase_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_tclase
+    ADD CONSTRAINT msip_tclase_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: msip_tdocumento msip_tdocumento_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_tdocumento
+    ADD CONSTRAINT msip_tdocumento_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: msip_tema msip_tema_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.msip_tema
     ADD CONSTRAINT msip_tema_pkey PRIMARY KEY (id);
-
-
---
--- Name: msip_tipoanexo msip_tipoanexo_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_tipoanexo
-    ADD CONSTRAINT msip_tipoanexo_pkey PRIMARY KEY (id);
 
 
 --
@@ -4636,11 +4598,35 @@ ALTER TABLE ONLY public.msip_tipoorg
 
 
 --
+-- Name: msip_trelacion msip_trelacion_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_trelacion
+    ADD CONSTRAINT msip_trelacion_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: msip_trivalente msip_trivalente_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.msip_trivalente
     ADD CONSTRAINT msip_trivalente_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: msip_tsitio msip_tsitio_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_tsitio
+    ADD CONSTRAINT msip_tsitio_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: msip_ubicacion msip_ubicacion_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_ubicacion
+    ADD CONSTRAINT msip_ubicacion_pkey PRIMARY KEY (id);
 
 
 --
@@ -4657,6 +4643,70 @@ ALTER TABLE ONLY public.msip_ubicacionpre
 
 ALTER TABLE ONLY public.msip_vereda
     ADD CONSTRAINT msip_vereda_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_gen_organizacion organizacion_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_gen_organizacion
+    ADD CONSTRAINT organizacion_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_gen_pconsolidado pconsolidado_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_gen_pconsolidado
+    ADD CONSTRAINT pconsolidado_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_gen_presponsable presponsable_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_gen_presponsable
+    ADD CONSTRAINT presponsable_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_gen_profesion profesion_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_gen_profesion
+    ADD CONSTRAINT profesion_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_gen_rangoedad rangoedad_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_gen_rangoedad
+    ADD CONSTRAINT rangoedad_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_gen_region region_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_gen_region
+    ADD CONSTRAINT region_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_gen_sectorsocial sectorsocial_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_gen_sectorsocial
+    ADD CONSTRAINT sectorsocial_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sip_tipoanexo sip_tipoanexo_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sip_tipoanexo
+    ADD CONSTRAINT sip_tipoanexo_pkey PRIMARY KEY (id);
 
 
 --
@@ -4681,6 +4731,14 @@ ALTER TABLE ONLY public.sivel2_gen_actocolectivo
 
 ALTER TABLE ONLY public.sivel2_gen_actocolectivo
     ADD CONSTRAINT sivel2_gen_actocolectivo_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_gen_anexo_caso sivel2_gen_anexo_caso_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_gen_anexo_caso
+    ADD CONSTRAINT sivel2_gen_anexo_caso_pkey PRIMARY KEY (id);
 
 
 --
@@ -4948,22 +5006,6 @@ ALTER TABLE ONLY public.sivel2_gen_victimacolectiva_vinculoestado
 
 
 --
--- Name: msip_tclase tclase_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_tclase
-    ADD CONSTRAINT tclase_pkey PRIMARY KEY (id);
-
-
---
--- Name: msip_tdocumento tdocumento_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_tdocumento
-    ADD CONSTRAINT tdocumento_pkey PRIMARY KEY (id);
-
-
---
 -- Name: tipoamenaza tipoamenaza_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4972,35 +5014,11 @@ ALTER TABLE ONLY public.tipoamenaza
 
 
 --
--- Name: msip_trelacion trelacion_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_trelacion
-    ADD CONSTRAINT trelacion_pkey PRIMARY KEY (id);
-
-
---
--- Name: msip_tsitio tsitio_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_tsitio
-    ADD CONSTRAINT tsitio_pkey PRIMARY KEY (id);
-
-
---
 -- Name: sivel2_gen_tviolencia tviolencia_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.sivel2_gen_tviolencia
     ADD CONSTRAINT tviolencia_pkey PRIMARY KEY (id);
-
-
---
--- Name: msip_ubicacion ubicacion_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_ubicacion
-    ADD CONSTRAINT ubicacion_pkey PRIMARY KEY (id);
 
 
 --
@@ -5184,10 +5202,10 @@ CREATE UNIQUE INDEX index_usuario_on_reset_password_token ON public.usuario USIN
 
 
 --
--- Name: indice_msip_ubicacion_sobre_id_caso; Type: INDEX; Schema: public; Owner: -
+-- Name: indice_sip_ubicacion_sobre_id_caso; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX indice_msip_ubicacion_sobre_id_caso ON public.msip_ubicacion USING btree (id_caso);
+CREATE INDEX indice_sip_ubicacion_sobre_id_caso ON public.msip_ubicacion USING btree (id_caso);
 
 
 --
@@ -5856,7 +5874,7 @@ ALTER TABLE ONLY public.msip_municipio
 --
 
 ALTER TABLE ONLY public.sivel2_gen_anexo_caso
-    ADD CONSTRAINT fk_rails_0c680d15ac FOREIGN KEY (tipoanexo_id) REFERENCES public.msip_tipoanexo(id);
+    ADD CONSTRAINT fk_rails_0c680d15ac FOREIGN KEY (tipoanexo_id) REFERENCES public.sip_tipoanexo(id);
 
 
 --
@@ -5881,6 +5899,14 @@ ALTER TABLE ONLY public.msip_etiqueta_municipio
 
 ALTER TABLE ONLY public.sivel2_gen_caso_presponsable
     ADD CONSTRAINT fk_rails_118837ae4c FOREIGN KEY (id_presponsable) REFERENCES public.sivel2_gen_presponsable(id);
+
+
+--
+-- Name: mr519_gen_encuestapersona fk_rails_13f8d66312; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.mr519_gen_encuestapersona
+    ADD CONSTRAINT fk_rails_13f8d66312 FOREIGN KEY (planencuesta_id) REFERENCES public.mr519_gen_planencuesta(id);
 
 
 --
@@ -6113,14 +6139,6 @@ ALTER TABLE ONLY public.mr519_gen_encuestapersona
 
 ALTER TABLE ONLY public.sivel2_gen_caso
     ADD CONSTRAINT fk_rails_850036942a FOREIGN KEY (ubicacion_id) REFERENCES public.msip_ubicacion(id);
-
-
---
--- Name: mr519_gen_encuestapersona fk_rails_88eeb03074; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.mr519_gen_encuestapersona
-    ADD CONSTRAINT fk_rails_88eeb03074 FOREIGN KEY (formulario_id) REFERENCES public.mr519_gen_formulario(id);
 
 
 --
@@ -6364,6 +6382,70 @@ ALTER TABLE ONLY public.msip_solicitud
 
 
 --
+-- Name: msip_clase msip_clase_id_municipio_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_clase
+    ADD CONSTRAINT msip_clase_id_municipio_fkey FOREIGN KEY (id_municipio) REFERENCES public.msip_municipio(id);
+
+
+--
+-- Name: msip_municipio msip_municipio_id_departamento_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_municipio
+    ADD CONSTRAINT msip_municipio_id_departamento_fkey FOREIGN KEY (id_departamento) REFERENCES public.msip_departamento(id);
+
+
+--
+-- Name: msip_persona msip_persona_id_clase_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_persona
+    ADD CONSTRAINT msip_persona_id_clase_fkey FOREIGN KEY (id_clase) REFERENCES public.msip_clase(id);
+
+
+--
+-- Name: msip_persona msip_persona_id_departamento_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_persona
+    ADD CONSTRAINT msip_persona_id_departamento_fkey FOREIGN KEY (id_departamento) REFERENCES public.msip_departamento(id);
+
+
+--
+-- Name: msip_persona msip_persona_id_municipio_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_persona
+    ADD CONSTRAINT msip_persona_id_municipio_fkey FOREIGN KEY (id_municipio) REFERENCES public.msip_municipio(id);
+
+
+--
+-- Name: msip_ubicacion msip_ubicacion_id_clase_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_ubicacion
+    ADD CONSTRAINT msip_ubicacion_id_clase_fkey FOREIGN KEY (id_clase) REFERENCES public.msip_clase(id);
+
+
+--
+-- Name: msip_ubicacion msip_ubicacion_id_departamento_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_ubicacion
+    ADD CONSTRAINT msip_ubicacion_id_departamento_fkey FOREIGN KEY (id_departamento) REFERENCES public.msip_departamento(id);
+
+
+--
+-- Name: msip_ubicacion msip_ubicacion_id_municipio_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_ubicacion
+    ADD CONSTRAINT msip_ubicacion_id_municipio_fkey FOREIGN KEY (id_municipio) REFERENCES public.msip_municipio(id);
+
+
+--
 -- Name: sivel2_gen_organizacion_victimacolectiva organizacion_victimacolectiva_id_organizacion_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -6481,70 +6563,6 @@ ALTER TABLE ONLY public.sivel2_gen_sectorsocial_victimacolectiva
 
 ALTER TABLE ONLY public.sivel2_gen_sectorsocial_victimacolectiva
     ADD CONSTRAINT sectorsocial_victimacolectiva_victimacolectiva_id_fkey FOREIGN KEY (victimacolectiva_id) REFERENCES public.sivel2_gen_victimacolectiva(id);
-
-
---
--- Name: msip_clase msip_clase_id_municipio_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_clase
-    ADD CONSTRAINT msip_clase_id_municipio_fkey FOREIGN KEY (id_municipio) REFERENCES public.msip_municipio(id);
-
-
---
--- Name: msip_municipio msip_municipio_id_departamento_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_municipio
-    ADD CONSTRAINT msip_municipio_id_departamento_fkey FOREIGN KEY (id_departamento) REFERENCES public.msip_departamento(id);
-
-
---
--- Name: msip_persona msip_persona_id_clase_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_persona
-    ADD CONSTRAINT msip_persona_id_clase_fkey FOREIGN KEY (id_clase) REFERENCES public.msip_clase(id);
-
-
---
--- Name: msip_persona msip_persona_id_departamento_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_persona
-    ADD CONSTRAINT msip_persona_id_departamento_fkey FOREIGN KEY (id_departamento) REFERENCES public.msip_departamento(id);
-
-
---
--- Name: msip_persona msip_persona_id_municipio_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_persona
-    ADD CONSTRAINT msip_persona_id_municipio_fkey FOREIGN KEY (id_municipio) REFERENCES public.msip_municipio(id);
-
-
---
--- Name: msip_ubicacion msip_ubicacion_id_clase_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_ubicacion
-    ADD CONSTRAINT msip_ubicacion_id_clase_fkey FOREIGN KEY (id_clase) REFERENCES public.msip_clase(id);
-
-
---
--- Name: msip_ubicacion msip_ubicacion_id_departamento_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_ubicacion
-    ADD CONSTRAINT msip_ubicacion_id_departamento_fkey FOREIGN KEY (id_departamento) REFERENCES public.msip_departamento(id);
-
-
---
--- Name: msip_ubicacion msip_ubicacion_id_municipio_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_ubicacion
-    ADD CONSTRAINT msip_ubicacion_id_municipio_fkey FOREIGN KEY (id_municipio) REFERENCES public.msip_municipio(id);
 
 
 --
@@ -6970,6 +6988,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190726203302'),
 ('20190804223012'),
 ('20190818013251'),
+('20190830172824'),
 ('20190924013712'),
 ('20190924112646'),
 ('20190926104116'),
@@ -7085,8 +7104,24 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20220805181901'),
 ('20220822132754'),
 ('20221005165307'),
+('20221023090909'),
+('20221024000000'),
+('20221024221550'),
+('20221024221557'),
+('20221025025402'),
 ('20221102144613'),
 ('20221102145906'),
-('20221118032223');
+('20221118032223'),
+('20221201143440'),
+('20221201154025'),
+('20221208173349'),
+('20221209142327'),
+('20221210155527'),
+('20221211005549'),
+('20221211012152'),
+('20221211141207'),
+('20221211141208'),
+('20221211141209'),
+('20221212021533');
 
 
