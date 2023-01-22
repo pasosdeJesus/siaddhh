@@ -2127,6 +2127,40 @@ ALTER SEQUENCE public.msip_tema_id_seq OWNED BY public.msip_tema.id;
 
 
 --
+-- Name: msip_tipoanexo; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.msip_tipoanexo (
+    id bigint NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
+    observaciones character varying(5000),
+    fechacreacion date NOT NULL,
+    fechadeshabilitacion date,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: msip_tipoanexo_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.msip_tipoanexo_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: msip_tipoanexo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.msip_tipoanexo_id_seq OWNED BY public.msip_tipoanexo.id;
+
+
+--
 -- Name: msip_tipoorg; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2325,40 +2359,6 @@ ALTER SEQUENCE public.msip_vereda_id_seq OWNED BY public.msip_vereda.id;
 CREATE TABLE public.schema_migrations (
     version character varying(255) NOT NULL
 );
-
-
---
--- Name: sip_tipoanexo; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.sip_tipoanexo (
-    id bigint NOT NULL,
-    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
-    observaciones character varying(5000),
-    fechacreacion date NOT NULL,
-    fechadeshabilitacion date,
-    created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
-);
-
-
---
--- Name: sip_tipoanexo_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.sip_tipoanexo_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: sip_tipoanexo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.sip_tipoanexo_id_seq OWNED BY public.sip_tipoanexo.id;
 
 
 --
@@ -3920,6 +3920,13 @@ ALTER TABLE ONLY public.msip_tema ALTER COLUMN id SET DEFAULT nextval('public.ms
 
 
 --
+-- Name: msip_tipoanexo id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_tipoanexo ALTER COLUMN id SET DEFAULT nextval('public.msip_tipoanexo_id_seq'::regclass);
+
+
+--
 -- Name: msip_tipoorg id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -3945,13 +3952,6 @@ ALTER TABLE ONLY public.msip_ubicacionpre ALTER COLUMN id SET DEFAULT nextval('p
 --
 
 ALTER TABLE ONLY public.msip_vereda ALTER COLUMN id SET DEFAULT nextval('public.msip_vereda_id_seq'::regclass);
-
-
---
--- Name: sip_tipoanexo id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_tipoanexo ALTER COLUMN id SET DEFAULT nextval('public.sip_tipoanexo_id_seq'::regclass);
 
 
 --
@@ -4590,6 +4590,14 @@ ALTER TABLE ONLY public.msip_tema
 
 
 --
+-- Name: msip_tipoanexo msip_tipoanexo_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_tipoanexo
+    ADD CONSTRAINT msip_tipoanexo_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: msip_tipoorg msip_tipoorg_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4699,14 +4707,6 @@ ALTER TABLE ONLY public.sivel2_gen_region
 
 ALTER TABLE ONLY public.sivel2_gen_sectorsocial
     ADD CONSTRAINT sectorsocial_pkey PRIMARY KEY (id);
-
-
---
--- Name: sip_tipoanexo sip_tipoanexo_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_tipoanexo
-    ADD CONSTRAINT sip_tipoanexo_pkey PRIMARY KEY (id);
 
 
 --
@@ -5874,7 +5874,7 @@ ALTER TABLE ONLY public.msip_municipio
 --
 
 ALTER TABLE ONLY public.sivel2_gen_anexo_caso
-    ADD CONSTRAINT fk_rails_0c680d15ac FOREIGN KEY (tipoanexo_id) REFERENCES public.sip_tipoanexo(id);
+    ADD CONSTRAINT fk_rails_0c680d15ac FOREIGN KEY (tipoanexo_id) REFERENCES public.msip_tipoanexo(id);
 
 
 --
@@ -7122,6 +7122,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20221211141207'),
 ('20221211141208'),
 ('20221211141209'),
-('20221212021533');
+('20221212021533'),
+('20230122003239');
 
 
