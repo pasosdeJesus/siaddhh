@@ -10,26 +10,6 @@ GIT
       terrapin (~> 0.6.0)
 
 GIT
-  remote: https://github.com/pasosdeJesus/msip.git
-  revision: 720dc66d67d8015ccffa7dddece086619ed92954
-  branch: main
-  specs:
-    msip (2.2.0.alfa3)
-      cancancan (~> 3)
-      devise (~> 4)
-      devise-i18n (~> 1)
-      kt-paperclip (~> 7)
-      pg (~> 1)
-      rails (~> 7.0)
-      rails-i18n (~> 7)
-      sassc-rails (~> 2)
-      simple_form (~> 5)
-      sprockets-rails (~> 3)
-      stimulus-rails (~> 1)
-      twitter_cldr (~> 6)
-      will_paginate (~> 3)
-
-GIT
   remote: https://github.com/vtamara/cocoon.git
   revision: 9f1892403c3dbdb8f7d457a06f237ff58e7dfb07
   branch: new_id_with_ajax
@@ -55,6 +35,26 @@ GIT
     mr519_gen (2.2.0.beta1)
       msip
       rails
+
+GIT
+  remote: https://gitlab.com/pasosdeJesus/msip.git
+  revision: 720dc66d67d8015ccffa7dddece086619ed92954
+  branch: main
+  specs:
+    msip (2.2.0.alfa3)
+      cancancan (~> 3)
+      devise (~> 4)
+      devise-i18n (~> 1)
+      kt-paperclip (~> 7)
+      pg (~> 1)
+      rails (~> 7.0)
+      rails-i18n (~> 7)
+      sassc-rails (~> 2)
+      simple_form (~> 5)
+      sprockets-rails (~> 3)
+      stimulus-rails (~> 1)
+      twitter_cldr (~> 6)
+      will_paginate (~> 3)
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/sivel2_gen.git
