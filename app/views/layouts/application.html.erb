@@ -117,11 +117,11 @@
           desplegable: true %>
       <% end %>
       <%= opcion_menu "Salir #{current_usuario.nusuario}", 
-        main_app.sign_out_path %>
+        main_app.terminar_sesion_path %>
     <% else %>
       <%= opcion_menu 'Acerca de', sivel2_gen.acercade_path %>
       <% if ENV.fetch('SIADDHH_PUBLICO', '0') == '0' %>
-        <%= opcion_menu 'Iniciar Sesión', main_app.new_usuario_session_path %> 
+        <%= opcion_menu 'Iniciar Sesión', main_app.iniciar_sesion_path %> 
       <% end %>
     <% end %>
   <% end %>
