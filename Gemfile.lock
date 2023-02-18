@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/msip.git
-  revision: d8dbae27945e6f48f1b6475ef9f1308648c8ac93
+  revision: 797e041b9c973e02b7bc75c312d11b47ba566a7e
   branch: main
   specs:
     msip (2.2.0.beta1)
@@ -211,7 +211,6 @@ GEM
       activesupport (>= 5.0.0)
     jsbundling-rails (1.1.1)
       railties (>= 6.0.0)
-    json (2.6.3)
     kgio (2.11.4)
     libxml-ruby (4.0.0)
     loofah (2.19.1)
@@ -327,11 +326,12 @@ GEM
     simple_form (5.2.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
-    simplecov (0.17.1)
+    simplecov (0.22.0)
       docile (~> 1.1)
-      json (>= 1.8, < 3)
-      simplecov-html (~> 0.10.0)
-    simplecov-html (0.10.2)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     spring (4.1.1)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
@@ -420,7 +420,7 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   simple_form
-  simplecov (< 0.18)
+  simplecov
   sivel2_gen!
   spring
   sprockets-rails
@@ -433,7 +433,7 @@ DEPENDENCIES
   will_paginate
 
 RUBY VERSION
-   ruby 3.0.1p64
+   ruby 3.2.0p0
 
 BUNDLED WITH
    2.4.7
