@@ -178,9 +178,9 @@ module Fil23Gen
         "supracategoria.id_tviolencia || categoria.id || ' ' || categoria.nombre AS categoria_rotulo, " \
         "acto.id_persona AS persona_id, " \
         "persona.sexo AS sexonac, " \
-        "ubicacion.id_departamento AS departamento_id, " \
+        "ubicacion.departamento_id AS departamento_id, " \
         "departamento.nombre AS departamento, " \
-        "ubicacion.id_municipio AS municipio_id " \
+        "ubicacion.municipio_id AS municipio_id " \
         "FROM  sivel2_gen_acto AS acto " \
         "JOIN sivel2_gen_caso AS caso ON caso.id = acto.id_caso " \
         "JOIN sivel2_gen_categoria AS categoria ON categoria.id=acto.id_categoria " \
@@ -190,7 +190,7 @@ module Fil23Gen
         "  victima.id_caso=acto.id_caso AND " \
         "  victima.id_persona=acto.id_persona " \
         "LEFT JOIN msip_ubicacion AS ubicacion ON ubicacion.id=caso.ubicacion_id " \
-        "LEFT JOIN msip_departamento AS departamento ON ubicacion.id_departamento=departamento.id " \
+        "LEFT JOIN msip_departamento AS departamento ON ubicacion.departamento_id=departamento.id " \
         ") TO '#{rutatmp}' DELIMITER ',' CSV HEADER;" 
       res = ActiveRecord::Base.connection.execute(sql)
       if File.exist?(@rutacsv)

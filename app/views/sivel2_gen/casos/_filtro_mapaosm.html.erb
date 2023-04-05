@@ -32,7 +32,7 @@
           id="departamento" style="width:140px;">
           <option value="0">Mostrar todos</option>
           <option value="">-----------------------</option>
-          <%= options_for_select(Msip::Departamento.habilitados.where(id_pais: 170).all.collect { |d| [d.nombre, d.id ] })
+          <%= options_for_select(Msip::Departamento.habilitados.where(pais_id: 170).all.collect { |d| [d.nombre, d.id ] })
         %> 
         </select>
       </div>
