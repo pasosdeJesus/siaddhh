@@ -20,7 +20,7 @@ module Sivel2Gen
         cats = [10, 20, 30, 40, 50, 87, 97, 701, 703]
         ##Categorias que sean perder la vida
         casos_actuales = @conscaso
-        @conscaso = casos_actuales.joins(:acto).where(acto: {id_categoria: cats}) 
+        @conscaso = casos_actuales.joins(:acto).where(acto: {categoria_id: cats}) 
       end
 
       @plantillas = Heb412Gen::Plantillahcm.where(vista: 'Caso').

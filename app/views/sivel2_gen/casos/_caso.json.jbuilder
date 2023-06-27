@@ -25,7 +25,7 @@ json.caso do
     end
   end
   if can? :fotopublica, Sivel2Gen::Caso
-    anexos_fotos = @caso.anexo_caso.where(tipoanexo_id: 2).pluck(:id_anexo)
+    anexos_fotos = @caso.anexo_caso.where(tipoanexo_id: 2).pluck(:anexo_id)
     json.fotos_victimas do 
       anexos_fotos.each do |anexo|
         json.set! anexo.to_s, msip.descarga_anexo_path(anexo.to_s) 

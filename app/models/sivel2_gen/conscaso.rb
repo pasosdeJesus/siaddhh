@@ -6,7 +6,7 @@ module Sivel2Gen
     include Sivel2Gen::Concerns::Models::Conscaso
 
     scope :filtro_editadopor_id, lambda { |id|
-      where("caso_id IN (SELECT caso_id
+      where("conscaso.caso_id IN (SELECT caso_id
               FROM public.sivel2_gen_conscaso AS conscaso
               JOIN msip_bitacora AS bita ON bita.modelo_id = conscaso.caso_id
               WHERE bita.modelo = 'Sivel2Gen::Caso' AND bita.usuario_id = ?)", id)

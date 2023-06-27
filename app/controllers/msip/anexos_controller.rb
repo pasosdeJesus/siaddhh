@@ -18,7 +18,7 @@ module Msip
       end
     end
     def descarga_anexo
-      anexo_caso = Sivel2Gen::AnexoCaso.where(id_anexo: params[:id])
+      anexo_caso = Sivel2Gen::AnexoCaso.where(anexo_id: params[:id])
       if anexo_caso[0].tipoanexo
         tipoanexo = anexo_caso[0].tipoanexo.id
         if tipoanexo == 2

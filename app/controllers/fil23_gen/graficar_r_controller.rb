@@ -170,25 +170,25 @@ module Fil23Gen
       rutatmp = tarc.path
       tarc.close
       tarc.unlink
-      sql = "COPY (SELECT DISTINCT acto.id_caso AS caso_id, " \
+      sql = "COPY (SELECT DISTINCT acto.caso_id AS caso_id, " \
         "caso.fecha, " \
-        "supracategoria.id_tviolencia AS tviolencia_id," \
+        "supracategoria.tviolencia_id AS tviolencia_id," \
         "categoria.id AS categoria_id, " \
         "categoria.nombre AS categoria_nombre, " \
-        "supracategoria.id_tviolencia || categoria.id || ' ' || categoria.nombre AS categoria_rotulo, " \
-        "acto.id_persona AS persona_id, " \
+        "supracategoria.tviolencia_id || categoria.id || ' ' || categoria.nombre AS categoria_rotulo, " \
+        "acto.persona_id AS persona_id, " \
         "persona.sexo AS sexonac, " \
         "ubicacion.departamento_id AS departamento_id, " \
         "departamento.nombre AS departamento, " \
         "ubicacion.municipio_id AS municipio_id " \
         "FROM  sivel2_gen_acto AS acto " \
-        "JOIN sivel2_gen_caso AS caso ON caso.id = acto.id_caso " \
-        "JOIN sivel2_gen_categoria AS categoria ON categoria.id=acto.id_categoria " \
+        "JOIN sivel2_gen_caso AS caso ON caso.id = acto.caso_id " \
+        "JOIN sivel2_gen_categoria AS categoria ON categoria.id=acto.categoria_id " \
         "JOIN sivel2_gen_supracategoria AS supracategoria ON supracategoria.id = categoria.supracategoria_id " \
-        "JOIN msip_persona AS persona ON persona.id = acto.id_persona " \
+        "JOIN msip_persona AS persona ON persona.id = acto.persona_id " \
         "JOIN sivel2_gen_victima AS victima ON " \
-        "  victima.id_caso=acto.id_caso AND " \
-        "  victima.id_persona=acto.id_persona " \
+        "  victima.caso_id=acto.caso_id AND " \
+        "  victima.persona_id=acto.persona_id " \
         "LEFT JOIN msip_ubicacion AS ubicacion ON ubicacion.id=caso.ubicacion_id " \
         "LEFT JOIN msip_departamento AS departamento ON ubicacion.departamento_id=departamento.id " \
         ") TO '#{rutatmp}' DELIMITER ',' CSV HEADER;" 
