@@ -3179,8 +3179,8 @@ CREATE VIEW public.sivel2_gen_conscaso1 AS
     array_to_string(ARRAY( SELECT (((((((supracategoria.tviolencia_id)::text || ':'::text) || categoria.supracategoria_id) || ':'::text) || categoria.id) || ' '::text) || (categoria.nombre)::text)
            FROM public.sivel2_gen_categoria categoria,
             public.sivel2_gen_supracategoria supracategoria,
-            public.sivel2_gen_acto
-          WHERE ((categoria.id = sivel2_gen_acto.categoria_id) AND (supracategoria.id = categoria.supracategoria_id) AND (sivel2_gen_acto.caso_id = caso.id))), ', '::text) AS tipificacion
+            public.sivel2_gen_acto acto
+          WHERE ((categoria.id = acto.categoria_id) AND (supracategoria.id = categoria.supracategoria_id) AND (acto.caso_id = caso.id))), ', '::text) AS tipificacion
    FROM public.sivel2_gen_caso caso;
 
 

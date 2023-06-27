@@ -62,7 +62,7 @@ FileUtils.chdir RAIZ_AP do
     system! 'CXX=c++ bin/yarn'
 
     puts "\n== Preparando base de datos =="
-    system! "RAILS_ENV=#{ENV['RAILS_ENV']} bin/rails db:prepare"
+    system! "RAILS_ENV=#{ENV['RAILS_ENV']} bin/rails db:migrate"
 
     puts "\n== Actualizando índices =="
     system!("RAILS_ENV=#{ENV['RAILS_ENV']} bin/rails msip:indices")

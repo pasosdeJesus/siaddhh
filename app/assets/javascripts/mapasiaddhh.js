@@ -57,13 +57,14 @@ function siaddhh_DescargarCasosOsm(autenticado) {
   if (typeof root.formato_fecha == 'undefined') {
     msip_prepara_eventos_comunes(root)
   }
-  url = armarRutaConsulta(root, 'casos.csv', false)
+  url = armarRutaConsulta('casos.csv', false)
 
   // Método para descargar de
   // https://stackoverflow.com/questions/3749231/download-file-using-javascript-jquery
   var enlace= document.createElement("a");
   enlace.setAttribute('download', 'casos-somosdefensores.csv');
   enlace.href = url;
+  debugger
   document.body.appendChild(enlace);
   enlace.click();
   enlace.remove();
