@@ -1,11 +1,11 @@
 require 'sivel2_gen/version'
 
 Msip.setup do |config|
-  config.ruta_anexos = ENV.fetch('SIP_RUTA_ANEXOS', 
+  config.ruta_anexos = ENV.fetch('MSIP_RUTA_ANEXOS', 
                                  "#{Rails.root}/archivos/anexos")
-  config.ruta_volcados = ENV.fetch('SIP_RUTA_VOLCADOS',
+  config.ruta_volcados = ENV.fetch('MSIP_RUTA_VOLCADOS',
                                    "#{Rails.root}/archivos/bd")
-  config.titulo = "#{ENV.fetch('SIP_TITULO', 'SIADDHH')} #{Sivel2Gen::VERSION}"
+  config.titulo = "#{ENV.fetch('MSIP_TITULO', 'SIADDHH')} #{Sivel2Gen::VERSION}"
 
   config.colorom_fondo = '#f2d9d0'
   config.colorom_color_fuente = '#000000'

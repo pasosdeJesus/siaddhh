@@ -34,7 +34,7 @@ module Sivel2
       'X-Frame-Options' => 'ALLOW'
     }
     # msip
-    config.x.formato_fecha = ENV.fetch('SIP_FORMATO_FECHA', 'yyyy-mm-dd')
+    config.x.formato_fecha = ENV.fetch('MSIP_FORMATO_FECHA', 'yyyy-mm-dd')
 
     # heb412
     config.x.heb412_ruta = Pathname(
