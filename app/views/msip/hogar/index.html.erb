@@ -1,9 +1,14 @@
 <article>
-  <br>
-  <center>
-    <%= image_tag 'somosdefensores.png', class: "img-fluid" %>
-    <% # ubicar logo en app/assets/images/logo.jpg %>
-  </center>
-
+  <% if current_usuario %>
+    <div class="py-5">
+      <%= render partial: "resumen_totales" %>
+    </div> 
+  <% else %>
+    <br>
+    <center>
+      <%= image_tag 'somosdefensores.png', class: "img-fluid" %>
+      <% # ubicar logo en app/assets/images/logo.jpg %>
+    </center>
+  <% end %>
   <%= render "local" %>
 </article>
