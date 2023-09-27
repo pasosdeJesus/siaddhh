@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/heb412_gen.git
-  revision: d52ba35198275dfe6eb2b21a711012949b758e93
+  revision: 0e403ed5aa25e2b283840486106274bd61373ff2
   branch: main
   specs:
     heb412_gen (2.2.0.beta4)
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/msip.git
-  revision: 76a5fc04d1c6d26e52d4f15e1e0c68b499f96db2
+  revision: be0055f20ad5e8dcc2fa638ce6738f93536031b5
   branch: main
   specs:
     msip (2.2.0.beta4)
@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/sivel2_gen.git
-  revision: 0fa38a4c02552b76cf4ea1a66235e9183fc60f43
+  revision: d1fe42afe31052b78251b6aaedca43d096ae7668
   branch: main
   specs:
     sivel2_gen (2.2.0.beta4)
@@ -198,7 +198,7 @@ GEM
       concurrent-ruby (~> 1.1)
       webrick (~> 1.7)
       websocket-driver (>= 0.6, < 0.8)
-    ffi (1.15.5)
+    ffi (1.16.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -326,7 +326,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (4.12.0)
+    selenium-webdriver (4.13.1)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
@@ -384,7 +384,7 @@ GEM
     will_paginate (3.3.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.11)
+    zeitwerk (2.6.12)
 
 PLATFORMS
   x86_64-openbsd
@@ -444,4 +444,4 @@ RUBY VERSION
    ruby 3.2.0p0
 
 BUNDLED WITH
-   2.4.19
+   2.4.20

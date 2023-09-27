@@ -10,6 +10,13 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
+-- Name: public; Type: SCHEMA; Schema: -; Owner: -
+--
+
+-- *not* creating schema, since initdb creates it
+
+
+--
 -- Name: es_co_utf_8; Type: COLLATION; Schema: public; Owner: -
 --
 
@@ -69,12 +76,89 @@ CREATE FUNCTION public.f_unaccent(text) RETURNS text
 
 
 --
+-- Name: msip_agregar_o_remplazar_familiar_inverso(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.msip_agregar_o_remplazar_familiar_inverso() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+      DECLARE
+        num2 INTEGER;
+        rinv CHAR(2);
+        rexistente CHAR(2);
+      BEGIN
+        ASSERT(TG_OP = 'INSERT' OR TG_OP = 'UPDATE');
+        RAISE NOTICE 'Insertando o actualizando en msip_persona_trelacion';
+        RAISE NOTICE 'TG_OP = %', TG_OP;
+        RAISE NOTICE 'NEW.id = %', NEW.id;
+        RAISE NOTICE 'NEW.persona1 = %', NEW.persona1;
+        RAISE NOTICE 'NEW.persona2 = %', NEW.persona2;
+        RAISE NOTICE 'NEW.trelacion_id = %', NEW.trelacion_id;
+        RAISE NOTICE 'NEW.observaciones = %', NEW.observaciones;
+
+        SELECT COUNT(*) INTO num2 FROM msip_persona_trelacion
+          WHERE persona1 = NEW.persona2 AND persona2=NEW.persona1;
+        RAISE NOTICE 'num2 = %', num2;
+        ASSERT(num2 < 2);
+        SELECT inverso INTO rinv FROM msip_trelacion 
+          WHERE id = NEW.trelacion_id;
+        RAISE NOTICE 'rinv = %', rinv;
+        ASSERT(rinv IS NOT NULL);
+        CASE num2
+          WHEN 0 THEN
+            INSERT INTO msip_persona_trelacion 
+            (persona1, persona2, trelacion_id, observaciones, created_at, updated_at)
+            VALUES (NEW.persona2, NEW.persona1, rinv, 'Inverso agregado automaticamente', NOW(), NOW());
+          ELSE -- num2 = 1
+            SELECT trelacion_id INTO rexistente FROM msip_persona_trelacion
+              WHERE persona1=NEW.persona2 AND persona2=NEW.persona1;
+            RAISE NOTICE 'rexistente = %', rexistente;
+            IF rinv <> rexistente THEN
+              UPDATE msip_persona_trelacion 
+                SET trelacion_id = rinv,
+                 observaciones = 'Inverso cambiado automaticamente (era ' ||
+                   rexistente || '). ' || COALESCE(observaciones, ''),
+                 updated_at = NOW()
+                WHERE persona1=NEW.persona2 AND persona2=NEW.persona1;
+            END IF;
+        END CASE;
+        RETURN NULL;
+      END ;
+      $$;
+
+
+--
 -- Name: msip_edad_de_fechanac_fecharef(integer, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
 CREATE FUNCTION public.msip_edad_de_fechanac_fecharef(anionac integer, mesnac integer, dianac integer, anioref integer, mesref integer, diaref integer) RETURNS integer
     LANGUAGE sql IMMUTABLE
     AS $$ SELECT CASE WHEN anionac IS NULL THEN NULL WHEN anioref IS NULL THEN NULL WHEN anioref < anionac THEN -1 WHEN mesnac IS NOT NULL AND mesnac > 0 AND mesref IS NOT NULL AND mesref > 0 AND mesnac >= mesref THEN CASE WHEN mesnac > mesref OR (dianac IS NOT NULL AND dianac > 0 AND diaref IS NOT NULL AND diaref > 0 AND dianac > diaref) THEN anioref-anionac-1 ELSE anioref-anionac END ELSE anioref-anionac END $$;
+
+
+--
+-- Name: msip_eliminar_familiar_inverso(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.msip_eliminar_familiar_inverso() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+      DECLARE
+        num2 INTEGER;
+      BEGIN
+        ASSERT(TG_OP = 'DELETE');
+        RAISE NOTICE 'Eliminando inverso de msip_persona_trelacion';
+        SELECT COUNT(*) INTO num2 FROM msip_persona_trelacion
+          WHERE persona1 = OLD.persona2 AND persona2=OLD.persona1;
+        RAISE NOTICE 'num2 = %', num2;
+        ASSERT(num2 < 2);
+        IF num2 = 1 THEN
+            DELETE FROM msip_persona_trelacion 
+            WHERE persona1 = OLD.persona2 AND persona2 = OLD.persona1;
+        END IF;
+        RETURN NULL;
+      END ;
+      $$;
 
 
 --
@@ -3172,8 +3256,8 @@ CREATE VIEW public.sivel2_gen_conscaso1 AS
     array_to_string(ARRAY( SELECT (((((((supracategoria.tviolencia_id)::text || ':'::text) || categoria.supracategoria_id) || ':'::text) || categoria.id) || ' '::text) || (categoria.nombre)::text)
            FROM public.sivel2_gen_categoria categoria,
             public.sivel2_gen_supracategoria supracategoria,
-            public.sivel2_gen_acto acto
-          WHERE ((categoria.id = acto.categoria_id) AND (supracategoria.id = categoria.supracategoria_id) AND (acto.caso_id = caso.id))), ', '::text) AS tipificacion
+            public.sivel2_gen_acto
+          WHERE ((categoria.id = sivel2_gen_acto.categoria_id) AND (supracategoria.id = categoria.supracategoria_id) AND (sivel2_gen_acto.caso_id = caso.id))), ', '::text) AS tipificacion
    FROM public.sivel2_gen_caso caso;
 
 
@@ -6025,6 +6109,20 @@ CREATE UNIQUE INDEX usuario_nusuario ON public.usuario USING btree (nusuario);
 
 
 --
+-- Name: msip_persona_trelacion msip_eliminar_familiar; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER msip_eliminar_familiar AFTER DELETE ON public.msip_persona_trelacion FOR EACH ROW EXECUTE FUNCTION public.msip_eliminar_familiar_inverso();
+
+
+--
+-- Name: msip_persona_trelacion msip_insertar_familiar; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER msip_insertar_familiar AFTER INSERT OR UPDATE ON public.msip_persona_trelacion FOR EACH ROW EXECUTE FUNCTION public.msip_agregar_o_remplazar_familiar_inverso();
+
+
+--
 -- Name: accion accion_id_despacho_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -6294,14 +6392,6 @@ ALTER TABLE ONLY public.sivel2_gen_categoria
 
 ALTER TABLE ONLY public.sivel2_gen_categoria
     ADD CONSTRAINT categoria_contada_en_fkey FOREIGN KEY (contadaen) REFERENCES public.sivel2_gen_categoria(id);
-
-
---
--- Name: sivel2_gen_categoria categoria_contadaen_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sivel2_gen_categoria
-    ADD CONSTRAINT categoria_contadaen_fkey FOREIGN KEY (contadaen) REFERENCES public.sivel2_gen_categoria(id);
 
 
 --
@@ -7113,14 +7203,6 @@ ALTER TABLE ONLY public.msip_persona
 
 
 --
--- Name: sivel2_gen_presponsable presponsable_papa_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sivel2_gen_presponsable
-    ADD CONSTRAINT presponsable_papa_fkey FOREIGN KEY (papa_id) REFERENCES public.sivel2_gen_presponsable(id);
-
-
---
 -- Name: sivel2_gen_caso_presponsable presuntos_responsables_caso_id_caso_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -7859,10 +7941,12 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20230418194845'),
 ('20230504084246'),
 ('20230613111532'),
+('20230616203948'),
 ('20230622205529'),
 ('20230622205530'),
 ('20230712163859'),
 ('20230722180204'),
-('20230723011110');
+('20230723011110'),
+('20230927001422');
 
 
