@@ -12,8 +12,8 @@
     </thead>
     <tbody>
       <% ao.orgsocial_persona.where(
-        'persona_id IN (SELECT id_persona FROM public.sivel2_gen_victima 
-        WHERE id_caso=?)', @caso.id).each do |ap|%>
+        'persona_id IN (SELECT persona_id FROM public.sivel2_gen_victima 
+        WHERE caso_id=?)', @caso.id).each do |ap|%>
         <tr>
           <td><%= ap.persona.nombres %></td>
           <td><%= ap.persona.apellidos %></td>

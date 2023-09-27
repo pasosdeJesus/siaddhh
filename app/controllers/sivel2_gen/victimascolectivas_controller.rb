@@ -20,8 +20,8 @@ module Sivel2Gen
         @orgsocial = Msip::Orgsocial.new
         @orgsocial.grupoper_id = @grupoper.id
         @orgsocial.save!
-        @victimacolectiva.id_caso = params[:caso_id]
-        @victimacolectiva.id_grupoper = @grupoper.id
+        @victimacolectiva.caso_id = params[:caso_id]
+        @victimacolectiva.grupoper_id = @grupoper.id
         @victimacolectiva.orgsocial_id = @orgsocial.id
         if @victimacolectiva.save
           respond_to do |format|

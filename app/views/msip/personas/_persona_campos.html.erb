@@ -41,7 +41,7 @@
     <% 
       r = ""
       sep = ""
-      v = Sivel2Gen::Victima.where(id_persona: f.object.id).order(:id_persona)
+      v = Sivel2Gen::Victima.where(persona_id: f.object.id).order(:persona_id)
       v.each do |vic|
         if @caso.id != vic.caso.id
       %>
@@ -142,7 +142,7 @@
     <div class="col-md-6">
       <%= ap.association :orgsocial,
         collection: Msip::Orgsocial.where("id IN (SELECT orgsocial_id FROM
-      public.sivel2_gen_victimacolectiva WHERE id_caso=?)", @caso.id),
+      public.sivel2_gen_victimacolectiva WHERE caso_id=?)", @caso.id),
       label_method: lambda {|t| t.grupoper.nombre},
       value_method: :id %>
     </div>

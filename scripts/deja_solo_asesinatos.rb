@@ -3,5 +3,5 @@
 
 require_relative 'auxiliar_eliminar'
 
-eliminar_casos("SELECT id_caso FROM sivel2_gen_acto WHERE id_categoria NOT IN (10, 20, 30, 40, 50, 87, 97, 701)");
+eliminar_casos("SELECT caso_id FROM sivel2_gen_acto WHERE id_categoria NOT IN (10, 20, 30, 40, 50, 87, 97, 701)");
 
