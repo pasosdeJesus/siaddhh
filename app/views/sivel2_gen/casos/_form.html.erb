@@ -119,7 +119,10 @@
       <%= f.button :submit, 'Validar y Guardar', {
         class: 'btn btn-primary',
         onclick: 'window.sivel2_detenerEnviarCada60()',
-        'data-turbo' => false 
+        data: {
+          turbo: false,
+          disable_with: false
+        }
       } %>
       <%= link_to t('.cancel', default: t("helpers.links.cancel")),
         sivel2_gen.casos_path, class: 'btn' 
