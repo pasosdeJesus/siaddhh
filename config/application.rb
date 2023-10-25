@@ -1,6 +1,19 @@
 
 require_relative 'boot'
-require 'rails/all'
+
+require "rails"
+# Elige los marcos de trabajo que necesitas:
+require "active_model/railtie"
+require "active_job/railtie"
+require "active_record/railtie"
+# require "active_storage/engine"
+require "action_controller/railtie"
+require "action_mailer/railtie"
+# require "action_mailbox/engine"
+# require "action_text/engine"
+require "action_view/railtie"
+# require "action_cable/engine"
+require "rails/test_unit/railtie"
 
 # Requiere gemas listas en el Gemfile, incluyendo las
 # limitadas a :test, :development, o :production.
@@ -9,9 +22,11 @@ Bundler.require(*Rails.groups)
 module Sivel2
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
-    config.load_defaults 7.0
+    config.load_defaults 7.1
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    config.autoload_lib(ignore: %w(assets tasks))
 
     config.action_view.form_with_generates_remote_forms = false
 
