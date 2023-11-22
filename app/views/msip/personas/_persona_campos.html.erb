@@ -123,8 +123,8 @@
           value_method: :id %>
     </div>
     <div class="col-md-6">
-      <%= f.association :clase,
-        collection: (Msip::Clase.habilitados.where(
+      <%= f.association :centropoblado,
+        collection: (Msip::Centropoblado.habilitados.where(
           municipio_id: f.object.municipio_id)),
           label: "Centro Poblado de Nacimiento",
           label_method: :nombre,
