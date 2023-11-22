@@ -28,7 +28,7 @@ class Ability  < Sivel2Gen::Ability
       BASICAS_PROPIAS
   end
 
-  def self.campos_plantillas
+  def campos_plantillas
       n = Heb412Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.
         clone.merge(Sivel2Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone)
       c= n['Victima'][:campos] 
