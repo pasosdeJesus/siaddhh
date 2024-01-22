@@ -83,11 +83,11 @@
         <%= opcion_menu 'Colectivos', msip.orgsociales_path,
           desplegable: true %>
         <% if session[:capturacaso_acordeon] %>
-           <%= opcion_menu 'Ficha caso vertical ✓', '/fichacasovertical',
+           <%= opcion_menu 'Ficha caso vertical ✓', 'fichacasovertical',
              desplegable: true, id: 'fichacasovertical' 
            %>
         <% else %>
-           <%= opcion_menu 'Ficha caso vertical', '/fichacasovertical',
+           <%= opcion_menu 'Ficha caso vertical', 'fichacasovertical',
              desplegable: true, id: 'fichacasovertical' 
            %>
         <% end %>
