@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/heb412_gen.git
-  revision: 1fb4ec862836e856151504f4084fb4701c1b990d
+  revision: efb0a43506f8cf5bc327ace436feaf0c32260d98
   branch: main
   specs:
     heb412_gen (2.2.0.beta4)
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/mr519_gen.git
-  revision: abf5d908f6dc000193ed45b1845ea9d4ca06b9b8
+  revision: 257869ab3ba9ff0ec262a63309abac3e333f6769
   branch: main
   specs:
     mr519_gen (2.2.0.beta4)
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/msip.git
-  revision: 762f6db0ae3aee730a53a98a8857aac07937db90
+  revision: 7f514eeba4d95a6cb473e9f94e415c416be58679
   branch: main
   specs:
     msip (2.2.0.beta4)
@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/sivel2_gen.git
-  revision: c40b3dbc36b1edb6052c4229d33512282d9fbf10
+  revision: ea666e4e0d49241a222f3f87faa2fd958ca5ca73
   branch: main
   specs:
     sivel2_gen (2.2.0.beta4)
@@ -155,7 +155,7 @@ GEM
     bcrypt (3.1.20)
     bigdecimal (3.1.6)
     bindex (0.8.1)
-    bootsnap (1.17.1)
+    bootsnap (1.18.3)
       msgpack (~> 1.2)
     builder (3.2.4)
     camertron-eprun (1.1.1)
@@ -199,10 +199,10 @@ GEM
     devise-i18n (1.12.0)
       devise (>= 4.9.0)
     docile (1.4.0)
-    dotenv (2.8.1)
-    dotenv-rails (2.8.1)
-      dotenv (= 2.8.1)
-      railties (>= 3.2)
+    dotenv (3.0.2)
+    dotenv-rails (3.0.2)
+      dotenv (= 3.0.2)
+      railties (>= 6.1)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
@@ -218,7 +218,7 @@ GEM
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
-    irb (1.11.1)
+    irb (1.11.2)
       rdoc
       reline (>= 0.4.2)
     jbuilder (2.11.5)
@@ -240,13 +240,13 @@ GEM
     matrix (0.4.2)
     mime-types (3.5.2)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2023.1205)
+    mime-types-data (3.2024.0206)
     mini_mime (1.1.5)
     mini_portile2 (2.8.5)
-    minitest (5.21.2)
+    minitest (5.22.2)
     msgpack (1.7.2)
     mutex_m (0.2.0)
-    net-imap (0.4.9.1)
+    net-imap (0.4.10)
       date
       net-protocol
     net-pop (0.1.2)
@@ -256,7 +256,7 @@ GEM
     net-smtp (0.4.0.1)
       net-protocol
     nio4r (2.7.0)
-    nokogiri (1.16.0)
+    nokogiri (1.16.2)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     odf-report (0.7.3)
@@ -265,7 +265,7 @@ GEM
       rubyzip (>= 1.3.0)
     orm_adapter (0.5.0)
     pdf-core (0.9.0)
-    pg (1.5.4)
+    pg (1.5.5)
     prawn (2.4.0)
       pdf-core (~> 0.9.0)
       ttfunk (~> 1.7)
@@ -406,7 +406,7 @@ GEM
     will_paginate (3.3.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.12)
+    zeitwerk (2.6.13)
 
 PLATFORMS
   x86_64-openbsd
@@ -467,4 +467,4 @@ RUBY VERSION
    ruby 3.2.0p0
 
 BUNDLED WITH
-   2.5.5
+   2.5.6
