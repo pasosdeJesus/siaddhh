@@ -38,10 +38,10 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/msip.git
-  revision: 7f514eeba4d95a6cb473e9f94e415c416be58679
+  revision: de7c6e64be94c8fb2f18952cdb7565b5b9c15fb4
   branch: main
   specs:
-    msip (2.2.0.beta4)
+    msip (2.2.0.beta5)
       cancancan (~> 3)
       devise (~> 4)
       devise-i18n (~> 1)
@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/sivel2_gen.git
-  revision: ea666e4e0d49241a222f3f87faa2fd958ca5ca73
+  revision: 70b746f3b10f0077adc73c1a09c22d76ec3a3ee8
   branch: main
   specs:
     sivel2_gen (2.2.0.beta4)
@@ -347,7 +347,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (4.17.0)
+    selenium-webdriver (4.18.1)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)

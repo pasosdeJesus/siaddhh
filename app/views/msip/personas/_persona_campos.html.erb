@@ -81,18 +81,32 @@
   <% @dias = *(1..31) %>
 
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
       <%= f.input :mesnac, 
         collection: @meses %>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
       <%= f.input :dianac, collection: @dias %>
     </div>
-    <div class="col-md-4">
-      <%= f.input :sexo, collection: [["SIN INFORMACIÓN", :S], 
-                                      ["FEMENINO", :F], ["MASCULINO", :M]], 
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :sexo, 
+        collection: [
+          ["SIN INFORMACIÓN", :S], 
+          ["FEMENINO", :F], ["MASCULINO", :M]
+        ], 
       include_blank: false %>
     </div>
+    <div class="col-md-6">
+      <%= f.association :etnia,
+        collection: Msip::Etnia.habilitados,
+        include_blank: false,
+        label_method: :nombre, 
+        value_method: :id 
+      %>
+  </div>
   </div>
 
   <div class="row">
