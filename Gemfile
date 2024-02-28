@@ -114,11 +114,9 @@ end
 
 
 group :test do
-  gem "cuprite"
-
   gem "capybara"
 
-  gem "selenium-webdriver"
+  gem "cuprite"
 
   gem "simplecov"
 
