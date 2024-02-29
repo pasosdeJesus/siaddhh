@@ -1,8 +1,15 @@
 require 'date'
 
+require "sivel2_gen/concerns/controllers/victimascolectivas_controller.rb"
+
 module Sivel2Gen
   class VictimascolectivasController < ApplicationController
+
+    include Sivel2Gen::Concerns::Controllers::VictimascolectivasController
+
     load_and_authorize_resource class: Sivel2Gen::Victimacolectiva
+    before_action :prepara_caso
+
 
     # Crea un nuevo registro para el caso que recibe por parametro 
     # params[:caso_id].  Pone valores simples en los campos requeridos
