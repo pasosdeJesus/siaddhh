@@ -1,12 +1,12 @@
-require 'date'
 require 'sivel2_gen/concerns/controllers/personas_controller' 
 
 module Msip
-  class PersonasController < ApplicationController
+  class PersonasController < Msip::ModelosController
+
+    include Sivel2Gen::Concerns::Controllers::PersonasController
 
     load_and_authorize_resource class: Msip::Persona
-    include Sivel2Gen::Concerns::Controllers::PersonasController
-   
+
     # Busca y lista persona
     def remplazar_antes_salvar_v
       true
