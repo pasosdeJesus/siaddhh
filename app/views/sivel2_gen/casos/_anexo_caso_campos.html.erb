@@ -1,51 +1,66 @@
-<div class='control-group nested-fields'>
-  <div class="controls">
-    <%  f.object.msip_anexo = Msip::Anexo.new if !f.object.msip_anexo %>
+<%= turbo_frame_tag "anexo_caso_#{f.index}" do %> 
+  <div class='control-group nested-fields'>
+    <div class="controls">
+      <%  f.object.msip_anexo = Msip::Anexo.new if !f.object.msip_anexo %>
 
-    <%= f.simple_fields_for :msip_anexo do |a| %>
-      
+      <%= f.simple_fields_for :msip_anexo, :html => {:multipart => true} do |a| %>
+
+        <div class="row">
+          <div class="col-md-6">
+            <%= a.input :id, as: :hidden %>
+            <%= f.input :fecha, 
+              input_html: { type: "date" },
+              as: :string, 
+              label: "Fecha" %>
+          </div>
+
+          <div class="col-md-6">
+            <% if !a.object || !a.object.adjunto_file_name || !a.object.id %>
+              <%= a.input :adjunto, 
+                as: :file, 
+                label: 'Archivo',
+                data: {
+                  disable_with: false } %>
+            <% else %>
+              <div class="msip_anexo_adjunto">
+                <label for="msip_anexo_attributes_<%=a.object.id%>_adjunto">
+                  Archivo
+                </label>
+                <a id="msip_anexo_attributes_<%=a.object.id%>_adjunto" 
+                  href="<%= msip.descarga_anexo_path(a.object.id) %>" 
+                  style="text-decoration:none" 
+                  data-turbo='false'>
+                  <%= a.object.adjunto_file_name %>
+                </a>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <%= a.input :descripcion %>
+      <% end %> <!-- f.simple_fields_for :msip_anexo -->
       <div class="row">
         <div class="col-md-6">
-          <%= f.input :fecha_localizada, 
-            :input_html => { "data-behaviour" => "datepicker" },
-            :as => :string, :label => "Fecha" %>
-        </div>
-
-        <div class="col-md-6">
-          <% if !a.object || !a.object.adjunto_file_name || !a.object.id %>
-            <%= a.input :adjunto, as: :file, label: 'Archivo' %>
-          <% else %>
-            <div class="msip_anexo_adjunto">
-              <label for="msip_anexo_attributes_<%=a.object.id%>_adjunto">
-                Archivo
-              </label>
-              <a id="msip_anexo_attributes_<%=a.object.id%>_adjunto" 
-                 href="<%= msip.descarga_anexo_path(a.object.id) %>" 
-                 style="text-decoration:none" 
-                 data-turbo='false'>
-                 <%= a.object.adjunto_file_name %>
-              </a>
-            </div>
-          <% end %>
+          Tipo de anexo
+          <%= f.association :tipoanexo, 
+            collection: Msip::Tipoanexo.all, 
+            label_method: :nombre,
+            value_method: :id,
+            label: false
+          %>
         </div>
       </div>
-
-      <%= a.input :descripcion %>
-      <%= a.input :id, as: :hidden %>
-    <% end %> <!-- f.simple_fields_for :msip_anexo -->
-    <div class="row">
-      <div class="col-md-6">
-        Tipo de anexo
-        <%= f.association :tipoanexo, 
-          collection: Msip::Tipoanexo.all, 
-          label_method: :nombre,
-          value_method: :id,
-          label: false
-        %>
-        <%= link_to_remove_association "Eliminar Anexo", f, 
-          :class => 'btn btn-sm btn-danger' 
-        %> 
-      </div>
+      <%= f.submit "Eliminar", 
+        formaction: sivel2_gen.eliminar_anexo_caso_path(
+          id: f.object.id, index: f.index
+        ),
+        formmethod: :delete,
+        formnovalidate: true,
+        class: 'btn btn-sm btn-danger',
+        data: { 
+          turbo_frame: "anexo_caso_#{f.index}",
+          disable_with: false
+        } %>
     </div>
   </div>
-</div>
+<% end %>
