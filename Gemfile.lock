@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/msip.git
-  revision: 295f7a8a7a2f32b41a2e83b904efb9eaa0b68a4d
+  revision: 306d12415001b3626cace575bb6c9eed006e3fef
   branch: main
   specs:
     msip (2.2.0.beta5)
@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/sivel2_gen.git
-  revision: cca8770cc633e87b52110c5b7a5bd4b720bbb8c2
+  revision: e5f491461fc960f02a53c6151660597a5be5f687
   branch: main
   specs:
     sivel2_gen (2.2.0.beta4)
@@ -292,7 +292,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.7.3)
     rack (2.2.8.1)
-    rack-cors (2.0.1)
+    rack-cors (2.0.2)
       rack (>= 2.0.0)
     rack-session (1.0.2)
       rack (< 3)
