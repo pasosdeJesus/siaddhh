@@ -16,8 +16,6 @@ import './jquery'
 
 import 'popper.js'              // Dialogos emergentes usados por bootstrap
 import * as bootstrap from 'bootstrap'              // Maquetacion y elementos de diseño
-import 'bootstrap-datepicker'
-import 'bootstrap-datepicker/dist/locales/bootstrap-datepicker.es.min.js'
 
 import TomSelect from 'tom-select';
 window.TomSelect = TomSelect;
@@ -85,13 +83,6 @@ promesaRecursosSprocketsYDocumento.then((mensaje) => {
   heb412_gen_prepara_eventos_comunes(root);
   sivel2_gen_prepara_eventos_comunes(root);
   siaddhh_prepara_eventos_unicos(root);
-
-  $('[data-behaviour~=datepicker]').datepicker({
-    format: root.formato_fecha,
-    autoclose: true,
-    todayHighlight: true,
-    language: 'es'	
-  });
 
   $(document).on('click', '#descargar-casos-osm', function() {
     siaddhh_DescargarCasosOsm(usuario_aut_global)
