@@ -9,6 +9,7 @@ if (test -f "test/dummy/config/application.rb")  then {
 } else {
   rutaap="./"
 } fi;
+echo "bin/regresion rutaap=$rutaap"
 if (test -f $rutaap/.env) then {
   dirac=`pwd`
   cd $rutaap
@@ -36,42 +37,61 @@ if (test "$RUTA_RELATIVA" = "") then {
   exit 1
 } fi;
 
-echo "== Prepara base"
- 
-(cd $rutaap;  ${RAILS} db:environment:set RAILS_ENV=test; RAILS_ENV=test ${RAILS} db:drop db:create db:setup db:seed msip:indices)
-if (test "$?" != "0") then {
-  echo "No se pudo inicializar base de pruebas";
-  exit 1;
-} fi;
+if (test "$SALTAPREPARA" != "1") then {
+  echo "== Prepara base"
 
-echo "== Pruebas de regresión unitarias"
-mkdir -p cobertura-unitarias/
-rm -rf cobertura-unitarias/{*,.*}
-CONFIG_HOSTS=www.example.com ${RAILS} test
-if (test "$?" != "0") then {
-  echo "No pasaron pruebas de regresión unitarias";
-  exit 1;
-} fi;
-
-CONFIG_HOSTS=www.example.com bin/rails test `find test/integration -name "*rb" -type f`
-if (test "$?" != "0") then {
-  echo "No pasaron pruebas de integración";
-  exit 1;
-} fi;
-
-echo "== Pruebas de regresión al sistema"
-mkdir -p $rutaap/cobertura-sistema/
-rm -rf $rutaap/cobertura-sistema/{*,.*}
-if (test "$CI" = "") then { # Por ahora no en gitlab-ci
-  (cd $rutaap; CONFIG_HOSTS=127.0.0.1 ${RAILS} msip:stimulus_motores test:system)
+  (cd $rutaap;  ${RAILS} db:environment:set RAILS_ENV=test; RAILS_ENV=test ${RAILS} db:drop db:create db:setup db:seed msip:indices)
   if (test "$?" != "0") then {
-    echo "No pasaron pruebas del sistema rails";
+    echo "No se pudo inicializar base de pruebas";
     exit 1;
   } fi;
 } fi;
 
-if (test -f $rutaap/bin/pruebasjs) then {
-  (cd $rutaap; CONFIG_HOSTS=127.0.0.1 ${RAILS} msip:stimulus_motores; bin/pruebasjs)
+if (test "$SALTAUNITARIAS" != "1") then {
+  echo "== Pruebas de regresión unitarias"
+  mkdir -p cobertura-unitarias/
+  rm -rf cobertura-unitarias/{*,.*}
+  if (test -d test/models) then {
+    RUTA_RELATIVA=/ ${RAILS} test test/models
+    if (test "$?" != "0") then {
+      echo "No pasaron pruebas de regresión unitarias a modelos";
+      exit 1;
+    } fi;
+  } fi;
+  if (test -d test/controllers) then {
+    CONFIG_HOSTS=www.example.com RUTA_RELATIVA=/ ${RAILS} test test/controllers
+    if (test "$?" != "0") then {
+      echo "No pasaron pruebas de regresión unitarias a controladores";
+      exit 1;
+    } fi;
+  } fi;
+  if (test -d test/helpers) then {
+    CONFIG_HOSTS=www.example.com RUTA_RELATIVA=/ ${RAILS} test test/helpers
+    if (test "$?" != "0") then {
+      echo "No pasaron pruebas de regresión unitarias a auxiliares";
+      exit 1;
+    } fi;
+  } fi;
+} fi;
+
+if (test -d test/integration -a "$SALTAINTEGRACION" != "1") then {
+  echo "== Pruebas de integración unitarias"
+  for i in `find test/integration -name "*rb" -type f`; do
+    echo $i;
+    CONFIG_HOSTS=www.example.com RUTA_RELATIVA=/ bin/rails test $i
+    if (test "$?" != "0") then {
+      echo "No pasó prueba de integración $i";
+      exit 1;
+    } fi;
+  done;
+} fi;
+
+# En adJ 7.5 no opera modo headless, ejecutar pruebasjs.sh manual y localmente
+# https://gitlab.com/pasosdeJesus/adJ/-/issues/15
+s=`uname`
+if (test "$s" != "OpenBSD" -a -f $rutaap/bin/pruebasjs.sh -a -d $rutaap/test/puppeteer -a "x$NOPRUEBAJS" != "x1") then {
+  echo "== Con puppeteer"
+  (cd $rutaap; ${RAILS} msip:stimulus_motores; bin/pruebasjs.sh)
   if (test "$?" != "0") then {
     echo "No pasaron pruebas del sistema js";
     exit 1;
@@ -82,15 +102,12 @@ echo "== Unificando resultados de pruebas en directorio clásico coverage"
 mkdir -p coverage/
 rm -rf coverage/{*,.*}
 
-if (test "$RC" = "msip" -o "$rutaap" = "test/dummy/") then {
-  ${RAILS} app:msip:reporteregresion
-} else {
-  ${RAILS} msip:reporteregresion
-} fi;
+${RAILS} ${MSIP_REPORTEREGRESION}
 r=$?
 if (test "$r" != "0") then {
   exit $r;
 } fi;
+
 
 echo "== Copiando resultados para hacerlos visibles en el web en ruta cobertura"
 # Copiar resultados para hacerlos visibles en web
