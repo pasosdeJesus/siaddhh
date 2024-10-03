@@ -101,11 +101,5 @@
 
 
  
-  # Si se agrega con cocoon un campo de seleccion que se espera con
-  # chosen, usa chosen
-  $(document).on('cocoon:after-insert', '', (e,inserted) ->
-    inserted.find('select[class*=chosen-select]').chosen()
-  )
-
   return
 

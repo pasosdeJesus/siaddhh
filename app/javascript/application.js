@@ -16,10 +16,19 @@ import './jquery'
 
 import 'popper.js'              // Dialogos emergentes usados por bootstrap
 import * as bootstrap from 'bootstrap'              // Maquetacion y elementos de diseño
-import 'chosen-js/chosen.jquery';       // Cuadros de seleccion potenciados
 import 'bootstrap-datepicker'
 import 'bootstrap-datepicker/dist/locales/bootstrap-datepicker.es.min.js'
 
+import TomSelect from 'tom-select';
+window.TomSelect = TomSelect;
+window.configuracionTomSelect = {
+    create: false,
+    diacritics: true, //no sensitivo a acentos
+    sortField: {
+          field: "text",
+          direction: "asc"
+        }
+}
 
 import Msip__Motor from "./controllers/msip/motor"
 window.Msip__Motor = Msip__Motor
@@ -83,13 +92,6 @@ promesaRecursosSprocketsYDocumento.then((mensaje) => {
     todayHighlight: true,
     language: 'es'	
   });
-  $('.chosen-select').chosen({
-    allow_single_deselect: true,
-    no_results_text: 'No hay opciones',
-    placeholder_text_multiple: 'Elija una o más opciones',
-    placeholder_text_single: 'Elija una opción',
-    width: '200px'
-  });
 
   $(document).on('click', '#descargar-casos-osm', function() {
     siaddhh_DescargarCasosOsm(usuario_aut_global)
@@ -121,7 +123,7 @@ document.addEventListener('turbo:load', (e) => {
   Msip__Motor.ejecutarAlCargarPagina()
   Mr519Gen__Motor.ejecutarAlCargarPagina()
   Heb412Gen__Motor.ejecutarAlCargarPagina()
-  Cor1440Gen__Motor.ejecutarAlCargarPagina()
+  Sivel2Gen__Motor.ejecutarAlCargarPagina()
 
 })
 
