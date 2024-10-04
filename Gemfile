@@ -49,7 +49,7 @@ gem "rack-cors"
 
 gem "rack", "~> 2"
 
-gem "rails", ">= 7.1", "<7.2"
+gem "rails", "~> 7.2"
 
 gem "rails-i18n"
 
