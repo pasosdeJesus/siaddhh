@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/sivel2_gen.git
-  revision: fbb6bbe227f6da5695c3fb6bf35da03e17da8bce
+  revision: df4b9da0b4008b59e6ee8d0880f0cee06d4a6a24
   branch: v2.2
   specs:
     sivel2_gen (2.2.0.beta7)
@@ -209,11 +209,15 @@ GEM
       websocket-driver (~> 0.7)
     ffi (1.17.0)
     ffi (1.17.0-aarch64-linux-gnu)
+    ffi (1.17.0-aarch64-linux-musl)
     ffi (1.17.0-arm-linux-gnu)
+    ffi (1.17.0-arm-linux-musl)
     ffi (1.17.0-arm64-darwin)
     ffi (1.17.0-x86-linux-gnu)
+    ffi (1.17.0-x86-linux-musl)
     ffi (1.17.0-x86_64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
+    ffi (1.17.0-x86_64-linux-musl)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.6)
@@ -247,7 +251,7 @@ GEM
     mini_mime (1.1.5)
     mini_portile2 (2.8.7)
     minitest (5.25.1)
-    msgpack (1.7.2)
+    msgpack (1.7.3)
     net-imap (0.4.16)
       date
       net-protocol
@@ -420,12 +424,20 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  aarch64-linux-gnu
+  aarch64-linux-musl
   arm-linux
+  arm-linux-gnu
+  arm-linux-musl
   arm64-darwin
   ruby
   x86-linux
+  x86-linux-gnu
+  x86-linux-musl
   x86_64-darwin
   x86_64-linux
+  x86_64-linux-gnu
+  x86_64-linux-musl
   x86_64-openbsd
 
 DEPENDENCIES
@@ -480,7 +492,7 @@ DEPENDENCIES
   will_paginate
 
 RUBY VERSION
-   ruby 3.3.0p0
+   ruby 3.3.3p89
 
 BUNDLED WITH
    2.5.21
