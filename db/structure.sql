@@ -10,6 +10,13 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
+-- Name: public; Type: SCHEMA; Schema: -; Owner: -
+--
+
+-- *not* creating schema, since initdb creates it
+
+
+--
 -- Name: es_co_utf_8; Type: COLLATION; Schema: public; Owner: -
 --
 
@@ -8000,6 +8007,10 @@ ALTER TABLE ONLY public.victimadef
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20241006115708'),
+('20241006115000'),
+('20241005013833'),
+('20241005013800'),
 ('20240806082036'),
 ('20240715230510'),
 ('20240619170550'),
