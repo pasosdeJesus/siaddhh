@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/heb412_gen.git
-  revision: 014767febabfd03080188e2ebbb014d94a654983
+  revision: 1eb514580b22f3ae50bf1681ced77bf21953ad80
   branch: v2.2
   specs:
     heb412_gen (2.2.0.beta7)
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/mr519_gen.git
-  revision: ab2cd1df2c879d54f7ddf6d83feb4ef32084aff9
+  revision: e52c0bacd4ea9ce761122ea118935e4726e41dd2
   branch: v2.2
   specs:
     mr519_gen (2.2.0.beta7)
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/msip.git
-  revision: 0ee4fc1a422cc210b805236e18a2753413938d3e
+  revision: 4360d38892e22341355be982ace131a71317b0da
   branch: v2.2
   specs:
     msip (2.2.0.beta7)
@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/sivel2_gen.git
-  revision: 08f1cecc045bbe509f06921626a1ca3d545e95bd
+  revision: ff9f6797f8e544800afa0759124bfd95c6ae080a
   branch: v2.2
   specs:
     sivel2_gen (2.2.0.beta7)
@@ -299,7 +299,7 @@ GEM
     puma (6.4.3)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (2.2.9)
+    rack (2.2.10)
     rack-cors (2.0.2)
       rack (>= 2.0.0)
     rack-session (1.0.2)
@@ -495,4 +495,4 @@ RUBY VERSION
    ruby 3.3.3p89
 
 BUNDLED WITH
-   2.5.21
+   2.5.22
