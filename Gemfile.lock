@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/heb412_gen.git
-  revision: c4826417476e02b2c07d757077d045effe2c1c24
+  revision: de13a27a593fd27bfcbb38c59805e3f6ca6e94ea
   branch: v2.2
   specs:
     heb412_gen (2.2.0.beta7)
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/mr519_gen.git
-  revision: 12b21d135cb274f16ceb26c88632ec2c75ebdf8c
+  revision: 7321b5007c2e197282ca391293f8c453020421af
   branch: v2.2
   specs:
     mr519_gen (2.2.0.beta7)
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/msip.git
-  revision: 283a1302c18228292ffe35543e87a4c2a3cdee4a
+  revision: ecc390f04eabe69c80120dca1d6e09c91a6c06dc
   branch: v2.2
   specs:
     msip (2.2.0.beta7)
@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/sivel2_gen.git
-  revision: fbd2ae589d8e8d84326142b231ff74a99f23ac81
+  revision: 2de6edfb093ffd8173a91b4e4ab82be53fef9b5c
   branch: v2.2
   specs:
     sivel2_gen (2.2.0.beta7)
@@ -195,9 +195,9 @@ GEM
     devise-i18n (1.12.1)
       devise (>= 4.9.0)
     docile (1.4.1)
-    dotenv (3.1.4)
-    dotenv-rails (3.1.4)
-      dotenv (= 3.1.4)
+    dotenv (3.1.7)
+    dotenv-rails (3.1.7)
+      dotenv (= 3.1.7)
       railties (>= 6.1)
     drb (2.2.1)
     erubi (1.13.0)
@@ -303,7 +303,7 @@ GEM
     puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (2.2.10)
+    rack (2.2.11)
     rack-cors (2.0.2)
       rack (>= 2.0.0)
     rack-session (1.0.2)
@@ -500,4 +500,4 @@ RUBY VERSION
    ruby 3.3.3p89
 
 BUNDLED WITH
-   2.6.3
+   2.6.4
