@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/heb412_gen.git
-  revision: 194dd561a2b76a495625811f46e958ed9c99432a
+  revision: b914b3d6a9d8f1f2c62627041fb52d537a497e7c
   branch: v2.2
   specs:
     heb412_gen (2.2.0)
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/mr519_gen.git
-  revision: e46b768aacf394fc5cde474e5eb6e6c4918b3910
+  revision: 5aa8fdb62bc68ce8da61e15fc89aa02896502909
   branch: v2.2
   specs:
     mr519_gen (2.2.0)
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/msip.git
-  revision: 0a8c6adacb75a003a0807aa66c94acd6d173ac65
+  revision: 4f8286cfe4fe2ec7d1dcdaa63c25e8d6819bd755
   branch: v2.2
   specs:
     msip (2.2.0)
@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/sivel2_gen.git
-  revision: 4b7a1147c5237fc8ef858c19611751f29a76f1e0
+  revision: 052532f3045b9d4a0b9241c0e5ba49eebef83554
   branch: v2.2
   specs:
     sivel2_gen (2.2.0)
@@ -318,7 +318,7 @@ GEM
     puma (7.1.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (2.2.20)
+    rack (2.2.21)
     rack-cors (2.0.2)
       rack (>= 2.0.0)
     rack-session (1.0.2)
