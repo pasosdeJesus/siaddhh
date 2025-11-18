@@ -121,7 +121,8 @@
         main_app.terminar_sesion_path %>
     <% else %>
       <%= opcion_menu 'Acerca de', sivel2_gen.acercade_path %>
-      <% if ENV.fetch('SIADDHH_PUBLICO', '0') == '0' %>
+      <% puts "**OJO SIADDHH_PUBLICO=#{ENV.fetch('SIADDHH_PUBLICO', '0')}" %>
+      <% if ENV.fetch('SIADDHH_PUBLICO', '0') != '1' %>
         <%= opcion_menu 'Iniciar Sesión', main_app.iniciar_sesion_path %> 
       <% end %>
     <% end %>
@@ -131,7 +132,7 @@
 <% content_for :piedepagina do %>
   <p>
   Sistema de información de 
-  <a href="https://github.com/pasosdeJesus/siaddhh">código abierto</a>
+  <a href="https://gitlab.com/pasosdeJesus/siaddhh">código abierto</a>
   desarrollado por 
     <a href='http://www.pasosdeJesus.org' target='_blank'>Pasos de Jesús</a>.
     <%= Date.today.year %>.
