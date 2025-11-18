@@ -20,6 +20,8 @@ gem "coffee-rails"# CoffeeScript para recuersos .js.coffee y vistas
 
 gem "color" # Colores RGB en mapa
 
+gem "csv"
+
 gem "devise" # Autenticación 
 
 gem "devise-i18n"
