@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/kreeti/kt-paperclip.git
-  revision: 5078ca1c33c8cb66865e6127152ac1e240b2bb0a
+  revision: cd5c4496d12894eafa218cb631c592b67c9c10a2
   specs:
     kt-paperclip (7.2.2)
       activemodel (>= 4.2.0)
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/heb412_gen.git
-  revision: 1d7afb60fb6936bb75282b56ba85e96e69830702
+  revision: 3b848835c4b51c92b6ee8074f1f62c941c2576d9
   branch: v2.2
   specs:
     heb412_gen (2.2.0)
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/mr519_gen.git
-  revision: e3899be51f64d3735ec0642655b6266e2f42ab31
+  revision: 6f6ac6110a881cf57ff713caa23b37566c40ce3d
   branch: v2.2
   specs:
     mr519_gen (2.2.0)
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/msip.git
-  revision: 81858f15aba918be59e347edd7b1a487d72eb76d
+  revision: 2906b6a60eed35dc0ee571b98ae6af484e2e791d
   branch: v2.2
   specs:
     msip (2.2.0)
@@ -58,7 +58,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/sivel2_gen.git
-  revision: abcd280a1a3a3219cf687b8cd7723c1643f2041e
+  revision: 0ef2ed713b132229abd1157e79bc4888bdad56b5
   branch: v2.2
   specs:
     sivel2_gen (2.2.0)
@@ -142,10 +142,10 @@ GEM
       minitest (>= 5.1)
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
-    addressable (2.8.8)
-      public_suffix (>= 2.0.2, < 8.0)
     andand (1.3.3)
+    ansi (1.5.0)
     apexcharts (0.2.0)
+    ast (2.4.3)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -155,23 +155,22 @@ GEM
     benchmark (0.5.0)
     bigdecimal (3.3.1)
     bindex (0.8.1)
-    bootsnap (1.20.1)
+    bootsnap (1.21.1)
       msgpack (~> 1.2)
+    brakeman (7.1.2)
+      racc
     builder (3.3.0)
+    bundler-audit (0.9.3)
+      bundler (>= 1.2.0)
+      thor (~> 1.0)
     camertron-eprun (1.1.1)
     cancancan (3.6.1)
-    capybara (3.40.0)
-      addressable
-      matrix
-      mini_mime (>= 0.1.3)
-      nokogiri (~> 1.11)
-      rack (>= 1.6.0)
-      rack-test (>= 0.6.3)
-      regexp_parser (>= 1.5, < 3.0)
-      xpath (~> 3.2)
     cgi (0.5.1)
+    choice (0.2.0)
     cldr-plurals-runtime-rb (1.1.0)
     climate_control (1.2.0)
+    code-scanning-rubocop (0.6.1)
+      rubocop (~> 1.0)
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 5.2.0)
@@ -185,9 +184,6 @@ GEM
     connection_pool (3.0.2)
     crass (1.0.6)
     csv (3.3.5)
-    cuprite (0.17)
-      capybara (~> 3.0)
-      ferrum (~> 0.17.0)
     date (3.5.1)
     debug (1.11.1)
       irb (~> 1.10)
@@ -208,14 +204,11 @@ GEM
       railties (>= 6.1)
     drb (2.2.3)
     erb (6.0.1)
+    erd (0.8.2)
+      nokogiri
+      ruby-graphviz
     erubi (1.13.1)
     execjs (2.10.0)
-    ferrum (0.17.1)
-      addressable (~> 2.5)
-      base64 (~> 0.2)
-      concurrent-ruby (~> 1.1)
-      webrick (~> 1.7)
-      websocket-driver (~> 0.7)
     ffi (1.17.3)
     ffi (1.17.3-aarch64-linux-gnu)
     ffi (1.17.3-aarch64-linux-musl)
@@ -229,6 +222,10 @@ GEM
     ffi (1.17.3-x86_64-linux-musl)
     globalid (1.3.0)
       activesupport (>= 6.1)
+    hotwire-rails (0.1.3)
+      rails (>= 6.0.0)
+      stimulus-rails
+      turbo-rails
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
     io-console (0.8.2)
@@ -241,8 +238,11 @@ GEM
       activesupport (>= 7.0.0)
     jsbundling-rails (1.3.1)
       railties (>= 6.0.0)
+    json (2.18.0)
     kgio (2.11.4)
+    language_server-protocol (3.17.0.5)
     libxml-ruby (5.0.5)
+    lint_roller (1.1.0)
     logger (1.7.0)
     loofah (2.25.0)
       crass (~> 1.0.2)
@@ -258,11 +258,15 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2025.0924)
+    mime-types-data (3.2026.0113)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (6.0.1)
-      prism (~> 1.5)
+    minitest (5.27.0)
+    minitest-reporters (1.7.1)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     msgpack (1.8.0)
     net-imap (0.6.2)
       date
@@ -298,6 +302,10 @@ GEM
       nokogiri (>= 1.12.0)
       rubyzip (>= 1.3.0)
     orm_adapter (0.5.0)
+    parallel (1.27.0)
+    parser (3.3.10.1)
+      ast (~> 2.4.1)
+      racc
     pdf-core (0.10.0)
     pg (1.6.3)
     pg (1.6.3-aarch64-linux)
@@ -318,11 +326,10 @@ GEM
       prawn (>= 1.0.0)
       rails (>= 3.2)
     prettyprint (0.2.0)
-    prism (1.7.0)
+    prism (1.8.0)
     psych (5.3.1)
       date
       stringio
-    public_suffix (7.0.2)
     puma (7.1.0)
       nio4r (~> 2.0)
     racc (1.8.1)
@@ -350,10 +357,19 @@ GEM
       activesupport (= 7.2.3)
       bundler (>= 1.15.0)
       railties (= 7.2.3)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.3.0)
       activesupport (>= 5.0.0)
       minitest
       nokogiri (>= 1.6)
+    rails-erd (1.7.2)
+      activerecord (>= 4.2)
+      activesupport (>= 4.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.6.2)
       loofah (~> 2.21)
       nokogiri (>= 1.15.7, != 1.16.7, != 1.16.6, != 1.16.5, != 1.16.4, != 1.16.3, != 1.16.2, != 1.16.1, != 1.16.0.rc1, != 1.16.0)
@@ -370,9 +386,10 @@ GEM
       thor (~> 1.0, >= 1.2.2)
       tsort (>= 0.2)
       zeitwerk (~> 2.6)
+    rainbow (3.1.1)
     raindrops (0.20.1)
     rake (13.3.1)
-    rdoc (7.0.3)
+    rdoc (7.1.0)
       erb
       psych (>= 4.0.0)
       tsort
@@ -383,9 +400,39 @@ GEM
     responders (3.2.0)
       actionpack (>= 7.0)
       railties (>= 7.0)
+    rexml (3.4.4)
     rspreadsheet (0.5.3)
       andand (>= 1.3)
       rubyzip (>= 1.3)
+    rubocop (1.82.1)
+      json (~> 2.3)
+      language_server-protocol (~> 3.17.0.2)
+      lint_roller (~> 1.1.0)
+      parallel (~> 1.10)
+      parser (>= 3.3.0.2)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 2.9.3, < 3.0)
+      rubocop-ast (>= 1.48.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 4.0)
+    rubocop-ast (1.49.0)
+      parser (>= 3.3.7.2)
+      prism (~> 1.7)
+    rubocop-minitest (0.38.2)
+      lint_roller (~> 1.1)
+      rubocop (>= 1.75.0, < 2.0)
+      rubocop-ast (>= 1.38.0, < 2.0)
+    rubocop-rails (2.34.3)
+      activesupport (>= 4.2.0)
+      lint_roller (~> 1.1)
+      rack (>= 1.1)
+      rubocop (>= 1.75.0, < 2.0)
+      rubocop-ast (>= 1.44.0, < 2.0)
+    rubocop-shopify (2.18.0)
+      rubocop (~> 1.62)
+    ruby-graphviz (1.2.5)
+      rexml
+    ruby-progressbar (1.13.0)
     rubyzip (2.4.1)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -405,7 +452,6 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.13.2)
     simplecov_json_formatter (0.1.4)
-    spring (4.4.0)
     sprockets (4.2.2)
       concurrent-ruby (~> 1.0)
       logger
@@ -425,10 +471,9 @@ GEM
     tsort (0.2.0)
     ttfunk (1.8.0)
       bigdecimal (~> 3.1)
-    turbo-rails (1.5.0)
-      actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
-      railties (>= 6.0.0)
+    turbo-rails (2.0.21)
+      actionpack (>= 7.1.0)
+      railties (>= 7.1.0)
     twitter_cldr (6.14.0)
       base64
       camertron-eprun
@@ -436,6 +481,9 @@ GEM
       tzinfo
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (3.2.0)
+      unicode-emoji (~> 4.1)
+    unicode-emoji (4.2.0)
     unicorn (6.1.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
@@ -453,8 +501,7 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     will_paginate (4.0.1)
-    xpath (3.2.0)
-      nokogiri (~> 1.8)
+    yard (0.9.38)
     zeitwerk (2.7.4)
 
 PLATFORMS
@@ -475,56 +522,65 @@ DEPENDENCIES
   apexcharts
   babel-transpiler
   bcrypt
-  bootsnap (>= 1.1.0)
+  benchmark
+  bootsnap
+  brakeman
+  bundler-audit
   cancancan
-  capybara
   cocoon!
+  code-scanning-rubocop
   coffee-rails
   color
   colorize
   csv
-  cuprite
   debug
   devise
   devise-i18n
   dotenv-rails
+  erd
   heb412_gen!
+  hotwire-rails
   jbuilder
   jsbundling-rails
   kt-paperclip!
   libxml-ruby
+  minitest (~> 5)
+  minitest-reporters
   mr519_gen!
   msip!
-  nokogiri (>= 1.11.1)
+  nokogiri
   odf-report
   pg
   prawn
   prawn-table
-  prawnto_2 (>= 0.3.1)
+  prawnto_2
   puma
   rack (~> 2)
   rack-cors
   rails (~> 7.2)
+  rails-controller-testing
+  rails-erd
   rails-i18n
   redcarpet
   rspreadsheet
+  rubocop-minitest
+  rubocop-rails
+  rubocop-shopify
   rubyzip (<= 2.4.1)
   sassc-rails
   simple_form
   simplecov
   sivel2_gen!
-  spring
   sprockets-rails
   stimulus-rails
-  turbo-rails (~> 1.0)
+  thor
+  turbo-rails
   twitter_cldr
   tzinfo
   unicorn
   web-console
   will_paginate
-
-RUBY VERSION
-  ruby 3.3.3p89
+  yard
 
 BUNDLED WITH
-  4.0.3
+  4.0.4
