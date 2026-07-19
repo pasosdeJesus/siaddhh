@@ -47,6 +47,8 @@ if (test "$SALTAPREPARA" != "1") then {
   } fi;
 } fi;
 
+(cd $rutaap; RAILS_ENV=test ${RAILS} msip:stimulus_motores assets:precompile)
+
 if (test "$SALTAUNITARIAS" != "1") then {
   echo "== Pruebas de regresión unitarias"
   mkdir -p cobertura-unitarias/
@@ -111,6 +113,11 @@ if (test "$r" != "0") then {
 
 echo "== Copiando resultados para hacerlos visibles en el web en ruta cobertura"
 # Copiar resultados para hacerlos visibles en web
+curdir=`pwd`
+echo "pwd=$curdir"
 mkdir -p $rutaap/public/${RUTA_RELATIVA}cobertura/
 cp -rf coverage/* $rutaap/public/${RUTA_RELATIVA}cobertura/
+exit_status=$?
+echo "1 exit_status=${exit_status}"
 cp -rf coverage/assets/* $rutaap/public/${RUTA_RELATIVA}assets/
+echo "2 exit_status=${exit_status}"
